@@ -1720,7 +1720,7 @@
                                      aria-labelledby="flush-headingFive"
                                      data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover col float-end text-center">
                                             <tbody>
                                                 <tr>
                                                     <th>Usuario</th>
@@ -1728,17 +1728,109 @@
                                                     <th>Tipo</th>
                                                     <th>Comentario</th>
                                                 </tr>
-                                                <tr>
-                                                    <th>1</th>
-                                                    <td>A1</td>
-                                                    <td>B1</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>2</th>
-                                                    <td>A2</td>
-                                                    <td>B2</td>
                                             </tbody>
                                         </table>
+                                        <table>
+                                            <tbody>
+                                            <div id="resuktadosSeguimientos" class="row">
+
+                                            </div>
+
+                                            </tbody>
+                                        </table>
+                                        <div id="datosSeguimiento">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="basic-addon1">C</span>
+                                                <input type="text" class="form-control" placeholder="Comentarios" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                                fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                            </svg>
+                                                            Estatus Seguimiento
+                                                        </label>
+                                                        <select class="form-select" id="txtEstatusSeguimiento">
+                                                            <option selected>Selecciona...</option>
+                                                            <option value="Con contacto sin documentos">Con contacto sin documentos
+                                                            </option>
+                                                            <option value="Datos incorrectos">Datos incorrectos</option>
+                                                            <option value="De 1 a 3 documentos">De 1 a 3 documentos</option>
+                                                            <option value="De 4 a 6 documentos">De 4 a 6 documentos</option>
+                                                            <option value="De 7 a 10 documentos">De 7 a 10 documentos</option>
+                                                            <option value="Nuevo2">Nuevo</option>
+                                                            <option value="Sin Contacto">Sin Contacto</option>
+                                                            <option value="Sin contacto en 30 dia2">Sin contacto en 30 dia</option>
+                                                            <option value="Total de documentos">Total de documentos</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group mb-3 col">
+                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                        </svg>
+                                                        Respuesta Solera
+                                                    </label>
+                                                    <select class="form-select" id="txtEstatus">
+                                                        <option selected>Selecciona...</option>
+                                                        <option value="Atendido">Atendido</option>
+                                                        <option value="No atendido">No atendido</option>
+                                                        <option value="Visto">Visto</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="input-group mb-3">
+                                                        <label >Persona contactada</label>
+                                                        <input type="text" class="form-control" placeholder="Comentarios" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-group mb-3 col">
+                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                        </svg>
+                                                        Tipo persona
+                                                    </label>
+                                                    <select class="form-select" id="txtEstatus">
+                                                        <option selected>Selecciona...</option>
+                                                        <option value="Atendido">Atendido</option>
+                                                        <option value="No atendido">No atendido</option>
+                                                        <option value="Visto">Visto</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group mb-3 col">
+                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                        </svg>
+                                                        Contacto
+                                                    </label>
+                                                    <select class="form-select" id="txtEstatus">
+                                                        <option selected>Selecciona...</option>
+                                                        <option value="Atendido">Atendido</option>
+                                                        <option value="No atendido">No atendido</option>
+                                                        <option value="Visto">Visto</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
