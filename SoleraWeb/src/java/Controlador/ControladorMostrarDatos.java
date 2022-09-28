@@ -38,7 +38,7 @@ public class ControladorMostrarDatos extends HttpServlet {
      //   String cobertura = request.getParameter("cobertura");
 
         try (PrintWriter out = response.getWriter()) {
-            UsuariosModelo uModelo;
+            UsuariosModelo uModelo = null;
             out.println("es"+uModelo.getUsuario());
         /*    for (ModeloBusquedaDatos mbDatos : DAOMostrarDatos.obtenerDatos(fechaCarga, estacion, estatus, subEstatus,
                     fechaSeguimiento, region, estado, cobertura)) {

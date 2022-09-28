@@ -12,7 +12,7 @@ public class DAOMostrarDatos {
     public List<ModeloBusquedaDatos> obtenerDatos(String fechaCarga, String estacion, String estatus, String subEstatus,
             String fechaSeguimiento, String region, String estado, String cobertura) {
                 conect.conectar();
-                String sql = ""
+               // String sql = ""
                 return null;
 
     }
