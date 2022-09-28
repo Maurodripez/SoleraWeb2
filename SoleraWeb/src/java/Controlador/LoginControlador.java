@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package Controlador;
 
 import java.io.IOException;
@@ -18,6 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -66,11 +64,12 @@ public class LoginControlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                //http://www.jtech.ua.es/j2ee/restringido/cw/sesion04-apuntes.html
-                //https://www.lawebdelprogramador.com/foros/JavaScript/1532599-Cargar-una-imagen-en-la-web-con-un-input-file.html
-                //http://www.javahispano.org/java-ee/post/2326578
-                //https://www.arquitecturajava.com/usando-java-session-en-aplicaciones-web/
+        // http://www.jtech.ua.es/j2ee/restringido/cw/sesion04-apuntes.html
+        // https://www.lawebdelprogramador.com/foros/JavaScript/1532599-Cargar-una-imagen-en-la-web-con-un-input-file.html
+        // http://www.javahispano.org/java-ee/post/2326578
+        // https://www.arquitecturajava.com/usando-java-session-en-aplicaciones-web/
         try {
+
             UsuariosModelo uModelo = new UsuariosModelo();
             LoginDAO lDAO = new LoginDAO();
             boolean respuesta = false;
@@ -87,6 +86,8 @@ public class LoginControlador extends HttpServlet {
                     // TODO: handle exception
                 }
                 if (respuesta == true) {
+                    HttpSession misession = request.getSession(true);
+                    misession.setAttribute("usuario", usuario);
                     request.getSession().setAttribute("usuarioActivo", uModelo.getUsuario());
                     request.getSession().setAttribute("Privilegios", uModelo.getPrivilegios());
                     request.setAttribute("Usuario", uModelo);

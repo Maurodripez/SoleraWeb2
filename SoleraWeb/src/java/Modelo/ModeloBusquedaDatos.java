@@ -2,19 +2,17 @@ package Modelo;
 
 public class ModeloBusquedaDatos {
     private int idRegistro;
-    private String siniestro;
+    private String numSiniestro;
     private String poliza;
     private String marca;
     private String tipo;
     private String modelo;
     private String numSerie;
-    private String fehcaCarga;
-    private String estacion;
-    private String estatus;
-    private String subEstatus;
-    private String documentos;
-    private String total;
     private String estado;
+    private String fechaCarga;
+    private String estacionProceso;
+    private String estatusOperativo;
+    private String subEstatusProceso;
 
     public int getIdRegistro() {
         return this.idRegistro;
@@ -24,12 +22,12 @@ public class ModeloBusquedaDatos {
         this.idRegistro = idRegistro;
     }
 
-    public String getSiniestro() {
-        return this.siniestro;
+    public String getNumSiniestro() {
+        return this.numSiniestro;
     }
 
-    public void setSiniestro(String siniestro) {
-        this.siniestro = siniestro;
+    public void setNumSiniestro(String numSiniestro) {
+        this.numSiniestro = numSiniestro;
     }
 
     public String getPoliza() {
@@ -72,60 +70,44 @@ public class ModeloBusquedaDatos {
         this.numSerie = numSerie;
     }
 
-    public String getFehcaCarga() {
-        return this.fehcaCarga;
-    }
-
-    public void setFehcaCarga(String fehcaCarga) {
-        this.fehcaCarga = fehcaCarga;
-    }
-
-    public String getEstacion() {
-        return this.estacion;
-    }
-
-    public void setEstacion(String estacion) {
-        this.estacion = estacion;
-    }
-
-    public String getEstatus() {
-        return this.estatus;
-    }
-
-    public void setEstatus(String estatus) {
-        this.estatus = estatus;
-    }
-
-    public String getSubEstatus() {
-        return this.subEstatus;
-    }
-
-    public void setSubEstatus(String subEstatus) {
-        this.subEstatus = subEstatus;
-    }
-
-    public String getDocumentos() {
-        return this.documentos;
-    }
-
-    public void setDocumentos(String documentos) {
-        this.documentos = documentos;
-    }
-
-    public String getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
     public String getEstado() {
         return this.estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getFechaCarga() {
+        return this.fechaCarga;
+    }
+
+    public void setFechaCarga(String fechaCarga) {
+        this.fechaCarga = fechaCarga;
+    }
+
+    public String getEstacionProceso() {
+        return this.estacionProceso;
+    }
+
+    public void setEstacionProceso(String estacionProceso) {
+        this.estacionProceso = estacionProceso;
+    }
+
+    public String getEstatusOperativo() {
+        return this.estatusOperativo;
+    }
+
+    public void setEstatusOperativo(String estatusOperativo) {
+        this.estatusOperativo = estatusOperativo;
+    }
+
+    public String getSubEstatusProceso() {
+        return this.subEstatusProceso;
+    }
+
+    public void setSubEstatusProceso(String subEstatusProceso) {
+        this.subEstatusProceso = subEstatusProceso;
     }
 
 }

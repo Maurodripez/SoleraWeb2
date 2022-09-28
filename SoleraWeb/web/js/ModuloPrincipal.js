@@ -368,7 +368,7 @@ function mostrarDocsAprobados() {
       }
       porcentajeBarra = document.getElementById("progresoDocsAprobados");
       porcentajeBarra.style.width = porcentaje + "%";
-      porcentajeBarra.innerHTML  = porcentaje + "%";
+      porcentajeBarra.innerHTML = porcentaje + "%";
     },
   });
 }
@@ -424,6 +424,40 @@ function valoresSesiones() {
     url: "DocumentosAprobados",
     data: {
       funcARealizar: obtenerSesiones,
+    },
+    success: function (result) {
+      alert(result);
+    },
+  });
+}
+function InsertarSeguimiento() {
+  $.ajax({
+    url: "GuardarSeguimiento",
+    data: {
+      comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
+      estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
+        .value,
+      respSolera: document.getElementById("txtRespSolera").value,
+      persContactada: document.getElementById("txtPersContactada").value,
+      tipoPersona: document.getElementById("txtTipoPersona").value,
+      tipoContacto: document.getElementById("txTipoContacto").value,
+      fechaSeguimiento: document.getElementById("txtFechaSeguimiento").value,
+      fechaPrimEnvDocs: document.getElementById("txtFechaPrimEnvDocs").value,
+      fechaIntExp: document.getElementById("txtFechaIntExp").value,
+      fechaFactServ: document.getElementById("txtFechaFactServ").value,
+      fechaTermino: document.getElementById("txtFechaTermino").value,
+      idRegistro: document.getElementById("idOculto").value,
+    },
+    success: function (result) {
+      alert(result);
+    },
+  });
+}
+function mostrarSesion() {
+  $.ajax({
+    url: "ControladorMostrarDatos",
+    data: {
+      datos: "correcto",
     },
     success: function (result) {
       alert(result);

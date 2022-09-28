@@ -11,7 +11,7 @@ import Modelo.ModeloDocumentos;
 public class MostrarDocumentosEstados {
     Conexion conect = new Conexion();
     PreparedStatement ps;
-    public String respuesta = "perro";
+    public String respuesta;
 
     public String actualizarDocsAprobados(ModeloDocumentos mDocumentos) {
         String sql = "update documentosaprobados set identificacionOficial =?, comprobanteDeDomicilio =?,"

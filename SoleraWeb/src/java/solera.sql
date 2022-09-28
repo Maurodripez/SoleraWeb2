@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2022 a las 20:57:58
+-- Tiempo de generación: 28-09-2022 a las 20:54:37
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -33,8 +33,15 @@ CREATE TABLE `estadoproceso` (
   `estatusOperativo` varchar(45) DEFAULT NULL,
   `subEstatusProceso` varchar(45) DEFAULT NULL,
   `usuarioSeguimiento` varchar(45) DEFAULT NULL,
-  `fkIdRegistro` int(11) DEFAULT NULL
+  `fkIdRegistroEstadoProceso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estadoproceso`
+--
+
+INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`, `subEstatusProceso`, `usuarioSeguimiento`, `fkIdRegistroEstadoProceso`) VALUES
+(1, 'bien', 'De 4 a 6 documentos', 'correcto', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -44,9 +51,8 @@ CREATE TABLE `estadoproceso` (
 
 CREATE TABLE `fechasseguimiento` (
   `idFechasseguimiento` int(11) NOT NULL,
-  `fechaHoraSeguimiento` varchar(45) DEFAULT NULL,
+  `fechaSeguimiento` varchar(45) DEFAULT NULL,
   `fechaDecretacion` varchar(45) DEFAULT NULL,
-  `fechaCarga` varchar(45) DEFAULT NULL,
   `fechaContactoCliente` varchar(45) DEFAULT NULL,
   `fechaPrimerEnvioDoc` date DEFAULT NULL,
   `fechaIntegracionexpedienteCompleto` varchar(45) DEFAULT NULL,
@@ -72,13 +78,13 @@ CREATE TABLE `fechasseguimiento` (
 -- Volcado de datos para la tabla `fechasseguimiento`
 --
 
-INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaHoraSeguimiento`, `fechaDecretacion`, `fechaCarga`, `fechaContactoCliente`, `fechaPrimerEnvioDoc`, `fechaIntegracionexpedienteCompleto`, `fechaTermino`, `contactoFinal`, `siClienteOtro`, `numDatosincorrectos`, `fecharecepcionDocOriginales`, `fechaPago`, `docCompletosCorrectos`, `noindicaFaltantes`, `importePagado`, `comentarios`, `detalles`, `linea`, `guia`, `refactura`, `aviso`, `fkidRegistro`) VALUES
-(2, NULL, '', NULL, NULL, '2022-09-11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
-(3, NULL, '', NULL, NULL, '2022-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
-(4, NULL, '', NULL, NULL, '2022-09-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4),
-(6, NULL, '', NULL, NULL, '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6),
-(7, NULL, '', NULL, NULL, '2022-04-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7),
-(8, NULL, '', NULL, NULL, '2020-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
+INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fechaDecretacion`, `fechaContactoCliente`, `fechaPrimerEnvioDoc`, `fechaIntegracionexpedienteCompleto`, `fechaTermino`, `contactoFinal`, `siClienteOtro`, `numDatosincorrectos`, `fecharecepcionDocOriginales`, `fechaPago`, `docCompletosCorrectos`, `noindicaFaltantes`, `importePagado`, `comentarios`, `detalles`, `linea`, `guia`, `refactura`, `aviso`, `fkidRegistro`) VALUES
+(2, '2022-09-13', '', NULL, '2022-09-13', '2022-09-13', '2022-09-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(3, NULL, '', NULL, '2022-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(4, NULL, '', NULL, '2022-09-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4),
+(6, NULL, '', NULL, '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6),
+(7, NULL, '', NULL, '2022-04-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7),
+(8, NULL, '', NULL, '2020-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -92,7 +98,7 @@ CREATE TABLE `infoauto` (
   `tipo` varchar(45) NOT NULL,
   `modelo` varchar(45) NOT NULL,
   `numSerie` varchar(45) NOT NULL,
-  `valorIndemnizacion` int(11) NOT NULL,
+  `valorIndemnizacion` varchar(45) NOT NULL,
   `fkIdRegistro` int(11) NOT NULL,
   `valorComercial` varchar(45) NOT NULL,
   `placas` varchar(45) DEFAULT NULL
@@ -103,12 +109,12 @@ CREATE TABLE `infoauto` (
 --
 
 INSERT INTO `infoauto` (`idAuto`, `marca`, `tipo`, `modelo`, `numSerie`, `valorIndemnizacion`, `fkIdRegistro`, `valorComercial`, `placas`) VALUES
-(2, '', '', '', '', 0, 2, '', NULL),
-(3, '', '', '', '', 0, 3, '', NULL),
-(4, '', '', '', '', 0, 4, '', NULL),
-(6, '', '', '', '', 0, 6, '', NULL),
-(7, '', '', '', '', 0, 7, '', NULL),
-(8, 'SUZUKI', 'IGNIS', '2019', '123456789', 0, 8, '', NULL);
+(2, 'bmw', 'tyutr', 'tyu', 'ty', 'wet', 2, 'ertew', 'tyu'),
+(3, '', '', '', '', '0', 3, '', NULL),
+(4, '', '', '', '', '0', 4, '', NULL),
+(6, '', '', '', '', '0', 6, '', NULL),
+(7, '', '', '', '', '0', 7, '', NULL),
+(8, 'SUZUKI', 'IGNIS', '2019', '123456789', '0', 8, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,12 +138,10 @@ CREATE TABLE `infocarga` (
 
 CREATE TABLE `infocliente` (
   `idCliente` int(11) NOT NULL,
-  `telefonoPrincipal` int(11) NOT NULL,
-  `telefonosecundario` int(11) DEFAULT NULL,
+  `telefonoPrincipal` varchar(10) NOT NULL,
+  `telefonosecundario` varchar(10) DEFAULT NULL,
   `contacto` varchar(45) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
-  `telefono1Contacto` int(11) DEFAULT NULL,
-  `telefono2Contacto` int(11) DEFAULT NULL,
   `fkIdRegistro` int(11) DEFAULT NULL,
   `asegurado` varchar(45) NOT NULL,
   `correoContacto` varchar(45) DEFAULT NULL,
@@ -148,13 +152,13 @@ CREATE TABLE `infocliente` (
 -- Volcado de datos para la tabla `infocliente`
 --
 
-INSERT INTO `infocliente` (`idCliente`, `telefonoPrincipal`, `telefonosecundario`, `contacto`, `correo`, `telefono1Contacto`, `telefono2Contacto`, `fkIdRegistro`, `asegurado`, `correoContacto`, `telContacto`) VALUES
-(3, 2147483647, NULL, NULL, 'maurodripez@gmail.com', NULL, NULL, 2, 'Juan Perez', NULL, NULL),
-(4, 0, NULL, NULL, NULL, NULL, NULL, 3, 'Carlos Morales', NULL, NULL),
-(5, 0, NULL, NULL, NULL, NULL, NULL, 4, 'Sebastian PAz', NULL, NULL),
-(6, 0, NULL, NULL, NULL, NULL, NULL, 6, 'Mariana Romero', NULL, NULL),
-(7, 0, NULL, NULL, NULL, NULL, NULL, 7, 'Mario Martinez', NULL, NULL),
-(8, 0, NULL, NULL, NULL, NULL, NULL, 8, 'Carolina May', NULL, NULL);
+INSERT INTO `infocliente` (`idCliente`, `telefonoPrincipal`, `telefonosecundario`, `contacto`, `correo`, `fkIdRegistro`, `asegurado`, `correoContacto`, `telContacto`) VALUES
+(3, 'treu', 'ghjghj', 'gfh', 'eryutr', 2, 'Juan Rodriguez', 'dgfsd', 'dfghf'),
+(4, '12344', '2345562', 'pedrito gomez', 'wqrqwrw@sfs', 3, 'marco flores', 'wsggg@sg', '125255'),
+(5, '0', NULL, NULL, NULL, 4, 'Sebastian PAz', NULL, NULL),
+(6, '0', NULL, NULL, NULL, 6, 'Mariana Romero', NULL, NULL),
+(7, '0', NULL, NULL, NULL, 7, 'Mario Martinez', NULL, NULL),
+(8, '0', NULL, NULL, NULL, 8, 'Carolina May', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,7 @@ CREATE TABLE `infosiniestro` (
   `fechaSiniestro` date NOT NULL,
   `estado` varchar(45) NOT NULL,
   `ciudad` varchar(45) NOT NULL,
-  `region` varchar(45) NOT NULL,
+  `region` varchar(200) NOT NULL,
   `ubicacionTaller` varchar(45) NOT NULL,
   `financiado` varchar(25) NOT NULL,
   `regimenFiscal` varchar(25) NOT NULL,
@@ -188,10 +192,10 @@ CREATE TABLE `infosiniestro` (
 --
 
 INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`, `tipoDeCaso`, `cobertura`, `fechaSiniestro`, `estado`, `ciudad`, `region`, `ubicacionTaller`, `financiado`, `regimenFiscal`, `estatusCliente`, `comentariosCliente`, `datosAudatex`, `passwordExterno`, `fechaCarga`) VALUES
-(2, 'SIN000030', '1234569531', 'T', 'COLISION', 'RT', '2022-07-27', 'GUANAJUATO', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, NULL),
+(2, '12424141', '123124', 'A', 'Colision', 'DM', '2019-09-24', 'Chiapas', 'Todos-Ninguna', 'Layout ZG A: Guadalajara, Colima, Nayarit', 'dfgh', 'No', 'Persona moral', 'Enviado', 'comentariosCliente', 'werwe', 'etwrtt', '2019-09-23'),
 (3, 'SIN000031', '1234569532', 'T', 'COLISION', 'RT', '2022-07-27', 'VERACRUZ', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, NULL),
 (4, 'SIN000032', '1234569533', 'T', 'COLISION', 'RT', '2022-07-27', 'DISTRITO FEDERAL', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, NULL),
-(6, 'SIN000033', '1234569534', 'T', 'COLISION', 'RT', '2022-07-27', 'MATAMOROS', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, NULL),
+(6, 'SIN000033', '1234569534', 'T', 'COLISION', 'RT', '2022-07-27', 'MATAMOROS', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-09-01'),
 (7, 'SIN000031', '1234569535', 'T', 'COLISION', 'RT', '2022-07-27', 'GUANAJUATO', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, NULL),
 (8, 'SIN000131', '1234567890', '1', 'Colision', 'DM', '2022-09-07', 'Aguascalientes', 'Todos-Ninguna', 'A: Guadalajara, Colima, Nayarit', 'as', 'Si', 'Persona fisica', 'Documento incorrecto', 'ASD', 'ser', 'qwqwe', '2022-09-13');
 
@@ -224,7 +228,7 @@ INSERT INTO `usuarios` (`idUsuarios`, `usuario`, `contrasena`, `privilegios`) VA
 --
 ALTER TABLE `estadoproceso`
   ADD PRIMARY KEY (`idProceso`),
-  ADD KEY `fkIdRegistro` (`fkIdRegistro`);
+  ADD KEY `fkIdRegistro` (`fkIdRegistroEstadoProceso`);
 
 --
 -- Indices de la tabla `fechasseguimiento`
@@ -274,7 +278,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
-  MODIFY `idProceso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `fechasseguimiento`
@@ -320,7 +324,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
-  ADD CONSTRAINT `fkIdRegistro` FOREIGN KEY (`fkIdRegistro`) REFERENCES `infosiniestro` (`idRegistro`);
+  ADD CONSTRAINT `fkIdRegistro` FOREIGN KEY (`fkIdRegistroEstadoProceso`) REFERENCES `infosiniestro` (`idRegistro`);
 
 --
 -- Filtros para la tabla `fechasseguimiento`
