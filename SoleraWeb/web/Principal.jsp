@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Estilos/stylesheet.css" />
+  <script src="./Principal.js"></script>
   <title>Document</title>
 </head>
 
@@ -16,7 +17,7 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="col-md-2" style="padding: 0;">
         <ul class="nav flex-column gap-lg-0 nav-pills col align-self-start" aria-orientation="vertical">
-          <a class="nav-link text-white" aria-current="page" href="#">
+          <a id="Home" onclick="controlIframe(this,id)" class="nav-link text-white" aria-current="page" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house"
               viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -26,7 +27,7 @@
             </svg>
             Home
           </a>
-          <a class="nav-link text-white" href="#">
+          <a id="datos" onclick="controlIframe(this.id)" class="nav-link text-white" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
               class="bi bi-cloud-download" viewBox="0 0 16 16">
               <path
@@ -35,7 +36,7 @@
                 d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
             </svg>
             Datos</a>
-          <a class="nav-link text-white" href="#">
+          <a id="Reporte" onclick="controlIframe(this.id)" class="nav-link text-white" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bar-chart"
               viewBox="0 0 16 16">
               <path
@@ -92,7 +93,7 @@
     <div id="main">
       <!-- Add all your websites page content here  -->
       <div class="container iFrame">
-        <iframe scrolling="auto" class="responsive-iframe" src="ModuloPrincipal.jsp"></iframe>
+        <iframe  id="controladorIframe" name="iframeControl" scrolling="auto" class="responsive-iframe" src="ModuloPrincipal.jsp"></iframe>
       </div>
     </div>
     <script>
