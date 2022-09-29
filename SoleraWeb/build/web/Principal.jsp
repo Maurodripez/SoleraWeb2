@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+  <script src="./js/jquery-3.6.1.js"></script>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Estilos/stylesheet.css" />
-  <script src="./Principal.js"></script>
+  <script src="./js/Principal.js"></script>
   <title>Document</title>
 </head>
 
@@ -17,7 +18,7 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="col-md-2" style="padding: 0;">
         <ul class="nav flex-column gap-lg-0 nav-pills col align-self-start" aria-orientation="vertical">
-          <a id="Home" onclick="controlIframe(this,id)" class="nav-link text-white" aria-current="page" href="#">
+          <a id="Home" onclick="controlIframe(this.id)" class="nav-link text-white" aria-current="page" href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house"
               viewBox="0 0 16 16">
               <path fill-rule="evenodd"

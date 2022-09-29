@@ -8,7 +8,6 @@ function controlIframe(txtIframe) {
   switch (txtIframe) {
     case "Home":
       iframecontrolador.src="ModuloPrincipal.jsp";
-      alert( iframecontrolador.src);
       break;
     case "datos":
       iframecontrolador.src = "./Modulos/Datos.jsp";

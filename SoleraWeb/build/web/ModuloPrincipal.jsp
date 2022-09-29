@@ -1013,8 +1013,8 @@
                                                                 Ciudad de Mexico
                                                             </option>
                                                             <option
-                                                                value="Coahuila de Zaragoza">
-                                                                Coahuila de Zaragoza
+                                                                value="Coahuila">
+                                                                Coahuila
                                                             </option>
                                                             <option value="Colima">
                                                                 Colima
@@ -1039,8 +1039,8 @@
                                                                 Estado de Mexico
                                                             </option>
                                                             <option
-                                                                value="Michoacan de Ocampo">
-                                                                Michoacan de Ocampo
+                                                                value="Michoacan">
+                                                                Michoacan
                                                             </option>
                                                             <option value="Morelos">
                                                                 Morelos
@@ -1064,8 +1064,8 @@
                                                                 value="Quintana Roo">
                                                                 Quintana Roo</option>
                                                             <option
-                                                                value="San Luis de Potosi<">
-                                                                San Luis de Potosi
+                                                                value="San Luis Potosi">
+                                                                San Luis Potosi
                                                             </option>
                                                             <option value="Sinaloa">
                                                                 Sinaloa
