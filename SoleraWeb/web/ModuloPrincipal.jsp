@@ -411,7 +411,7 @@
                                 <!--se implementa el boton busqueda general-->
                                 <form class="form-search float-end">
                                     <div class="input-group">
-                                        <input class="form-control" maxlength="128"
+                                        <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral()" class="form-control" maxlength="128"
                                                placeholder="Buscar" size="35"
                                                type="text" />
                                         <span class="input-group-btn">

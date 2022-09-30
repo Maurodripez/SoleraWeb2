@@ -1,7 +1,5 @@
 //funciones jqyuery entran aqui
 $(document).ready(function () {
-  //funcion para guardar los datos en la ventana modal
-
   //////////////inicio de todos los botones de busqueda////////////////////
   $("#txtBotonEditar").click(function () {
     var txtIdGuardado = this.id;
@@ -83,7 +81,21 @@ $(document).ready(function () {
   });
 });
 //funciones javascript entranc aqui
-
+function busquedaGeneral() {
+  let txtFiltro = document.getElementById("txtBtnGeneralBuscar").value;
+  let txtIdGuardado = document.getElementById("txtBtnGeneralBuscar").id;
+  $.ajax({
+    url: "buscar.do",
+    data: {
+      filtro: txtFiltro,
+      idGuardado: txtIdGuardado,
+    },
+    success: function (result) {
+      alert(result);
+      $("#ResultadoAjax").html(result);
+    },
+  });
+}
 function buscarId() {
   let txtFiltro = $("#txtBuscarIdRegistro").val();
   let txtIdGuardado = document.getElementById("txtBuscarIdRegistro").id;
