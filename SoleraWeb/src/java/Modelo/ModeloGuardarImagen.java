@@ -2,14 +2,32 @@ package Modelo;
 
 public class ModeloGuardarImagen {
     private String nombreImagen;
-    private String rutaImagen;
+    private String fechaCarga;
+    private String nombreOriginal;
+    private String idImagen;
 
-    public ModeloGuardarImagen() {
-
+    public String getIdImagen() {
+        return this.idImagen;
     }
 
-    public ModeloGuardarImagen(String nombreImagen, String rutaImagen) {
+    public void setIdImagen(String idImagen) {
+        this.idImagen = idImagen;
+    }
 
+    public String getNombreOriginal() {
+        return this.nombreOriginal;
+    }
+
+    public void setNombreOriginal(String nombreOriginal) {
+        this.nombreOriginal = nombreOriginal;
+    }
+
+    public String getFechaCarga() {
+        return this.fechaCarga;
+    }
+
+    public void setFechaCarga(String fechaCarga) {
+        this.fechaCarga = fechaCarga;
     }
 
     public String getNombreImagen() {
@@ -18,14 +36,6 @@ public class ModeloGuardarImagen {
 
     public void setNombreImagen(String nombreImagen) {
         this.nombreImagen = nombreImagen;
-    }
-
-    public String getRutaImagen() {
-        return this.rutaImagen;
-    }
-
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
     }
 
 }

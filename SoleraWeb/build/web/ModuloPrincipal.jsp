@@ -651,7 +651,7 @@
                                       d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                 </svg>Editar</label>
 
-                            <button type="button" onclick="mostrarDocsAprobados()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cargaDocumentos">
+                            <button type="button" onclick="mostrarDocsAprobados()"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cargaDocumentos">
                                 Documentos
                             </button>
 
@@ -2140,7 +2140,7 @@
                                         </li>                  <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)" type="button" class="btn btn-primary btn-sm">Guardar</button>
                                     </ul>
 
-                                </div>
+                                </div>o
                             </div>
 
                             <div class="col-8">
@@ -2165,9 +2165,10 @@
                                             <input id="nombreArchivo" name="archivo" class="form-control form-control-sm" type="file">
                                         </div>
                                     </div>
+                                    <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
                                     <div class="row">
                                         <div class="col-12 p-2" style="text-align: center">
-                                            <button type="button" name="accion" value="agregar" class="btn btn-warning">Subir Documento</button>
+                                            <button type="submit" name="accion" value="agregar" class="btn btn-warning">Subir Documento</button>
                                         </div>
 
                                     </div>
@@ -2201,21 +2202,13 @@
                                             <tbody>
                                                 <tr>
                                                     <td></td>
-                                                    <th>No Partida</th>
                                                     <th>Archivo</th>
                                                     <th>Detalles</th>
                                                     <th>Fecha de carga</th>
                                                 </tr>
-                                                <tr>
-                                                    <th>1</th>
-                                                    <td>A1</td>
-                                                    <td>B1</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>2</th>
-                                                    <td>A2</td>
-                                                    <td>B2</td>
-                                                </tr>
+                                                    <div id="mostrarTablaImagenes" class="row">
+                    
+                                                    </div>
                                             </tbody>
                                         </table>
                                     </div>

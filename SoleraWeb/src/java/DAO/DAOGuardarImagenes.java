@@ -9,16 +9,18 @@ import Modelo.ModeloGuardarImagen;
 public class DAOGuardarImagenes {
     Conexion conect = new Conexion();
     PreparedStatement ps = null;
-    String respuesta = "";
+    public String respuesta = "nada";
 
-    public int guardarImagen(ModeloGuardarImagen mgImagen) {
+    public int guardarImagen(String nombre, String rutaImagen, String fkGuardar, String nombreOriginal) {
         int rs = 0;
         try {
             conect.conectar();
-            String sql = "insert into imagenes values(null,?,?)";
+            String sql = "insert into imagenes values(null,?,?,?, current_date(),?)";
             ps = conect.conexion.prepareStatement(sql);
-            ps.setString(1, mgImagen.getNombreImagen());
-            ps.setString(2, mgImagen.getRutaImagen());
+            ps.setString(1, nombre);
+            ps.setString(2, rutaImagen);
+            ps.setString(3, fkGuardar);
+            ps.setString(4, nombreOriginal);
             rs = ps.executeUpdate();
             respuesta = "Imagen guardada";
         } catch (Exception e) {

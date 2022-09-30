@@ -200,6 +200,8 @@ function buscarEstatusCaso() {
 function cambiarNombre(get) {
   /////se recibe el parametro id
   let inputNombre = document.getElementById("idOculto"); ////se obtiene el input oculto para cambiar el valor del boton y mandar el formulario ya que java trabaja con los valores y no id
+  let inputNombreFk = document.getElementById("fkIdOculto");
+  inputNombreFk.value = get;
   inputNombre.value = get;
   let idGuardado = get; ///////////se manda el id para hacer la busqueda y mostrar los datos del siniestro
   $.post({
@@ -383,6 +385,17 @@ function mostrarDocsAprobados() {
       porcentajeBarra.innerHTML = porcentaje + "%";
     },
   });
+
+  $.ajax({
+    url: "DocumentosAprobados",
+    data: {
+      funcARealizar: "mostrarTabla",
+      idRegistro: txtIdRegistro,
+    },
+    success: function (result) {
+      $("#mostrarTablaImagenes").html(result);
+    },
+  });
 }
 function guardarImagenes() {
   let nombreArchivo = document.getElementById("nombreArchivo");
@@ -475,4 +488,21 @@ function mostrarSesion() {
       alert(result);
     },
   });
+}
+function funcionesBoton(getId) {
+  alert(getId);
+  switch (getId) {
+    case "idVer":
+      $.ajax({
+        method: "POST",
+        url: "FuncionesBtnDocs",
+        data: {
+          idRegistro: document.getElementById("idOculto").value,
+          accionRealizar: "Ver",
+        },
+        success: function (result){
+          alert(result);
+        }
+      });
+  }
 }

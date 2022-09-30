@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import jakarta.servlet.ServletException;
@@ -14,8 +13,6 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 
-import javax.sql.rowset.serial.SerialException;
-
 import DAO.DAOGuardarImagenes;
 import Modelo.ModeloGuardarImagen;
 import jakarta.servlet.http.Part;
@@ -25,13 +22,17 @@ import java.nio.file.Path;
 @MultipartConfig
 @WebServlet(name = "GuardadoImagenesServlet", urlPatterns = { "/GuardadoImagenesServlet" })
 public class GuardadoImagenesServlet extends HttpServlet {
-    private DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
-    private String rutaImagenes = "C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
-    private File cargasImagenes = new File(rutaImagenes);
-    private String[] extensiones = { ".ico", ".png", ".jpg", ".jpeg" };
 
-    protected void service(HttpServletRequest request, HttpServletResponse response)
-            throws SerialException, IOException {
+    // private String rutaImagenes = "C:\\Users\\death\\Desktop\\Solera Web
+    // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
+    DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
+    private final String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\";
+
+    private final File cargasImagenes = new File(rutaImagenes);
+    private final String[] extensiones = { ".ico", ".png", ".jpg", ".jpeg" };
+
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String accion = request.getParameter("accion");
         switch (accion) {
             case "agregar":
@@ -43,23 +44,23 @@ public class GuardadoImagenesServlet extends HttpServlet {
     }
 
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
+        try (PrintWriter out = response.getWriter()) {
+            String fkGuardar = request.getParameter("fkImagenes");
             String nombre = request.getParameter("tipoArchivo");
             Part archivo = request.getPart("archivo");
-            if (archivo != null) {
+            if (archivo == null) {
                 System.out.println("Selecciona un archivo");
                 return;
             }
             if (validarExtenciones(archivo.getSubmittedFileName(), extensiones)) {
                 String rutaImagen = guardarDoc(archivo, cargasImagenes);
-                ModeloGuardarImagen mgImagen = new ModeloGuardarImagen(nombre, rutaImagen);
-                dGImagenes.guardarImagen(mgImagen);
-
+                dGImagenes.guardarImagen(nombre, rutaImagen,fkGuardar,archivo.getSubmittedFileName());
+                response.sendRedirect("ModuloPrincipal.jsp");
             }
-        } catch (Exception e) {
+        } catch (ServletException | IOException e) {
             // TODO: handle exception
         }
-        response.sendRedirect("/SoleraWeb/Principal.jsp");
+
 
     }
 
@@ -76,8 +77,7 @@ public class GuardadoImagenesServlet extends HttpServlet {
                 rutaAbsoluta = doc.getAbsolutePath();
                 Files.copy(input, doc.toPath());// guardsmos el archiuvo en la carpeta seleccionada
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
         }
         return rutaAbsoluta;
     }
@@ -87,25 +87,9 @@ public class GuardadoImagenesServlet extends HttpServlet {
             if (nombreArchivo.toLowerCase().endsWith(et)) {
                 return true;
 
-            } else {
-                return false;
             }
         }
-
-    }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String context = request.getServletContext().getRealPath("iconos");
-        }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+        return false;
     }
 
 }
