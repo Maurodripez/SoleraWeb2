@@ -2144,10 +2144,10 @@
                             </div>
 
                             <div class="col-8">
-                                <form enctype="multipart/form-data">
+                                <form method="post" action="GuardadoImagenesServlet" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-6">
-                                            <select class="form-select form-select-sm" aria-label="Default select example">
+                                            <select name="tipoArchivo" class="form-select form-select-sm" aria-label="Default select example">
                                                 <option selected>Selecciona...</option>
                                                 <option value="Identificacion oficial">Identificacion oficial</option>
                                                 <option value="Comprobante de domicilio">Comprobante de domicilio</option>
@@ -2162,12 +2162,12 @@
                                         </div>
 
                                         <div class="col-6">
-                                            <input id="nombreArchivo" class="form-control form-control-sm" type="file" id="formFile">
+                                            <input id="nombreArchivo" name="archivo" class="form-control form-control-sm" type="file">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 p-2" style="text-align: center">
-                                            <button type="button" onclick="guardarImagenes()" class="btn btn-warning">Subir Documento</button>
+                                            <button type="button" name="accion" value="agregar" class="btn btn-warning">Subir Documento</button>
                                         </div>
 
                                     </div>
