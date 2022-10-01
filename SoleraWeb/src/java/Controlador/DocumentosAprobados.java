@@ -73,33 +73,24 @@ public class DocumentosAprobados extends HttpServlet {
                 case "mostrarTabla":
                     DAOTablaDocumentos dtDocumentos = new DAOTablaDocumentos();
                     String idRegistro = request.getParameter("idRegistro");
+                    // todos tienen el mismo id porque son un grupo
                     for (ModeloGuardarImagen dgImagenes : dtDocumentos.getDocumentos(idRegistro)) {
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
-                                + "<div class='btn-group' role='group'>"
-                                + "<div>"
-                                + "<div class='btn-group-vertical'>"
-                                + "<input type='radio' class='btn-check' name='btnOpciones' value='"
-                                + dgImagenes.getNombreOriginal() + "' onclick='funcionesBoton(this.id)' id='"
-                                + dgImagenes.getIdImagen() + "' autocomplete='off'>"
-                                + "<label class='btn btn-outline-danger' for='idVer'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'>"
-                                + "<path d='M15.5 12a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z'></path><path fill-rule='evenodd' d='M12 3.5c-3.432 0-6.125 1.534-8.054 3.24C2.02 8.445.814"
-                                + " 10.352.33 11.202a1.6 1.6 0 000 1.598c.484.85 1.69 2.758 3.616 4.46C5.876 18.966 8.568 20.5 12 20.5c3.432 0 6.125-1.534 8.054-3.24 1.926-1.704 "
-                                + "3.132-3.611 3.616-4.461a1.6 1.6 0 000-1.598c-.484-.85-1.69-2.757-3.616-4.46C18.124 5.034 15.432 3.5 12 3.5zM1.633 11.945c.441-.774 1.551-2.528 "
-                                + "3.307-4.08C6.69 6.314 9.045 5 12 5c2.955 0 5.309 1.315 7.06 2.864 1.756 1.553 2.866 3.307 3.307 4.08a.111.111 0 01.017.056.111.111 0 01-.017.056c-.441.774-1.551"
-                                + " 2.527-3.307 4.08C17.31 17.685 14.955 19 12 19c-2.955 0-5.309-1.315-7.06-2.864-1.756-1.553-2.866-3.306-3.307-4.08A.11.11 0 011.616 12a.11.11 0 01.017-.055z'></path></svg>"
-                                + "</label>"
-                                + "<input type='radio' class='btn-check' name='btnOpciones' id='idConvertirPdf' autocomplete='off'>"
-                                + "<label class='btn btn-outline-danger' for='idConvertirPdf'>Pdf</label>"
+                                + "<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>"
+                                + "<div class='btn-group me-2' role='group' aria-label='First group'>"
+                                + "<button id='Ver," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
+                                + "' onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Ver</button>"
+                                + "<button id='Pdf," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
+                                + "' onclick='funcionesBoton(this.id)' onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Pdf</button>"
+                                + "<button id='Descarga," + dgImagenes.getIdImagen() + ","
+                                + dgImagenes.getNombreOriginal()
+                                + "' onclick='funcionesBoton(this.id)' onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Descarga</button>"
+                                + "<button id='Eliminar," + dgImagenes.getIdImagen() + ","
+                                + dgImagenes.getNombreOriginal()
+                                + "' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btn btn-danger'>Eliminar</button>"
                                 + "</div>"
-                                + "<div class='btn-group-vertical'>"
-                                + "<input type='radio' class='btn-check' name='btnOpciones' id='idDescarga' autocomplete='off'>"
-                                + "<label class='btn btn-outline-danger' for='idDescarga'>Descargar</label>"
-                                + "<input type='radio' class='btn-check' name='btnOpciones' id='idEliminar' autocomplete='off'>"
-                                + "<label class='btn btn-outline-danger' for='idEliminar'>Eliminar</label>"
-                                + "</div>"
-                                + "</div>"
-                                + "</div></td>");
+                                + "</td>");
                         out.println(" <td class='col'>" + dgImagenes.getNombreImagen() + "</td>");
                         out.println(" <td class='col'>" + dgImagenes.getNombreOriginal() + "</td>");
                         out.println(" <td class='col'>" + dgImagenes.getFechaCarga() + "</td>");

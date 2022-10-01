@@ -397,10 +397,6 @@ function mostrarDocsAprobados() {
     },
   });
 }
-function guardarImagenes() {
-  let nombreArchivo = document.getElementById("nombreArchivo");
-  let formData = new FormData();
-}
 function GuardarRegistros() {
   $.ajax({
     type: "POST",
@@ -489,20 +485,24 @@ function mostrarSesion() {
     },
   });
 }
+//se ejecutan las funciones del boton para cada imagen
 function funcionesBoton(getId) {
-  alert(getId);
-  switch (getId) {
-    case "idVer":
+  let sinComas = getId.split(",");
+  alert(sinComas[2]);
+  switch (sinComas[0]) {
+    case "Ver":
       $.ajax({
         method: "POST",
         url: "FuncionesBtnDocs",
         data: {
-          idRegistro: document.getElementById("idOculto").value,
-          accionRealizar: "Ver",
+          accion: "Ver",
         },
-        success: function (result){
+        success: function (result) {
           alert(result);
-        }
+          let imagen = document.getElementById("docSeleccionado");
+          imagen.setAttribute("src", "./documentos/" + sinComas[2] + "");
+          imagen.appendChild(nuevaImagen);
+        },
       });
   }
 }

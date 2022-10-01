@@ -14,21 +14,18 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 
 import DAO.DAOGuardarImagenes;
-import Modelo.ModeloGuardarImagen;
 import jakarta.servlet.http.Part;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.ThreadLocalRandom;
 
 @MultipartConfig
 @WebServlet(name = "GuardadoImagenesServlet", urlPatterns = { "/GuardadoImagenesServlet" })
 public class GuardadoImagenesServlet extends HttpServlet {
-
     // private String rutaImagenes = "C:\\Users\\death\\Desktop\\Solera Web
     // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
     DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
-    private final String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\";
 
-    private final File cargasImagenes = new File(rutaImagenes);
     private final String[] extensiones = { ".ico", ".png", ".jpg", ".jpeg" };
 
     @Override
@@ -44,23 +41,35 @@ public class GuardadoImagenesServlet extends HttpServlet {
     }
 
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String fkGuardar = request.getParameter("fkImagenes");
+                File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
+        if (!directorio.exists()) {
+            if (directorio.mkdirs()) {
+                System.out.println("Directorio creado");
+            } else {
+                System.out.println("Error al crear directorio");
+            }
+        }//se crea el directorio para caada caso
+        String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
+        File cargasImagenes = new File(rutaImagenes);
         try (PrintWriter out = response.getWriter()) {
-            String fkGuardar = request.getParameter("fkImagenes");
+
             String nombre = request.getParameter("tipoArchivo");
-            Part archivo = request.getPart("archivo");
+
+            Part archivo = request.getPart("archivo");// nombre de la imagen
+
             if (archivo == null) {
                 System.out.println("Selecciona un archivo");
                 return;
             }
             if (validarExtenciones(archivo.getSubmittedFileName(), extensiones)) {
                 String rutaImagen = guardarDoc(archivo, cargasImagenes);
-                dGImagenes.guardarImagen(nombre, rutaImagen,fkGuardar,archivo.getSubmittedFileName());
+                dGImagenes.guardarImagen(nombre, rutaImagen, fkGuardar, archivo.getSubmittedFileName());
                 response.sendRedirect("ModuloPrincipal.jsp");
             }
         } catch (ServletException | IOException e) {
             // TODO: handle exception
         }
-
 
     }
 
@@ -91,5 +100,4 @@ public class GuardadoImagenesServlet extends HttpServlet {
         }
         return false;
     }
-
 }

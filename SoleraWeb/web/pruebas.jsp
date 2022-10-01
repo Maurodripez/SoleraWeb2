@@ -7,40 +7,36 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="./js/jquery-3.6.1.js"></script>
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
 
-    <div class="btn-group" role="group">
-        <div>
-            <div class="btn-group-vertical">
-                <input type="radio" class="btn-check" name="btnOpciones" value="perro" id="idVer" autocomplete="off">
-                <label class="btn btn-outline-danger" for="idVer">Ver</label>
-                <input type="radio" class="btn-check" name="btnOpciones2" id="idConvertirPdf" autocomplete="off">
-                <label class="btn btn-outline-danger" for="idConvertirPdf">Pdf</label>
-            </div>
-            <div class="btn-group-vertical">
-                <input type="radio" class="btn-check" name="btnOpciones3" id="idDescarga" autocomplete="off">
-                <label class="btn btn-outline-danger" for="idDescarga">Descargar</label>
-                <input type="radio" class="btn-check" name="btnOpciones4" id="idEliminar" autocomplete="off">
-                <label class="btn btn-outline-danger" for="idEliminar">eliminar</label>
-            </div>
-        </div>
-
+    <div id="images">
     </div>
-    <button onclick="nada()">
-        aprietame
+    <button onclick=mostrarDoc()>
+        apieta
     </button>
+
     <script>
-        function nada(){
-            alert(document.getElementById("idVer").value)
+        function mostrarDoc() {
+            alert("entra");
+            $.ajax({
+                method: "POST",
+                url: "FuncionesBtnDocs",
+                data: {
+                    entra: "mostrarImagen",
+                }, success: function () {
+                    let images = document.getElementById("images");
+                    let newimg = document.createElement("img");
+                    newimg.setAttribute("src", "./documentos/descarga.jpg");
+                    images.appendChild(newimg);
+                },
+            });
+
+
         }
     </script>
-
 </body>
 
 </html>

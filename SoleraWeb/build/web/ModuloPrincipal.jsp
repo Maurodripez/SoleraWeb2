@@ -715,17 +715,17 @@
                                         <table class="table table-striped text-center">
                                             <thead>
                                                 <tr>
-                                                  <th scope="col">Fecha de Carga</th>
-                                                  <th scope="col">Estatus</th>
-                                                  <th scope="col">Usuario</th>
+                                                    <th scope="col">Fecha de Carga</th>
+                                                    <th scope="col">Estatus</th>
+                                                    <th scope="col">Usuario</th>
                                                 </tr>
-                                              </thead>
-                                              <tbody>
-                                                <div id="ResultadoHistorico" class="row">
+                                            </thead>
+                                            <tbody>
+                                            <div id="ResultadoHistorico" class="row">
 
-                                                </div>
-                                              </tbody>
-                                          </table>
+                                            </div>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -2206,9 +2206,9 @@
                                                     <th>Detalles</th>
                                                     <th>Fecha de carga</th>
                                                 </tr>
-                                                    <div id="mostrarTablaImagenes" class="row">
-                    
-                                                    </div>
+                                            <div id="mostrarTablaImagenes" class="row">
+
+                                            </div>
                                             </tbody>
                                         </table>
                                     </div>
@@ -2224,10 +2224,9 @@
                                     </h2>
                                     <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                          aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            second item's accordion body. Let's imagine this being filled with some actual
-                                            content.</div>
+                                        <div class="accordion-body">
+                                            <img id="docSeleccionado" src="" alt="">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
