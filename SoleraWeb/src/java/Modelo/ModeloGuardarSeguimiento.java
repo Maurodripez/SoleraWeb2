@@ -13,12 +13,14 @@ public class ModeloGuardarSeguimiento {
     private String fechaFactServ;
     private String fechaTermino;
     private String idRegistro;
+    private String estacion;
 
     public ModeloGuardarSeguimiento() {
 
     }
 
     public ModeloGuardarSeguimiento(
+            String estacion,
             String estatusSeguimiento,
             String comentSeguimiento,
             String respSolera,
@@ -31,6 +33,7 @@ public class ModeloGuardarSeguimiento {
             String fechaFactServ,
             String fechaTermino,
             String idRegistro) {
+        this.estacion = estacion;
         this.respSolera = respSolera;
         this.persContactada = persContactada;
         this.tipoPersona = tipoPersona;
@@ -43,6 +46,14 @@ public class ModeloGuardarSeguimiento {
         this.idRegistro = idRegistro;
         this.comentSeguimiento = comentSeguimiento;
         this.estatusSeguimiento = estatusSeguimiento;
+    }
+
+    public String getEstacion() {
+        return this.estacion;
+    }
+
+    public void setEstacion(String estacion) {
+        this.estacion = estacion;
     }
 
     public String getComentSeguimiento() {

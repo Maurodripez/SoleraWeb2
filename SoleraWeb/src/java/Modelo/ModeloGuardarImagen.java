@@ -5,6 +5,15 @@ public class ModeloGuardarImagen {
     private String fechaCarga;
     private String nombreOriginal;
     private String idImagen;
+    private String fkImagen;
+
+    public String getFkImagen() {
+        return this.fkImagen;
+    }
+
+    public void setFkImagen(String fkImagen) {
+        this.fkImagen = fkImagen;
+    }
 
     public String getIdImagen() {
         return this.idImagen;

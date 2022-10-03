@@ -15,7 +15,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-
+        <script src="./js/jspdf.min.js"></script>
 
     </head>
 
@@ -1145,25 +1145,19 @@
                                                             </option>
                                                             <option
                                                                 value="Layout ZG A: Guadalajara, Colima, Nayarit">
-                                                                Layout ZG A: Guadalajara, Colima,
-                                                                Nayarit
+                                                                Layout ZG A: Guadalajara, Colima, Nayarit
                                                             </option>
                                                             <option
-                                                                value="Layout ZG B: Acapulco, Toluca. Pachuca, Cuernavaca">
-                                                                Layout ZG B: Acapulco, Toluca.
-                                                                Pachuca, Cuernavaca
+                                                                value="Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca">
+                                                                Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca
                                                             </option>
                                                             <option
                                                                 value="Layout ZG Layout ZG C: Puebla, Queretaro, Tlaxcala">
-                                                                Layout ZG C: Puebla, Queretaro,
-                                                                Tlaxcala
+                                                                Layout ZG C: Puebla, Queretaro, Tlaxcala
                                                             </option>
                                                             <option
                                                                 value="Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche">
-                                                                Layout ZG D: Merida,
-                                                                Cancun, Tuxtla,
-                                                                Villahermosa,
-                                                                Campeche</option>
+                                                                Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche</option>
                                                             <option
                                                                 value="Layout ZG E: Leon, San Luis Potosi, Aguascalientes, Morelia, Tamaulipas, Zacatecas">
                                                                 Layout ZG E: Leon, San Luis
@@ -1762,6 +1756,28 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                             </svg>
+                                                            Estacion
+                                                        </label>
+                                                        <select class="form-select" id="txtEstacion">
+                                                            <option selected>Selecciona...</option>
+                                                            <option value="Cancelado">Cancelado
+                                                            </option>
+                                                            <option value="Marcacion">Marcacion</option>
+                                                            <option value="Nuevo">Nuevo</option>
+                                                            <option value="Proceso">Proceso</option>
+                                                            <option value="Terminado">Terminado</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                                 fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                                 viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                            </svg>
                                                             Estatus Seguimiento
                                                         </label>
                                                         <select class="form-select" id="txtEstatusSeguimiento">
@@ -2206,13 +2222,15 @@
                                                     <th>Detalles</th>
                                                     <th>Fecha de carga</th>
                                                 </tr>
+                                            </tbody>
+                                        </table>
+                                        <table>
+                                            <tbody>
                                             <div id="mostrarTablaImagenes" class="row">
-
                                             </div>
                                             </tbody>
                                         </table>
                                     </div>
-
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingTwo">

@@ -71,7 +71,7 @@ public class DiasEsperandoRespuesta {
 
     public int DiasMas15() {
         String sql = "select count(datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)) AS 'Dias Transcurridos'"
-                + " from fechasseguimiento as fSeguimiento where datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)>15";
+                + " from fechasseguimiento as fSeguimiento where datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)>14";
         PreparedStatement ps;
         ResultSet rs;
         try {

@@ -17,10 +17,10 @@ public class DAOTablaDocumentos {
             Conexion conect = new Conexion();
             PreparedStatement ps;
             conect.conectar();
-            String sql = "select idimagenes, nombreImagen, nombreOriginal, imagenes.fechaCarga from imagenes, infosiniestro where idRegistro=? and fkImagen = ?";
+            String sql = "select idimagenes, nombreImagen, fkImagen, nombreOriginal, imagenes.fechaCarga from imagenes, infosiniestro where idRegistro=? and fkImagen = ?";
             ps = conect.conexion.prepareStatement(sql);
-            ps.setString(1,idRegistro);
-            ps.setString(2,idRegistro);
+            ps.setString(1, idRegistro);
+            ps.setString(2, idRegistro);
             ResultSet rs = ps.executeQuery();
 
             ModeloGuardarImagen mgImagen;
@@ -30,6 +30,7 @@ public class DAOTablaDocumentos {
                 mgImagen.setNombreImagen(rs.getString("NombreImagen"));
                 mgImagen.setNombreOriginal(rs.getString("nombreOriginal"));
                 mgImagen.setFechaCarga(rs.getString("fechaCarga"));
+                mgImagen.setFkImagen(rs.getString("fkImagen"));
                 lista.add(mgImagen);
                 respuesta = "correcto";
             }
@@ -39,5 +40,22 @@ public class DAOTablaDocumentos {
         }
         return lista;
 
+    }
+
+    public String EliminarImagen(String idImagen) {
+        try {
+
+            Conexion conect = new Conexion();
+            PreparedStatement ps;
+            conect.conectar();
+            String sql = "delete from imagenes where idimagenes=?";//se ejecuta la funcion sql para eliminar el registro
+            ps = conect.conexion.prepareStatement(sql);
+            ps.setString(1, idImagen);
+            ps.executeUpdate();
+            return "registro eliminado con exito";
+        } catch (Exception e) {
+            // TODO: handle exception
+            return "Error al eliminar registro";
+        }
     }
 }

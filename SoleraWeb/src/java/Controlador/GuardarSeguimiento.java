@@ -32,6 +32,7 @@ public class GuardarSeguimiento extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             ModeloGuardarSeguimiento mgSeguimiento = new ModeloGuardarSeguimiento();
             DAOGuardarSeguimiento daoGSeguimiento = new DAOGuardarSeguimiento();
+            mgSeguimiento.setEstacion(request.getParameter("estacion"));
             mgSeguimiento.setComentSeguimiento(request.getParameter("comentSeguimiento"));
             mgSeguimiento.setEstatusSeguimiento(request.getParameter("estatusSeguimiento"));
             mgSeguimiento.setRespSolera(request.getParameter("respSolera"));

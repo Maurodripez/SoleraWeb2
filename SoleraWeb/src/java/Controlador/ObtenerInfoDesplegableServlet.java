@@ -66,6 +66,15 @@ public class ObtenerInfoDesplegableServlet extends HttpServlet {
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             String r;
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet prueba</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet prueba at " + request.getParameter("region") + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
             ActualizarDatoscliente adCliente = new ActualizarDatoscliente();
             ModeloInfoSiniestro mISiniestro = new ModeloInfoSiniestro();
             String fechaCarga = request.getParameter("fechaCarga");
@@ -107,7 +116,7 @@ public class ObtenerInfoDesplegableServlet extends HttpServlet {
                     passwordExterno, estatusCliente, comentariosClientes, marca, tipo, modelo, placas, numSerie,
                     valIndemnizacion, valComercial, asegurado, correo, telPrincipal, telSecundario, contacto,
                     correoContacto, telContacto, idEditable);
-            response.sendRedirect("/SoleraWeb/Principal.jsp?respuesta=" + r);
+          //  response.sendRedirect("/SoleraWeb/Principal.jsp?respuesta=" + r);
         } catch (Exception e) {
             // TODO: handle exception
         }

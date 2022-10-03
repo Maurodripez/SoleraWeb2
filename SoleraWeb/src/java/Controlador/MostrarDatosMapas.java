@@ -28,7 +28,7 @@ public class MostrarDatosMapas extends HttpServlet {
                     }
                     break;
                     case "resultadosEstacion":
-                    
+                                       
                     break;
             }
         }

@@ -398,6 +398,7 @@ function mostrarDocsAprobados() {
   });
 }
 function GuardarRegistros() {
+  alert(document.getElementById("region").value);
   $.ajax({
     type: "POST",
     url: "ObtenerInfoDesplegableServlet",
@@ -436,7 +437,8 @@ function GuardarRegistros() {
       idEditableActual: document.getElementById("idOculto").value,
     },
   }).done(function (respuesta) {
-    $("#mensaje").html(respuesta.mensaje);
+    alert("realiza")
+//    $("#mensaje").html(respuesta.mensaje);
   });
 }
 function valoresSesiones() {
@@ -455,6 +457,7 @@ function InsertarSeguimiento() {
   $.ajax({
     url: "GuardarSeguimiento",
     data: {
+      estacion: document.getElementById("txtEstacion").value,
       comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
       estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
         .value,
@@ -487,8 +490,8 @@ function mostrarSesion() {
 }
 //se ejecutan las funciones del boton para cada imagen
 function funcionesBoton(getId) {
+  let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
-  alert(sinComas[2]);
   switch (sinComas[0]) {
     case "Ver":
       $.ajax({
@@ -498,11 +501,54 @@ function funcionesBoton(getId) {
           accion: "Ver",
         },
         success: function (result) {
-          alert(result);
           let imagen = document.getElementById("docSeleccionado");
-          imagen.setAttribute("src", "./documentos/" + sinComas[2] + "");
-          imagen.appendChild(nuevaImagen);
+          imagen.setAttribute(
+            "src",
+            "./documentos/" + direccionId + "/" + sinComas[2] + ""
+          );
+        },
+      });
+    case "Eliminar":
+      alert(sinComas[3]);
+      $.ajax({
+        method: "POST",
+        url: "FuncionesBtnDocs",
+        data: {
+          accion: "Eliminar",
+          fkId: sinComas[3],
+          nombreArchivo: sinComas[2],
+          idImagen: sinComas[1],
+        },
+        success: function (result) {
+          alert(result);
+          mostrarDocsAprobados(); //se manda de nueva la funcion para actualizar las imagene que estan borradas
         },
       });
   }
+}
+//convierte el pdf y lo descarga
+function convertirPDF(getId) {
+  let sinComas = getId.split(",");
+  let doc = new jsPDF("landscape");
+  let imagenData = new Image();
+  idImagen = document.getElementById(getId);
+  imagenData.src = "./documentos/" + sinComas[3] + "/" + sinComas[2] + "";
+  doc.addImage(imagenData, 10, 10);
+  $.ajax({
+    method: "POST",
+    url: "FuncionesBtnDocs",
+    data: {
+      accion: "Ver",
+    },
+    success: function (result) {
+      let imagen = document.getElementById("docSeleccionado");
+      imagen.setAttribute(
+        "src",
+        "./documentos/" + sinComas[3] + "/" + sinComas[2] + ""
+      );
+    },
+  });
+  nombreArchivo = sinComas[2];
+  sinPuntos = nombreArchivo.split(".");
+  doc.save("" + sinPuntos[0] + ".pdf");
 }

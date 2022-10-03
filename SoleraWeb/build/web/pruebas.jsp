@@ -12,31 +12,6 @@
 
 <body>
 
-    <div id="images">
-    </div>
-    <button onclick=mostrarDoc()>
-        apieta
-    </button>
-
-    <script>
-        function mostrarDoc() {
-            alert("entra");
-            $.ajax({
-                method: "POST",
-                url: "FuncionesBtnDocs",
-                data: {
-                    entra: "mostrarImagen",
-                }, success: function () {
-                    let images = document.getElementById("images");
-                    let newimg = document.createElement("img");
-                    newimg.setAttribute("src", "./documentos/descarga.jpg");
-                    images.appendChild(newimg);
-                },
-            });
-
-
-        }
-    </script>
 </body>
 
 </html>

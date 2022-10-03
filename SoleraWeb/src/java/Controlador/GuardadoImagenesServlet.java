@@ -1,5 +1,6 @@
 package Controlador;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,7 +18,6 @@ import DAO.DAOGuardarImagenes;
 import jakarta.servlet.http.Part;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.concurrent.ThreadLocalRandom;
 
 @MultipartConfig
 @WebServlet(name = "GuardadoImagenesServlet", urlPatterns = { "/GuardadoImagenesServlet" })
@@ -42,14 +42,14 @@ public class GuardadoImagenesServlet extends HttpServlet {
 
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fkGuardar = request.getParameter("fkImagenes");
-                File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
+        File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
         if (!directorio.exists()) {
             if (directorio.mkdirs()) {
                 System.out.println("Directorio creado");
             } else {
                 System.out.println("Error al crear directorio");
             }
-        }//se crea el directorio para caada caso
+        } // se crea el directorio para caada caso
         String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
         File cargasImagenes = new File(rutaImagenes);
         try (PrintWriter out = response.getWriter()) {
