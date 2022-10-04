@@ -398,6 +398,7 @@ function mostrarDocsAprobados() {
   });
 }
 function GuardarRegistros() {
+  alert(document.getElementById("ciudad").value);
   alert(document.getElementById("region").value);
   $.ajax({
     type: "POST",
@@ -437,8 +438,8 @@ function GuardarRegistros() {
       idEditableActual: document.getElementById("idOculto").value,
     },
   }).done(function (respuesta) {
-    alert("realiza")
-//    $("#mensaje").html(respuesta.mensaje);
+    alert("realiza");
+    //    $("#mensaje").html(respuesta.mensaje);
   });
 }
 function valoresSesiones() {
@@ -508,8 +509,8 @@ function funcionesBoton(getId) {
           );
         },
       });
+      break;
     case "Eliminar":
-      alert(sinComas[3]);
       $.ajax({
         method: "POST",
         url: "FuncionesBtnDocs",
@@ -524,6 +525,7 @@ function funcionesBoton(getId) {
           mostrarDocsAprobados(); //se manda de nueva la funcion para actualizar las imagene que estan borradas
         },
       });
+      break;
   }
 }
 //convierte el pdf y lo descarga

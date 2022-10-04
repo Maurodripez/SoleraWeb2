@@ -51,7 +51,6 @@ public class CargarSiniestro extends HttpServlet {
             throws ServletException, IOException {
         try ( PrintWriter out = response.getWriter()) {
             Part archivo = request.getPart("nombrearchivo");
-            Object ob = new JSONParser().parse(new FileReader("JSONFile.json"));
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");

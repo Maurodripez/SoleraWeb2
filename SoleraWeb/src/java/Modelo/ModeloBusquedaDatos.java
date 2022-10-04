@@ -1,7 +1,8 @@
 package Modelo;
 
 public class ModeloBusquedaDatos {
-    private int idRegistro;
+
+    private String idRegistro;
     private String numSiniestro;
     private String poliza;
     private String marca;
@@ -13,12 +14,93 @@ public class ModeloBusquedaDatos {
     private String estacionProceso;
     private String estatusOperativo;
     private String subEstatusProceso;
+    private String identificacionOficial;
+    private String comprobanteDeDomicilio;
+    private String informacionAdicional;
+    private String facturaDelVehiculo;
+    private String tenencias;
+    private String baja;
+    private String estadodeCuenta;
+    private String denuncia;
+    private String acreditacion;
 
-    public int getIdRegistro() {
+    public String getIdentificacionOficial() {
+        return identificacionOficial;
+    }
+
+    public void setIdentificacionOficial(String identificacionOficial) {
+        this.identificacionOficial = identificacionOficial;
+    }
+
+    public String getComprobanteDeDomicilio() {
+        return comprobanteDeDomicilio;
+    }
+
+    public void setComprobanteDeDomicilio(String comprobanteDeDomicilio) {
+        this.comprobanteDeDomicilio = comprobanteDeDomicilio;
+    }
+
+    public String getInformacionAdicional() {
+        return informacionAdicional;
+    }
+
+    public void setInformacionAdicional(String informacionAdicional) {
+        this.informacionAdicional = informacionAdicional;
+    }
+
+    public String getFacturaDelVehiculo() {
+        return facturaDelVehiculo;
+    }
+
+    public void setFacturaDelVehiculo(String facturaDelVehiculo) {
+        this.facturaDelVehiculo = facturaDelVehiculo;
+    }
+
+    public String getTenencias() {
+        return tenencias;
+    }
+
+    public void setTenencias(String tenencias) {
+        this.tenencias = tenencias;
+    }
+
+    public String getBaja() {
+        return baja;
+    }
+
+    public void setBaja(String baja) {
+        this.baja = baja;
+    }
+
+    public String getEstadodeCuenta() {
+        return estadodeCuenta;
+    }
+
+    public void setEstadodeCuenta(String estadodeCuenta) {
+        this.estadodeCuenta = estadodeCuenta;
+    }
+
+    public String getDenuncia() {
+        return denuncia;
+    }
+
+    public void setDenuncia(String denuncia) {
+        this.denuncia = denuncia;
+    }
+
+    public String getAcreditacion() {
+        return acreditacion;
+    }
+
+    public void setAcreditacion(String acreditacion) {
+        this.acreditacion = acreditacion;
+    }
+
+    public String getIdRegistro() {
         return this.idRegistro;
     }
 
-    public void setIdRegistro(int idRegistro) {
+    public void setIdRegistro(String idRegistro) {
         this.idRegistro = idRegistro;
     }
 

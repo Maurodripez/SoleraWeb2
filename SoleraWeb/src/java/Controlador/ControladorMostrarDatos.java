@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import jakarta.servlet.ServletException;
@@ -6,13 +5,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.util.Date;
 
 import DAO.DAOMostrarDatos;
 import Modelo.ModeloBusquedaDatos;
-import Modelo.UsuariosModelo;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @WebServlet(name = "ControladorMostrarDatos", urlPatterns = { "/ControladorMostrarDatos" })
 public class ControladorMostrarDatos extends HttpServlet {
@@ -38,47 +40,166 @@ public class ControladorMostrarDatos extends HttpServlet {
         String region = request.getParameter("region");
         String estado = request.getParameter("estado");
         String cobertura = request.getParameter("cobertura");
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        LocalDate fechaHoy;
+        String fechaBuscar1 = "";
+        String fechaBuscar2 = "";
+        float porcentajeDocs = 0;
+        String porcentajeTotal = "0%";
         try (PrintWriter out = response.getWriter()) {
             DAOMostrarDatos daoMDatos = new DAOMostrarDatos();
-
-            for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaCarga, estacion, estatus, subEstatus,
-                    fechaSeguimiento, region, estado, cobertura)) {
-                out.println(mbDatos.getFechaCarga());
+            if (null != fechaCarga) {
+                switch (fechaCarga) {
+                    case "Hoy":
+                        fechaHoy = LocalDate.now();
+                        fechaBuscar1 = fechaHoy.toString();
+                        break;
+                    case "Ayer": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -1);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar1 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Ultimos 7 Dias": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -7);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar1 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Ultimos 30 Dias": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -30);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar1 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Mes Anterior": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -61);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar1 = dateFormat.format(todate1);
+                        break;
+                    }
+                    default:
+                        break;
+                }
             }
-            // out.println(sesion.getPrivilegios());
-            /*
-             * for (ModeloBusquedaDatos mbDatos : DAOMostrarDatos.obtenerDatos(fechaCarga,
-             * estacion, estatus, subEstatus,
-             * fechaSeguimiento, region, estado, cobertura)) {
-             * out.println("<tr class='row'>");
-             * out.println("<td class='col'>"
-             * + "<button type='button' id='" + sin.getIdRegistro()
-             * + "' class='btn btn-primary' data-bs-toggle='modal'"
-             * +
-             * "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
-             * +
-             * " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
-             * +
-             * "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
-             * +
-             * "1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>"
-             * +
-             * "<path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 "
-             * +
-             * "0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>"
-             * + "</svg></button></td>");
-             * out.println(" <td class='col'>" + sin.getIdRegistro() + "</td>");
-             * out.println(" <td class='col'>" + sin.getDiasTranscurridos() + "</td>");
-             * out.println(" <td class='col'>" + sin.getFechaPrimerEnvioDoc() + "</td>");
-             * out.println(" <td class='col'>" + sin.getNumSiniestro() + "</td>");
-             * out.println(" <td class='col'>" + sin.getPoliza() + "</td>");
-             * out.println(" <td class='col'>" + sin.getAsegurado() + "</td>");
-             * out.println(" <td align='center' class='col'>" + sin.getEstatusCliente() +
-             * "</td>");
-             * out.println("</tr>");
-             * }
-             */
+            if (null != fechaSeguimiento) {
+                switch (fechaSeguimiento) {
+                    case "Hoy":
+                        fechaHoy = LocalDate.now();
+                        fechaBuscar2 = fechaHoy.toString();
+                        break;
+                    case "Ayer": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -1);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar2 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Ultimos 7 Dias": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -7);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar2 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Ultimos 30 Dias": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -30);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar2 = dateFormat.format(todate1);
+                        break;
+                    }
+                    case "Mes Anterior": {
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -61);
+                        Date todate1 = cal.getTime();
+                        fechaBuscar2 = dateFormat.format(todate1);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+            for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaBuscar1, estacion, estatus, subEstatus,
+                    fechaBuscar2, region, estado, cobertura)) {
+
+                out.println("<tr class='row'>");
+                out.println("<td class='col'>"
+                        + "<button type='button' id='" + mbDatos.getIdRegistro()
+                        + "' class='btn btn-primary' data-bs-toggle='modal'"
+                        + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
+                        + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
+                        + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
+                        + "1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>"
+                        + "<path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 "
+                        + "0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>"
+                        + "</svg></button></td>");
+                out.println(" <td class='col'>" + mbDatos.getIdRegistro() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getNumSiniestro() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getPoliza() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getMarca() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getTipo() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getModelo() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getNumSerie() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getFechaCarga() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getEstacionProceso() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getEstatusOperativo() + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getSubEstatusProceso() + "</td>");
+                if ("true".equals(mbDatos.getIdentificacionOficial())) {
+                    porcentajeDocs += 10;
+                }
+                if ("true".equals(mbDatos.getComprobanteDeDomicilio())) {
+                    porcentajeDocs += 10;
+                }
+                if ("true".equals(mbDatos.getInformacionAdicional())) {
+                    porcentajeDocs += 10;
+                }
+                if ("true".equals(mbDatos.getFacturaDelVehiculo())) {
+                    porcentajeDocs += 15;
+                }
+                if ("true".equals(mbDatos.getTenencias())) {
+                    porcentajeDocs += 15;
+                }
+                if ("true".equals(mbDatos.getBaja())) {
+                    porcentajeDocs += 15;
+                }
+                if ("true".equals(mbDatos.getEstadodeCuenta())) {
+                    porcentajeDocs += 10;
+                }
+                if ("true".equals(mbDatos.getDenuncia())) {
+                    porcentajeDocs += 7.5;
+                }
+                if ("true".equals(mbDatos.getAcreditacion())) {
+                    porcentajeDocs += 7.5;
+                }
+                out.println(" <td class='col'>" + porcentajeDocs + "</td>");
+                switch (mbDatos.getEstatusOperativo()) {
+                    case "De 1 a 3 documentos":
+                        porcentajeTotal = "25%";
+                        break;
+                    case "De 4 a 6 documentos":
+                        porcentajeTotal = "50%";
+                        break;
+                    case "De 7 a 10 documentos":
+                        porcentajeTotal = "100%";
+                        break;
+                    case "Sin contacto en 30 dia":
+                        porcentajeTotal = "0%";
+                        break;
+                    case "Datos incorrectos":
+                        porcentajeTotal = "0%";
+                        break;
+                }
+                out.println(" <td class='col'>" + porcentajeTotal + "</td>");
+                out.println(" <td class='col'>" + mbDatos.getEstado() + "</td>");
+                out.println("</tr>");
+
+            }
+            // out.println(daoMDatos.respuesta);
 
         }
     }

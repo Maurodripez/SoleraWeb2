@@ -20,7 +20,7 @@ function buscarDatos() {
     txtFechaSeguimiento = "";
   }
   txtRegion = document.getElementById("txtRegion").value;
-  if (txtRegion == "Selecciona...") {
+  if (txtRegion == "Todos-Ninguna") {
     txtRegion = "";
   }
   txtEstado = document.getElementById("txtEstado").value;
@@ -31,7 +31,6 @@ function buscarDatos() {
   if (txtCobertura == "Selecciona...") {
     txtCobertura = "";
   }
-  let porcentajeDocs = document.getElementById("progresoDocsAprobados");
   $.ajax({
     url: "../ControladorMostrarDatos",
     data: {
@@ -45,7 +44,8 @@ function buscarDatos() {
       cobertura: txtCobertura,
     },
     success: function (result) {
-      alert("es:" + result);
+      $("#mostrarTablaDatos").html(result);
+      alert(result);
     },
   });
 }
@@ -55,8 +55,8 @@ function validarUsuario() {
     data: {
       valiar: "usuario?",
     },
-    success: function (result){
-        alert(result);
-    }
+    success: function (result) {
+      alert(result);
+    },
   });
 }

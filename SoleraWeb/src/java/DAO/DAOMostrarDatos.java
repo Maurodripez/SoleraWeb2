@@ -11,27 +11,32 @@ import Modelo.ModeloBusquedaDatos;
 public class DAOMostrarDatos {
     Conexion conect = new Conexion();
     PreparedStatement ps;
-    public String respuesta;
+    public String respuesta = "inicio";
 
-    public List<ModeloBusquedaDatos> obtenerDatos(String fechaCarga, String estacion, String estatus, String subEstatus,
-            String fechaSeguimiento, String region, String estado, String cobertura) {
+    public List<ModeloBusquedaDatos> obtenerDatos(String fechaBuscar1, String estacion, String estatus,
+            String subEstatus,
+            String fechaBuscar2, String region, String estado, String cobertura) {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
-
-        ModeloBusquedaDatos mbDatos = new ModeloBusquedaDatos();
-        String sql = " select idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + "  estatusOperativo, subEstatusProceso from infosiniestro as iSin right join infoauto as ia on iSin.idRegistro = ia.fkIdRegistro "
-                + " right join fechasseguimiento as fs on iSin.idRegistro=fs.fkidRegistro right join estadoproceso as ep on iSin.idRegistro = ep.fkIdRegistroEstadoProceso "
-                + "  where fechacarga like '%" + fechaCarga
-                + "%' or estatusoperativo like '%" + estatus + "%' or subestatusproceso like '%" + subEstatus + "%' "
-                + " or fechaSeguimiento like '%" + fechaSeguimiento + "%' or estacionProceso like '%" + estacion
-                + "%' or region like '%" + region + "%' or estado like '%" + estado + "%' or  cobertura like '%"
-                + cobertura + "%'";
+        String sql = " select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
+                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+                + "estatusOperativo, subEstatusProceso from infosiniestro as iSin right join infoauto as ia on iSin.idRegistro = ia.fkIdRegistro "
+                + " right join fechasseguimiento as fs on iSin.idRegistro=fs.fkidRegistro right join estadoproceso as ep on iSin.idRegistro = ep.fkIdRegistroEstadoProceso"
+                + " right join documentosaprobados on iSin.idRegistro=fkIdRegistroDocsAprobados where fechacarga between '"
+                + fechaBuscar1 + "'  and curdate() and estacionProceso like '%" + estacion
+                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus + "%'"
+                + " and fechaSeguimiento between '" + fechaBuscar2 + "'  and curdate()  and region like '%" + region
+                + "%' and "
+                + "estado like '%" + estado + "%' and  cobertura like '%" + cobertura + "%'";
         try {
+
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
+
             ResultSet rs = ps.executeQuery();
+
             while (rs.next()) {
-                mbDatos.setIdRegistro(rs.getInt("idRegistro"));
+                ModeloBusquedaDatos mbDatos = new ModeloBusquedaDatos();
+                mbDatos.setIdRegistro(rs.getString("idRegistro"));
                 mbDatos.setNumSiniestro(rs.getString("numSiniestro"));
                 mbDatos.setPoliza(rs.getString("poliza"));
                 mbDatos.setMarca(rs.getString("marca"));
@@ -43,10 +48,17 @@ public class DAOMostrarDatos {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
+                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
+                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
+                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
+                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
+                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setBaja(rs.getString("baja"));
+                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
+                mbDatos.setDenuncia(rs.getString("denuncia"));
+                mbDatos.setAcreditacion(rs.getString("acreditacion"));
                 lista.add(mbDatos);
-
             }
-            respuesta = "busqueda correcta";
         } catch (Exception e) {
             // TODO: handle exception
             respuesta = "busqueda incorrecta";
