@@ -225,6 +225,8 @@ function cambiarNombre(get) {
       let estado = document.getElementById("estado");
       let ciudad = document.getElementById("ciudad");
       let region = document.getElementById("region");
+      alert(region);
+      alert(resultados[10]);
       let ubicacionTaller = document.getElementById("ubicacionTaller");
       let financiado = document.getElementById("financiado");
       let regimenFiscal = document.getElementById("regimenFiscal");
@@ -324,7 +326,6 @@ function mostrarDocsAprobados() {
       funcARealizar: mostrarDocs,
     },
     success: function (result) {
-      //alert(result);
       resultados = result.split(",");
       if (resultados[0] == "true") {
         document.getElementById("checkboxIdentificacion").checked = true;
@@ -398,8 +399,7 @@ function mostrarDocsAprobados() {
   });
 }
 function GuardarRegistros() {
-  alert(document.getElementById("ciudad").value);
-  alert(document.getElementById("region").value);
+  alert(document.getElementById("fechaCarga").value);
   $.ajax({
     type: "POST",
     url: "ObtenerInfoDesplegableServlet",
@@ -455,6 +455,19 @@ function valoresSesiones() {
   });
 }
 function InsertarSeguimiento() {
+  alert(document.getElementById("txtEstacion").value);
+  alert(document.getElementById("txtComentSeguimiento").value);
+  alert(document.getElementById("txtEstatusSeguimiento").value);
+  alert(document.getElementById("txtRespSolera").value);
+  alert(document.getElementById("txtPersContactada").value);
+  alert(document.getElementById("txtTipoPersona").value);
+  alert(document.getElementById("txTipoContacto").value);
+  alert(document.getElementById("txtFechaSeguimiento").value);
+  alert(document.getElementById("txtFechaPrimEnvDocs").value);
+  alert(document.getElementById("txtFechaIntExp").value);
+  alert(document.getElementById("txtFechaFactServ").value);
+  alert(document.getElementById("txtFechaTermino").value);
+  alert(document.getElementById("idOculto").value);
   $.ajax({
     url: "GuardarSeguimiento",
     data: {

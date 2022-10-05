@@ -1136,68 +1136,40 @@
                                                             </svg>
                                                             Region:
                                                         </label>
-                                                        <select id="region"
-                                                                class="form-select"
-                                                                name="txtRegion" required>
+                                                        <select class="form-select" id="region">
                                                             <option selected>
                                                                 Todos-Ninguna
                                                             </option>
-                                                            <option
-                                                                value="Layout ZG A: Guadalajara, Colima, Nayarit">
-                                                                Layout ZG A: Guadalajara, Colima, Nayarit
+                                                            <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
+                                                                Layout ZG A: Guadalajara-Colima-Nayarit
                                                             </option>
-                                                            <option
-                                                                value="Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca">
-                                                                Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca
+                                                            <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
+                                                                Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca
                                                             </option>
-                                                            <option
-                                                                value="Layout ZG Layout ZG C: Puebla, Queretaro, Tlaxcala">
-                                                                Layout ZG C: Puebla, Queretaro, Tlaxcala
+                                                            <option value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
+                                                                Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala
                                                             </option>
+                                                            <option value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
+                                                                Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche</option>
                                                             <option
-                                                                value="Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche">
-                                                                Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche</option>
-                                                            <option
-                                                                value="Layout ZG E: Leon, San Luis Potosi, Aguascalientes, Morelia, Tamaulipas, Zacatecas">
-                                                                Layout ZG E: Leon, San Luis
-                                                                Potosi,
-                                                                Aguascalientes, Morelia,
-                                                                Tamaulipas,
-                                                                Zacatecas</option>
-                                                            <option
-                                                                value="Layout ZG F: CDMX, Estado de Mexico">
-                                                                Layout ZG F: CDMX, Estado de
-                                                                Mexico
+                                                                value="Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
+                                                                Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas</option>
+                                                            <option value="Layout ZG F: CDMX-Estado de Mexico">
+                                                                Layout ZG F: CDMX-Estado de Mexico
                                                             </option>
-                                                            <option
-                                                                value="Layout ZG G: Coatzacualcos, Oaxaca, Veracruz, Xalapa">
-                                                                Layout ZG G: Coatzacualcos,
-                                                                Oaxaca, Veracruz, Xalapa
+                                                            <option value="Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa">
+                                                                Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa
                                                             </option>
-                                                            <option
-                                                                value="Layout ZG H: Monterrey">H:
+                                                            <option value="Layout ZG H: Monterrey">H:
                                                                 Layout ZG Monterrey</option>
                                                             <option
-                                                                value="Layout ZG I: Chihuahua, Cd. Juarez, Reynosa, Saltillo, Tampico, Torreon, Nuevo Laredo, Durango">
-                                                                Layout ZG I: Chihuahua, Cd.
-                                                                Juarez,
-                                                                Reynosa, Saltillo,
-                                                                Tampico,
-                                                                Torreon,
-                                                                Nuevo Laredo, Durango
+                                                                value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
+                                                                Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango
                                                             </option>
                                                             <option
-                                                                value="Layout ZG J: Mexicali, Cd. Obregon, Culiacan, Hermosillo, Los Mochis, Tijuana Baja California, Baja California Sur">
-                                                                Layout ZG J: Mexicali, Cd.
-                                                                Obregon,
-                                                                Culiacan, Hermosillo,
-                                                                Los
-                                                                Mochis,
-                                                                Tijuana Baja California,
-                                                                Baja
-                                                                California Sur</option>
-                                                            <option
-                                                                value="Todos/Ninguno">
+                                                                value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
+                                                                Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur</option>
+                                                            <option value="Todos/Ninguno">
                                                                 Todos/Ninguno</option>
                                                         </select>
                                                     </div>
@@ -2252,9 +2224,6 @@
                 </div>
             </div>
         </div>
-        <button id="sesiones" onclick="mostrarSesion()">
-            aprietame
-        </button>
 
         <script>
             $("#datepicker8").datepicker({

@@ -39,7 +39,7 @@ public class ObtenerInfoDesplegable {
             miSiniestro.setRegimenFiscal(rs.getString("regimenFiscal"));
             miSiniestro.setPasswordExterno(rs.getString("passwordExterno"));
             miSiniestro.setEstatusCliente(rs.getString("estatusCliente"));
-            miSiniestro.setComentariosCliente("comentariosCliente");
+            miSiniestro.setComentariosCliente(rs.getString("comentariosCliente"));
             //////////////// inicia datos del carro///////////////////
             miSiniestro.setMarca(rs.getString("marca"));
             miSiniestro.setTipo(rs.getString("tipo"));

@@ -39,343 +39,325 @@
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-                    <div id="formularioOpciones">
-                        <!--inicia el despliegue de opciones-->
-                        <div class="row 1">
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-calendar-check p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                            <path
-                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                        </svg>
-                                        Fecha Carga
-                                    </label>
-                                    <select class="form-select" id="txtFechaCarga">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Hoy">Hoy</option>
-                                        <option value="Ayer">Ayer</option>
-                                        <option value="Ultimos 7 Dias">Ultimos 7 Dias</option>
-                                        <option value="Ultimos 30 Dias">Ultimos 30 Dias</option>
-                                        <option value="Mes Anterior">Mes Anterior</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                        </svg>
-                                        Estacion
-                                    </label>
-                                    <select class="form-select" id="txtEstacion">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Cancelado">Cancelado</option>
-                                        <option value="Marcacion">Marcacion</option>
-                                        <option value="Nuevo">Nuevo</option>
-                                        <option value="Proceso">Proceso</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                        </svg>
-                                        Estatus
-                                    </label>
-                                    <select class="form-select" id="txtEstatus">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Con contacto sin documentos">Con contacto sin documentos
-                                        </option>
-                                        <option value="Datos incorrectos">Datos incorrectos</option>
-                                        <option value="De 1 a 3 documentos">De 1 a 3 documentos</option>
-                                        <option value="De 4 a 6 documentos">De 4 a 6 documentos</option>
-                                        <option value="De 7 a 10 documentos">De 7 a 10 documentos</option>
-                                        <option value="Nuevo2">Nuevo</option>
-                                        <option value="Sin Contacto">Sin Contacto</option>
-                                        <option value="Sin contacto en 30 dia2">Sin contacto en 30 dia</option>
-                                        <option value="Total de documentos">Total de documentos</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                        </svg>
-                                        Subestatus
-                                    </label>
-                                    <select class="form-select" id="txtSubEstatus">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Con contacto. sin documentos, en seguimiento">Con contacto.
-                                            sin documentos, en seguimiento</option>
-                                        <option value="Datos incorrectos, Cancelado">Datos incorrectos, Cancelado
-                                        </option>
-                                        <option value="De 1 a 3 documento, en seguimiento">De 1 a 3 documentos, en
-                                            seguimiento</option>
-                                        <option value="De 4 a 6 documentos en seguimiento">De 4 a 6 documentos en
-                                            seguimiento</option>
-                                        <option value="De 7 a 10 documentos en seguimiento">De 7 a 10 documentos en
-                                            seguimiento</option>
-                                        <option value="Nuevo2, activacion por proceso normal">Nuevo, activacion por
-                                            proceso normal</option>
-                                        <option value="Sin Contacto, en seguimiento">Sin Contacto, en seguimiento
-                                        </option>
-                                        <option value="Sin contacto en 30 dias, cancelafo">Sin contacto en 30 dia,
-                                            cancelado</option>
-                                        <option value="Total de documentos, terminado">Total de documentos,
-                                            terminado</option>
-                                    </select>
-                                </div>
+                    <!--inicia el despliegue de opciones-->
+                    <div class="row 1">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                        <path
+                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                    </svg>
+                                    Fecha Carga
+                                </label>
+                                <select class="form-select" id="txtFechaCarga">
+                                    <option selected>Selecciona...</option>
+                                    <option value="Hoy">Hoy</option>
+                                    <option value="Ayer">Ayer</option>
+                                    <option value="Ultimos 7 Dias">Ultimos 7 Dias</option>
+                                    <option value="Ultimos 30 Dias">Ultimos 30 Dias</option>
+                                    <option value="Mes Anterior">Mes Anterior</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="row 2">
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-calendar-check p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                            <path
-                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                        </svg>
-                                        Fecha seguimiento
-                                    </label>
-                                    <select class="form-select" id="txtFechaSeguimiento">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Hoy">Hoy</option>
-                                        <option value="Ayer">Ayer</option>
-                                        <option value="Ultimos 7 Dias">Ultimos 7 Dias</option>
-                                        <option value="Ultimos 30 Dias">Ultimos 30 Dias</option>
-                                        <option value="Mes Anterior">Mes Anterior</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-globe p-1">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                                            <path
-                                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                            </path>
-                                        </svg>
-                                        Region
-                                    </label>
-                                    <select class="form-select" id="txtRegion">
-                                        <option selected>
-                                            Todos-Ninguna
-                                        </option>
-                                        <option value="Layout ZG A: Guadalajara, Colima, Nayarit">
-                                            Layout ZG A: Guadalajara, Colima,
-                                            Nayarit
-                                        </option>
-                                        <option value="Layout ZG B: Acapulco, Toluca. Pachuca, Cuernavaca">
-                                            Layout ZG B: Acapulco, Toluca.
-                                            Pachuca, Cuernavaca
-                                        </option>
-                                        <option value="Layout ZG Layout ZG C: Puebla, Queretaro, Tlaxcala">
-                                            Layout ZG C: Puebla, Queretaro,
-                                            Tlaxcala
-                                        </option>
-                                        <option value="Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche">
-                                            Layout ZG D: Merida,
-                                            Cancun, Tuxtla,
-                                            Villahermosa,
-                                            Campeche</option>
-                                        <option
-                                            value="Layout ZG E: Leon, San Luis Potosi, Aguascalientes, Morelia, Tamaulipas, Zacatecas">
-                                            Layout ZG E: Leon, San Luis
-                                            Potosi,
-                                            Aguascalientes, Morelia,
-                                            Tamaulipas,
-                                            Zacatecas</option>
-                                        <option value="Layout ZG F: CDMX, Estado de Mexico">
-                                            Layout ZG F: CDMX, Estado de
-                                            Mexico
-                                        </option>
-                                        <option value="Layout ZG G: Coatzacualcos, Oaxaca, Veracruz, Xalapa">
-                                            Layout ZG G: Coatzacualcos,
-                                            Oaxaca, Veracruz, Xalapa
-                                        </option>
-                                        <option value="Layout ZG H: Monterrey">H:
-                                            Layout ZG Monterrey</option>
-                                        <option
-                                            value="Layout ZG I: Chihuahua, Cd. Juarez, Reynosa, Saltillo, Tampico, Torreon, Nuevo Laredo, Durango">
-                                            Layout ZG I: Chihuahua, Cd.
-                                            Juarez,
-                                            Reynosa, Saltillo,
-                                            Tampico,
-                                            Torreon,
-                                            Nuevo Laredo, Durango
-                                        </option>
-                                        <option
-                                            value="Layout ZG J: Mexicali, Cd. Obregon, Culiacan, Hermosillo, Los Mochis, Tijuana Baja California, Baja California Sur">
-                                            Layout ZG J: Mexicali, Cd.
-                                            Obregon,
-                                            Culiacan, Hermosillo,
-                                            Los
-                                            Mochis,
-                                            Tijuana Baja California,
-                                            Baja
-                                            California Sur</option>
-                                        <option value="Todos/Ninguno">
-                                            Todos/Ninguno</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                        </svg>
-                                        Estado
-                                    </label>
-                                    <select id="txtEstado" class="form-select" name="txtEstado" required>
-                                        <option selected>
-                                            Selecciona...
-                                        </option>
-                                        <option value="Aguascalientes">
-                                            Aguascalientes</option>
-                                        <option value="Baja California">
-                                            Baja
-                                            California</option>
-                                        <option value="Baja California Sur">
-                                            Baja California Sur
-                                        </option>
-                                        <option value="Campeche">
-                                            Campeche
-                                        </option>
-                                        <option value="Chiapas">
-                                            Chiapas
-                                        </option>
-                                        <option value="Chiahuahua">
-                                            Chiahuahua</option>
-                                        <option value="Ciudad de Mexico">
-                                            Ciudad de Mexico
-                                        </option>
-                                        <option value="Coahuila de Zaragoza">
-                                            Coahuila de Zaragoza
-                                        </option>
-                                        <option value="Colima">
-                                            Colima
-                                        </option>
-                                        <option value="Durango">
-                                            Durango
-                                        </option>
-                                        <option value="Guanajato">
-                                            Guanajato
-                                        </option>
-                                        <option value="Guerrero">
-                                            Guerrero
-                                        </option>
-                                        <option value="Hidalgo">
-                                            Hidalgo
-                                        </option>
-                                        <option value="Jalisco">
-                                            Jalisco
-                                        </option>
-                                        <option value="Estado de Mexico">
-                                            Estado de Mexico
-                                        </option>
-                                        <option value="Michoacan de Ocampo">
-                                            Michoacan de Ocampo
-                                        </option>
-                                        <option value="Morelos">
-                                            Morelos
-                                        </option>
-                                        <option value="Nayarit">
-                                            Nayarit
-                                        </option>
-                                        <option value="Nuevo Leon">
-                                            Nuevo
-                                            Leon</option>
-                                        <option value="Oaxaca">
-                                            Oaxaca
-                                        </option>
-                                        <option value="Puebla">
-                                            Puebla
-                                        </option>
-                                        <option value="Queretaro">
-                                            Queretaro
-                                        </option>
-                                        <option value="Quintana Roo">
-                                            Quintana Roo</option>
-                                        <option value="San Luis de Potosi<">
-                                            San Luis de Potosi
-                                        </option>
-                                        <option value="Sinaloa">
-                                            Sinaloa
-                                        </option>
-                                        <option value="Sonora">
-                                            Sonora
-                                        </option>
-                                        <option value="Tabasco">
-                                            Tabasco
-                                        </option>
-                                        <option value="Tamaulipas">
-                                            Tamaulipas</option>
-                                        <option value="Tlaxcala">
-                                            Tlaxcala
-                                        </option>
-                                        <option value="Veracruz">
-                                            Veracruz
-                                        </option>
-                                        <option value="Yucatan">
-                                            Yucatan
-                                        </option>
-                                        <option value="Zacatecas">
-                                            Zacatecas
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                            fill="currentColor" class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                        </svg>
-                                        Cobertura
-                                    </label>
-                                    <select class="form-select" id="txtCobertura">
-                                        <option selected>Selecciona...</option>
-                                        <option value="DM">DM</option>
-                                        <option value="RT">RT</option>
-                                        <option value="RC">RC</option>
-                                    </select>
-                                </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                    Estacion
+                                </label>
+                                <select class="form-select" id="txtEstacion">
+                                    <option selected>Selecciona...</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                    <option value="Marcacion">Marcacion</option>
+                                    <option value="Nuevo">Nuevo</option>
+                                    <option value="Proceso">Proceso</option>
+                                    <option value="Terminado">Terminado</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="btn-group" role="group">
-                            <button id="btnBuscar" onclick="buscarDatos()" type="button"
-                                class="btn btn-primary">Buscar</button>
-                            <button type="button" class="btn btn-primary">Limpiar</button>
-                            <button type="button" class="btn btn-primary">Exportar</button>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                    Estatus
+                                </label>
+                                <select class="form-select" id="txtEstatus">
+                                    <option selected>Selecciona...</option>
+                                    <option value="Con contacto sin documentos">Con contacto sin documentos
+                                    </option>
+                                    <option value="Datos incorrectos">Datos incorrectos</option>
+                                    <option value="De 1 a 3 documentos">De 1 a 3 documentos</option>
+                                    <option value="De 4 a 6 documentos">De 4 a 6 documentos</option>
+                                    <option value="De 7 a 10 documentos">De 7 a 10 documentos</option>
+                                    <option value="Nuevo2">Nuevo</option>
+                                    <option value="Sin Contacto">Sin Contacto</option>
+                                    <option value="Sin contacto en 30 dia2">Sin contacto en 30 dia</option>
+                                    <option value="Total de documentos">Total de documentos</option>
+                                </select>
+                            </div>
                         </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                    Subestatus
+                                </label>
+                                <select class="form-select" id="txtSubEstatus">
+                                    <option selected>Selecciona...</option>
+                                    <option value="Con contacto. sin documentos, en seguimiento">Con contacto.
+                                        sin documentos, en seguimiento</option>
+                                    <option value="Datos incorrectos, Cancelado">Datos incorrectos, Cancelado
+                                    </option>
+                                    <option value="De 1 a 3 documento, en seguimiento">De 1 a 3 documentos, en
+                                        seguimiento</option>
+                                    <option value="De 4 a 6 documentos en seguimiento">De 4 a 6 documentos en
+                                        seguimiento</option>
+                                    <option value="De 7 a 10 documentos en seguimiento">De 7 a 10 documentos en
+                                        seguimiento</option>
+                                    <option value="Nuevo2, activacion por proceso normal">Nuevo, activacion por
+                                        proceso normal</option>
+                                    <option value="Sin Contacto, en seguimiento">Sin Contacto, en seguimiento
+                                    </option>
+                                    <option value="Sin contacto en 30 dias, cancelafo">Sin contacto en 30 dia,
+                                        cancelado</option>
+                                    <option value="Total de documentos, terminado">Total de documentos,
+                                        terminado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 2">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                        <path
+                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                    </svg>
+                                    Fecha seguimiento
+                                </label>
+                                <select class="form-select" id="txtFechaSeguimiento">
+                                    <option selected>Selecciona...</option>
+                                    <option value="Hoy">Hoy</option>
+                                    <option value="Ayer">Ayer</option>
+                                    <option value="Ultimos 7 Dias">Ultimos 7 Dias</option>
+                                    <option value="Ultimos 30 Dias">Ultimos 30 Dias</option>
+                                    <option value="Mes Anterior">Mes Anterior</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-globe p-1">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                    Region
+                                </label>
+                                <select class="form-select" id="txtRegion">
+                                    <option selected>
+                                        Todos-Ninguna
+                                    </option>
+                                    <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
+                                        Layout ZG A: Guadalajara-Colima-Nayarit
+                                    </option>
+                                    <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
+                                        Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca
+                                    </option>
+                                    <option value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
+                                        Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala
+                                    </option>
+                                    <option value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
+                                        Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche</option>
+                                    <option
+                                        value="Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
+                                        Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas</option>
+                                    <option value="Layout ZG F: CDMX-Estado de Mexico">
+                                        Layout ZG F: CDMX-Estado de Mexico
+                                    </option>
+                                    <option value="Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa">
+                                        Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa
+                                    </option>
+                                    <option value="Layout ZG H: Monterrey">H:
+                                        Layout ZG Monterrey</option>
+                                    <option
+                                        value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
+                                        Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango
+                                    </option>
+                                    <option
+                                        value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
+                                        Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur</option>
+                                    <option value="Todos/Ninguno">
+                                        Todos/Ninguno</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                    Estado
+                                </label>
+                                <select id="txtEstado" class="form-select" name="txtEstado" required>
+                                    <option selected>
+                                        Selecciona...
+                                    </option>
+                                    <option value="Aguascalientes">
+                                        Aguascalientes</option>
+                                    <option value="Baja California">
+                                        Baja
+                                        California</option>
+                                    <option value="Baja California Sur">
+                                        Baja California Sur
+                                    </option>
+                                    <option value="Campeche">
+                                        Campeche
+                                    </option>
+                                    <option value="Chiapas">
+                                        Chiapas
+                                    </option>
+                                    <option value="Chiahuahua">
+                                        Chiahuahua</option>
+                                    <option value="Ciudad de Mexico">
+                                        Ciudad de Mexico
+                                    </option>
+                                    <option value="Coahuila de Zaragoza">
+                                        Coahuila de Zaragoza
+                                    </option>
+                                    <option value="Colima">
+                                        Colima
+                                    </option>
+                                    <option value="Durango">
+                                        Durango
+                                    </option>
+                                    <option value="Guanajato">
+                                        Guanajato
+                                    </option>
+                                    <option value="Guerrero">
+                                        Guerrero
+                                    </option>
+                                    <option value="Hidalgo">
+                                        Hidalgo
+                                    </option>
+                                    <option value="Jalisco">
+                                        Jalisco
+                                    </option>
+                                    <option value="Estado de Mexico">
+                                        Estado de Mexico
+                                    </option>
+                                    <option value="Michoacan de Ocampo">
+                                        Michoacan de Ocampo
+                                    </option>
+                                    <option value="Morelos">
+                                        Morelos
+                                    </option>
+                                    <option value="Nayarit">
+                                        Nayarit
+                                    </option>
+                                    <option value="Nuevo Leon">
+                                        Nuevo
+                                        Leon</option>
+                                    <option value="Oaxaca">
+                                        Oaxaca
+                                    </option>
+                                    <option value="Puebla">
+                                        Puebla
+                                    </option>
+                                    <option value="Queretaro">
+                                        Queretaro
+                                    </option>
+                                    <option value="Quintana Roo">
+                                        Quintana Roo</option>
+                                    <option value="San Luis de Potosi<">
+                                        San Luis de Potosi
+                                    </option>
+                                    <option value="Sinaloa">
+                                        Sinaloa
+                                    </option>
+                                    <option value="Sonora">
+                                        Sonora
+                                    </option>
+                                    <option value="Tabasco">
+                                        Tabasco
+                                    </option>
+                                    <option value="Tamaulipas">
+                                        Tamaulipas</option>
+                                    <option value="Tlaxcala">
+                                        Tlaxcala
+                                    </option>
+                                    <option value="Veracruz">
+                                        Veracruz
+                                    </option>
+                                    <option value="Yucatan">
+                                        Yucatan
+                                    </option>
+                                    <option value="Zacatecas">
+                                        Zacatecas
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                    Cobertura
+                                </label>
+                                <select class="form-select" id="txtCobertura">
+                                    <option selected>Selecciona...</option>
+                                    <option value="DM">DM</option>
+                                    <option value="RT">RT</option>
+                                    <option value="RC">RC</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="btnBuscar" onclick="buscarDatos()" type="button"
+                            class="btn btn-primary">Buscar</button>
+                        <button type="button" class="btn btn-primary">Limpiar</button>
+                        <button type="button" class="btn btn-primary">Exportar</button>
                     </div>
                 </div>
             </div>
@@ -609,37 +591,25 @@
                             <div class="card row" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
+                                    <p class="card-text">Nuevo</p>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
+                                    <p class="card-text">Marcacion</p>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
+                                    <p class="card-text">Proceso</p>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make
-                                        up
-                                        the bulk
-                                        of the card's content.</p>
+                                    <p class="card-text">Cancelado</p>
                                 </div>
                             </div>
                         </div>
