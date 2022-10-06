@@ -104,7 +104,35 @@ window.addEventListener("load", function CartasEstacion() {
       accion: "InfoCartas",
     },
     success: function (result) {
-      $("#mostrarTablaDatos").html(result);
+      sinComas = result.split(",");
+      let cantSiniestro;
+      for (let i = 1; i < sinComas.length; i = i + 2) {
+        if (sinComas[i - 1] > 0) {
+          //se hace para hacer el calculo del procentaje de cada caso
+          cantSiniestro = sinComas[i - 1];
+          sinComas[i - 1] =
+            (sinComas[i - 1] * 100) / sinComas[sinComas.length - 1];
+        }
+        switch (sinComas[i]) {
+          case "Nuevo":
+            $("#nuevo").html(sinComas[i - 1] + "%");
+            break;
+          case "Marcacion":
+            $("#marcacion").html(sinComas[i - 1] + "%");
+            break;
+          case "Proceso":
+            $("#proceso").html(sinComas[i - 1] + "%");
+            break;
+          case "Cancelado":
+            $("#cancelado").html(sinComas[i - 1] + "%");
+            $("#canceladoTotal").html("Casos: " + cantSiniestro);
+            break;
+          case "Terminado":
+            $("#terminado").html(sinComas[i - 1] + "%");
+            $("#canceladoTotal").html("Casos: " + cantSiniestro);
+            break;
+        }
+      }
     },
   });
 });

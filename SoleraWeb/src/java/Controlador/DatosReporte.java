@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import DAO.DAOInfoCartas;
+import Modelo.ModeloInfoCartas;
+
 @WebServlet(name = "DatosReporte", urlPatterns = { "/DatosReporte" })
 public class DatosReporte extends HttpServlet {
 
@@ -24,11 +27,16 @@ public class DatosReporte extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            DAOInfoCartas diCartas = new DAOInfoCartas();
             String accion = request.getParameter("accion");
             switch (accion) {
                 case "InfoCartas":
-                
-
+                    for (ModeloInfoCartas miCartas : diCartas.getEstacion()) {
+                        out.print(miCartas.getConteo() + ",");
+                        out.print(miCartas.getEstaciones() + ",");
+                    }
+                    out.print(diCartas.r);
+                    break;
             }
         }
     }

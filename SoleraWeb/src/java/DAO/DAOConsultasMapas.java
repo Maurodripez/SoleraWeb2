@@ -7,7 +7,6 @@ import java.util.List;
 
 import Modelo.Conexion;
 import Modelo.ModeloEstados;
-import Modelo.Siniestros;
 
 public class DAOConsultasMapas {
     Conexion conect = new Conexion();
@@ -36,18 +35,6 @@ public class DAOConsultasMapas {
             respuesta = "consulta incorrecta";
         }
         return list;
-
-    }
-
-    public List<ModeloEstados> getEstaciones() {
-        List<ModeloEstados> list = new ArrayList<>();
-        try {
-            conect.conectar();
-            String sql = "";
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-        return null;
 
     }
 }

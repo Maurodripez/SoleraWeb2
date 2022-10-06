@@ -44,9 +44,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-calendar-check p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-calendar-check p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                         <path
@@ -67,9 +66,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                     </svg>
@@ -88,9 +86,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                     </svg>
@@ -114,9 +111,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                     </svg>
@@ -150,9 +146,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-calendar-check p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-calendar-check p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                         <path
@@ -173,10 +168,9 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-globe p-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-globe p-1">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <line x1="2" y1="12" x2="22" y2="12"></line>
                                         <path
@@ -202,7 +196,8 @@
                                         Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche</option>
                                     <option
                                         value="Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
-                                        Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas</option>
+                                        Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas
+                                    </option>
                                     <option value="Layout ZG F: CDMX-Estado de Mexico">
                                         Layout ZG F: CDMX-Estado de Mexico
                                     </option>
@@ -213,11 +208,13 @@
                                         Layout ZG Monterrey</option>
                                     <option
                                         value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
-                                        Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango
+                                        Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo
+                                        Laredo-Durango
                                     </option>
                                     <option
                                         value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
-                                        Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur</option>
+                                        Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja
+                                        California-Baja California Sur</option>
                                     <option value="Todos/Ninguno">
                                         Todos/Ninguno</option>
                                 </select>
@@ -226,9 +223,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                     </svg>
@@ -336,9 +332,8 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                        viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-plus-square-fill p-1" viewBox="0 0 16 16">
                                         <path
                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                     </svg>
@@ -589,27 +584,43 @@
                         </div>
                         <div name="tarjetasEstacion" class="col-2">
                             <div class="card row" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Nuevo</p>
+                                <div class="card-body row">
+                                    <p class="card-text col">Nuevo</p>
+                                    <h1 class="col" id="nuevo">
+                                    </h1>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Marcacion</p>
+                                <div class="card-body row">
+                                    <p class="card-text col">Marcacion</p>
+                                    <h1 class="col" id="marcacion">
+                                    </h1>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Proceso</p>
+                                <div class="card-body row">
+                                    <p class="card-text col">Proceso</p>
+                                    <h1 class="col" id="proceso">
+                                    </h1>
                                 </div>
                             </div>
                             <div class="card row" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text">Cancelado</p>
+                                    <div class="row">
+                                        <p class="card-text col">Cancelado</p>
+                                        <h1 class="col" id="cancelado">
+                                        </h1>
+                                    </div>
+                                    <div class="row">
+                                        <h4 class="text-center" id="canceladoTotal"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card row" style="width: 18rem;">
+                                <div class="card-body row">
+                                    <p class="card-text col">Terminado</p>
+                                    <h1 class="col" id="terminado">
+                                    </h1>
                                 </div>
                             </div>
                         </div>

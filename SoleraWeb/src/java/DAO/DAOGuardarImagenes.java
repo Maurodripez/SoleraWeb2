@@ -1,10 +1,8 @@
 package DAO;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import Modelo.Conexion;
-import Modelo.ModeloGuardarImagen;
 
 public class DAOGuardarImagenes {
     Conexion conect = new Conexion();
