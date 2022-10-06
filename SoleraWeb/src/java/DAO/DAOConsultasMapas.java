@@ -7,8 +7,11 @@ import java.util.List;
 
 import Modelo.Conexion;
 import Modelo.ModeloEstados;
+import Modelo.ModeloGraficas;
 
 public class DAOConsultasMapas {
+
+    public int contadorPorcentaje = 0;
     Conexion conect = new Conexion();
     PreparedStatement ps;
     ResultSet rs;
@@ -36,5 +39,28 @@ public class DAOConsultasMapas {
         }
         return list;
 
+    }
+
+    public List<ModeloGraficas> getSeguimiento() {
+        List<ModeloGraficas> lista = new ArrayList<>();
+        try {
+            conect.conectar();
+            String sql = "select count(estatusOperativo) as conteo, estatusOperativo"
+                    + " from estadoproceso where estatusOperativo is not null group by estatusOperativo";
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ModeloGraficas mGraficas;
+            while (rs.next()) {
+                mGraficas = new ModeloGraficas();
+                mGraficas.setConteo(rs.getString("conteo"));
+                mGraficas.setEstatus(rs.getString("estatusOperativo"));
+                lista.add(mGraficas);
+                contadorPorcentaje += rs.getInt("conteo");
+                respuesta = "sin problemas";
+            }
+        } catch (Exception e) {
+            respuesta = "ejecucion incorrecta";
+        }
+        return lista;
     }
 }

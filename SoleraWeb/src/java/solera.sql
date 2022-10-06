@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2022 a las 20:58:13
+-- Tiempo de generación: 06-10-2022 a las 21:00:35
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `solera`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `documentosaprobados`
+--
+
+CREATE TABLE `documentosaprobados` (
+  `iddocumentosaprobados` int(11) NOT NULL,
+  `identificacionOficial` varchar(5) DEFAULT NULL,
+  `comprobanteDeDomicilio` varchar(5) DEFAULT NULL,
+  `informacionAdicional` varchar(5) DEFAULT NULL,
+  `facturaDelVehiculo` varchar(5) DEFAULT NULL,
+  `tenencias` varchar(5) DEFAULT NULL,
+  `baja` varchar(5) DEFAULT NULL,
+  `estadodeCuenta` varchar(5) DEFAULT NULL,
+  `denuncia` varchar(5) DEFAULT NULL,
+  `acreditacion` varchar(5) DEFAULT NULL,
+  `fkIdRegistroDocsAprobados` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `documentosaprobados`
+--
+
+INSERT INTO `documentosaprobados` (`iddocumentosaprobados`, `identificacionOficial`, `comprobanteDeDomicilio`, `informacionAdicional`, `facturaDelVehiculo`, `tenencias`, `baja`, `estadodeCuenta`, `denuncia`, `acreditacion`, `fkIdRegistroDocsAprobados`) VALUES
+(1, 'true', 'false', 'false', 'true', 'true', 'true', 'true', 'true', 'true', 2),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -42,7 +70,7 @@ CREATE TABLE `estadoproceso` (
 
 INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`, `subEstatusProceso`, `usuarioSeguimiento`, `fkIdRegistroEstadoProceso`) VALUES
 (1, 'Cancelado', 'Sin Contacto', 'correcto', NULL, 2),
-(2, 'Terminado', 'Sin Contacto', NULL, NULL, 3),
+(2, 'Terminado', 'Datos incorrectos', NULL, NULL, 3),
 (3, 'Cancelado', NULL, NULL, NULL, 4),
 (4, 'Terminado', NULL, NULL, NULL, 6),
 (5, 'Terminado', NULL, NULL, NULL, 7),
@@ -90,6 +118,28 @@ INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fec
 (6, NULL, '', NULL, '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6),
 (7, NULL, '', NULL, '2022-04-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7),
 (8, NULL, '', NULL, '2020-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `idimagenes` int(11) NOT NULL,
+  `nombreImagen` varchar(45) DEFAULT NULL,
+  `rutaImagen` varchar(300) DEFAULT NULL,
+  `fkImagen` int(11) NOT NULL,
+  `fechaCarga` date DEFAULT NULL,
+  `nombreOriginal` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`idimagenes`, `nombreImagen`, `rutaImagen`, `fkImagen`, `fechaCarga`, `nombreOriginal`) VALUES
+(13, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\2\\cute (12).jpg', 2, '2022-10-05', 'cute (12).jpg');
 
 -- --------------------------------------------------------
 
@@ -207,6 +257,52 @@ INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `insertarregistros`
+--
+
+CREATE TABLE `insertarregistros` (
+  `idInsertarRegistros` int(11) NOT NULL,
+  `respuestaSolera` varchar(12) DEFAULT NULL,
+  `personaContactada` varchar(45) DEFAULT NULL,
+  `tipoPersona` varchar(45) DEFAULT NULL,
+  `contactoSeguimiento` varchar(45) DEFAULT NULL,
+  `fkIdRegistroInsertar` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `insertarregistros`
+--
+
+INSERT INTO `insertarregistros` (`idInsertarRegistros`, `respuestaSolera`, `personaContactada`, `tipoPersona`, `contactoSeguimiento`, `fkIdRegistroInsertar`) VALUES
+(1, 'No atendido', 'asegurado', 'Asegurado', 'Si', 2),
+(2, 'No atendido', '', 'Asegurado', 'Si', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `seguimiento`
+--
+
+CREATE TABLE `seguimiento` (
+  `idSeguimiento` int(11) NOT NULL,
+  `fkIdUsuario` int(11) NOT NULL,
+  `fechaModificacion` date DEFAULT NULL,
+  `tipoModificacion` varchar(45) DEFAULT NULL,
+  `comentariosSeguimiento` varchar(100) DEFAULT NULL,
+  `fkIdRegistroSeguimiento` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `seguimiento`
+--
+
+INSERT INTO `seguimiento` (`idSeguimiento`, `fkIdUsuario`, `fechaModificacion`, `tipoModificacion`, `comentariosSeguimiento`, `fkIdRegistroSeguimiento`) VALUES
+(1, 0, NULL, NULL, 'correctos', 2),
+(2, 0, NULL, NULL, 'correctos', 3);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -229,6 +325,13 @@ INSERT INTO `usuarios` (`idUsuarios`, `usuario`, `contrasena`, `privilegios`) VA
 --
 
 --
+-- Indices de la tabla `documentosaprobados`
+--
+ALTER TABLE `documentosaprobados`
+  ADD PRIMARY KEY (`iddocumentosaprobados`),
+  ADD KEY `fkIdRegistroDocsAprobados` (`fkIdRegistroDocsAprobados`);
+
+--
 -- Indices de la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
@@ -241,6 +344,13 @@ ALTER TABLE `estadoproceso`
 ALTER TABLE `fechasseguimiento`
   ADD PRIMARY KEY (`idFechasseguimiento`),
   ADD KEY `fkIdRegistroFechaseguimiento` (`fkidRegistro`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`idimagenes`),
+  ADD KEY `fkIdRegistroImagenes` (`fkImagen`);
 
 --
 -- Indices de la tabla `infoauto`
@@ -270,6 +380,19 @@ ALTER TABLE `infosiniestro`
   ADD PRIMARY KEY (`idRegistro`);
 
 --
+-- Indices de la tabla `insertarregistros`
+--
+ALTER TABLE `insertarregistros`
+  ADD PRIMARY KEY (`idInsertarRegistros`),
+  ADD KEY `fkIdRegistroInsertar` (`fkIdRegistroInsertar`);
+
+--
+-- Indices de la tabla `seguimiento`
+--
+ALTER TABLE `seguimiento`
+  ADD PRIMARY KEY (`idSeguimiento`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -278,6 +401,12 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `documentosaprobados`
+--
+ALTER TABLE `documentosaprobados`
+  MODIFY `iddocumentosaprobados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `estadoproceso`
@@ -290,6 +419,12 @@ ALTER TABLE `estadoproceso`
 --
 ALTER TABLE `fechasseguimiento`
   MODIFY `idFechasseguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `idimagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `infoauto`
@@ -316,6 +451,18 @@ ALTER TABLE `infosiniestro`
   MODIFY `idRegistro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de la tabla `insertarregistros`
+--
+ALTER TABLE `insertarregistros`
+  MODIFY `idInsertarRegistros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `seguimiento`
+--
+ALTER TABLE `seguimiento`
+  MODIFY `idSeguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -324,6 +471,12 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `documentosaprobados`
+--
+ALTER TABLE `documentosaprobados`
+  ADD CONSTRAINT `fkIdRegistroDocsAprobados` FOREIGN KEY (`fkIdRegistroDocsAprobados`) REFERENCES `infosiniestro` (`idRegistro`);
 
 --
 -- Filtros para la tabla `estadoproceso`
@@ -336,6 +489,12 @@ ALTER TABLE `estadoproceso`
 --
 ALTER TABLE `fechasseguimiento`
   ADD CONSTRAINT `fkIdRegistroFechaseguimiento` FOREIGN KEY (`fkidRegistro`) REFERENCES `infosiniestro` (`idRegistro`);
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `fkIdRegistroImagenes` FOREIGN KEY (`fkImagen`) REFERENCES `infosiniestro` (`idRegistro`);
 
 --
 -- Filtros para la tabla `infoauto`
@@ -354,6 +513,12 @@ ALTER TABLE `infocarga`
 --
 ALTER TABLE `infocliente`
   ADD CONSTRAINT `fkIdRegistroinfoCliente` FOREIGN KEY (`fkIdRegistro`) REFERENCES `infosiniestro` (`idRegistro`);
+
+--
+-- Filtros para la tabla `insertarregistros`
+--
+ALTER TABLE `insertarregistros`
+  ADD CONSTRAINT `fkIdRegistroInsertar` FOREIGN KEY (`fkIdRegistroInsertar`) REFERENCES `infosiniestro` (`idRegistro`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

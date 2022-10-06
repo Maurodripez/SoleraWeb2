@@ -9,10 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/reporte.css" />
-    <script src="./js/reporte.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./js/reporte.js"></script>
+    <link rel="stylesheet" href="./css/graficas.css">
 
     <title>Document</title>
 </head>
@@ -103,7 +106,7 @@
                                     <option value="De 7 a 10 documentos">De 7 a 10 documentos</option>
                                     <option value="Nuevo2">Nuevo</option>
                                     <option value="Sin Contacto">Sin Contacto</option>
-                                    <option value="Sin contacto en 30 dia2">Sin contacto en 30 dia</option>
+                                    <option value="Sin contacto en 30 dias">Sin contacto en 30 dias</option>
                                     <option value="Total de documentos">Total de documentos</option>
                                 </select>
                             </div>
@@ -633,23 +636,39 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree">
-                    Accordion Item #3
+                    Graficas
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingThree">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <div class="row">
+                        <div class="col-7" id="foliosGrafica">
+                        </div>
+                        <div class="col-5" id="seguimientosGrafica">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center" id="folioDona">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div id=" charts1 "> </div>
+                            <div id=" charts2 "> </div>
+                            <div id=" charts3 ">
+                            </div>
+                            <div id=" charts4 ">
+                            </div>
+                            https://blog.karatos.in/a?ID=01650-33869f85-94fc-4e75-9f9f-a369e69b89f1
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

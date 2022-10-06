@@ -1,5 +1,6 @@
 package Controlador;
 
+import DAO.DAOConsultasMapas;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import java.io.PrintWriter;
 
 import DAO.DAOInfoCartas;
 import Modelo.ModeloInfoCartas;
+import Modelo.ModeloGraficas;
 
 @WebServlet(name = "DatosReporte", urlPatterns = { "/DatosReporte" })
 public class DatosReporte extends HttpServlet {
@@ -27,6 +29,7 @@ public class DatosReporte extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            DAOConsultasMapas daoCMapa = new DAOConsultasMapas();
             DAOInfoCartas diCartas = new DAOInfoCartas();
             String accion = request.getParameter("accion");
             switch (accion) {
@@ -36,6 +39,12 @@ public class DatosReporte extends HttpServlet {
                         out.print(miCartas.getEstaciones() + ",");
                     }
                     out.print(diCartas.r);
+                    break;
+                case "seguimiento":
+                    for (ModeloGraficas mGraficas : daoCMapa.getSeguimiento()) {
+                        out.print(mGraficas.getConteo() + "," + mGraficas.getEstatus() + ",");
+                    }
+                    out.print(daoCMapa.contadorPorcentaje);
                     break;
             }
         }

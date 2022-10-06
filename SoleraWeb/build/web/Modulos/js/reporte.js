@@ -104,7 +104,7 @@ window.addEventListener("load", function CartasEstacion() {
       accion: "InfoCartas",
     },
     success: function (result) {
-      sinComas = result.split(",");
+      let sinComas = result.split(",");
       let cantSiniestro;
       for (let i = 1; i < sinComas.length; i = i + 2) {
         if (sinComas[i - 1] > 0) {
@@ -133,6 +133,470 @@ window.addEventListener("load", function CartasEstacion() {
             break;
         }
       }
+    },
+  });
+});
+$(document).ready(function () {
+  //mostrar en tiempo real la grafica de folios//
+  $.ajax({
+    method: "POST",
+    url: "../DatosReporte",
+    data: {
+      accion: "InfoCartas",
+    },
+    success: function (result) {
+      let sinComas;
+      let nuevoP = 0;
+      let nuevoC = 0;
+      let marcacionP = 0;
+      let marcacionC = 0;
+      let procesoP = 0;
+      let procesoC = 0;
+      let terminadoP = 0;
+      let terminadoC = 0;
+      let canceladoP = 0;
+      let canceladoC = 0;
+      let porcentaje;
+      sinComas = result.split(",");
+
+      for (let i = 1; i < sinComas.length; i = i + 2) {
+        //se hace para hacer el calculo del procentaje de cada caso
+        porcentaje = (sinComas[i - 1] * 100) / sinComas[sinComas.length - 1];
+        switch (sinComas[i]) {
+          case "Nuevo":
+            nuevoC = sinComas[i - 1];
+            $("#nuevo").html("Casos: " + nuevoC);
+            nuevoP = porcentaje + "%";
+            break;
+          case "Marcacion":
+            marcacionC = sinComas[i - 1];
+            $("#marcacion").html("Casos: " + marcacionC);
+            marcacionP = porcentaje + "%";
+            break;
+          case "Proceso":
+            procesoC = sinComas[i - 1];
+            $("#proceso").html("Casos: " + procesoC);
+            procesoP = porcentaje + "%";
+            break;
+          case "Cancelado":
+            canceladoC = sinComas[i - 1];
+            $("#canceladoTotal").html("Casos: " + canceladoC);
+            canceladoP = porcentaje + "%";
+            break;
+          case "Terminado":
+            terminadoC = sinComas[i - 1];
+            $("#terminado").html("Casos: " + terminadoC);
+            terminadoP = porcentaje + "%";
+            break;
+        }
+      }
+      let options = {
+        chart: {
+          type: "bar",
+        },
+        series: [
+          {
+            name: "Folios",
+            data: [procesoC, nuevoC, marcacionC, terminadoC, canceladoC],
+          },
+        ],
+        labels: [
+          "Proceso: " + procesoP + "",
+          "Nuevo: " + nuevoP + "",
+          "Marcacion: " + marcacionP + "",
+          "Facturado: " + terminadoP + "",
+          "Cancelado: " + canceladoP + "",
+        ],
+        title: {
+          text: "Distribucion de folios por area",
+          style: {
+            fontSize: "30px",
+            align: "center",
+          },
+        },
+      };
+
+      let chart = new ApexCharts(
+        document.querySelector("#foliosGrafica"),
+        options
+      );
+
+      chart.render();
+    },
+  });
+
+  //grafica dona//
+  $.ajax({
+    method: "POST",
+    url: "../DatosReporte",
+    data: {
+      accion: "InfoCartas",
+    },
+    success: function (result) {
+      let sinComas;
+      let nuevoP = 0;
+      let nuevoC = 0;
+      let marcacionP = 0;
+      let marcacionC = 0;
+      let procesoP = 0;
+      let procesoC = 0;
+      let terminadoP = 0;
+      let terminadoC = 0;
+      let canceladoP = 0;
+      let canceladoC = 0;
+      let porcentaje;
+      sinComas = result.split(",");
+
+      for (let i = 1; i < sinComas.length; i = i + 2) {
+        //se hace para hacer el calculo del procentaje de cada caso
+        porcentaje = (sinComas[i - 1] * 100) / sinComas[sinComas.length - 1];
+        switch (sinComas[i]) {
+          case "Nuevo":
+            nuevoC = sinComas[i - 1];
+            $("#nuevo").html("Casos: " + nuevoC);
+            nuevoP = porcentaje;
+            break;
+          case "Marcacion":
+            marcacionC = sinComas[i - 1];
+            $("#marcacion").html("Casos: " + marcacionC);
+            marcacionP = porcentaje;
+            break;
+          case "Proceso":
+            procesoC = sinComas[i - 1];
+            $("#proceso").html("Casos: " + procesoC);
+            procesoP = porcentaje;
+            break;
+          case "Cancelado":
+            canceladoC = sinComas[i - 1];
+            $("#canceladoTotal").html("Casos: " + canceladoC);
+            canceladoP = porcentaje;
+            break;
+          case "Terminado":
+            terminadoC = sinComas[i - 1];
+            $("#terminado").html("Casos: " + terminadoC);
+            terminadoP = porcentaje;
+            break;
+        }
+      }
+      let options = {
+        series: [procesoP, nuevoP, marcacionP, terminadoP, canceladoP],
+        chart: {
+          width: 600,
+          type: "donut",
+        },
+        labels: [
+          "Proceso: " + procesoC + "",
+          "Nuevo: " + nuevoC + "",
+          "Marcacion: " + marcacionC + "",
+          "Facturado: " + terminadoC + "",
+          "Cancelado: " + canceladoC + "",
+        ],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      };
+
+      let chart = new ApexCharts(document.querySelector("#folioDona"), options);
+      chart.render();
+    },
+  });
+  //termina la grafica de folios
+
+  //inicia grafica de seguimiento
+  $.ajax({
+    method: "POST",
+    url: "../DatosReporte",
+    data: {
+      accion: "seguimiento",
+    },
+    success: function (result) {
+      let csDocumentosC = 0;
+      let csDocumentosP;
+      let dIncorrectosC = 0;
+      let dIncorrectosP;
+      let d1a3DocsC = 0;
+      let d1a3DocsP;
+      let d4a6DocsC = 0;
+      let d4a6DocsP;
+      let d7a10DocsC = 0;
+      let d7a10DocsP;
+      let nuevoC = 0;
+      let nuevoP;
+      let sContactoC = 0;
+      let sContactoP;
+      let sc30DiasC = 0;
+      let sc30DiasP;
+      let tDocsC = 0;
+      let tDocsP;
+      let sinComas = result.split(",");
+      for (let i = 1; i < sinComas.length; i = i + 2) {
+        //se hace para hacer el calculo del procentaje de cada caso
+        porcentaje = (sinComas[i - 1] * 100) / sinComas[sinComas.length - 1];
+        switch (sinComas[i]) {
+          case "Con contacto sin documentos":
+            csDocumentosC = sinComas[i - 1];
+            csDocumentosP = porcentaje + "%";
+            break;
+          case "Datos incorrectos":
+            dIncorrectosC = sinComas[i - 1];
+            dIncorrectosP = porcentaje + "%";
+            break;
+          case "De 1 a 3 documentos":
+            d1a3DocsC = sinComas[i - 1];
+            d1a3DocsP = porcentaje + "%";
+            break;
+          case "De 4 a 6 documentos":
+            d4a6DocsC = sinComas[i - 1];
+            d4a6DocsP = porcentaje + "%";
+            break;
+          case "De 7 a 10 documentos":
+            d7a10DocsC = sinComas[i - 1];
+            d7a10DocsP = porcentaje + "%";
+            break;
+          case "Nuevo":
+            nuevoC = sinComas[i - 1];
+            nuevoP = porcentaje + "%";
+            break;
+          case "Sin Contacto":
+            sContactoC = sinComas[i - 1];
+            sContactoP = porcentaje + "%";
+            break;
+          case "Sin contacto en 30 dias":
+            sc30DiasC = sinComas[i - 1];
+            sc30DiasP = porcentaje + "%";
+            break;
+          case "Total de documentos":
+            tDocsC = sinComas[i - 1];
+            tDocsP = porcentaje + "%";
+            break;
+        }
+      }
+
+      //quitamos la ultima coma para poder traer los resultados correctos
+      let options = {
+        colors: [
+          "#F44336",
+          "#E91E63",
+          "#9C27B0",
+          "#F5BF07",
+          "#D1F507",
+          "#77F507",
+          "#07F589",
+          "#9407F5",
+          "#0707F5",
+        ],
+        series: [
+          Number(csDocumentosC),
+          Number(dIncorrectosC),
+          Number(d1a3DocsC),
+          Number(d4a6DocsC),
+          Number(d7a10DocsC),
+          Number(nuevoC),
+          Number(sContactoC),
+          Number(sc30DiasC),
+          Number(tDocsC),
+        ],
+        chart: {
+          width: 650,
+          type: "pie",
+        },
+        labels: [
+          "Con contacto sin documentos",
+          "Datos incorrectos",
+          "De 1 a 3 documentos",
+          "De 4 a 6 documentos",
+          "De 7 a 10 documentos",
+          "Nuevo",
+          "Sin Contacto",
+          "Sin contacto en 30 dias",
+          "Total de documentos",
+        ],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200,
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+        title: {
+          text: "Analisis de estatus",
+          style: {
+            fontSize: "27px",
+            align: "center",
+          },
+        },
+      };
+
+      let chart = new ApexCharts(
+        document.querySelector("#seguimientosGrafica"),
+        options
+      );
+      chart.render();
+    },
+  });
+
+  $.ajax({
+    method: "POST",
+    url: "../DatosReporte",
+    data: {
+      accion: "InfoCartas",
+    },
+    success: function (result) {
+      window.Apex = {
+        chart: {
+          height: 160,
+        },
+        dataLabels: {
+          enabled: false,
+        },
+      };
+      var options = {
+        series: [
+          this.generateDayWiseTimeSeries(
+            new Date("22 Apr 2017").getTime(),
+            115,
+            {
+              min: 30,
+              max: 90,
+            }
+          ),
+        ],
+        chart: {
+          id: "fb",
+          group: "social",
+          type: "line",
+          height: 160,
+        },
+        colors: ["#008FFB"],
+      };
+
+      var chart = new ApexCharts(
+        document.querySelector("#chart-line"),
+        options
+      );
+      chart.render();
+
+      var optionsLine2 = {
+        series: [
+          this.generateDayWiseTimeSeries(
+            new Date("22 Apr 2017").getTime(),
+            115,
+            {
+              min: 30,
+              max: 90,
+            }
+          ),
+        ],
+        chart: {
+          id: "tw",
+          group: "social",
+          type: "line",
+          height: 160,
+        },
+        colors: ["#546E7A"],
+      };
+
+      var chartLine2 = new ApexCharts(
+        document.querySelector("#chart-line2"),
+        optionsLine2
+      );
+      chartLine2.render();
+
+      var optionsArea = {
+        series: [
+          this.generateDayWiseTimeSeries(
+            new Date("22 Apr 2017").getTime(),
+            115,
+            {
+              min: 30,
+              max: 90,
+            }
+          ),
+        ],
+        chart: {
+          id: "yt",
+          group: "social",
+          type: "area",
+          height: 160,
+        },
+        colors: ["#00E396"],
+      };
+
+      var chartArea = new ApexCharts(
+        document.querySelector("#chart-area"),
+        optionsArea
+      );
+      chartArea.render();
+
+      var optionsSmall = {
+        series: [
+          this.generateDayWiseTimeSeries(
+            new Date("22 Apr 2017").getTime(),
+            115,
+            {
+              min: 30,
+              max: 90,
+            }
+          ),
+        ],
+        chart: {
+          id: "ig",
+          group: "social",
+          type: "area",
+          height: 160,
+          width: 300,
+        },
+        colors: ["#008FFB"],
+      };
+
+      var chartSmall = new ApexCharts(
+        document.querySelector("#chart-small"),
+        optionsSmall
+      );
+      chartSmall.render();
+
+      var optionsSmall2 = {
+        series: [
+          this.generateDayWiseTimeSeries(
+            new Date("22 Apr 2017").getTime(),
+            115,
+            {
+              min: 30,
+              max: 90,
+            }
+          ),
+        ],
+        chart: {
+          id: "li",
+          group: "social",
+          type: "area",
+          height: 160,
+          width: 300,
+        },
+        colors: ["#546E7A"],
+      };
+
+      var chartSmall2 = new ApexCharts(
+        document.querySelector("#chart-small2"),
+        optionsSmall2
+      );
+      chartSmall2.render();
     },
   });
 });

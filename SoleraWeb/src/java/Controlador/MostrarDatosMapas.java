@@ -24,11 +24,8 @@ public class MostrarDatosMapas extends HttpServlet {
             switch (consulta) {
                 case "cambioColores":
                     for (ModeloEstados mEstados : daoCMapa.getNumeroSiniestros()) {
-                        out.print(mEstados.getEstados()+","+mEstados.getCantidad()+",");
+                        out.print(mEstados.getEstados() + "," + mEstados.getCantidad() + ",");
                     }
-                    break;
-                    case "resultadosEstacion":
-                                       
                     break;
             }
         }
