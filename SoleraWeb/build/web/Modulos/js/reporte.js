@@ -455,148 +455,75 @@ $(document).ready(function () {
     method: "POST",
     url: "../DatosReporte",
     data: {
-      accion: "InfoCartas",
+      accion: "AsignadosEntregados",
     },
     success: function (result) {
-      window.Apex = {
+      let sinUltima = result.substring(0, result.length - 1);
+      let sinComas = sinUltima.split(",");
+      alert(sinComas[0]);
+      alert(sinComas[1]);
+      alert(sinComas[2]);
+      // obtener fecha
+      let hoy = new Date();
+      const meses = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+      let options = {
+        series: [
+          {
+            name: "series1",
+            data: [31, 40, 28, 51, 42, 109, 100],
+          },
+          {
+            name: "series2",
+            data: [11, 32, 45, 32, 34, 52, 41],
+          },
+        ],
         chart: {
-          height: 160,
+          height: 350,
+          type: "area",
         },
         dataLabels: {
           enabled: false,
         },
-      };
-      var options = {
-        series: [
-          this.generateDayWiseTimeSeries(
-            new Date("22 Apr 2017").getTime(),
-            115,
-            {
-              min: 30,
-              max: 90,
-            }
-          ),
-        ],
-        chart: {
-          id: "fb",
-          group: "social",
-          type: "line",
-          height: 160,
+        stroke: {
+          curve: "smooth",
         },
-        colors: ["#008FFB"],
+        xaxis: {
+          type: "text",
+          categories: [
+            meses[hoy.getMonth() - 10],
+            meses[hoy.getMonth() - 9],
+            meses[hoy.getMonth() - 8],
+            meses[hoy.getMonth() - 7],
+            meses[hoy.getMonth() - 6],
+            meses[hoy.getMonth() - 5],
+            meses[hoy.getMonth() - 4],
+            meses[hoy.getMonth() - 3],
+            meses[hoy.getMonth() - 2],
+            meses[hoy.getMonth() - 1],
+            meses[hoy.getMonth()],
+            meses[hoy.getMonth() + 1],
+          ],
+        },
       };
 
-      var chart = new ApexCharts(
-        document.querySelector("#chart-line"),
+      let chart = new ApexCharts(
+        document.querySelector("#foliosEntregados"),
         options
       );
       chart.render();
-
-      var optionsLine2 = {
-        series: [
-          this.generateDayWiseTimeSeries(
-            new Date("22 Apr 2017").getTime(),
-            115,
-            {
-              min: 30,
-              max: 90,
-            }
-          ),
-        ],
-        chart: {
-          id: "tw",
-          group: "social",
-          type: "line",
-          height: 160,
-        },
-        colors: ["#546E7A"],
-      };
-
-      var chartLine2 = new ApexCharts(
-        document.querySelector("#chart-line2"),
-        optionsLine2
-      );
-      chartLine2.render();
-
-      var optionsArea = {
-        series: [
-          this.generateDayWiseTimeSeries(
-            new Date("22 Apr 2017").getTime(),
-            115,
-            {
-              min: 30,
-              max: 90,
-            }
-          ),
-        ],
-        chart: {
-          id: "yt",
-          group: "social",
-          type: "area",
-          height: 160,
-        },
-        colors: ["#00E396"],
-      };
-
-      var chartArea = new ApexCharts(
-        document.querySelector("#chart-area"),
-        optionsArea
-      );
-      chartArea.render();
-
-      var optionsSmall = {
-        series: [
-          this.generateDayWiseTimeSeries(
-            new Date("22 Apr 2017").getTime(),
-            115,
-            {
-              min: 30,
-              max: 90,
-            }
-          ),
-        ],
-        chart: {
-          id: "ig",
-          group: "social",
-          type: "area",
-          height: 160,
-          width: 300,
-        },
-        colors: ["#008FFB"],
-      };
-
-      var chartSmall = new ApexCharts(
-        document.querySelector("#chart-small"),
-        optionsSmall
-      );
-      chartSmall.render();
-
-      var optionsSmall2 = {
-        series: [
-          this.generateDayWiseTimeSeries(
-            new Date("22 Apr 2017").getTime(),
-            115,
-            {
-              min: 30,
-              max: 90,
-            }
-          ),
-        ],
-        chart: {
-          id: "li",
-          group: "social",
-          type: "area",
-          height: 160,
-          width: 300,
-        },
-        colors: ["#546E7A"],
-      };
-
-      var chartSmall2 = new ApexCharts(
-        document.querySelector("#chart-small2"),
-        optionsSmall2
-      );
-      chartSmall2.render();
     },
   });
 });

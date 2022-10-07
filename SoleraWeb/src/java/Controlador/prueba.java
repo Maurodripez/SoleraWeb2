@@ -69,3 +69,4 @@ public class prueba extends HttpServlet {
     }// </editor-fold>
 
 }
+SET lc_time_names = 'es_ES';

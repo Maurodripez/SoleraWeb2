@@ -5,10 +5,13 @@ body {
 }
 
 #foliosGrafica {
-  max-width: 750px;
+  max-width: 600px auto;
   margin: 35px auto;
 }
 #seguimientosGrafica {
   margin: 35px auto;
-  padding-right: 15px;
+  padding-right: 30px;
+}
+#foliosEntregados{
+  max-width: auto;
 }

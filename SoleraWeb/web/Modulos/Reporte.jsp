@@ -14,8 +14,8 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="./js/reporte.js"></script>
     <link rel="stylesheet" href="./css/graficas.css">
+    <script src="./js/reporte.js"></script>
 
     <title>Document</title>
 </head>
@@ -642,33 +642,70 @@
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                 aria-labelledby="panelsStayOpen-headingThree">
                 <div class="accordion-body">
-                    <div class="row">
-                        <div class="col-7" id="foliosGrafica">
-                        </div>
-                        <div class="col-5" id="seguimientosGrafica">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-center" id="folioDona">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <div id=" charts1 "> </div>
-                            <div id=" charts2 "> </div>
-                            <div id=" charts3 ">
+                    <!--acordeon de graficas-->
+                    <div class="accordion" id="acordionGraficas">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica1" aria-expanded="true" aria-controls="infoGrafica1">
+                                    Estatus y Folios
+                                </button>
+                            </h2>
+                            <div id="infoGrafica1" class="accordion-collapse collapse show"
+                                aria-labelledby="infoGrafica1">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-6" id="foliosGrafica">
+                                        </div>
+                                        <div class="col-6" id="seguimientosGrafica">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id=" charts4 ">
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica2" aria-expanded="false" aria-controls="infoGrafica2">
+                                    Estaciones
+                                </button>
+                            </h2>
+                            <div id="infoGrafica2" class="accordion-collapse collapse" aria-labelledby="infoGrafica2">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col text-center" id="folioDona">
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            https://blog.karatos.in/a?ID=01650-33869f85-94fc-4e75-9f9f-a369e69b89f1
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica3" aria-expanded="false"
+                                    aria-controls="infoGrafica3">
+                                    Entregados
+                                </button>
+                            </h2>
+                            <div id="infoGrafica3" class="accordion-collapse collapse"
+                                aria-labelledby="infoGrafica3">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div>
+                                            <div id="foliosEntregados"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    </script>
 </body>
 
 </html>
