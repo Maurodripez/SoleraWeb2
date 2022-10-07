@@ -8,6 +8,7 @@ import java.util.List;
 import Modelo.Conexion;
 import Modelo.ModeloEstados;
 import Modelo.ModeloGraficas;
+import java.sql.SQLException;
 
 public class DAOConsultasMapas {
 
@@ -88,6 +89,146 @@ public class DAOConsultasMapas {
         } catch (Exception e) {
             // TODO: handle exception
             respuesta = "error, no entra";
+        }
+        return lista;
+    }
+
+    public List<ModeloGraficas> getFoliosFecha(String fechaBusqueda) {
+        List<ModeloGraficas> lista = new ArrayList<>();
+        try {
+            conect.conectar();
+            String sql = "select idRegistro, fechaCarga from infosiniestro where fechaCarga between '" + fechaBusqueda
+                    + "' and curdate() ";
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ModeloGraficas mGraficas;
+            while (rs.next()) {
+                mGraficas = new ModeloGraficas();
+                mGraficas.setIdRegistro(rs.getString("idregistro"));
+                mGraficas.setFechaCarga(rs.getString("fechaCarga"));
+                lista.add(mGraficas);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return lista;
+    }
+
+    public int dias0a2 = 0;
+    public int dias3a5 = 0;
+    public int dias6a14 = 0;
+    public int diasMas15 = 0;
+
+    public int Dias0a2() {
+        String sql = "select count(datediff(CURDATE(), fechaCarga)) AS 'Dias Transcurridos'"
+                + " from infosiniestro where datediff(CURDATE(), fechaCarga)<3";
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                dias0a2 = rs.getInt("Dias Transcurridos");
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+        }
+        return dias0a2;
+    }
+
+    public int Dias3a5() {
+        String sql = "select count(datediff(CURDATE(), fechaCarga)) AS 'Dias Transcurridos'"
+                + " from infosiniestro where datediff(CURDATE(), fechaCarga)>2 "
+                + "and datediff(CURDATE(), fechaCarga)<6";
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                dias3a5 = rs.getInt("Dias Transcurridos");
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+        }
+        return dias3a5;
+    }
+
+    public int Dias6a14() {
+        String sql = "select count(datediff(CURDATE(), fechaCarga)) AS 'Dias Transcurridos'"
+                + " from infosiniestro where datediff(CURDATE(), fechaCarga)>5 "
+                + "and datediff(CURDATE(),fechaCarga)<15";
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                dias6a14 = rs.getInt("Dias Transcurridos");
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+        }
+        return dias6a14;
+    }
+
+    public int DiasMas15() {
+        String sql = "select count(datediff(CURDATE(), fechaCarga)) AS 'Dias Transcurridos'"
+                + " from infosiniestro where datediff(CURDATE(), fechaCarga)>14";
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                diasMas15 = rs.getInt("Dias Transcurridos");
+            }
+        } catch (SQLException e) {
+            // TODO: handle exception
+        }
+        return diasMas15;
+    }
+
+    public List<ModeloGraficas> getRegiones() {
+        List<ModeloGraficas> lista = new ArrayList<>();
+        String sql = "select count(idRegistro) as conteo, region from infosiniestro group by region";
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ModeloGraficas mGraficas;
+            while (rs.next()) {
+                mGraficas = new ModeloGraficas();
+                mGraficas.setContRegiones(rs.getString("conteo"));
+                mGraficas.setRegiones(rs.getString("region"));
+                lista.add(mGraficas);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return lista;
+    }
+
+    public List<ModeloGraficas> getDocumentos() {
+        List<ModeloGraficas> lista = new ArrayList<>();
+        String sql = "select count(nombreImagen) as conteo, nombreImagen from imagenes group by nombreImagen";
+        try {
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ModeloGraficas mGraficas;
+            while (rs.next()) {
+                mGraficas = new ModeloGraficas();
+                mGraficas.setNombreDocs(rs.getString("nombreImagen"));
+                mGraficas.setConteoDocs(rs.getString("conteo"));
+                lista.add(mGraficas);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
         }
         return lista;
     }

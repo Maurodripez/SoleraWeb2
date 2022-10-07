@@ -192,8 +192,8 @@
                                     <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
                                         Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca
                                     </option>
-                                    <option value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
-                                        Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala
+                                    <option value="Layout ZG C: Puebla-Queretaro-Tlaxcala">
+                                        Layout ZG C: Puebla-Queretaro-Tlaxcala
                                     </option>
                                     <option value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
                                         Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche</option>
@@ -683,13 +683,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="graficas3">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#infoGrafica3" aria-expanded="false"
-                                    aria-controls="infoGrafica3">
+                                    data-bs-target="#infoGrafica3" aria-expanded="false" aria-controls="infoGrafica3">
                                     Entregados
                                 </button>
                             </h2>
-                            <div id="infoGrafica3" class="accordion-collapse collapse"
-                                aria-labelledby="infoGrafica3">
+                            <div id="infoGrafica3" class="accordion-collapse collapse" aria-labelledby="infoGrafica3">
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div>
@@ -699,12 +697,97 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica4" aria-expanded="false" aria-controls="infoGrafica4">
+                                    Por dias y regiones
+                                </button>
+                            </h2>
+                            <div id="infoGrafica4" class="accordion-collapse collapse" aria-labelledby="infoGrafica4">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col" id="disPorDias">
+
+                                        </div>
+                                        <div class="col" id="regionesGrafica">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica5" aria-expanded="false" aria-controls="infoGrafica5">
+                                    Entregados
+                                </button>
+                            </h2>
+                            <div id="infoGrafica5" class="accordion-collapse collapse" aria-labelledby="infoGrafica5">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div id="disPorDias">
+
+                                        </div>
+                                        <div id="regionesGrafica">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica6" aria-expanded="false" aria-controls="infoGrafica6">
+                                    Entregados
+                                </button>
+                            </h2>
+                            <div id="infoGrafica6" class="accordion-collapse collapse" aria-labelledby="infoGrafica6">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col" id="porcentajeDocs">
+
+                                        </div>
+                                        <div class="col" id="porcentajeTotal">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="graficas7">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#infoGrafica7" aria-expanded="false" aria-controls="infoGrafica7">
+                                    Entregados
+                                </button>
+                            </h2>
+                            <div id="infoGrafica7" class="accordion-collapse collapse" aria-labelledby="infoGrafica7">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col" id="porcentajeDocs">
+
+                                        </div>
+                                        <div class="col" id="porcentajeTotal">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="docsGrafica">
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
+
     </script>
 </body>
 

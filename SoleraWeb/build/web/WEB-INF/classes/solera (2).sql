@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 21:00:35
+-- Tiempo de generación: 07-10-2022 a las 05:33:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -72,9 +72,9 @@ INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`,
 (1, 'Cancelado', 'Sin Contacto', 'correcto', NULL, 2),
 (2, 'Terminado', 'Datos incorrectos', NULL, NULL, 3),
 (3, 'Cancelado', NULL, NULL, NULL, 4),
-(4, 'Terminado', NULL, NULL, NULL, 6),
+(4, 'Nuevo', NULL, NULL, NULL, 6),
 (5, 'Terminado', NULL, NULL, NULL, 7),
-(6, 'Cancelado', NULL, NULL, NULL, 8);
+(6, 'Terminado', NULL, NULL, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -248,10 +248,10 @@ CREATE TABLE `infosiniestro` (
 
 INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`, `tipoDeCaso`, `cobertura`, `fechaSiniestro`, `estado`, `ciudad`, `region`, `ubicacionTaller`, `financiado`, `regimenFiscal`, `estatusCliente`, `comentariosCliente`, `datosAudatex`, `passwordExterno`, `fechaCarga`) VALUES
 (2, '12424141', '123124', 'T', 'Inundacion', 'DM', '2022-09-24', 'Chiapas', 'Todos-Ninguna', 'Layout ZG H: Monterrey', ' Toluca', 'No', 'Persona fisica', 'revision', 'sin comentarios', 'werwe', 'dfgh', '2022-09-23'),
-(3, 'SIN000031', '1234569532', 'T', 'Incendio', 'DM', '2022-07-27', 'Michoacan', 'Todos-Ninguna', 'Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca', ' Cancun', 'Si', 'Persona fisica', 'Documento incorrecto', 'sin comentarios', 'null2', ' Campeche', '2022-09-10'),
-(4, 'SIN000032', '1234569533', 'T', 'COLISION', 'RT', '2022-07-27', 'Ciudad de Mexico', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-09-10'),
-(6, 'SIN000033', '1234569534', 'T', 'COLISION', 'RT', '2022-07-27', 'Estado de Mexico', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-09-01'),
-(7, 'SIN000031', '1234569535', 'T', 'COLISION', 'RT', '2022-07-27', 'Oaxaca', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-09-13'),
+(3, 'SIN000031', '1234569532', 'T', 'Incendio', 'DM', '2022-07-27', 'Michoacan', 'Todos-Ninguna', 'Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca', ' Cancun', 'Si', 'Persona fisica', 'Documento incorrecto', 'sin comentarios', 'null2', ' Campeche', '2022-08-10'),
+(4, 'SIN000032', '1234569533', 'T', 'COLISION', 'RT', '2022-07-27', 'Ciudad de Mexico', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-07-10'),
+(6, 'SIN000033', '1234569534', 'T', 'COLISION', 'RT', '2022-07-27', 'Estado de Mexico', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-06-01'),
+(7, 'SIN000031', '1234569535', 'T', 'COLISION', 'RT', '2022-07-27', 'Oaxaca', 'PUEBLA', 'LAYOUT ZG - C', 'NO LOCALIZADO', 'NO', 'PE', 'Enviado', NULL, NULL, NULL, '2022-05-13'),
 (8, 'SIN000131', '1234567890', '1', 'Colision', 'DM', '2022-09-07', 'Aguascalientes', 'Todos-Ninguna', 'A: Guadalajara, Colima, Nayarit', 'as', 'Si', 'Persona fisica', 'Documento incorrecto', 'ASD', 'ser', 'qwqwe', '2022-09-13');
 
 -- --------------------------------------------------------

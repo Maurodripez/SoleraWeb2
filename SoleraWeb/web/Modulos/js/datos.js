@@ -272,6 +272,7 @@ window.addEventListener("load", function () {
     url: "../ControladorMostrarDatos",
     data: {
       accion: "MostrarSiniestrosNoDocs",
+      soloDatos: "SoloDatos",
     },
     success: function (result) {
       $("#mostrarTablaDatos").html(result);

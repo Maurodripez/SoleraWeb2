@@ -60,4 +60,73 @@ public class ModeloGraficas {
         this.yesNo = yesNo;
     }
 
+    // folios por fechas//
+    private String idRegistro;
+    private String fechaCarga;
+
+    public String getIdRegistro() {
+        return this.idRegistro;
+    }
+
+    public void setIdRegistro(String idRegistro) {
+        this.idRegistro = idRegistro;
+    }
+
+    public String getFechaCarga() {
+        return this.fechaCarga;
+    }
+
+    public void setFechaCarga(String fechaCarga) {
+        this.fechaCarga = fechaCarga;
+    }
+
+    // gfrafioca por regiones//
+    private String contRegiones;
+    private String regiones;
+
+    public String getContRegiones() {
+        return this.contRegiones;
+    }
+
+    public void setContRegiones(String contRegiones) {
+        this.contRegiones = contRegiones;
+    }
+
+    public String getRegiones() {
+        return this.regiones;
+    }
+
+    public void setRegiones(String regiones) {
+        this.regiones = regiones;
+    }
+
+    // Grafica documentos//
+    private String conteoDocs;
+    private String nombreDocs;
+    private int conteoTotal;
+
+    public int getConteoTotal() {
+        return this.conteoTotal;
+    }
+
+    public void setConteoTotal(int conteoTotal) {
+        this.conteoTotal = conteoTotal;
+    }
+
+    public String getConteoDocs() {
+        return this.conteoDocs;
+    }
+
+    public void setConteoDocs(String conteoDocs) {
+        this.conteoDocs = conteoDocs;
+    }
+
+    public String getNombreDocs() {
+        return this.nombreDocs;
+    }
+
+    public void setNombreDocs(String nombreDocs) {
+        this.nombreDocs = nombreDocs;
+    }
+
 }

@@ -33,10 +33,36 @@ public class DatosReporte extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            DAOConsultasMapas dcMapas = new DAOConsultasMapas();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE, -365);
+            Date todate = cal.getTime();
+            String fechaBuscar = dateFormat.format(todate);
             DAOConsultasMapas daoCMapa = new DAOConsultasMapas();
             DAOInfoCartas diCartas = new DAOInfoCartas();
             String accion = request.getParameter("accion");
+            int conteo = 0;
             switch (accion) {
+                case "reporteDocumentos":
+                    for (ModeloGraficas mGraficas : daoCMapa.getDocumentos()) {
+                        conteo += Integer.parseInt(mGraficas.getConteoDocs());
+                        out.print(mGraficas.getNombreDocs() + "," + mGraficas.getConteoDocs() + ",");
+                    }
+                    out.print(conteo);
+                    break;
+                case "FoliosFechas":
+
+                    out.print(daoCMapa.Dias0a2() + "," + daoCMapa.Dias3a5() + "," + daoCMapa.Dias6a14() + ","
+                            + daoCMapa.DiasMas15());
+                    break;
+                case "porRegiones":
+                    for (ModeloGraficas mGraficas : daoCMapa.getRegiones()) {
+                        out.print(mGraficas.getRegiones() + "," + mGraficas.getContRegiones() + ",");
+                        conteo += 1;
+                    }
+                    out.print(conteo);
+                    break;
                 case "InfoCartas":
                     for (ModeloInfoCartas miCartas : diCartas.getEstacion()) {
                         out.print(miCartas.getConteo() + ",");
@@ -51,6 +77,18 @@ public class DatosReporte extends HttpServlet {
                     out.print(daoCMapa.contadorPorcentaje);
                     break;
                 case "AsignadosEntregados":
+                    boolean entra1 = true;
+                    boolean entra2 = true;
+                    boolean entra3 = true;
+                    boolean entra4 = true;
+                    boolean entra5 = true;
+                    boolean entra6 = true;
+                    boolean entra7 = true;
+                    boolean entra8 = true;
+                    boolean entra9 = true;
+                    boolean entra10 = true;
+                    boolean entra11 = true;
+                    boolean entra12 = true;
                     int eneroYes = 0;
                     int febreroYes = 0;
                     int marzoYes = 0;
@@ -75,13 +113,9 @@ public class DatosReporte extends HttpServlet {
                     int octubreNo = 0;
                     int noviembreNo = 0;
                     int diciembreNo = 0;
-                    DAOConsultasMapas dcMapas = new DAOConsultasMapas();
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    Calendar cal = Calendar.getInstance();
-                    cal.add(Calendar.DATE, -365);
-                    Date todate = cal.getTime();
-                    String fechaBuscar = dateFormat.format(todate);
+                    int contador = 0;
                     for (ModeloGraficas mGraficas : daoCMapa.getAsignadosEntregados(fechaBuscar)) {
+                        contador += 1;
                         switch (mGraficas.getMes()) {
                             case "enero":
                                 if ("yes".equals(mGraficas.getYesNo())) {
@@ -168,37 +202,37 @@ public class DatosReporte extends HttpServlet {
                                 }
                                 break;
                         }
-                        for (ModeloGraficas mGraficas2 : daoCMapa.getAsignadosEntregados(fechaBuscar)) {
-                            if ("enero".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + eneroYes + "," + eneroNo + ",");
-                            } else if ("febrero".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + febreroYes + "," + febreroNo + ",");
-                            } else if ("marzo".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + marzoYes + "," + marzoNo + ",");
-                            } else if ("abril".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + abrilYes + "," + abrilNo + ",");
-                            } else if ("mayo".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + mayoYes + "," + mayoNo + ",");
-                            } else if ("junio".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + junioYes + "," + junioNo + ",");
-                            } else if ("julio".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + julioYes + "," + julioNo + ",");
-                            } else if ("agosto".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + agostoYes + "," + agostoNo + ",");
-                            } else if ("septiembre".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + septiembreYes + "," + septiembreNo + ",");
-                            } else if ("octubre".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + octubreYes + "," + octubreNo + ",");
-                            } else if ("noviembre".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + noviembreYes + "," + noviembreNo + ",");
-                            } else if ("diciembre".equals(mGraficas2.getMes())) {
-                                out.print(mGraficas.getMes() + "," + diciembreYes + "," + diciembreNo + ",");
-                            }
-                        }
+                        // out.println(daoCMapa.respuesta);
                     }
+                    out.print("enero," + eneroYes + "," + eneroNo + ",");
+
+                    out.print("febrero," + febreroYes + "," + febreroNo + ",");
+
+                    out.print("marzo," + marzoYes + "," + marzoNo + ",");
+
+                    out.print("abril," + abrilYes + "," + abrilNo + ",");
+
+                    out.print("mayo," + mayoYes + "," + mayoNo + ",");
+
+                    out.print("junio," + junioYes + "," + junioNo + ",");
+
+                    out.print("julio," + julioYes + "," + julioNo + ",");
+
+                    out.print("agosto," + agostoYes + "," + agostoNo + ",");
+
+                    out.print("septiembre," + septiembreYes + "," + septiembreNo
+                            + ",");
+
+                    out.print("octubre," + octubreYes + "," + octubreNo + ",");
+
+                    out.print("noviembre," + noviembreYes + "," + noviembreNo + ",");
+
+                    out.print("diciembre," + diciembreYes + "," + diciembreNo + ",");
+
                     break;
             }
         }
+
     }
 
     /**
