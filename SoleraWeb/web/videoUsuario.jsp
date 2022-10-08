@@ -16,8 +16,16 @@
 </head>
 
 <body>
+	<input name="transmitir" id="idControl" type="hidden" value="transmitir">
+
+
+	</div>
 	<h1>Tomar foto con JavaScript</h1>
 	<h1>Selecciona un dispositivo</h1>
+	<div>
+		<label for="">imagen</label>
+<img id="mostrarimagen" src="" alt="">
+	</div>
 	<div>
 		<select name="listaDeDispositivos" id="listaDeDispositivos"></select>
 		<button id="boton">Tomar foto</button>
@@ -25,6 +33,7 @@
 	<br>
 	<video muted="muted" id="video"></video>
 	<canvas id="canvas" style="display: none;"></canvas>
+
 </body>
 <script src="./js/video.js"></script>
 
