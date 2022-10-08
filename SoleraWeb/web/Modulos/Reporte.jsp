@@ -718,30 +718,10 @@
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="graficas5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#infoGrafica5" aria-expanded="false" aria-controls="infoGrafica5">
-                                    Entregados
-                                </button>
-                            </h2>
-                            <div id="infoGrafica5" class="accordion-collapse collapse" aria-labelledby="infoGrafica5">
-                                <div class="accordion-body">
-                                    <div class="row">
-                                        <div id="disPorDias">
-
-                                        </div>
-                                        <div id="regionesGrafica">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
                             <h2 class="accordion-header" id="graficas6">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#infoGrafica6" aria-expanded="false" aria-controls="infoGrafica6">
-                                    Entregados
+                                    Porcentaje de Documentos
                                 </button>
                             </h2>
                             <div id="infoGrafica6" class="accordion-collapse collapse" aria-labelledby="infoGrafica6">
@@ -751,7 +731,7 @@
 
                                         </div>
                                         <div class="col" id="porcentajeTotal">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -761,26 +741,20 @@
                             <h2 class="accordion-header" id="graficas7">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#infoGrafica7" aria-expanded="false" aria-controls="infoGrafica7">
-                                    Entregados
+                                    Folios por Area 
                                 </button>
                             </h2>
                             <div id="infoGrafica7" class="accordion-collapse collapse" aria-labelledby="infoGrafica7">
                                 <div class="accordion-body">
                                     <div class="row">
-                                        <div class="col" id="porcentajeDocs">
+                                        <div id="docsGrafica">
 
                                         </div>
-                                        <div class="col" id="porcentajeTotal">
-                                            
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="docsGrafica">
-
-                        </div>
-
                     </div>
                 </div>
             </div>
