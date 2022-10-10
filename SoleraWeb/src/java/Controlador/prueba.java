@@ -19,19 +19,16 @@ public class prueba extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String datosFoto = request.getParameter("infoFoto");
-            String ruta = "C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/fotogramas.txt";
-            String contenido = datosFoto;
-            File file = new File(ruta);
-            // Si el archivo no existe es creado
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            try (BufferedWriter bw = new BufferedWriter(fw)) {
-                bw.write(contenido);
-            }
-            out.println(datosFoto);
+            FileWriter fichero = null;
+            PrintWriter pw = null;
+            String datosFoto = request.getParameter("datosFoto");
+            fichero = new FileWriter("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt",
+                    false);
+            pw = new PrintWriter(fichero);
+            pw.println(datosFoto);
+            // viejoNom.renameTo(nuevoNom);
+            // out.println(viejoNom);
+
         }
     }
 

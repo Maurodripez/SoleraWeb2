@@ -10,75 +10,64 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  *
  * @author SEAS
  */
-@WebServlet(name = "leerImagenes", urlPatterns = {"/leerImagenes"})
+@WebServlet(name = "leerImagenes", urlPatterns = { "/leerImagenes" })
 public class leerImagenes extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            File doc = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\fotogramas.txt");
-            out.println(doc);
-            BufferedReader obj = new BufferedReader(new FileReader(doc));
-            String strng;
-            out.println(obj.readLine());
-           // while ((strng = obj.readLine()) != null)
-            //  out.println(strng);
+        try (PrintWriter out = response.getWriter()) {
+            String idRegistro = request.getParameter("idRegistro");
+            String guardarImagen = request.getParameter("guardarImagen");
+            String nombreDocumento = request.getParameter("nombreDocumento");
+            File doc = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            if ("guardarImagen".equals(guardarImagen)) {
+                //se obtiene la imagen que esta en ese momento y se gfurdar y se manda a llmar a l bd
+                Path origenPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ImagenesVideo/imagenes.txt");
+                Path destinoPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + idRegistro
+                        + "/" + nombreDocumento + ".txt");
+                // sobreescribir el fichero de destino si existe y lo copia
+                Files.copy(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+                out.println("Guardada con exito");
+            }else{
+                BufferedReader obj = new BufferedReader(new FileReader(doc));
+                String strng;
+                //se recore la imagen para mostrarla en pantalla con ajax
+                while ((strng = obj.readLine()) != null)
+                    out.println(strng);
+            }
         }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
-    // + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

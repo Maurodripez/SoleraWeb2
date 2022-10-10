@@ -12,12 +12,10 @@
 </head>
 
 <body>
-    <input name="transmitir" id="idControl" type="hidden" value="recibir">
     <div>
-        <label for="">imagen</label>
         <img id="mostrarimagen64" src="" alt="">
     </div>
 </body>
-<script src="./js/video.js"></script>
+<script src="./js/resultadoImg.js"></script>
 
 </html>

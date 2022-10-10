@@ -567,3 +567,4 @@ function convertirPDF(getId) {
   sinPuntos = nombreArchivo.split(".");
   doc.save("" + sinPuntos[0] + ".pdf");
 }
+
