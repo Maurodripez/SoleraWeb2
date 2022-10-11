@@ -22,12 +22,11 @@ public class prueba extends HttpServlet {
             FileWriter fichero = null;
             PrintWriter pw = null;
             String datosFoto = request.getParameter("datosFoto");
-            fichero = new FileWriter("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt",
-                    false);
+            fichero = new FileWriter("C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+         //   fichero = new FileWriter("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt",
+           //         false);
             pw = new PrintWriter(fichero);
             pw.println(datosFoto);
-            // viejoNom.renameTo(nuevoNom);
-            // out.println(viejoNom);
 
         }
     }

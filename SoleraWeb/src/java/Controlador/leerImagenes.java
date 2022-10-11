@@ -38,19 +38,30 @@ public class leerImagenes extends HttpServlet {
             String idRegistro = request.getParameter("idRegistro");
             String guardarImagen = request.getParameter("guardarImagen");
             String nombreDocumento = request.getParameter("nombreDocumento");
-            File doc = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            File doc = new File(
+                    "C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            // File doc = new
+            // File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
             if ("guardarImagen".equals(guardarImagen)) {
-                //se obtiene la imagen que esta en ese momento y se gfurdar y se manda a llmar a l bd
-                Path origenPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ImagenesVideo/imagenes.txt");
-                Path destinoPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + idRegistro
-                        + "/" + nombreDocumento + ".txt");
+                // se obtiene la imagen que esta en ese momento y se gfurdar y se manda a llmar
+                // a l bd
+                Path origenPath = Paths
+                        .get("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/ImagenesVideo/imagenes.txt");
+                Path destinoPath = Paths.get("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/documentos/"
+                        + idRegistro + "/" + nombreDocumento + ".txt");
+                // Path origenPath =
+                // Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ImagenesVideo/imagenes.txt");
+                // Path destinoPath =
+                // Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" +
+                // idRegistro
+                // + "/" + nombreDocumento + ".txt");
                 // sobreescribir el fichero de destino si existe y lo copia
                 Files.copy(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
                 out.println("Guardada con exito");
-            }else{
+            } else {
                 BufferedReader obj = new BufferedReader(new FileReader(doc));
                 String strng;
-                //se recore la imagen para mostrarla en pantalla con ajax
+                // se recore la imagen para mostrarla en pantalla con ajax
                 while ((strng = obj.readLine()) != null)
                     out.println(strng);
             }

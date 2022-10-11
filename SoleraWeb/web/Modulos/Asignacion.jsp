@@ -6,18 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignacion</title>
-<script src="../js/jquery-3.6.1.js"></script>    
-<script src="./js/Asignacion.js"></script>
+    <script src="../js/jquery-3.6.1.js"></script>
 </head>
 
 <body>
-    <form enctype="multipart/form-data" action="../CargarSiniestro" method="post">
-        <input type="file" name="nombrearchivo" id="CargaSiniestro">
-        <button type="submit">
-            aprietame
-        </button>
-    </form>
+    <input type="file" id="file-input" />
+    <h3>Contenido del archivo:</h3>
+    <pre id="contenido-archivo"></pre>
 
 </body>
+<script src="./js/Asignacion.js"></script>
 
 </html>
