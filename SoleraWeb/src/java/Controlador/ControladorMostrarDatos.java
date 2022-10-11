@@ -203,9 +203,11 @@ public class ControladorMostrarDatos extends HttpServlet {
                 }
             } else if ("MostrarSiniestrosNoDocs".equals(accion)) {
                 String porcentaje = request.getParameter("porcentajes");
-                String soloDatos = request.getParameter("SoloDatos");
+                String soloDatos = request.getParameter("soloDatos");
+                int cont = 0;
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.getTodosSinDocs()) {
                     if ("Solo%".equals(porcentaje)) {
+
                         if ("true".equals(mbDatos.getIdentificacionOficial())) {
                             porcentajeDocs += 10;
                         }
@@ -323,9 +325,13 @@ public class ControladorMostrarDatos extends HttpServlet {
                         out.println(" <td class='col'>" + porcentajeTotal + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getEstado() + "</td>");
                         out.println("</tr>");
+                        cont += 1;
+                        if (cont == 5) {
+                            return;
+                        }
                     }
                 }
-
+                out.println(cont);
             }
         }
 

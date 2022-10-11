@@ -15,6 +15,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import DAO.DAOGuardarImagenes;
+
 /**
  *
  * @author SEAS
@@ -37,26 +39,33 @@ public class leerImagenes extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String idRegistro = request.getParameter("idRegistro");
             String guardarImagen = request.getParameter("guardarImagen");
-            String nombreDocumento = request.getParameter("nombreDocumento");
-            File doc = new File(
-                    "C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
-            // File doc = new
-            // File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            String nombreDocumento = request.getParameter("nombreDocumento") + ".txt";
+            // File doc = new File(
+            // "C:\\Users\\death\\Desktop\\Solera Web
+            // 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            File doc = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
             if ("guardarImagen".equals(guardarImagen)) {
+                int respuestaGuardar = -1;
+                DAOGuardarImagenes dgImagenes = new DAOGuardarImagenes();
                 // se obtiene la imagen que esta en ese momento y se gfurdar y se manda a llmar
                 // a l bd
-                Path origenPath = Paths
-                        .get("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/ImagenesVideo/imagenes.txt");
-                Path destinoPath = Paths.get("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/documentos/"
-                        + idRegistro + "/" + nombreDocumento + ".txt");
-                // Path origenPath =
-                // Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ImagenesVideo/imagenes.txt");
-                // Path destinoPath =
-                // Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" +
-                // idRegistro
-                // + "/" + nombreDocumento + ".txt");
+                // Path origenPath = Paths
+                // .get("C:/Users/death/Desktop/Solera Web
+                // 2/SoleraWeb2/SoleraWeb/web/ImagenesVideo/imagenes.txt");
+                // Path destinoPath = Paths.get("C:/Users/death/Desktop/Solera Web
+                // 2/SoleraWeb2/SoleraWeb/web/documentos/"
+                // + idRegistro + "/" + nombreDocumento + ".txt");
+                Path origenPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ImagenesVideo/imagenes.txt");
+                String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + idRegistro
+                        + "\\"+nombreDocumento+"";
+                Path destinoPath = Paths.get("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" +
+                        idRegistro
+                        + "/" + idRegistro + "" + nombreDocumento);
                 // sobreescribir el fichero de destino si existe y lo copia
                 Files.copy(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+                respuestaGuardar = dgImagenes.guardarImagen(nombreDocumento, rutaImagenes, idRegistro,
+                        idRegistro + "" + nombreDocumento);
+                out.println(respuestaGuardar);
                 out.println("Guardada con exito");
             } else {
                 BufferedReader obj = new BufferedReader(new FileReader(doc));

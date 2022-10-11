@@ -73,7 +73,6 @@ public class DAOMostrarDatos {
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            respuesta = "entra 2";
             while (rs.next()) {
                 ModeloBusquedaDatos mbDatos = new ModeloBusquedaDatos();
                 mbDatos.setIdRegistro(rs.getString("idRegistro"));

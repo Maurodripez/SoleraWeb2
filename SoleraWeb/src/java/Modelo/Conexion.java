@@ -12,7 +12,6 @@ public class Conexion {
     public static String usuario = "root";
     public static String clave = "";
     public static String clase = "com.mysql.cj.jdbc.Driver";
-    PreparedStatement pStatement;
     ResultSet rs;
     public Connection conexion = null;
 
@@ -26,9 +25,9 @@ public class Conexion {
         }
         return conexion;
     }
-    public void Desconectar() throws SQLException{
-    pStatement.close();
-    }
 
+    public void Desconectar() throws SQLException {
+        conexion.close();
+    }
 
 }

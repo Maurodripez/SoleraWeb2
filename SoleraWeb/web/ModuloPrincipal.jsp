@@ -24,13 +24,11 @@
         <!--se importa en el archivo jsp el script para poder obtener los valores y mostrarlos de manera dinamica -->
         <!---->
         <%@page import="Controlador.MostrarDatosServlet" %>
-        <%@page import="DAO.TablaDocumentosDAO" %>
         <%@page import="Modelo.Conexion" %>
         <%@page import="java.sql.ResultSet" %>
         <%@page import="DAO.DiasEsperandoRespuesta" %>
         <% DiasEsperandoRespuesta deRespuesta=new DiasEsperandoRespuesta();%>
         <% Conexion conexion=new Conexion();%>
-        <% TablaDocumentosDAO tdDAO=new TablaDocumentosDAO();%>
         <% MostrarDatosServlet mdServlet=new MostrarDatosServlet();%>
         <div class="row">
             <div class="col text-left display-6 p-2">

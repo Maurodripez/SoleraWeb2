@@ -506,6 +506,7 @@ function mostrarSesion() {
 function funcionesBoton(getId) {
   let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
+  let sinPuntos = getId.split(".");
   switch (sinComas[0]) {
     case "Ver":
       $.ajax({
@@ -515,6 +516,19 @@ function funcionesBoton(getId) {
           accion: "Ver",
         },
         success: function (result) {
+          if(sinPuntos[1]==="txt"){
+            let imagen = document.getElementById("docSeleccionado");
+            $.ajax({
+              method: "POST",
+              url: "leerImagenes",
+              data: {
+                accion: "traerImagen64",
+              },
+              success: function(result){
+                imagen.src = result;
+              }
+            })
+          }
           let imagen = document.getElementById("docSeleccionado");
           imagen.setAttribute(
             "src",
@@ -567,4 +581,3 @@ function convertirPDF(getId) {
   sinPuntos = nombreArchivo.split(".");
   doc.save("" + sinPuntos[0] + ".pdf");
 }
-

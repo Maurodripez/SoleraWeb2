@@ -17,6 +17,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/MostrarDatosMapas.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/ModuloPrincipal.jsp</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/TablaDocumentosDAO.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/WEB-INF/glassfish-web.xml</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOTablaDocumentos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/GuardadoImagenesServlet.java</file>
@@ -24,6 +25,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ControladorMostrarDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOConsultasMapas.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/ObtenerInfoDesplegable.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/js/resultadoImg.js</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOInfoCartas.java</file>
         </group>
     </open-files>

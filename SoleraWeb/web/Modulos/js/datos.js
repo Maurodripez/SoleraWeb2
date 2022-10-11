@@ -1,5 +1,17 @@
+window.addEventListener("load", function () {
+  $.ajax({
+    method: "POST",
+    url: "../ControladorMostrarDatos",
+    data: {
+      accion: "MostrarSiniestrosNoDocs",
+      soloDatos: "SoloDatos",
+    },
+    success: function (result) {
+      $("#mostrarTablaDatos").html(result);
+    },
+  });
+});
 function buscarDatos() {
-  alert("entra");
   txtFechaCarga = document.getElementById("txtFechaCarga").value;
   if (txtFechaCarga == "Selecciona...") {
     txtFechaCarga = "";
@@ -266,16 +278,3 @@ function funcionesBoton(getId) {
       break;
   }
 }
-window.addEventListener("load", function () {
-  $.ajax({
-    method: "POST",
-    url: "../ControladorMostrarDatos",
-    data: {
-      accion: "MostrarSiniestrosNoDocs",
-      soloDatos: "SoloDatos",
-    },
-    success: function (result) {
-      $("#mostrarTablaDatos").html(result);
-    },
-  });
-});

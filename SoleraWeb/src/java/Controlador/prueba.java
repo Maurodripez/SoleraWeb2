@@ -6,8 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,9 +20,9 @@ public class prueba extends HttpServlet {
             FileWriter fichero = null;
             PrintWriter pw = null;
             String datosFoto = request.getParameter("datosFoto");
-            fichero = new FileWriter("C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
-         //   fichero = new FileWriter("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt",
-           //         false);
+          //  fichero = new FileWriter("C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt");
+            fichero = new FileWriter("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\ImagenesVideo\\imagenes.txt",
+                    false);
             pw = new PrintWriter(fichero);
             pw.println(datosFoto);
 

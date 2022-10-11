@@ -131,6 +131,7 @@ const llenarSelectConDispositivosDisponibles = () => {
             contexto.drawImage($video, 0, 0, $canvas.width, $canvas.height);
 
             foto = $canvas.toDataURL("image/jpg", 0.25);
+            let fotoPdf = $canvas.toDataURL("image/pdf", 0.25);
             $.ajax({
               method: "post",
               url: "prueba",
@@ -139,15 +140,6 @@ const llenarSelectConDispositivosDisponibles = () => {
               },
               success: function (result) {},
             });
-            //   function transmision() {
-            //    let imagen = document.getElementById("mostrarimagen64");
-            //    imagen.src = foto;
-            //  }
-            // setInterval(transmision, 1000);
-            let cadena = foto; //Esta es la foto, en base 64
-            // let imagen = document.getElementById("mostrarimagen");
-            //imagen.src = foto;
-
             //Reanudar reproducción
             $video.play();
           }

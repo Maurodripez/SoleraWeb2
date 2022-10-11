@@ -7,9 +7,33 @@ function leerArchivo(e) {
   lector.onload = function (e) {
     var contenido = e.target.result;
     let contenidoJson = JSON.parse(contenido);
-    console.log(contenidoJson);
     for (let i of contenidoJson) {
-      console.log(i.titulo);
+      $.ajax({
+        method: "POST",
+        url: "../CargarSiniestro",
+        data: {
+          numSiniestro: i.numSiniestro,
+          fechaSiniestro: i.fechaSiniestro,
+          numPoliza: i.numPoliza,
+          cobertura: i.cobertura,
+          afectado: i.afectado,
+          nomAsegurado: i.nomAsegurado,
+          regimen: i.regimen,
+          telefonoPrincipal: i.telefonoPrincipal,
+          telefonoSec: i.telefonoSec,
+          correo: i.correo,
+          marca: i.marca,
+          tipo: i.tipo,
+          modelo: i.modelo,
+          numSerie: i.numSerie,
+          ciudad: i.ciudad,
+          fechaDecreto: i.fechaDecreto,
+          taller: i.taller,
+        },
+        success: function (result) {
+          alert(result);
+        },
+      });
     }
     mostrarContenido(contenido);
   };
