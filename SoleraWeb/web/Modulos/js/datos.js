@@ -10,6 +10,21 @@ window.addEventListener("load", function () {
       $("#mostrarTablaDatos").html(result);
     },
   });
+  //muestra los dias paasados por documentos
+  $.ajax({
+    method: "POST",
+    url: "../SiniestrosNoDocs",
+    data: {
+      accion: "SiniestrosEnRespuesta",
+    },
+    success: function (result) {
+      let sinComas = result.split(",");
+      $("#de0a2").html(sinComas[0]);
+      $("#de3a5").html(sinComas[1]);
+      $("#de6a14").html(sinComas[2]);
+      $("#mas15").html(sinComas[3]);
+    },
+  });
 });
 function buscarDatos() {
   txtFechaCarga = document.getElementById("txtFechaCarga").value;
@@ -133,7 +148,6 @@ function cambiarNombre(get) {
       estado.value = resultados[8];
       ciudad.value = resultados[9];
       region.value = resultados[10];
-
       ubicacionTaller.value = resultados[11];
       financiado.value = resultados[12];
       regimenFiscal.value = resultados[13];
@@ -277,4 +291,47 @@ function funcionesBoton(getId) {
       });
       break;
   }
+}
+function GuardarRegistros() {
+  $.ajax({
+    type: "POST",
+    url: "../ObtenerInfoDesplegableServlet",
+    data: {
+      fechaCarga: document.getElementById("fechaCarga").value,
+      numSiniestro: document.getElementById("numSiniestro").value,
+      poliza: document.getElementById("poliza").value,
+      afectado: document.getElementById("afectado").value,
+      tipoDeCaso: document.getElementById("tipoDeCaso").value,
+      cobertura: document.getElementById("cobertura").value,
+      fechaSiniestro: document.getElementById("fechaSiniestro").value,
+      datosAudatex: document.getElementById("datosAudatex").value,
+      estado: document.getElementById("estado").value,
+      ciudad: document.getElementById("ciudad").value,
+      region: document.getElementById("region").value,
+      ubicacionTaller: document.getElementById("ubicacionTaller").value,
+      financiado: document.getElementById("financiado").value,
+      regimenFiscal: document.getElementById("regimenFiscal").value,
+      passwordExterno: document.getElementById("passwordExterno").value,
+      estatusCliente: document.getElementById("estatusCliente").value,
+      comentariosCliente: document.getElementById("comentariosCliente").value,
+      marca: document.getElementById("marca").value,
+      tipo: document.getElementById("tipo").value,
+      modelo: document.getElementById("modelo").value,
+      placas: document.getElementById("placas").value,
+      numSerie: document.getElementById("numSerie").value,
+      valIndemnizacion: document.getElementById("valIndemnizacion").value,
+      valComercial: document.getElementById("valComercial").value,
+      asegurado: document.getElementById("asegurado").value,
+      correo: document.getElementById("correo").value,
+      telPrincipal: document.getElementById("telPrincipal").value,
+      telSecundario: document.getElementById("telSecundario").value,
+      contacto: document.getElementById("contacto").value,
+      correoContacto: document.getElementById("correoContacto").value,
+      telContacto: document.getElementById("telContacto").value,
+      idEditableActual: document.getElementById("idOculto").value,
+    },
+  }).done(function (respuesta) {
+    alert("realiza");
+    //    $("#mensaje").html(respuesta.mensaje);
+  });
 }

@@ -4,16 +4,17 @@ import java.sql.PreparedStatement;
 
 import Modelo.Conexion;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DAOCargaSiniestro {
-//script para la creacion del nuevo registro y sus fk
+    // script para la creacion del nuevo registro y sus fk
     public String setSiniestro(String numSiniestro, String fechaSiniestro, String numPoliza, String cobertura,
             String afectado, String nomAsegurado, String regimen, String telefonoPrincipal, String telefonoSec,
             String correo, String marca, String tipo, String modelo, String numSerie, String ciudad,
             String fechaDecreto, String taller) {
         Conexion conect = new Conexion();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        PreparedStatement ps;
+        ResultSet rs;
         String respuesta = "nada";
         try {
             String id = null;
@@ -53,7 +54,8 @@ public class DAOCargaSiniestro {
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
-            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso)values('" + id + "')";
+            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso,estacionProceso,estatusOperativo)values('" + id
+                    + "','Nuevo','Nuevo')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
@@ -74,7 +76,7 @@ public class DAOCargaSiniestro {
             ps.executeUpdate();
             conect.Desconectar();
             respuesta = "ejecucion con exito";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             // TODO: handle exception
             respuesta = "Error al guardar";
         }

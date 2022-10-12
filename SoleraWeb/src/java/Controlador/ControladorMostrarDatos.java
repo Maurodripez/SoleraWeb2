@@ -146,12 +146,10 @@ public class ControladorMostrarDatos extends HttpServlet {
                     out.println(" <td class='col'>" + mbDatos.getPoliza() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getMarca() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getTipo() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getModelo() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getNumSerie() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getFechaCarga() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getEstacionProceso() + "</td>");
                     out.println(" <td class='col'>" + mbDatos.getEstatusOperativo() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getSubEstatusProceso() + "</td>");
                     if ("true".equals(mbDatos.getIdentificacionOficial())) {
                         porcentajeDocs += 10;
                     }
@@ -194,6 +192,9 @@ public class ControladorMostrarDatos extends HttpServlet {
                             porcentajeTotal = "0%";
                             break;
                         case "Datos incorrectos":
+                            porcentajeTotal = "0%";
+                            break;
+                        default:
                             porcentajeTotal = "0%";
                             break;
                     }
@@ -252,6 +253,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                             case "Datos incorrectos":
                                 porcentajeTotal = "0";
                                 break;
+                            default:
+                                porcentajeTotal = "0";
                         }
                         out.print(porcentajeTotal + ",");
                     } else if ("SoloDatos".equals(soloDatos)) {
@@ -271,12 +274,10 @@ public class ControladorMostrarDatos extends HttpServlet {
                         out.println(" <td class='col'>" + mbDatos.getPoliza() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getMarca() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getTipo() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getModelo() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getNumSerie() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getFechaCarga() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getEstacionProceso() + "</td>");
                         out.println(" <td class='col'>" + mbDatos.getEstatusOperativo() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getSubEstatusProceso() + "</td>");
                         if ("true".equals(mbDatos.getIdentificacionOficial())) {
                             porcentajeDocs += 10;
                         }
@@ -326,9 +327,6 @@ public class ControladorMostrarDatos extends HttpServlet {
                         out.println(" <td class='col'>" + mbDatos.getEstado() + "</td>");
                         out.println("</tr>");
                         cont += 1;
-                        if (cont == 5) {
-                            return;
-                        }
                     }
                 }
                 out.println(cont);

@@ -40,11 +40,6 @@ function leerArchivo(e) {
   lector.readAsText(archivo);
 }
 
-function mostrarContenido(contenido) {
-  var elemento = document.getElementById("contenido-archivo");
-  elemento.innerHTML = contenido;
-}
-
 document
   .getElementById("file-input")
   .addEventListener("change", leerArchivo, false);

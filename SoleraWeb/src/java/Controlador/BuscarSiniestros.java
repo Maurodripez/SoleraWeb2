@@ -48,6 +48,7 @@ public class BuscarSiniestros extends HttpServlet {
             switch (idObtenido) {
                 case "txtBuscar0a2":
                     for (Siniestros sin : bAjax.getResultados(mayorQue, menorQue)) {
+                        out.println("entra aqui");
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
                                 + "<button type='button' id='" + sin.getIdRegistro()
@@ -341,9 +342,7 @@ public class BuscarSiniestros extends HttpServlet {
                     }
                     break;
                 case "txtBtnGeneralBuscar":
-                    if (!"".equals(filtro))
-
-                    {
+                    if (!"".equals(filtro)) {
                         for (Siniestros sin : bAjax.getSiniestroGeneral(filtro)) {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
@@ -365,8 +364,6 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println(" <td align='center' class='col'>" + sin.getEstatusCliente() + "</td>");
                             out.println("</tr>");
                         }
-                    } else {
-                        out.println(" <a>nada</a>");
                     }
                 default:
                     break;

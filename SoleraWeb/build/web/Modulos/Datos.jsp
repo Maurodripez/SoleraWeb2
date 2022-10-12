@@ -34,7 +34,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
-                                            espera
+                                            <div id="de0a2">
+
+                                            </div>
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -106,7 +108,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
-                                            espera
+                                            <div id="de3a5">
+
+                                            </div>
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -182,7 +186,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
-                                            espera
+                                            <div id="de6a14">
+
+                                            </div>
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -261,7 +267,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
-                                            espera
+                                            <div id="mas15">
+
+                                            </div>
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -805,10 +813,11 @@
                                float-end">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
                                 <th scope="col">
-                                    Numero
-                                    de
+                                    Editar
+                                </th>
+                                <th scope="col">
+                                    Id
                                     registro
                                 </th>
                                 <th scope="col">
@@ -821,7 +830,6 @@
                                     Marca
                                 </th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col">Modelo</th>
                                 <th scope="col">
                                     Numero de Serie
                                 </th>
@@ -835,9 +843,6 @@
                                     Estatus
                                 </th>
                                 <th scope="col">
-                                    SubEstatus
-                                </th>
-                                <th scope="col">
                                     % de documentos
                                 </th>
                                 <th scope="col">
@@ -848,199 +853,172 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <div class="row">
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" name="SearchButtonGeneral">
-                                            <!--se implementa el boton busqueda general-->
-                                            <form class="form-search
-                                              float-end">
-                                                <div class="input-group">
-                                                    <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                        size="15" type="text">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </td>
+                        <thead>
+                            <div class="row">
+                                <td>
+                                    <div class="col-2" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search float-end">
+                                            <div class="input-group">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col" name="SearchButtonGeneral">
+                                        <!--se implementa el boton busqueda general-->
+                                        <form class="form-search
+                                          float-end">
+                                            <div class="input-group">
+                                                <input class="form-control" maxlength="128" placeholder="Buscar"
+                                                    size="15" type="text">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
 
-                                </div>
-                            </tr>
-                        </tbody>
+                            </div>           
+                        </thead>
                     </table>
                     <table>
                         <tbody>
-                            <div id="mostrarTablaDatos" class="row">
+                            <tr>
+                                <div id="mostrarTablaDatos" class="row">
 
-                            </div>
+                                </div>
+                            </tr>
                         </tbody>
 
                     </table>
@@ -1495,58 +1473,43 @@
                                                         <option selected>
                                                             Todos-Ninguna
                                                         </option>
-                                                        <option value="Layout ZG A: Guadalajara, Colima, Nayarit">
-                                                            Layout ZG A: Guadalajara, Colima, Nayarit
+                                                        <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
+                                                            Layout ZG A: Guadalajara-Colima-Nayarit
+                                                        </option>
+                                                        <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
+                                                            Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca
                                                         </option>
                                                         <option
-                                                            value="Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca">
-                                                            Layout ZG B: Acapulco, Toluca, Pachuca, Cuernavaca
+                                                            value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
+                                                            Layout ZG C: Puebla-Queretaro-Tlaxcala
                                                         </option>
                                                         <option
-                                                            value="Layout ZG Layout ZG C: Puebla, Queretaro, Tlaxcala">
-                                                            Layout ZG C: Puebla, Queretaro, Tlaxcala
+                                                            value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
+                                                            Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche
                                                         </option>
                                                         <option
-                                                            value="Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa, Campeche">
-                                                            Layout ZG D: Merida, Cancun, Tuxtla, Villahermosa,
-                                                            Campeche</option>
-                                                        <option
-                                                            value="Layout ZG E: Leon, San Luis Potosi, Aguascalientes, Morelia, Tamaulipas, Zacatecas">
-                                                            Layout ZG E: Leon, San Luis
-                                                            Potosi,
-                                                            Aguascalientes, Morelia,
-                                                            Tamaulipas,
-                                                            Zacatecas</option>
-                                                        <option value="Layout ZG F: CDMX, Estado de Mexico">
-                                                            Layout ZG F: CDMX, Estado de
-                                                            Mexico
+                                                            value="Layout ZG E: Leon-San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
+                                                            Layout ZG E: Leon-San Luis
+                                                            Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas</option>
+                                                        <option value="Layout ZG F: CDMX-Estado de Mexico">
+                                                            Layout ZG F: CDMX-Estado de Mexico
                                                         </option>
                                                         <option
-                                                            value="Layout ZG G: Coatzacualcos, Oaxaca, Veracruz, Xalapa">
-                                                            Layout ZG G: Coatzacualcos,
-                                                            Oaxaca, Veracruz, Xalapa
+                                                            value="Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa">
+                                                            Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa
                                                         </option>
                                                         <option value="Layout ZG H: Monterrey">H:
                                                             Layout ZG Monterrey</option>
                                                         <option
-                                                            value="Layout ZG I: Chihuahua, Cd. Juarez, Reynosa, Saltillo, Tampico, Torreon, Nuevo Laredo, Durango">
-                                                            Layout ZG I: Chihuahua, Cd.
-                                                            Juarez,
-                                                            Reynosa, Saltillo,
-                                                            Tampico,
-                                                            Torreon,
-                                                            Nuevo Laredo, Durango
+                                                            value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
+                                                            Layout ZG I: Chihuahua-Cd.
+                                                            Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo,
+                                                            Durango
                                                         </option>
                                                         <option
-                                                            value="Layout ZG J: Mexicali, Cd. Obregon, Culiacan, Hermosillo, Los Mochis, Tijuana Baja California, Baja California Sur">
-                                                            Layout ZG J: Mexicali, Cd.
-                                                            Obregon,
-                                                            Culiacan, Hermosillo,
-                                                            Los
-                                                            Mochis,
-                                                            Tijuana Baja California,
-                                                            Baja
-                                                            California Sur</option>
+                                                            value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
+                                                            Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los
+                                                            Mochis-Tijuana Baja California-Baja California Sur</option>
                                                         <option value="Todos/Ninguno">
                                                             Todos/Ninguno</option>
                                                     </select>

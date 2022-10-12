@@ -18,30 +18,24 @@ public class BusquedaAjax {
         List<Siniestros> lista = new ArrayList<>();
 
         conect.conectar();
-        String sql = "select iSin.idregistro as 'Id Registro',"
-                + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-                + " iSin.poliza as 'Poliza', iSin.estatusCliente as 'Estatus Cliente', "
-                + " datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
-                + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
-                + " from infoSiniestro as iSin left join fechasseguimiento as fSeguimiento on iSin.idRegistro = fSeguimiento.fkidRegistro "
-                + " left join infocliente as ia on ia.fkIdRegistro = iSin.idRegistro "
-                + " where iSin.idregistro like '%" + filtro + "%' or iSin.numSiniestro like '%" + filtro
-                + "%' or ia.nomAseguradoPropietario like '%" + filtro + "%' or iSin.poliza like '%" + filtro + "%' or "
-                + " iSin.estatusCliente like '%" + filtro
-                + "%' or datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc) like '%" + filtro
-                + "%' or fseguimiento.fechaPrimerEnvioDoc like '%" + filtro + "%'";
+        String sql = "select idRegistro,numSiniestro, asegurado, poliza, estatusCliente, datediff(CURDATE(),fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
+                + " fechaPrimerEnvioDoc from infosiniestro,fechasseguimiento, infocliente as ia "
+                + " where idRegistro=fechasseguimiento.fkidRegistro and idRegistro=ia.fkIdRegistro and fechaPrimerEnvioDoc is not null and (idRegistro like '%"+filtro+"%' or"
+                + " numSiniestro like '%"+filtro+"%' or ia.asegurado like '%"+filtro+"%' or poliza like '%"+filtro+"%' or "
+                + " estatusCliente like '%"+filtro+"%' or datediff(CURDATE(), fechaPrimerEnvioDoc) like '%"+filtro+"%' or"
+                + " fechaPrimerEnvioDoc like '%"+filtro+"%')";
         ps = conect.conexion.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
+            siniestros.setIdRegistro(rs.getInt("idRegistro"));
             siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
-            siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
-            siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
-            siniestros.setPoliza(rs.getString("Poliza"));
-            siniestros.setAsegurado(rs.getString("Asegurado"));
-            siniestros.setEstatusCliente(rs.getString("Estatus Cliente"));
+            siniestros.setFechaPrimerEnvioDoc(rs.getString("fechaPrimerEnvioDoc"));
+            siniestros.setNumSiniestro(rs.getString("numSiniestro"));
+            siniestros.setPoliza(rs.getString("poliza"));
+            siniestros.setAsegurado(rs.getString("asegurado"));
+            siniestros.setEstatusCliente(rs.getString("estatusCliente"));
             lista.add(siniestros);
 
         }
@@ -52,14 +46,14 @@ public class BusquedaAjax {
         List<Siniestros> lista = new ArrayList<>();
 
         conect.conectar();
-        String sql = "select iSin.idregistro as 'Id Registro',"
+        String sql = "select iSin.idRegistro as 'Id Registro',"
                 + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
                 + " iSin.poliza as 'Poliza', iSin.estatusCliente as 'Estatus Cliente', "
                 + " datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
                 + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
                 + " from infoSiniestro as iSin left join fechasseguimiento as fSeguimiento on iSin.idRegistro = fSeguimiento.fkidRegistro "
                 + " left join infocliente as ia on ia.fkIdRegistro = iSin.idRegistro "
-                + " where datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)>" + mayorQue
+                + " where datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)>=" + mayorQue
                 + " and datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc)<" + menorQue + "";
         ps = conect.conexion.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();

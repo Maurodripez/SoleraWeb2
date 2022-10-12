@@ -20,6 +20,11 @@ public class DAOGuardarImagenes {
             ps.setString(3, fkGuardar);
             ps.setString(4, nombreOriginal);
             rs = ps.executeUpdate();
+            conect.Desconectar();
+            sql = "update fechasseguimiento set fechaPrimerEnvioDoc=curdate() where fkidRegistro='"+fkGuardar+"'";
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            ps.executeUpdate();
             respuesta = "Imagen guardada";
         } catch (Exception e) {
             respuesta = "error al guardar";

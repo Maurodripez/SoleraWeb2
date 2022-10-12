@@ -8,6 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import DAO.DAOSiniestrosEnRespuesta;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @WebServlet(name = "SiniestrosNoDocs", urlPatterns = { "/SiniestrosNoDocs" })
 public class SiniestrosNoDocs extends HttpServlet {
 
@@ -21,13 +26,19 @@ public class SiniestrosNoDocs extends HttpServlet {
      * @throws IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
+        int de0a2 = 0;
+        DAOSiniestrosEnRespuesta dseRespuesta = new DAOSiniestrosEnRespuesta();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String accion = request.getParameter("accion");
             switch (accion) {
-                case "MostrarSiniestros":
-
+                case "SiniestrosEnRespuesta":
+                    dseRespuesta.todosDias();
+                    out.print(dseRespuesta.contador0a2 + ",");
+                    out.print(dseRespuesta.contador3a5 + ",");
+                    out.print(dseRespuesta.contador6a14 + ",");
+                    out.print(dseRespuesta.contadormas15);
                     break;
             }
         }
@@ -44,6 +55,10 @@ public class SiniestrosNoDocs extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(SiniestrosNoDocs.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

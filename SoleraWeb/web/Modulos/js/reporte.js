@@ -837,7 +837,6 @@ $(document).ready(function () {
       porcentajes: "Solo%",
     },
     success: function (result) {
-      alert(result);
       let contPTotal = 0;
       let contPDocs = 0;
       let de0a20D = 0;
