@@ -1,11 +1,11 @@
 function leerArchivo(e) {
-  var archivo = e.target.files[0];
+  let archivo = e.target.files[0];
   if (!archivo) {
     return;
   }
-  var lector = new FileReader();
+  let lector = new FileReader();
   lector.onload = function (e) {
-    var contenido = e.target.result;
+    let contenido = e.target.result;
     let contenidoJson = JSON.parse(contenido);
     for (let i of contenidoJson) {
       $.ajax({
@@ -43,3 +43,20 @@ function leerArchivo(e) {
 document
   .getElementById("file-input")
   .addEventListener("change", leerArchivo, false);
+const excelInput = document.getElementById("LeerExcel");
+excelInput.addEventListener("change", async function () {
+  const contenido = await readXlsxFile(excelInput.files[0]);
+  if (!contenido) {
+    return;
+  }
+  let contenidoJson = JSON.stringify(contenido);
+  let contenido2 = JSON.parse(contenidoJson);
+  console.log(contenido2);
+  console.log(contenido[0][0]);
+  console.log(contenido[1][0]);
+  console.log(contenido[1][1]);
+
+  console.log(contenido);
+  console.log(contenido[0].length);
+  console.log(contenido[0][1].length);
+});
