@@ -12,8 +12,12 @@
 </head>
 
 <body class="p-2">
-  <div>
-    <input type="file" class="form-control" id="LeerExcel">
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h5 class="card-title">Asignacion de Siniestros</h5>
+      <p class="card-text">Por favor, carga el Archivo Excel</p>
+      <input type="file" class="form-control" id="LeerExcel">
+    </div>
   </div>
   <div class="card" style="width: 40rem;">
     <div class="card-body">

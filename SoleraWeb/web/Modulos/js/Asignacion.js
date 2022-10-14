@@ -49,14 +49,53 @@ excelInput.addEventListener("change", async function () {
   if (!contenido) {
     return;
   }
-  let contenidoJson = JSON.stringify(contenido);
-  let contenido2 = JSON.parse(contenidoJson);
-  console.log(contenido2);
-  console.log(contenido[0][0]);
-  console.log(contenido[1][0]);
-  console.log(contenido[1][1]);
-
-  console.log(contenido);
-  console.log(contenido[0].length);
-  console.log(contenido[0][1].length);
+  for (let x = 1; x < contenido.length; x++) {
+    let miYear = contenido[x][1].getUTCFullYear();
+    let miMes = contenido[x][1].getUTCMonth() + 1;
+    let miDia = contenido[x][1].getUTCDate();
+    if (miMes <= 9) {
+      miMes = "0" + miMes;
+    }
+    if (miDia <= 9) {
+      miDia = "0" + miDia;
+    }
+    let nFechaSin = miYear + "-" + miMes + "-" + miDia;
+    miYear = contenido[x][15].getUTCFullYear();
+    miMes = contenido[x][15].getUTCMonth() + 1;
+    miDia = contenido[x][15].getUTC0Date();
+    if (miMes <= 9) {
+      miMes = "0" + miMes;
+      console.log(miMes);
+    }
+    if (miDia <= 9) {
+      miDia = "0" + miDia;
+    }
+    let nFechaDec = miYear + "-" + miMes + "-" + miDia;
+    $.ajax({
+      method: "POST",
+      url: "../CargarSiniestro",
+      data: {
+        numSiniestro: contenido[x][0],
+        fechaSiniestro: nFechaSin,
+        numPoliza: contenido[x][2],
+        cobertura: contenido[x][3],
+        afectado: contenido[x][4],
+        nomAsegurado: contenido[x][5],
+        regimen: contenido[x][6],
+        telefonoPrincipal: contenido[x][7],
+        telefonoSec: contenido[x][8],
+        correo: contenido[x][9],
+        marca: contenido[x][10],
+        tipo: contenido[x][11],
+        modelo: contenido[x][12],
+        numSerie: contenido[x][13],
+        ciudad: contenido[x][14],
+        fechaDecreto: nFechaDec,
+        taller: contenido[x][16],
+      },
+      success: function (result) {
+        alert(result);
+      },
+    });
+  }
 });

@@ -33,8 +33,6 @@ public class CargarSiniestro extends HttpServlet {
             DAOCargaSiniestro dcSiniestro = new DAOCargaSiniestro();
             String numSiniestro = request.getParameter("numSiniestro");
             String fechaSiniestro = request.getParameter("fechaSiniestro");
-            out.println(numSiniestro);
-            out.println(fechaSiniestro);
             String numPoliza = request.getParameter("numPoliza");
             String cobertura = request.getParameter("cobertura");
             String afectado = request.getParameter("afectado");

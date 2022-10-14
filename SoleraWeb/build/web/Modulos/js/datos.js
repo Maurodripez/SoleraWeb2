@@ -335,3 +335,27 @@ function GuardarRegistros() {
     //    $("#mensaje").html(respuesta.mensaje);
   });
 }
+function InsertarSeguimiento() {
+  $.ajax({
+    url: "../GuardarSeguimiento",
+    data: {
+      estacion: document.getElementById("txtEstacion").value,
+      comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
+      estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
+        .value,
+      respSolera: document.getElementById("txtRespSolera").value,
+      persContactada: document.getElementById("txtPersContactada").value,
+      tipoPersona: document.getElementById("txtTipoPersona").value,
+      tipoContacto: document.getElementById("txTipoContacto").value,
+      fechaSeguimiento: document.getElementById("txtFechaSeguimiento").value,
+      fechaPrimEnvDocs: document.getElementById("txtFechaPrimEnvDocs").value,
+      fechaIntExp: document.getElementById("txtFechaIntExp").value,
+      fechaFactServ: document.getElementById("txtFechaFactServ").value,
+      fechaTermino: document.getElementById("txtFechaTermino").value,
+      idRegistro: document.getElementById("idOculto").value,
+    },
+    success: function (result) {
+      alert(result);
+    },
+  });
+}
