@@ -2,7 +2,7 @@
 $(document).ready(function () {
   //////////////inicio de todos los botones de busqueda////////////////////
   $("#txtBotonEditar").click(function () {
-    var txtIdGuardado = this.id;
+    let txtIdGuardado = this.id;
     let txtMayorQue = 0;
     let txtMenorQue = 3;
     $.ajax({

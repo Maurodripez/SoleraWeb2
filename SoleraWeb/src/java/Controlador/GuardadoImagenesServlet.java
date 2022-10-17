@@ -1,6 +1,5 @@
 package Controlador;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,7 +25,7 @@ public class GuardadoImagenesServlet extends HttpServlet {
     // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
     DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
 
-    private final String[] extensiones = { ".ico", ".png", ".jpg", ".jpeg" };
+    private final String[] extensiones = { ".pdf", ".png", ".jpg", ".jpeg" };
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
