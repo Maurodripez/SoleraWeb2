@@ -6,15 +6,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-
 import DAO.DAOGuardarImagenes;
 import jakarta.servlet.http.Part;
+import static java.lang.System.out;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -24,23 +23,16 @@ public class GuardadoImagenesServlet extends HttpServlet {
     // private String rutaImagenes = "C:\\Users\\death\\Desktop\\Solera Web
     // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
     DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
-
     private final String[] extensiones = { ".pdf", ".png", ".jpg", ".jpeg" };
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String accion = request.getParameter("accion");
-        switch (accion) {
-            case "agregar":
-                guardarArchivo(request, response);
-                break;
-            default:
-                break;
-        }
+        guardarArchivo(request, response);
     }
 
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fkGuardar = request.getParameter("fkImagenes");
+        out.println(fkGuardar);
         File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
         if (!directorio.exists()) {
             if (directorio.mkdirs()) {
@@ -52,11 +44,8 @@ public class GuardadoImagenesServlet extends HttpServlet {
         String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
         File cargasImagenes = new File(rutaImagenes);
         try (PrintWriter out = response.getWriter()) {
-
             String nombre = request.getParameter("tipoArchivo");
-
             Part archivo = request.getPart("archivo");// nombre de la imagen
-
             if (archivo == null) {
                 System.out.println("Selecciona un archivo");
                 return;
@@ -69,7 +58,6 @@ public class GuardadoImagenesServlet extends HttpServlet {
         } catch (ServletException | IOException e) {
             // TODO: handle exception
         }
-
     }
 
     // metoddo para guardar el archivo///////////
@@ -94,7 +82,6 @@ public class GuardadoImagenesServlet extends HttpServlet {
         for (String et : extensiones) {
             if (nombreArchivo.toLowerCase().endsWith(et)) {
                 return true;
-
             }
         }
         return false;

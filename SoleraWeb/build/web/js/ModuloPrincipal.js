@@ -513,10 +513,7 @@ function funcionesBoton(getId) {
             });
           }
           let imagen = document.getElementById("docSeleccionado");
-          imagen.setAttribute(
-            "src",
-            "./documentos/" + direccionId + "/" + sinComas[2] + ""
-          );
+          imagen.setAttribute("src","./documentos/" + direccionId + "/" + sinComas[2] + "");
         },
       });
       break;
