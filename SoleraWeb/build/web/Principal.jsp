@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <%@ page contentType="text/html; charset=UTF-8" %>
   <script src="./js/jquery-3.6.1.js"></script>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />

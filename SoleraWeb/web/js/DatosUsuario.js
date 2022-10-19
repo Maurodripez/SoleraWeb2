@@ -1,9 +1,11 @@
 //inicio de la carga de imagenes por medio del usuario
 let botonPresionado;
+let btnAcordeon;
 $(document).ready(function (e) {
+  //obtenemos la clasepara saber que boton se esta presionando
   $(".accordion-button").on("click", function () {
-    let acordeon = $(this).attr("id");
-    alert(acordeon);
+    btnAcordeon = $(this).attr("value");
+    mortrarImagen(btnAcordeon);
   });
   //funcion para obtneer el boton que se preciona en ese momento
   $(function () {
@@ -64,6 +66,15 @@ function userSubmit() {
   return false;
 }
 window.addEventListener("load", function () {
+  document.getElementById("iFrameIdentificacion").style.display = "none";
+  document.getElementById("iFrameComprobante").style.display = "none";
+  document.getElementById("iFrameInfo").style.display = "none";
+  document.getElementById("iFrameFactura").style.display = "none";
+  document.getElementById("iFrameTenencia").style.display = "none";
+  document.getElementById("iFrameBaja").style.display = "none";
+  document.getElementById("iFrameEstado").style.display = "none";
+  document.getElementById("iFrameDenuncia").style.display = "none";
+  document.getElementById("iFrameAcreditacion").style.display = "none";
   //funciones para darle a todas las clases ocultas el id del usuario
   const idsOcultos = document.querySelectorAll(".idsOcultos");
   let obtenerInfo = document.getElementById("Valor").textContent;
@@ -79,7 +90,15 @@ window.addEventListener("load", function () {
   idsOcultos[5].value = idsOcultos[6].value + ",Estado de cuenta";
   idsOcultos[6].value = idsOcultos[7].value + ",Denuncia";
   idsOcultos[7].value = idsOcultos[8].value + ",Acreditacion";
-
+  console.log(idsOcultos[0].value);
+  console.log(idsOcultos[1].value);
+  console.log(idsOcultos[8].value);
+  console.log(idsOcultos[2].value);
+  console.log(idsOcultos[3].value);
+  console.log(idsOcultos[4].value);
+  console.log(idsOcultos[5].value);
+  console.log(idsOcultos[6].value);
+  console.log(idsOcultos[7].value);
   //////////////////////////////////////////////
 });
 function GuardarComent() {
@@ -135,13 +154,14 @@ let abrirCerrarBaja = true;
 let abrirCerrarEstado = true;
 let abrirCerrarDenun = true;
 let abrirCerrarAcred = true;
-function mortrarImagen() {
+function mortrarImagen(valor) {
   let obtenerInfo = document.getElementById("Valor").textContent;
   $.ajax({
     method: "post",
     url: "ImagenesUsuario",
     data: {
       id: obtenerInfo,
+      nombreDoc: btnAcordeon,
     },
     success: function (result) {
       let sinCodificado = result.split("=/=");
@@ -150,117 +170,306 @@ function mortrarImagen() {
           case "Identificacion oficial":
             if (abrirCerrarIdent == false) {
               let imagenSrc = document.getElementById("imgIdentificacionVer");
+              let iframe = document.getElementById("iFrameIdentificacion");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarIdent = true;
             } else {
               let imagenSrc = document.getElementById("imgIdentificacionVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarIdent = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameIdentificacion");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarIdent = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarIdent = false;
+              }
             }
             break;
 
           case "Comprobante de domicilio":
             if (abrirCerrarComp == false) {
               let imagenSrc = document.getElementById("imgComprobanteVer");
+              let iframe = document.getElementById("iFrameComprobante");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarComp = true;
             } else {
               let imagenSrc = document.getElementById("imgComprobanteVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarComp = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameComprobante");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarComp = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarComp = false;
+              }
             }
             break;
 
           case "Informacion adicional":
             if (abrirCerrarInfo == false) {
               let imagenSrc = document.getElementById("imgInfoVer");
+              let iframe = document.getElementById("iFrameInfo");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarInfo = true;
             } else {
               let imagenSrc = document.getElementById("imgInfoVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarInfo = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameInfo");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarInfo = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarInfo = false;
+              }
             }
             break;
 
           case "Factura del vehiculo":
             if (abrirCerrarFact == false) {
               let imagenSrc = document.getElementById("imgFacturaVer");
+              let iframe = document.getElementById("iFrameFactura");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarFact = true;
             } else {
               let imagenSrc = document.getElementById("imgFacturaVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarFact = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameFactura");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarFact = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarFact = false;
+              }
             }
             break;
 
           case "Tenencias":
             if (abrirCerrarTenen == false) {
               let imagenSrc = document.getElementById("imgTenenciasVer");
+              let iframe = document.getElementById("iFrameTenencia");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarTenen = true;
             } else {
               let imagenSrc = document.getElementById("imgTenenciasVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarTenen = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameTenencia");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarTenen = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarTenen = false;
+              }
             }
             break;
 
           case "Baja":
             if (abrirCerrarBaja == false) {
               let imagenSrc = document.getElementById("imgBajaVer");
+              let iframe = document.getElementById("iFrameBaja");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarBaja = true;
             } else {
               let imagenSrc = document.getElementById("imgBajaVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarBaja = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameBaja");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarBaja = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarBaja = false;
+              }
             }
             break;
 
           case "Estado de cuenta":
             if (abrirCerrarEstado == false) {
               let imagenSrc = document.getElementById("imgEstadoVer");
+              let iframe = document.getElementById("iFrameEstado");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarEstado = true;
             } else {
               let imagenSrc = document.getElementById("imgEstadoVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarEstado = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameEstado");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarEstado = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarEstado = false;
+              }
             }
             break;
 
           case "Denuncia":
             if (abrirCerrarDenun == false) {
               let imagenSrc = document.getElementById("imgDenunciaVer");
+              let iframe = document.getElementById("iFrameDenuncia");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarDenun = true;
             } else {
               let imagenSrc = document.getElementById("imgDenunciaVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarDenun = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameDenuncia");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarDenun = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarDenun = false;
+              }
             }
             break;
 
           case "Acreditacion":
             if (abrirCerrarAcred == false) {
               let imagenSrc = document.getElementById("imgAcreditacionVer");
+              let iframe = document.getElementById("iFrameAcreditacion");
+              iframe.style.display = "none";
               imagenSrc.src = "";
               abrirCerrarAcred = true;
             } else {
               let imagenSrc = document.getElementById("imgAcreditacionVer");
-              imagenSrc.src =
-                "./documentos/" + obtenerInfo + "/" + sinCodificado[i + 2] + "";
-              abrirCerrarAcred = false;
+              let saberExt = sinCodificado[i + 2].slice(
+                ((sinCodificado[i + 2].lastIndexOf(".") - 1) >>> 0) + 2
+              );
+              if (saberExt === "pdf") {
+                let iframe = document.getElementById("iFrameAcreditacion");
+                iframe.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                iframe.style.display = "";
+                abrirCerrarAcred = false;
+              } else {
+                imagenSrc.src =
+                  "./documentos/" +
+                  obtenerInfo +
+                  "/" +
+                  sinCodificado[i + 2] +
+                  "";
+                abrirCerrarAcred = false;
+              }
             }
             break;
         }

@@ -9,13 +9,13 @@ import Modelo.Conexion;
 import Modelo.ModeloImagenesCliente;
 
 public class DAOImagenesCliente {
-    public List<ModeloImagenesCliente> getImagenes(String id) {
+    public List<ModeloImagenesCliente> getImagenes(String id,String nombDoc) {
         List<ModeloImagenesCliente> lista = new ArrayList<>();
         Conexion conect = new Conexion();
         PreparedStatement ps;
         ResultSet rs;
         try {
-            String sql = "select rutaImagen, nombreImagen,nombreOriginal from imagenes where fkImagen = '" + id + "'";
+            String sql = "select rutaImagen, nombreImagen,nombreOriginal from imagenes where fkImagen = '" + id + "' and nombreImagen like '%"+nombDoc+"%'";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();

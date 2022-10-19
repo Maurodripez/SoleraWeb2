@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <%@ page contentType="text/html; charset=UTF-8" %>
     <script src="./js/jquery-3.6.1.js"></script>
     <script src="./js/ModuloPrincipal.js"></script>
     <script src="./js/resultadoImg.js"></script>
