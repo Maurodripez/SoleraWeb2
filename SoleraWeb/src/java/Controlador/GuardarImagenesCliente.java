@@ -40,7 +40,7 @@ public class GuardarImagenesCliente extends HttpServlet {
       out.println(fkGuardar);
       String[] sinComas = fkGuardar.split(",");
       out.println(archivo.getSubmittedFileName());
-      //se obtienen la direccion real para poder obtenerla de la web
+      // se obtienen la direccion real para poder obtenerla de la web
       String realPath = request.getContextPath();
       File directorio = new File(realPath + "/SoleraWeb/web/documentos/" + sinComas[0] + "");
       if (!directorio.exists()) {
@@ -55,10 +55,10 @@ public class GuardarImagenesCliente extends HttpServlet {
       // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
       File cargarImagenes = new File(ruta);
       File doc = new File(cargarImagenes, archivo.getSubmittedFileName());
-    //  Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
+      Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
       // la carpeta seleccionada
-     // dGImagenes.guardarImagen(sinComas[1], ruta + "" + archivo.getSubmittedFileName(), sinComas[0],
-     //     archivo.getSubmittedFileName());
+      dGImagenes.guardarImagen(sinComas[1], ruta + "" + archivo.getSubmittedFileName(), sinComas[0],
+          archivo.getSubmittedFileName());
       out.println("guardado con exito");
     }
   }

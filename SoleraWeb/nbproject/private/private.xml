@@ -7,6 +7,8 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/GuardarImagenesCliente.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/SiniestrosNoDocs.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/prueba.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/DatosReporte.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BusquedaParticularDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOImagenesCliente.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/VistaUsuario.jsp</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
@@ -15,6 +17,8 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/GuardadoImagenesServlet.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ObtenerRutas.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOGuardarSeguimiento.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BuscarSiniestros.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaParticular.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaAjax.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOCargaSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ImagenesUsuario.java</file>

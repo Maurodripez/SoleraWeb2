@@ -57,7 +57,7 @@ function userSubmit() {
     processData: false, // Estos tres deben ser falsos
     contentType: false, //
     success: function (data) {
-      alert(data);
+     // alert(data);
     },
     error: function () {
       alert("Servidor anormal, intente nuevamente más tarde ...");
@@ -78,27 +78,20 @@ window.addEventListener("load", function () {
   //funciones para darle a todas las clases ocultas el id del usuario
   const idsOcultos = document.querySelectorAll(".idsOcultos");
   let obtenerInfo = document.getElementById("Valor").textContent;
+  let contador = 0;
   idsOcultos.forEach((element) => {
     element.value = obtenerInfo;
+    console.log(element.value);
   });
   idsOcultos[0].value = idsOcultos[0].value + ",Identificacion oficial";
   idsOcultos[1].value = idsOcultos[1].value + ",Comprobante de domicilio";
-  idsOcultos[8].value = idsOcultos[2].value + ",Informacion adicional";
-  idsOcultos[2].value = idsOcultos[3].value + ",Factura del vehiculo";
-  idsOcultos[3].value = idsOcultos[4].value + ",Tenencias";
-  idsOcultos[4].value = idsOcultos[5].value + ",Baja";
-  idsOcultos[5].value = idsOcultos[6].value + ",Estado de cuenta";
-  idsOcultos[6].value = idsOcultos[7].value + ",Denuncia";
-  idsOcultos[7].value = idsOcultos[8].value + ",Acreditacion";
-  console.log(idsOcultos[0].value);
-  console.log(idsOcultos[1].value);
-  console.log(idsOcultos[8].value);
-  console.log(idsOcultos[2].value);
-  console.log(idsOcultos[3].value);
-  console.log(idsOcultos[4].value);
-  console.log(idsOcultos[5].value);
-  console.log(idsOcultos[6].value);
-  console.log(idsOcultos[7].value);
+  idsOcultos[2].value = idsOcultos[2].value + ",Informacion adicional";
+  idsOcultos[3].value = idsOcultos[3].value + ",Factura del vehiculo";
+  idsOcultos[4].value = idsOcultos[4].value + ",Tenencias";
+  idsOcultos[5].value = idsOcultos[5].value + ",Baja";
+  idsOcultos[6].value = idsOcultos[6].value + ",Estado de cuenta";
+  idsOcultos[7].value = idsOcultos[7].value + ",Denuncia";
+  idsOcultos[8].value = idsOcultos[8].value + ",Acreditacion";
   //////////////////////////////////////////////
 });
 function GuardarComent() {
@@ -476,4 +469,34 @@ function mortrarImagen(valor) {
       }
     },
   });
+}
+function exportTableToExcel(tableID, filename = ''){
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+  
+  // Specify file name
+  filename = filename?filename+'.xls':'excel_data.xls';
+  
+  // Create download link element
+  downloadLink = document.createElement("a");
+  
+  document.body.appendChild(downloadLink);
+  
+  if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['ufeff', tableHTML], {
+          type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+  }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+  
+      // Setting the file name
+      downloadLink.download = filename;
+      
+      //triggering the function
+      downloadLink.click();
+  }
 }

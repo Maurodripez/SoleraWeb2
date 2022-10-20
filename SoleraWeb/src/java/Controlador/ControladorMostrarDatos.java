@@ -55,6 +55,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                         case "Hoy":
                             fechaHoy = LocalDate.now();
                             fechaBuscar1 = fechaHoy.toString();
+                            out.println(fechaBuscar1+",");
                             break;
                         case "Ayer": {
                             Calendar cal = Calendar.getInstance();
@@ -129,27 +130,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaBuscar1, estacion, estatus,
                         subEstatus,
                         fechaBuscar2, region, estado, cobertura)) {
-
-                    out.println("<tr class='row'>");
-                    out.println("<td class='col'>"
-                            + "<button type='button' id='" + mbDatos.getIdRegistro()
-                            + "' class='btn btn-primary' data-bs-toggle='modal'"
-                            + "data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
-                            + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
-                            + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
-                            + "1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>"
-                            + "<path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 "
-                            + "0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>"
-                            + "</svg></button></td>");
-                    out.println(" <td class='col'>" + mbDatos.getIdRegistro() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getNumSiniestro() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getPoliza() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getMarca() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getTipo() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getNumSerie() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getFechaCarga() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getEstacionProceso() + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getEstatusOperativo() + "</td>");
+                            out.print(mbDatos.getIdRegistro()+",");
+                            out.print(mbDatos.getNumSiniestro()+",");
+                            out.print(mbDatos.getPoliza()+",");
+                            out.print( mbDatos.getMarca()+",");
+                            out.print(mbDatos.getTipo()+",");
+                            out.print(mbDatos.getNumSerie()+",");
+                            out.print(mbDatos.getFechaCarga()+",");
+                            out.print(mbDatos.getEstacionProceso()+",");
+                            out.print(mbDatos.getEstatusOperativo()+",");
                     if ("true".equals(mbDatos.getIdentificacionOficial())) {
                         porcentajeDocs += 10;
                     }
@@ -177,7 +166,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                     if ("true".equals(mbDatos.getAcreditacion())) {
                         porcentajeDocs += 7.5;
                     }
-                    out.println(" <td class='col'>" + porcentajeDocs + "</td>");
+                    out.println(porcentajeDocs+",");
                     switch (mbDatos.getEstatusOperativo()) {
                         case "De 1 a 3 documentos":
                             porcentajeTotal = "25%";
@@ -198,9 +187,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                             porcentajeTotal = "0%";
                             break;
                     }
-                    out.println(" <td class='col'>" + porcentajeTotal + "</td>");
-                    out.println(" <td class='col'>" + mbDatos.getEstado() + "</td>");
-                    out.println("</tr>");
+                    out.println(porcentajeTotal+",");
+                    out.print(mbDatos.getEstado()+"//");
                 }
             } else if ("MostrarSiniestrosNoDocs".equals(accion)) {
                 String porcentaje = request.getParameter("porcentajes");
@@ -258,26 +246,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                         }
                         out.print(porcentajeTotal + ",");
                     } else if ("SoloDatos".equals(soloDatos)) {
-                        out.println("<tr class='row'>");
-                        out.println("<td class='col'>"
-                                + "<button type='button' id='" + mbDatos.getIdRegistro()
-                                + "' class='btn btn-primary' data-bs-toggle='modal'"
-                                + "data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
-                                + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
-                                + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
-                                + "1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>"
-                                + "<path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 "
-                                + "0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>"
-                                + "</svg></button></td>");
-                        out.println(" <td class='col'>" + mbDatos.getIdRegistro() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getNumSiniestro() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getPoliza() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getMarca() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getTipo() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getNumSerie() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getFechaCarga() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getEstacionProceso() + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getEstatusOperativo() + "</td>");
+                        out.print(mbDatos.getIdRegistro()+",");
+                        out.print(mbDatos.getNumSiniestro()+",");
+                        out.print(mbDatos.getPoliza()+",");
+                        out.print( mbDatos.getMarca()+",");
+                        out.print(mbDatos.getTipo()+",");
+                        out.print(mbDatos.getNumSerie()+",");
+                        out.print(mbDatos.getFechaCarga()+",");
+                        out.print(mbDatos.getEstacionProceso()+",");
+                        out.print(mbDatos.getEstatusOperativo()+",");
                         if ("true".equals(mbDatos.getIdentificacionOficial())) {
                             porcentajeDocs += 10;
                         }
@@ -305,7 +282,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getAcreditacion())) {
                             porcentajeDocs += 7.5;
                         }
-                        out.println(" <td class='col'>" + porcentajeDocs + "</td>");
+                       out.print(porcentajeDocs+",");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -323,9 +300,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.println(" <td class='col'>" + porcentajeTotal + "</td>");
-                        out.println(" <td class='col'>" + mbDatos.getEstado() + "</td>");
-                        out.println("</tr>");
+                        out.print(porcentajeTotal+",");
+                        out.print(mbDatos.getEstado()+"//");
                         cont += 1;
                     }
                 }
@@ -364,15 +340,4 @@ public class ControladorMostrarDatos extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

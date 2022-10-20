@@ -7,7 +7,47 @@ window.addEventListener("load", function () {
       soloDatos: "SoloDatos",
     },
     success: function (result) {
-      $("#mostrarTablaDatos").html(result);
+      let tablaMensajes = document.getElementById("mostrarTablaDatos");
+      let sinDiagonal = result.split("//");
+      for (let i = 0; i < sinDiagonal.length - 1; i++) {
+        let sinComas = sinDiagonal[i].split(",");
+        // Creando los 'td' que almacenará cada parte de la información del usuario actual
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+        </svg></button></td>`;
+        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+        tablaMensajes.innerHTML += `<tr class='tablaActual'>${
+          boton +
+          registro +
+          siniestro +
+          poliza +
+          marca +
+          tipo +
+          serie +
+          carga +
+          estacion +
+          estatus +
+          porcentajeDocs +
+          porcentajeTotal +
+          estado
+        }</tr>`;
+      }
     },
   });
   //muestra los dias paasados por documentos
@@ -48,7 +88,7 @@ function buscarDatos() {
     txtFechaSeguimiento = "";
   }
   txtRegion = document.getElementById("txtRegion").value;
-  if (txtRegion == "Todos-Ninguna") {
+  if (txtRegion == "Selecciona...") {
     txtRegion = "";
   }
   txtEstado = document.getElementById("txtEstado").value;
@@ -73,7 +113,49 @@ function buscarDatos() {
       cobertura: txtCobertura,
     },
     success: function (result) {
-      $("#mostrarTablaDatos").html(result);
+      console.log(result);
+      let tablaDatos = document.getElementById("mostrarTablaDatos");
+      let sinDiagonal = result.split("//");
+      $(".tablaActual").remove();
+      for (let i = 0; i < sinDiagonal.length - 1; i++) {
+        let sinComas = sinDiagonal[i].split(",");
+        // Creando los 'td' que almacenará cada parte de la información del usuario actual
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+        </svg></button></td>`;
+        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+        tablaDatos.innerHTML += `<tr class='tablaActual'>${
+          boton +
+          registro +
+          siniestro +
+          poliza +
+          marca +
+          tipo +
+          serie +
+          carga +
+          estacion +
+          estatus +
+          porcentajeDocs +
+          porcentajeTotal +
+          estado
+        }</tr>`;
+      }
     },
   });
 }
@@ -356,6 +438,165 @@ function InsertarSeguimiento() {
     },
     success: function (result) {
       alert(result);
+    },
+  });
+}
+$(document).ready(function () {
+  //funcion para limpiar el regitro
+  $("#limpiarRegistro").click(function () {
+    $(".filtrosBusqueda").val($(".filtrosBusqueda option:first").val());
+  });
+});
+function exportTableToExcel(tableID, filename = "") {
+  $(".botonesTabla").remove();
+  var downloadLink;
+  var dataType = "application/vnd.ms-excel";
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
+  // Specify file name
+  filename = filename ? filename + ".xls" : "excel_data.xls";
+
+  // Create download link element
+  downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+
+  if (navigator.msSaveOrOpenBlob) {
+    var blob = new Blob(["ufeff", tableHTML], {
+      type: dataType,
+    });
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = "data:" + dataType + ", " + tableHTML;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    //triggering the function
+    downloadLink.click();
+  }
+  $.ajax({
+    method: "POST",
+    url: "../ControladorMostrarDatos",
+    data: {
+      accion: "MostrarSiniestrosNoDocs",
+      soloDatos: "SoloDatos",
+    },
+    success: function (result) {
+      let tablaDatos = document.getElementById("mostrarTablaDatos");
+      let sinDiagonal = result.split("//");
+      $(".tablaActual").remove();
+      for (let i = 0; i < sinDiagonal.length - 1; i++) {
+        let sinComas = sinDiagonal[i].split(",");
+        // Creando los 'td' que almacenará cada parte de la información del usuario actual
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+        </svg></button></td>`;
+        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+        tablaDatos.innerHTML += `<tr class='tablaActual'>${
+          boton +
+          registro +
+          siniestro +
+          poliza +
+          marca +
+          tipo +
+          serie +
+          carga +
+          estacion +
+          estatus +
+          porcentajeDocs +
+          porcentajeTotal +
+          estado
+        }</tr>`;
+      }
+    },
+  });
+  //muestra los dias paasados por documentos
+  $.ajax({
+    method: "POST",
+    url: "../SiniestrosNoDocs",
+    data: {
+      accion: "SiniestrosEnRespuesta",
+    },
+    success: function (result) {
+      let sinComas = result.split(",");
+      $("#de0a2").html(sinComas[0]);
+      $("#de3a5").html(sinComas[1]);
+      $("#de6a14").html(sinComas[2]);
+      $("#mas15").html(sinComas[3]);
+    },
+  });
+}
+//funcion para buscar en tiempo real los resultados
+function busquedaParticular(getId, getValue) {
+  $.ajax({
+    method: "POST",
+    url: "../BusquedaParticularDatos",
+    data: {
+      id: getId,
+      valor: getValue,
+    },
+    success: function (result) {
+      let tablaDatos = document.getElementById("mostrarTablaDatos");
+      let sinDiagonal = result.split("//");
+      $(".tablaActual").remove();
+      for (let i = 0; i < sinDiagonal.length - 1; i++) {
+        let sinComas = sinDiagonal[i].split(",");
+        // Creando los 'td' que almacenará cada parte de la información del usuario actual
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+       <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button></td>`;
+        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+        tablaDatos.innerHTML += `<tr class='tablaActual'>${
+          boton +
+          registro +
+          siniestro +
+          poliza +
+          marca +
+          tipo +
+          serie +
+          carga +
+          estacion +
+          estatus +
+          porcentajeDocs +
+          porcentajeTotal +
+          estado
+        }</tr>`;
+      }
     },
   });
 }

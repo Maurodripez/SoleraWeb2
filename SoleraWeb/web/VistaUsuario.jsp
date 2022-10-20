@@ -93,8 +93,7 @@
                             Enviar
                         </button>
                     </form>
-                    <table
-                        class="table table-striped align-middle table-responsive table-hover col float-end text-center">
+                    <table id="DatosTabla" class="table table-striped align-middle table-responsive table-hover col float-end text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Usuario</th>
@@ -104,6 +103,8 @@
                         </thead>
                         <tbody id="Tablamensajes"></tbody>
                     </table>
+                    <button id="exportarTabla" onclick="exportTableToExcel('DatosTabla', 'datosExportados')"
+                        type="button" class="btn btn-primary">Exportar</button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

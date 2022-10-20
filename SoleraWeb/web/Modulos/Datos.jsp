@@ -10,8 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
     <script src="../js/jquery-3.6.1.js"></script>
 </head>
 
@@ -381,7 +381,7 @@
                                     </svg>
                                     Fecha Carga
                                 </label>
-                                <select class="form-select" id="txtFechaCarga">
+                                <select class="filtrosBusqueda form-select" id="txtFechaCarga">
                                     <option selected>Selecciona...</option>
                                     <option value="Hoy">Hoy</option>
                                     <option value="Ayer">Ayer</option>
@@ -401,7 +401,7 @@
                                     </svg>
                                     Estacion
                                 </label>
-                                <select class="form-select" id="txtEstacion">
+                                <select class="filtrosBusqueda form-select" id="txtEstacion">
                                     <option selected>Selecciona...</option>
                                     <option value="Cancelado">Cancelado</option>
                                     <option value="Marcacion">Marcacion</option>
@@ -421,7 +421,7 @@
                                     </svg>
                                     Estatus
                                 </label>
-                                <select class="form-select" id="txtEstatus">
+                                <select class="filtrosBusqueda form-select" id="txtEstatus">
                                     <option selected>Selecciona...</option>
                                     <option value="Con contacto sin documentos">Con contacto sin documentos
                                     </option>
@@ -446,7 +446,7 @@
                                     </svg>
                                     Subestatus
                                 </label>
-                                <select class="form-select" id="txtSubEstatus">
+                                <select class="filtrosBusqueda form-select" id="txtSubEstatus">
                                     <option selected>Selecciona...</option>
                                     <option value="Con contacto. sin documentos, en seguimiento">Con contacto.
                                         sin documentos, en seguimiento</option>
@@ -483,7 +483,7 @@
                                     </svg>
                                     Fecha seguimiento
                                 </label>
-                                <select class="form-select" id="txtFechaSeguimiento">
+                                <select class="filtrosBusqueda form-select" id="txtFechaSeguimiento">
                                     <option selected>Selecciona...</option>
                                     <option value="Hoy">Hoy</option>
                                     <option value="Ayer">Ayer</option>
@@ -507,9 +507,9 @@
                                     </svg>
                                     Region
                                 </label>
-                                <select class="form-select" id="txtRegion">
+                                <select class="filtrosBusqueda form-select" id="txtRegion">
                                     <option selected>
-                                        Todos-Ninguna
+                                        Selecciona...
                                     </option>
                                     <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
                                         Layout ZG A: Guadalajara-Colima-Nayarit
@@ -558,7 +558,7 @@
                                     </svg>
                                     Estado
                                 </label>
-                                <select id="txtEstado" class="form-select" name="txtEstado" required>
+                                <select id="txtEstado" class="filtrosBusqueda form-select" name="txtEstado" required>
                                     <option selected>
                                         Selecciona...
                                     </option>
@@ -667,7 +667,7 @@
                                     </svg>
                                     Cobertura
                                 </label>
-                                <select class="form-select" id="txtCobertura">
+                                <select class="filtrosBusqueda form-select" id="txtCobertura">
                                     <option selected>Selecciona...</option>
                                     <option value="DM">DM</option>
                                     <option value="RT">RT</option>
@@ -679,8 +679,9 @@
                     <div class="btn-group" role="group">
                         <button id="btnBuscar" onclick="buscarDatos()" type="button"
                             class="btn btn-primary">Buscar</button>
-                        <button type="button" class="btn btn-primary">Limpiar</button>
-                        <button type="button" class="btn btn-primary">Exportar</button>
+                        <button id="limpiarRegistro" type="button" class="btn btn-primary">Limpiar</button>
+                        <button id="exportarTabla" onclick="exportTableToExcel('DatosTabla', 'datosExportados')"
+                            type="button" class="btn btn-primary">Exportar</button>
                     </div>
                 </div>
             </div>
@@ -809,12 +810,12 @@
                             </form>
                         </div>
                     </div>
-                    <table class="table
+                    <table id="DatosTabla" class="table
                                table-hover col
                                float-end">
                         <thead>
                             <tr>
-                                <th scope="col">
+                                <th class="botonesTabla" scope="col">
                                     Editar
                                 </th>
                                 <th scope="col">
@@ -871,8 +872,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bRegistro" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="cola" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -883,8 +885,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bSiniestro" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -895,8 +898,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bPoliza" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -907,8 +911,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bMarca" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -919,8 +924,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bTipo" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -931,8 +937,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bSerie" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -943,8 +950,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bCarga" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -955,8 +963,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bEstacion" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -967,8 +976,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bEstatus" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -979,8 +989,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bDocumentos" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -991,8 +1002,9 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bTotal" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
@@ -1003,25 +1015,18 @@
                                         <form class="form-search
                                           float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text">
+                                                <input id="bEstado" onkeyup="busquedaParticular(this.id,this.value)"
+                                                    class="busquedaParticular form-control" maxlength="128"
+                                                    placeholder="Buscar" size="15" type="text">
                                             </div>
                                         </form>
                                     </div>
                                 </td>
 
-                            </div>           
+                            </div>
                         </thead>
-                    </table>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <div id="mostrarTablaDatos" class="row">
-
-                                </div>
-                            </tr>
+                        <tbody id="mostrarTablaDatos">
                         </tbody>
-
                     </table>
                     <div class="row">
                         <nav aria-label="Page
@@ -1056,7 +1061,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="modal fade" name="nombreModal" id="despliegueInfo" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -2217,7 +2221,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="cargaDocumentos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -2343,7 +2346,6 @@
                                 </div>
                             </form>
                         </div>
-
 
                     </div>
                     <div>
