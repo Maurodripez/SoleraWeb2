@@ -458,7 +458,7 @@
                                         seguimiento</option>
                                     <option value="De 7 a 10 documentos en seguimiento">De 7 a 10 documentos en
                                         seguimiento</option>
-                                    <option value="Nuevo2, activacion por proceso normal">Nuevo, activacion por
+                                    <option value="Nuevo, activacion por proceso normal">Nuevo, activacion por
                                         proceso normal</option>
                                     <option value="Sin Contacto, en seguimiento">Sin Contacto, en seguimiento
                                     </option>
@@ -1193,7 +1193,7 @@
                                                         </svg>
                                                         No Siniestro:
                                                     </label>
-                                                    <input id="numSiniestro" type="text" class="form-control"
+                                                    <input id="numSiniestro" type="text" pattern="[SIN]{3}[0-9]{7}" class="form-control"
                                                         name="txtNumSiniestro">
                                                 </div>
                                             </div>

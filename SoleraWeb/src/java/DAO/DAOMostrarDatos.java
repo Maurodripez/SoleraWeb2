@@ -17,26 +17,34 @@ public class DAOMostrarDatos {
             String subEstatus,
             String fechaBuscar2, String region, String estado, String cobertura) {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
-        String sql = " select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + "estatusOperativo, subEstatusProceso from infosiniestro as iSin right join infoauto as ia on iSin.idRegistro = ia.fkIdRegistro "
-                + " right join fechasseguimiento as fs on iSin.idRegistro=fs.fkidRegistro right join estadoproceso as ep on iSin.idRegistro = ep.fkIdRegistroEstadoProceso"
-                + " right join documentosaprobados on iSin.idRegistro=fkIdRegistroDocsAprobados where fechaCarga between '"
-                + fechaBuscar1 + "'  and curdate() and estacionProceso like '%" + estacion
-                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus + "%'"
-                + " or fechaSeguimiento between '" + fechaBuscar2 + "'  and curdate()  and region like '%" + region
-                + "%' and "
-                + "estado like '%" + estado + "%' and  cobertura like '%" + cobertura + "%'";
-                /*
-                 * select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,
-                denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, 
-                estatusOperativo, subEstatusProceso from documentosaprobados, fechasseguimiento as fs,  estadoproceso as ep, infosiniestro as iSin, infoauto as ia
-                where iSin.idRegistro = ia.fkIdRegistro and iSin.idRegistro=fs.fkidRegistro and iSin.idRegistro = ep.fkIdRegistroEstadoProceso
-                 and iSin.idRegistro=fkIdRegistroDocsAprobados and (fechaCarga between '2022-09-12'
-                and curdate() and estacionProceso like '%%' and estatusoperativo like '%%' and subEstatusProceso like '%%'
-                 or fechaSeguimiento between '2022-09-12'  and curdate()  and region like '%%' and 
-                estado like '%%' and  cobertura like '%%');
-                 */
+        String sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
+                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado,fechaCarga, estacionProceso, "
+                + " estatusOperativo, subEstatusProceso from documentosaprobados, fechasseguimiento as fs,  estadoproceso as ep, infosiniestro as iSin, infoauto as ia"
+                + " where idRegistro = ia.fkIdRegistro and idRegistro=fs.fkidRegistro and idRegistro = ep.fkIdRegistroEstadoProceso"
+                + " and idRegistro=fkIdRegistroDocsAprobados and estacionProceso like '%" + estacion
+                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus+"%'"
+                + " and fechaSeguimiento between '" + fechaBuscar2 + "'  and curdate() and fechaCarga between '"
+                + fechaBuscar1 + "' and curdate() "
+                + " and region like '%" + region + "%' and estado like '%" + estado + "%' and  cobertura like '%"
+                + cobertura + "%'";
+        /*
+         * select identificacionOficial, comprobanteDeDomicilio, informacionAdicional,
+         * facturaDelVehiculo, tenencias, baja, estadodeCuenta,
+         * denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo,
+         * modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso,
+         * estatusOperativo, subEstatusProceso from documentosaprobados,
+         * fechasseguimiento as fs, estadoproceso as ep, infosiniestro as iSin, infoauto
+         * as ia
+         * where iSin.idRegistro = ia.fkIdRegistro and iSin.idRegistro=fs.fkidRegistro
+         * and iSin.idRegistro = ep.fkIdRegistroEstadoProceso
+         * and iSin.idRegistro=fkIdRegistroDocsAprobados and (fechaCarga between
+         * '2022-09-12'
+         * and curdate() and estacionProceso like '%%' and estatusoperativo like '%%'
+         * and subEstatusProceso like '%%'
+         * or fechaSeguimiento between '2022-09-12' and curdate() and region like '%%'
+         * and
+         * estado like '%%' and cobertura like '%%');
+         */
         try {
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);

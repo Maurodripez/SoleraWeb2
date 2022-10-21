@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split(",");
         // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
         data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
         width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
@@ -68,10 +68,8 @@ window.addEventListener("load", function () {
 });
 function buscarDatos() {
   txtFechaCarga = document.getElementById("txtFechaCarga").value;
-  if (txtFechaCarga == "Selecciona...") {
-    txtFechaCarga = "";
-  }
   txtEstacion = document.getElementById("txtEstacion").value;
+  console.log(txtEstacion);
   if (txtEstacion == "Selecciona...") {
     txtEstacion = "";
   }
@@ -84,9 +82,6 @@ function buscarDatos() {
     txtSubEstatus = "";
   }
   txtFechaSeguimiento = document.getElementById("txtFechaSeguimiento").value;
-  if (txtFechaSeguimiento == "Selecciona...") {
-    txtFechaSeguimiento = "";
-  }
   txtRegion = document.getElementById("txtRegion").value;
   if (txtRegion == "Selecciona...") {
     txtRegion = "";
@@ -120,7 +115,7 @@ function buscarDatos() {
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split(",");
         // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
         data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
         width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
@@ -171,6 +166,7 @@ function validarUsuario() {
   });
 }
 function cambiarNombre(get) {
+  alert(get);
   /////se recibe el parametro id
   let inputNombre = document.getElementById("idOculto"); ////se obtiene el input oculto para cambiar el valor del boton y mandar el formulario ya que java trabaja con los valores y no id
   let inputNombreFk = document.getElementById("fkIdOculto");
@@ -491,7 +487,7 @@ function exportTableToExcel(tableID, filename = "") {
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split(",");
         // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
         data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
         width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
@@ -561,7 +557,7 @@ function busquedaParticular(getId, getValue) {
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split(",");
         // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]}' class='btn btn-primary' data-bs-toggle='modal'
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
       data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
       width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
       <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 

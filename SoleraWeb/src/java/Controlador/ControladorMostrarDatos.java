@@ -16,17 +16,17 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-@WebServlet(name = "ControladorMostrarDatos", urlPatterns = { "/ControladorMostrarDatos" })
+@WebServlet(name = "ControladorMostrarDatos", urlPatterns = {"/ControladorMostrarDatos"})
 public class ControladorMostrarDatos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class ControladorMostrarDatos extends HttpServlet {
         float porcentajeDocs = 0;
         String porcentajeTotal = "0";
         DAOMostrarDatos daoMDatos = new DAOMostrarDatos();
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             if ("mostrarTabla".equals(accion)) {
                 String fechaCarga = request.getParameter("fechaCarga");
                 String estacion = request.getParameter("estacion");
@@ -55,7 +55,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                         case "Hoy":
                             fechaHoy = LocalDate.now();
                             fechaBuscar1 = fechaHoy.toString();
-                            out.println(fechaBuscar1+",");
+                            out.println(fechaBuscar1 + ",");
                             break;
                         case "Ayer": {
                             Calendar cal = Calendar.getInstance();
@@ -85,6 +85,12 @@ public class ControladorMostrarDatos extends HttpServlet {
                             fechaBuscar1 = dateFormat.format(todate1);
                             break;
                         }
+                        case "Selecciona...":
+                            Calendar cal = Calendar.getInstance();
+                            cal.add(Calendar.DATE, -180);
+                            Date todate1 = cal.getTime();
+                            fechaBuscar1 = dateFormat.format(todate1);
+                            break;
                         default:
                             break;
                     }
@@ -123,6 +129,13 @@ public class ControladorMostrarDatos extends HttpServlet {
                             fechaBuscar2 = dateFormat.format(todate1);
                             break;
                         }
+                        case "Selecciona...": {
+                            Calendar cal = Calendar.getInstance();
+                            cal.add(Calendar.DATE, -180);
+                            Date todate1 = cal.getTime();
+                            fechaBuscar2 = dateFormat.format(todate1);
+                            break;
+                        }
                         default:
                             break;
                     }
@@ -130,15 +143,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaBuscar1, estacion, estatus,
                         subEstatus,
                         fechaBuscar2, region, estado, cobertura)) {
-                            out.print(mbDatos.getIdRegistro()+",");
-                            out.print(mbDatos.getNumSiniestro()+",");
-                            out.print(mbDatos.getPoliza()+",");
-                            out.print( mbDatos.getMarca()+",");
-                            out.print(mbDatos.getTipo()+",");
-                            out.print(mbDatos.getNumSerie()+",");
-                            out.print(mbDatos.getFechaCarga()+",");
-                            out.print(mbDatos.getEstacionProceso()+",");
-                            out.print(mbDatos.getEstatusOperativo()+",");
+                    out.print(mbDatos.getIdRegistro() + ",");
+                    out.print(mbDatos.getNumSiniestro() + ",");
+                    out.print(mbDatos.getPoliza() + ",");
+                    out.print(mbDatos.getMarca() + ",");
+                    out.print(mbDatos.getTipo() + ",");
+                    out.print(mbDatos.getNumSerie() + ",");
+                    out.print(mbDatos.getFechaCarga() + ",");
+                    out.print(mbDatos.getEstacionProceso() + ",");
+                    out.print(mbDatos.getEstatusOperativo() + ",");
                     if ("true".equals(mbDatos.getIdentificacionOficial())) {
                         porcentajeDocs += 10;
                     }
@@ -166,7 +179,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                     if ("true".equals(mbDatos.getAcreditacion())) {
                         porcentajeDocs += 7.5;
                     }
-                    out.println(porcentajeDocs+",");
+                    out.println(porcentajeDocs + ",");
                     switch (mbDatos.getEstatusOperativo()) {
                         case "De 1 a 3 documentos":
                             porcentajeTotal = "25%";
@@ -187,8 +200,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                             porcentajeTotal = "0%";
                             break;
                     }
-                    out.println(porcentajeTotal+",");
-                    out.print(mbDatos.getEstado()+"//");
+                    out.println(porcentajeTotal + ",");
+                    out.print(mbDatos.getEstado() + "//");
                 }
             } else if ("MostrarSiniestrosNoDocs".equals(accion)) {
                 String porcentaje = request.getParameter("porcentajes");
@@ -246,15 +259,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                         }
                         out.print(porcentajeTotal + ",");
                     } else if ("SoloDatos".equals(soloDatos)) {
-                        out.print(mbDatos.getIdRegistro()+",");
-                        out.print(mbDatos.getNumSiniestro()+",");
-                        out.print(mbDatos.getPoliza()+",");
-                        out.print( mbDatos.getMarca()+",");
-                        out.print(mbDatos.getTipo()+",");
-                        out.print(mbDatos.getNumSerie()+",");
-                        out.print(mbDatos.getFechaCarga()+",");
-                        out.print(mbDatos.getEstacionProceso()+",");
-                        out.print(mbDatos.getEstatusOperativo()+",");
+                        out.print(mbDatos.getIdRegistro() + ",");
+                        out.print(mbDatos.getNumSiniestro() + ",");
+                        out.print(mbDatos.getPoliza() + ",");
+                        out.print(mbDatos.getMarca() + ",");
+                        out.print(mbDatos.getTipo() + ",");
+                        out.print(mbDatos.getNumSerie() + ",");
+                        out.print(mbDatos.getFechaCarga() + ",");
+                        out.print(mbDatos.getEstacionProceso() + ",");
+                        out.print(mbDatos.getEstatusOperativo() + ",");
                         if ("true".equals(mbDatos.getIdentificacionOficial())) {
                             porcentajeDocs += 10;
                         }
@@ -282,7 +295,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getAcreditacion())) {
                             porcentajeDocs += 7.5;
                         }
-                       out.print(porcentajeDocs+",");
+                        out.print(porcentajeDocs + ",");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -300,8 +313,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal+",");
-                        out.print(mbDatos.getEstado()+"//");
+                        out.print(porcentajeTotal + ",");
+                        out.print(mbDatos.getEstado() + "//");
                         cont += 1;
                     }
                 }
@@ -316,10 +329,10 @@ public class ControladorMostrarDatos extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -330,10 +343,10 @@ public class ControladorMostrarDatos extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

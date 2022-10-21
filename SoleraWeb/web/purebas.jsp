@@ -15,28 +15,17 @@
   <button onclick="obtenerRuta()">
     aprietame
   </button>
-  <table id="tblData">
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Country</th>
-    </tr>
-    <tr>
-      <td>John Doe</td>
-      <td>john@gmail.com</td>
-      <td>USA</td>
-    </tr>
-    <tr>
-      <td>Michael Addison</td>
-      <td>michael@gmail.com</td>
-      <td>UK</td>
-    </tr>
-    <tr>
-      <td>Sam Farmer</td>
-      <td>sam@gmail.com</td>
-      <td>France</td>
-    </tr>
-  </table>
+  <select class="filtrosBusqueda form-select" id="txtFechaSeguimiento">
+    <option selected>Selecciona...</option>
+    <option value="Hoy">Hoy</option>
+    <option value="Ayer">Ayer</option>
+    <option value="Ultimos 7 Dias">Ultimos 7 Dias</option>
+    <option value="Ultimos 30 Dias">Ultimos 30 Dias</option>
+    <option value="Mes Anterior">Mes Anterior</option>
+</select>
+<button onclick="valores()">
+aprietame
+</button>
   <button onclick="exportTableToExcel('tblData', 'members-data')">Export Table Data To Excel File</button>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">

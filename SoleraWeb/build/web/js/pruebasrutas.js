@@ -41,3 +41,7 @@ function exportTableToExcel(tableID, filename = ''){
       downloadLink.click();
   }
 }
+function valores(){
+  let valor = document.getElementById("txtFechaSeguimiento");
+  console.log(valor.value);
+}
