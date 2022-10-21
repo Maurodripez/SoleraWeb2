@@ -166,7 +166,6 @@ function validarUsuario() {
   });
 }
 function cambiarNombre(get) {
-  alert(get);
   /////se recibe el parametro id
   let inputNombre = document.getElementById("idOculto"); ////se obtiene el input oculto para cambiar el valor del boton y mandar el formulario ya que java trabaja con los valores y no id
   let inputNombreFk = document.getElementById("fkIdOculto");
@@ -409,8 +408,7 @@ function GuardarRegistros() {
       idEditableActual: document.getElementById("idOculto").value,
     },
   }).done(function (respuesta) {
-    alert("realiza");
-    //    $("#mensaje").html(respuesta.mensaje);
+    alert("Guardado con exito");
   });
 }
 function InsertarSeguimiento() {

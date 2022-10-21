@@ -57,7 +57,7 @@ function userSubmit() {
     processData: false, // Estos tres deben ser falsos
     contentType: false, //
     success: function (data) {
-     // alert(data);
+      alert(data);
     },
     error: function () {
       alert("Servidor anormal, intente nuevamente más tarde ...");
