@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <!--se importa en el archivo jsp el script para poder obtener los valores y mostrarlos de manera dinamica -->
     <!---->
     <%@page import="Controlador.MostrarDatosServlet" %>
@@ -418,9 +417,9 @@
                                         <!--se implementa el boton busqueda general-->
                                         <form class="form-search float-end">
                                             <div class="input-group">
-                                                <input class="form-control" maxlength="128" placeholder="Buscar"
-                                                    size="15" type="text" id="txtBuscarFechaInicio"
-                                                    onkeyup="buscarFechaInicio()" />
+                                                <input class="form-control" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                    maxlength="128" placeholder="Buscar" size="15" type="text"
+                                                    id="txtBuscarFechaInicio" onkeyup="buscarFechaInicio()" />
                                             </div>
                                         </form>
                                     </div>
@@ -622,7 +621,7 @@
                                     <div class="accordion-body">
                                         <div class="row 1">
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker">
+                                                <div class="calendario input-group date" id="datepicker">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -635,8 +634,8 @@
                                                         Fecha Carga
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="fechaCarga" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha" value="er">
+                                                        <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
@@ -651,8 +650,8 @@
                                                         </svg>
                                                         No Siniestro:
                                                     </label>
-                                                    <input id="numSiniestro" type="text" class="form-control"
-                                                        name="txtNumSiniestro">
+                                                    <input id="numSiniestro" pattern="[SIN]{3}[0-8]{8}" type="text"
+                                                        class="form-control" name="txtNumSiniestro">
                                                 </div>
                                             </div>
                                             <div class="col">
@@ -752,7 +751,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker2">
+                                                <div class="calendario input-group date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -765,8 +764,9 @@
                                                         Fecha Siniestro
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="fechaSiniestro" name="txtFechaSiniestro" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="fechaSiniestro"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaSiniestro" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
@@ -1542,7 +1542,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker3">
+                                                <div class="calendario input-group date" id="datepicker3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1555,14 +1555,16 @@
                                                         Fecha seguimiento
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="txtFechaSeguimiento" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha" autocomplete="off">
+                                                        <input id="txtFechaSeguimiento"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha"
+                                                            autocomplete="off">
                                                     </span>
                                                 </div>
                                             </div>
 
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker4">
+                                                <div class="calendario input-group date" id="datepicker4">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1575,14 +1577,15 @@
                                                         fecha primer envio de documentos
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="txtFechaPrimEnvDocs" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="txtFechaPrimEnvDocs"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
 
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker5">
+                                                <div class="calendario input-group date" id="datepicker5">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1595,14 +1598,15 @@
                                                         Fecha de integracion de expediente
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="txtFechaIntExp" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="txtFechaIntExp"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
 
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker6">
+                                                <div class="calendario input-group date" id="datepicker6">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1615,13 +1619,14 @@
                                                         Fecha de facturacion de servicio
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="txtFechaFactServ" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="txtFechaFactServ"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker7">
+                                                <div class="calendario input-group date" id="datepicker7">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1634,8 +1639,9 @@
                                                         Fecha termino
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="txtFechaTermino" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="txtFechaTermino"
+                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
@@ -1667,7 +1673,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <div class="input-group date" id="datepicker8">
+                                                <div class="calendario input-group date" id="datepicker8">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1680,8 +1686,8 @@
                                                         Fecha asignacion de integrador
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="fechaCarga" name="txtFechaCarga" type="text"
-                                                            placeholder="Fecha">
+                                                        <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
@@ -1724,119 +1730,163 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card" style="width: 16rem;">
-                                <div class="card-header">
-                                    Documentos Aprobados
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="checkboxIdentificacion">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Identificacion oficial
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="checkboxComprobante">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Comprobante de domicilio
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="checkboxInfoAdicional">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Informacion adicional
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkboxFactura">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Factura del vehiculo
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkboxTenencia">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Tenencias
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkboxBaja">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Baja
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="checkboxEstadoCuenta">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Estado de cuenta
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkboxDenuncia">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Denuncia
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item list-group-item-sm">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="checkboxAcreditacion">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Acreditacion
-                                        </label>
-                                    </li> <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
-                                        type="button" class="btn btn-primary btn-sm">Guardar</button>
-                                </ul>
+                    <div class="accordion p-2" id="documentosAprobadosPanel">
+                        <div class="row">
+                            <div class="accordion-item col">
+                                <h2 class="accordion-header" id="panelPFisicas">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelPFisicas-collapseOne" aria-expanded="true"
+                                        aria-controls="panelPFisicas-collapseOne">
+                                        Documentos aprobados
+                                    </button>
+                                </h2>
+                                <div id="panelPFisicas-collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelPFisicas-headingOne">
+                                    <div class="accordion-body">
 
-                            </div>o
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxFactura">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Factura original
+                                                    </label>
+                                                </li>
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxPoder">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Poder notarial
+                                                    </label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxIdentificacion">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Identificacion oficial
+                                                    </label>
+                                                </li>
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxSituacion">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Situacion fiscal
+                                                    </label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxCurp">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Curp
+                                                    </label>
+                                                </li>
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxEstado">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Estado de cuenta
+                                                    </label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxTenencia">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Tenencia
+                                                    </label>
+                                                </li>
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxBaja">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Baja de placas
+                                                    </label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxTarjeta">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Tarjeta circulacion
+                                                    </label>
+                                                </li>
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxPoliza">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Poliza
+                                                    </label>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <div class="row">
+                                                <li class="col list-group-item list-group-item-sm">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkboxComprobante">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Comprobante domicilio
+                                                    </label>
+                                                </li>
+                                            </div>
+                                            <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
+                                                type="button" class="btn btn-primary btn-sm">Guardar</button>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="col-8">
-                            <form method="post" action="GuardadoImagenesServlet" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <select name="tipoArchivo" class="form-select form-select-sm"
-                                            aria-label="Default select example">
-                                            <option selected>Selecciona...</option>
-                                            <option value="Identificacion oficial">
-                                                Identificacion oficial</option>
-                                            <option value="Comprobante de domicilio">
-                                                Comprobante de domicilio</option>
-                                            <option value="Informacion adicional">
-                                                Informacion adicional</option>
-                                            <option value="Factura del vehiculo">Factura del
-                                                vehiculo</option>
-                                            <option value="Tenencias">Tenencias</option>
-                                            <option value="Baja">Baja</option>
-                                            <option value="Estado de cuenta">Estado de
-                                                cuenta</option>
-                                            <option value="Denuncia">Denuncia</option>
-                                            <option value="Acreditacion">Acreditacion
-                                            </option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-6">
-                                        <input id="nombreArchivo" name="archivo" class="form-control form-control-sm"
-                                            type="file">
-                                    </div>
+                    </div>
+                    <div class="col">
+                        <form method="post" action="GuardadoImagenesServlet" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-6">
+                                    <select name="tipoArchivo" class="form-select form-select-sm"
+                                        aria-label="Default select example">
+                                        <option selected>Selecciona...</option>
+                                        <option value="Factura original">Factura original</option>
+                                        <option value="Poder notarial">Poder notarial</option>
+                                        <option value="Identificacion oficial">Identificacion oficial</option>
+                                        <option value="Constancia SF">Constancia SF</option>
+                                        <option value="Curp">Curp</option>
+                                        <option value="Estado de cuenta">Estado de cuenta</option>
+                                        <option value="Tenencias">Tenencias</option>
+                                        <option value="Baja de placas">Baja de placas</option>
+                                        <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
+                                        <option value="Poliza">Poliza</option>
+                                        <option value="Comprobante de domicilio">Comprobante de domicilio</option>
+                                    </select>
                                 </div>
-                                <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
-                                <div class="row">
-                                    <div class="col-12 p-2" style="text-align: center">
-                                        <button type="submit" name="accion" value="agregar"
-                                            class="btn btn-warning">Subir Documento</button>
-                                    </div>
 
+                                <div class="col-6">
+                                    <input id="nombreArchivo" name="archivo" class="form-control form-control-sm"
+                                        type="file">
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
+                            <div class="row">
+                                <div class="col-12 p-2" style="text-align: center">
+                                    <button type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
+                                        Documento</button>
+                                </div>
 
+                            </div>
+                        </form>
                     </div>
                     <div>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -1890,7 +1940,7 @@
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <img id="docSeleccionado" src="" alt="" onload="resizeImg(this, 200, 100);">
+                                        <img id="docSeleccionado" src="" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1921,19 +1971,17 @@
                         <select name="tipoArchivo" id="nombreDocVideo" class="form-select form-select-sm"
                             aria-label="Default select example">
                             <option selected>Selecciona...</option>
-                            <option value="Identificacion oficial">Identificacion oficial
-                            </option>
-                            <option value="Comprobante de domicilio">Comprobante de
-                                domicilio</option>
-                            <option value="Informacion adicional">Informacion adicional
-                            </option>
-                            <option value="Factura del vehiculo">Factura del vehiculo
-                            </option>
-                            <option value="Tenencias">Tenencias</option>
-                            <option value="Baja">Baja</option>
+                            <option value="Factura original">Factura original</option>
+                            <option value="Poder notarial">Poder notarial</option>
+                            <option value="Identificacion oficial">Identificacion oficial</option>
+                            <option value="Constancia SF">Constancia SF</option>
+                            <option value="Curp">Curp</option>
                             <option value="Estado de cuenta">Estado de cuenta</option>
-                            <option value="Denuncia">Denuncia</option>
-                            <option value="Acreditacion">Acreditacion</option>
+                            <option value="Tenencias">Tenencias</option>
+                            <option value="Baja de placas">Baja de placas</option>
+                            <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
+                            <option value="Poliza">Poliza</option>
+                            <option value="Comprobante de domicilio">Comprobante de domicilio</option>
                         </select>
                         <button onclick="GuardarImagenVideo()">
                             guardar Imagen
@@ -1947,56 +1995,7 @@
         </div>
     </div>
     <script>
-        $("#datepicker8").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker6").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker3").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker4").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker5").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker2").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-        $("#datepicker7").datepicker({
+        $(".calendario").datepicker({
             timepicker: false,
             datepicker: true,
             format: "yyyy-mm-dd",

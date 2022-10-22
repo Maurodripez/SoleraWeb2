@@ -152,32 +152,38 @@ public class ControladorMostrarDatos extends HttpServlet {
                     out.print(mbDatos.getFechaCarga() + ",");
                     out.print(mbDatos.getEstacionProceso() + ",");
                     out.print(mbDatos.getEstatusOperativo() + ",");
-                    if ("true".equals(mbDatos.getIdentificacionOficial())) {
+                    if ("true".equals(mbDatos.getFactura())) {
                         porcentajeDocs += 10;
                     }
-                    if ("true".equals(mbDatos.getComprobanteDeDomicilio())) {
-                        porcentajeDocs += 10;
+                    if ("true".equals(mbDatos.getPoder())) {
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getInformacionAdicional())) {
-                        porcentajeDocs += 10;
+                    if ("true".equals(mbDatos.getIdentificacion())) {
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getFacturaDelVehiculo())) {
-                        porcentajeDocs += 15;
+                    if ("true".equals(mbDatos.getSituacion())) {
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getTenencias())) {
-                        porcentajeDocs += 15;
+                    if ("true".equals(mbDatos.getCurp())) {
+                        porcentajeDocs += 9;
+                    }
+                    if ("true".equals(mbDatos.getEstadoDoc())) {
+                        porcentajeDocs += 9;
+                    }
+                    if ("true".equals(mbDatos.getTenencia())) {
+                        porcentajeDocs += 9;
                     }
                     if ("true".equals(mbDatos.getBaja())) {
-                        porcentajeDocs += 15;
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getEstadodeCuenta())) {
-                        porcentajeDocs += 10;
+                    if ("true".equals(mbDatos.getTarjeta())) {
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getDenuncia())) {
-                        porcentajeDocs += 7.5;
+                    if ("true".equals(mbDatos.getPolizaDoc())) {
+                        porcentajeDocs += 9;
                     }
-                    if ("true".equals(mbDatos.getAcreditacion())) {
-                        porcentajeDocs += 7.5;
+                    if ("true".equals(mbDatos.getComprobante())) {
+                        porcentajeDocs += 9;
                     }
                     out.println(porcentajeDocs + ",");
                     switch (mbDatos.getEstatusOperativo()) {
@@ -209,33 +215,38 @@ public class ControladorMostrarDatos extends HttpServlet {
                 int cont = 0;
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.getTodosSinDocs()) {
                     if ("Solo%".equals(porcentaje)) {
-
-                        if ("true".equals(mbDatos.getIdentificacionOficial())) {
+                        if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
-                        if ("true".equals(mbDatos.getComprobanteDeDomicilio())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getPoder())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getInformacionAdicional())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getIdentificacion())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getFacturaDelVehiculo())) {
-                            porcentajeDocs += 15;
+                        if ("true".equals(mbDatos.getSituacion())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getTenencias())) {
-                            porcentajeDocs += 15;
+                        if ("true".equals(mbDatos.getCurp())) {
+                            porcentajeDocs += 9;
+                        }
+                        if ("true".equals(mbDatos.getEstadoDoc())) {
+                            porcentajeDocs += 9;
+                        }
+                        if ("true".equals(mbDatos.getTenencia())) {
+                            porcentajeDocs += 9;
                         }
                         if ("true".equals(mbDatos.getBaja())) {
-                            porcentajeDocs += 15;
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getEstadodeCuenta())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getTarjeta())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getDenuncia())) {
-                            porcentajeDocs += 7.5;
+                        if ("true".equals(mbDatos.getPolizaDoc())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getAcreditacion())) {
-                            porcentajeDocs += 7.5;
+                        if ("true".equals(mbDatos.getComprobante())) {
+                            porcentajeDocs += 9;
                         }
                         out.print(porcentajeDocs + ",");
                         switch (mbDatos.getEstatusOperativo()) {
@@ -268,32 +279,38 @@ public class ControladorMostrarDatos extends HttpServlet {
                         out.print(mbDatos.getFechaCarga() + ",");
                         out.print(mbDatos.getEstacionProceso() + ",");
                         out.print(mbDatos.getEstatusOperativo() + ",");
-                        if ("true".equals(mbDatos.getIdentificacionOficial())) {
+                        if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
-                        if ("true".equals(mbDatos.getComprobanteDeDomicilio())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getPoder())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getInformacionAdicional())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getIdentificacion())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getFacturaDelVehiculo())) {
-                            porcentajeDocs += 15;
+                        if ("true".equals(mbDatos.getSituacion())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getTenencias())) {
-                            porcentajeDocs += 15;
+                        if ("true".equals(mbDatos.getCurp())) {
+                            porcentajeDocs += 9;
+                        }
+                        if ("true".equals(mbDatos.getEstadoDoc())) {
+                            porcentajeDocs += 9;
+                        }
+                        if ("true".equals(mbDatos.getTenencia())) {
+                            porcentajeDocs += 9;
                         }
                         if ("true".equals(mbDatos.getBaja())) {
-                            porcentajeDocs += 15;
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getEstadodeCuenta())) {
-                            porcentajeDocs += 10;
+                        if ("true".equals(mbDatos.getTarjeta())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getDenuncia())) {
-                            porcentajeDocs += 7.5;
+                        if ("true".equals(mbDatos.getPolizaDoc())) {
+                            porcentajeDocs += 9;
                         }
-                        if ("true".equals(mbDatos.getAcreditacion())) {
-                            porcentajeDocs += 7.5;
+                        if ("true".equals(mbDatos.getComprobante())) {
+                            porcentajeDocs += 9;
                         }
                         out.print(porcentajeDocs + ",");
                         switch (mbDatos.getEstatusOperativo()) {

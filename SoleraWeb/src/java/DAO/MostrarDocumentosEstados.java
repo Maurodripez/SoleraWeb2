@@ -14,22 +14,24 @@ public class MostrarDocumentosEstados {
     public String respuesta;
 
     public String actualizarDocsAprobados(ModeloDocumentos mDocumentos) {
-        String sql = "update documentosaprobados set identificacionOficial =?, comprobanteDeDomicilio =?,"
-                + " informacionAdicional =?, facturaDelVehiculo =?, tenencias =?, baja =?,"
-                + " estadodeCuenta =?,  denuncia =?, acreditacion =? where fkIdRegistroDocsAprobados = ?";
+        String sql = "update documentosaprobados set factura =?, poder =?,"
+                + " identificacion =?, situacion =?, curp =?, estadoDoc =?,"
+                + " tenencia =?,  baja =?, tarjeta =?, polizaDoc=?, comprobante=? where fkIdRegistroDocsAprobados = ?";
         try {
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
-            ps.setString(1, mDocumentos.getIdentificacion());
-            ps.setString(2, mDocumentos.getComprobante());
-            ps.setString(3, mDocumentos.getInfoAdicional());
-            ps.setString(4, mDocumentos.getFactura());
-            ps.setString(5, mDocumentos.getTenencias());
-            ps.setString(6, mDocumentos.getBaja());
-            ps.setString(7, mDocumentos.getEstadoDeCuenta());
-            ps.setString(8, mDocumentos.getDenuncia());
-            ps.setString(9, mDocumentos.getAcreditacion());
-            ps.setString(10, mDocumentos.getId());
+            ps.setString(1, mDocumentos.getFactura());
+            ps.setString(2, mDocumentos.getPoder());
+            ps.setString(3, mDocumentos.getIdentificacion());
+            ps.setString(4, mDocumentos.getSituacion());
+            ps.setString(5, mDocumentos.getCurp());
+            ps.setString(6, mDocumentos.getEstado());
+            ps.setString(7, mDocumentos.getTenencia());
+            ps.setString(8, mDocumentos.getBaja());
+            ps.setString(9, mDocumentos.getTarjeta());
+            ps.setString(10, mDocumentos.getPoliza());
+            ps.setString(11, mDocumentos.getComprobante());
+            ps.setString(12, mDocumentos.getId());
             ps.executeUpdate();
             respuesta = "actualizacion correcta";
         } catch (Exception e) {
@@ -48,15 +50,17 @@ public class MostrarDocumentosEstados {
             ps = conect.conexion.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                mDocumentos.setIdentificacion(rs.getString("identificacionOficial"));
-                mDocumentos.setComprobante(rs.getString("comprobanteDeDomicilio"));
-                mDocumentos.setInfoAdicional(rs.getString("informacionAdicional"));
-                mDocumentos.setFactura(rs.getString("facturaDelVehiculo"));
-                mDocumentos.setTenencias(rs.getString("tenencias"));
+                mDocumentos.setFactura(rs.getString("factura"));
+                mDocumentos.setPoder(rs.getString("poder"));
+                mDocumentos.setIdentificacion(rs.getString("identificacion"));
+                mDocumentos.setSituacion(rs.getString("situacion"));
+                mDocumentos.setCurp(rs.getString("curp"));
+                mDocumentos.setBaja(rs.getString("estadoDoc"));
+                mDocumentos.setTenencia(rs.getString("tenencia"));
                 mDocumentos.setBaja(rs.getString("baja"));
-                mDocumentos.setEstadoDeCuenta(rs.getString("estadodeCuenta"));
-                mDocumentos.setDenuncia(rs.getString("denuncia"));
-                mDocumentos.setAcreditacion(rs.getString("acreditacion"));
+                mDocumentos.setTarjeta(rs.getString("tarjeta"));
+                mDocumentos.setPoliza(rs.getString("polizaDoc"));
+                mDocumentos.setComprobante(rs.getString("comprobante"));
                 lista.add(mDocumentos);
             }
             respuesta = "mostrar correcto";

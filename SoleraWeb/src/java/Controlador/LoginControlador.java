@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import DAO.LoginDAO;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -86,12 +87,16 @@ public class LoginControlador extends HttpServlet {
                     // TODO: handle exception
                 }
                 if (respuesta == true) {
+                    RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                     HttpSession misession = request.getSession(true);
-                    misession.setAttribute("usuario", usuario);
+                    request.setAttribute("usuario", usuario);
+                    HttpSession sesion = request.getSession();
+                    sesion.setAttribute("sesionUsuario", usuario);
                     request.getSession().setAttribute("usuarioActivo", uModelo.getUsuario());
                     request.getSession().setAttribute("Privilegios", uModelo.getPrivilegios());
                     request.setAttribute("Usuario", uModelo);
-                    response.sendRedirect("/SoleraWeb/Principal.jsp?respuesta=" + respuesta);
+                    rd.forward(request, response);
+                    // response.sendRedirect("/SoleraWeb/Principal.jsp?respuesta=" + respuesta);
 
                 } else {
                     response.sendRedirect("/SoleraWeb/index.jsp?respuesta=");

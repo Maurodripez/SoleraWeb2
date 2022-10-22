@@ -261,58 +261,70 @@ function mostrarDocsAprobados() {
     success: function (result) {
       resultados = result.split(",");
       if (resultados[0] == "true") {
+        document.getElementById("checkboxFactura").checked = true;
+        porcentaje += 9;
+      } else {
+        document.getElementById("checkboxFactura").checked = false;
+      }
+      if (resultados[1] == "true") {
+        document.getElementById("checkboxPoder").checked = true;
+        porcentaje += 9;
+      } else {
+        document.getElementById("checkboxPoder").checked = false;
+      }
+      if (resultados[2] == "true") {
         document.getElementById("checkboxIdentificacion").checked = true;
         porcentaje += 10;
       } else {
         document.getElementById("checkboxIdentificacion").checked = false;
       }
-      if (resultados[1] == "true") {
-        document.getElementById("checkboxComprobante").checked = true;
-        porcentaje += 10;
-      } else {
-        document.getElementById("checkboxComprobante").checked = false;
-      }
-      if (resultados[2] == "true") {
-        document.getElementById("checkboxInfoAdicional").checked = true;
-        porcentaje += 10;
-      } else {
-        document.getElementById("checkboxInfoAdicional").checked = false;
-      }
       if (resultados[3] == "true") {
-        document.getElementById("checkboxFactura").checked = true;
-        porcentaje += 15;
+        document.getElementById("checkboxSituacion").checked = true;
+        porcentaje += 9;
       } else {
-        document.getElementById("checkboxFactura").checked = false;
+        document.getElementById("checkboxSituacion").checked = false;
       }
       if (resultados[4] == "true") {
+        document.getElementById("checkboxCurp").checked = true;
+        porcentaje += 9;
+      } else {
+        document.getElementById("checkboxCurp").checked = false;
+      }
+      if (resultados[5] == "true") {
+        document.getElementById("checkboxEstado").checked = true;
+        porcentaje += 9;
+      } else {
+        document.getElementById("checkboxEstado").checked = false;
+      }
+      if (resultados[6] == "true") {
         document.getElementById("checkboxTenencia").checked = true;
-        porcentaje += 15;
+        porcentaje += 9;
       } else {
         document.getElementById("checkboxTenencia").checked = false;
       }
-      if (resultados[5] == "true") {
+      if (resultados[7] == "true") {
         document.getElementById("checkboxBaja").checked = true;
-        porcentaje += 15;
+        porcentaje += 9;
       } else {
         document.getElementById("checkboxBaja").checked = false;
       }
-      if (resultados[6] == "true") {
-        document.getElementById("checkboxEstadoCuenta").checked = true;
-        porcentaje += 10;
+      if (resultados[8] == "true") {
+        document.getElementById("checkboxTarjeta").checked = true;
+        porcentaje +=9;
       } else {
-        document.getElementById("checkboxEstadoCuenta").checked = false;
-      }
-      if (resultados[7] == "true") {
-        document.getElementById("checkboxDenuncia").checked = true;
-        porcentaje += 7.5;
-      } else {
-        document.getElementById("checkboxDenuncia").checked = false;
+        document.getElementById("checkboxTarjeta").checked = false;
       }
       if (resultados[8] == "true") {
-        document.getElementById("checkboxAcreditacion").checked = true;
-        porcentaje += 7.5;
+        document.getElementById("checkboxPoliza").checked = true;
+        porcentaje += 9;
       } else {
-        document.getElementById("checkboxAcreditacion").checked = false;
+        document.getElementById("checkboxPoliza").checked = false;
+      }
+      if (resultados[8] == "true") {
+        document.getElementById("checkboxComprobante").checked = true;
+        porcentaje += 9;
+      } else {
+        document.getElementById("checkboxComprobante").checked = false;
       }
       porcentajeBarra = document.getElementById("progresoDocsAprobados");
       porcentajeBarra.style.width = porcentaje + "%";
@@ -334,6 +346,7 @@ function mostrarDocsAprobados() {
 function funcionesBoton(getId) {
   let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
+  let sinPuntos = getId.split(".");
   switch (sinComas[0]) {
     case "Ver":
       $.ajax({
@@ -343,18 +356,34 @@ function funcionesBoton(getId) {
           accion: "Ver",
         },
         success: function (result) {
-          let imagen = document.getElementById("docSeleccionado");
-          imagen.setAttribute(
-            "src",
-            "../documentos/" + direccionId + "/" + sinComas[2] + ""
-          );
+          if (sinPuntos[1] === "txt") {
+            alert("entra aqui");
+            let imagen = document.getElementById("docSeleccionado");
+            $.ajax({
+              method: "POST",
+              url: "../leerImagenes",
+              data: {
+                accion: "traerImagen64",
+              },
+              success: function (result) {
+                imagen.src = result;
+              },
+            });
+          } else {
+            alert(sinComas[2]);
+            let imagen = document.getElementById("docSeleccionado");
+            imagen.setAttribute(
+              "src",
+              "./documentos/" + direccionId + "/" + sinComas[2] + ""
+            );
+          }
         },
       });
       break;
     case "Eliminar":
       $.ajax({
         method: "POST",
-        url: "../FuncionesBtnDocs",
+        url: "FuncionesBtnDocs",
         data: {
           accion: "Eliminar",
           fkId: sinComas[3],
@@ -591,6 +620,42 @@ function busquedaParticular(getId, getValue) {
           estado
         }</tr>`;
       }
+    },
+  });
+}
+function guardarDocsAprobados(id) {
+  let txtFactura = document.getElementById("checkboxFactura");
+  let txtPoder = document.getElementById("checkboxPoder");
+  let txtIdentificacion = document.getElementById("checkboxIdentificacion");
+  let txtSituacion = document.getElementById("checkboxSituacion");
+  let txtCurp = document.getElementById("checkboxCurp");
+  let txtEstado = document.getElementById("checkboxEstado");
+  let txtTenencia = document.getElementById("checkboxTenencia");
+  let txtBaja = document.getElementById("checkboxBaja");
+  let txtTarjeta = document.getElementById("checkboxTarjeta");
+  let txtPoliza = document.getElementById("checkboxPoliza");
+  let txtComprobante = document.getElementById("checkboxComprobante");
+  let txtIdRegistro = document.getElementById("idOculto");
+  let guardarDocs = "guardarDocsAprobados";
+  $.ajax({
+    url: "../DocumentosAprobados",
+    data: {
+      factura: txtFactura.checked,
+      poder: txtPoder.checked,
+      identificacion: txtIdentificacion.checked,
+      situacion: txtSituacion.checked,
+      curp: txtCurp.checked,
+      estado: txtEstado.checked,
+      tenencia: txtTenencia.checked,
+      baja: txtBaja.checked,
+      tarjeta: txtTarjeta.checked,
+      poliza: txtPoliza.checked,
+      comprobante: txtComprobante.checked,
+      idRegistro: txtIdRegistro.value,
+      funcARealizar: guardarDocs,
+    },
+    success: function (resultado) {
+      alert(resultado);
     },
   });
 }

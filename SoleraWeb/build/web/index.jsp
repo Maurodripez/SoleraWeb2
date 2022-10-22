@@ -17,7 +17,7 @@
     <body>
         <div class="container mt-4 col-lg-4 card col-sm-10">
             <div class="card-body">
-                <form action="/SoleraWeb/LoginControlador" method="post">
+                <form action="LoginControlador" method="post">
                     <div class="form-group text-center">
                         <h3>Login</h3>
                         <label>Bienvenido</label>

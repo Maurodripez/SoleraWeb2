@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2022 a las 20:54:35
+-- Tiempo de generación: 22-10-2022 a las 20:59:59
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -29,40 +29,53 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `documentosaprobados` (
   `iddocumentosaprobados` int(11) NOT NULL,
-  `identificacionOficial` varchar(5) DEFAULT 'false',
-  `comprobanteDeDomicilio` varchar(5) DEFAULT 'false',
-  `informacionAdicional` varchar(5) DEFAULT 'false',
-  `facturaDelVehiculo` varchar(5) DEFAULT 'false',
-  `tenencias` varchar(5) DEFAULT 'false',
+  `factura` varchar(5) DEFAULT 'false',
+  `poder` varchar(5) DEFAULT 'false',
+  `identificacion` varchar(5) DEFAULT 'false',
+  `situacion` varchar(5) DEFAULT 'false',
+  `curp` varchar(5) DEFAULT 'false',
+  `estadoDoc` varchar(5) DEFAULT 'false',
+  `tenencia` varchar(5) DEFAULT 'false',
   `baja` varchar(5) DEFAULT 'false',
-  `estadodeCuenta` varchar(5) DEFAULT 'false',
-  `denuncia` varchar(5) DEFAULT 'false',
-  `acreditacion` varchar(5) DEFAULT 'false',
-  `fkIdRegistroDocsAprobados` int(11) DEFAULT NULL
+  `tarjeta` varchar(5) DEFAULT 'false',
+  `fkIdRegistroDocsAprobados` int(11) DEFAULT NULL,
+  `polizaDoc` varchar(5) DEFAULT 'false',
+  `comprobante` varchar(5) DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `documentosaprobados`
 --
 
-INSERT INTO `documentosaprobados` (`iddocumentosaprobados`, `identificacionOficial`, `comprobanteDeDomicilio`, `informacionAdicional`, `facturaDelVehiculo`, `tenencias`, `baja`, `estadodeCuenta`, `denuncia`, `acreditacion`, `fkIdRegistroDocsAprobados`) VALUES
-(23, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 76),
-(24, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 75),
-(25, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 78),
-(26, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 77),
-(27, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 80),
-(28, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 79),
-(29, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 81),
-(30, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 82),
-(31, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 83),
-(32, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 84),
-(33, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 85),
-(34, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 86),
-(35, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 87),
-(36, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 88),
-(37, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 89),
-(38, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 90),
-(39, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 91);
+INSERT INTO `documentosaprobados` (`iddocumentosaprobados`, `factura`, `poder`, `identificacion`, `situacion`, `curp`, `estadoDoc`, `tenencia`, `baja`, `tarjeta`, `fkIdRegistroDocsAprobados`, `polizaDoc`, `comprobante`) VALUES
+(23, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 76, 'false', 'false'),
+(24, 'true', 'false', 'true', 'true', 'true', 'false', 'false', 'false', 'false', 75, 'false', 'false'),
+(25, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 78, 'false', 'false'),
+(26, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 77, 'false', 'false'),
+(27, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 80, 'false', 'false'),
+(28, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 79, 'false', 'false'),
+(29, 'false', 'false', 'true', NULL, 'false', 'false', 'true', 'false', 'false', 81, 'false', 'false'),
+(30, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 82, 'false', 'false'),
+(31, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 83, 'false', 'false'),
+(32, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 84, 'false', 'false'),
+(33, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 85, 'false', 'false'),
+(34, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 86, 'false', 'false'),
+(35, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 87, 'false', 'false'),
+(36, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 88, 'false', 'false'),
+(37, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 89, 'false', 'false'),
+(38, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 90, 'false', 'false'),
+(39, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 91, 'false', 'false');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `encuestaplataforma`
+--
+
+CREATE TABLE `encuestaplataforma` (
+  `idencuestaPlataforma` int(11) NOT NULL,
+  `accesible` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -74,7 +87,7 @@ CREATE TABLE `estadoproceso` (
   `idProceso` int(11) NOT NULL,
   `estacionProceso` varchar(45) DEFAULT NULL,
   `estatusOperativo` varchar(45) DEFAULT NULL,
-  `subEstatusProceso` varchar(45) DEFAULT NULL,
+  `subEstatusProceso` varchar(45) DEFAULT 'Nuevo, activacion por proceso normal',
   `usuarioSeguimiento` varchar(45) DEFAULT NULL,
   `fkIdRegistroEstadoProceso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -84,23 +97,23 @@ CREATE TABLE `estadoproceso` (
 --
 
 INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`, `subEstatusProceso`, `usuarioSeguimiento`, `fkIdRegistroEstadoProceso`) VALUES
-(27, 'Cancelado', 'Datos incorrectos', NULL, NULL, 76),
-(28, 'Nuevo', 'Nuevo', NULL, NULL, 75),
-(29, 'Nuevo', 'Nuevo', NULL, NULL, 78),
-(30, 'Nuevo', 'Nuevo', NULL, NULL, 77),
-(33, 'Nuevo', 'Nuevo', NULL, NULL, 80),
-(34, 'Nuevo', 'Nuevo', NULL, NULL, 79),
-(35, 'Nuevo', 'Nuevo', NULL, NULL, 81),
-(36, 'Nuevo', 'Nuevo', NULL, NULL, 82),
-(37, 'Nuevo', 'Nuevo', NULL, NULL, 83),
-(38, 'Nuevo', 'Nuevo', NULL, NULL, 84),
-(39, 'Nuevo', 'Nuevo', NULL, NULL, 85),
-(40, 'Nuevo', 'Nuevo', NULL, NULL, 86),
-(41, 'Nuevo', 'Nuevo', NULL, NULL, 87),
-(42, 'Nuevo', 'Nuevo', NULL, NULL, 88),
-(43, 'Nuevo', 'Nuevo', NULL, NULL, 89),
-(44, 'Nuevo', 'Nuevo', NULL, NULL, 90),
-(45, 'Nuevo', 'Nuevo', NULL, NULL, 91);
+(27, 'Cancelado', 'Datos incorrectos', 'Nuevo, activacion por proceso normal', NULL, 76),
+(28, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 75),
+(29, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 78),
+(30, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 77),
+(33, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 80),
+(34, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 79),
+(35, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 81),
+(36, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 82),
+(37, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 83),
+(38, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 84),
+(39, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 85),
+(40, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 86),
+(41, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 87),
+(42, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 88),
+(43, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 89),
+(44, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 90),
+(45, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 91);
 
 -- --------------------------------------------------------
 
@@ -138,14 +151,14 @@ CREATE TABLE `fechasseguimiento` (
 
 INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fechaContactoCliente`, `fechaPrimerEnvioDoc`, `fechaIntegracionexpedienteCompleto`, `fechaTermino`, `contactoFinal`, `siClienteOtro`, `numDatosincorrectos`, `fecharecepcionDocOriginales`, `fechaPago`, `docCompletosCorrectos`, `noindicaFaltantes`, `importePagado`, `comentarios`, `detalles`, `linea`, `guia`, `refactura`, `aviso`, `fkidRegistro`) VALUES
 (29, '2022-10-19', NULL, '2019-09-23', '2022-09-01', '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 76),
-(30, NULL, NULL, '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
+(30, '2022-10-19', NULL, '2022-10-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
 (32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 78),
 (33, NULL, NULL, '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 77),
 (34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 79),
 (35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 80),
-(36, NULL, NULL, '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 81),
-(37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 82),
-(38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 83),
+(36, NULL, NULL, '2022-10-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 81),
+(37, NULL, NULL, '2022-10-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 82),
+(38, NULL, NULL, '2022-10-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 83),
 (39, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 84),
 (40, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 85),
 (41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 86),
@@ -180,9 +193,31 @@ INSERT INTO `imagenes` (`idimagenes`, `nombreImagen`, `rutaImagen`, `fkImagen`, 
 (23, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\76\\foto_parzibyte.me (7).png', 76, '2022-10-12', 'foto_parzibyte.me (7).png'),
 (24, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\76\\foto_parzibyte.me (2).png', 76, '2022-10-12', 'foto_parzibyte.me (2).png'),
 (25, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\76\\foto_parzibyte.me (8).png', 76, '2022-10-12', 'foto_parzibyte.me (8).png'),
-(26, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (7).png', 75, '2022-10-12', 'foto_parzibyte.me (7).png'),
 (27, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\77\\foto_parzibyte.me (7).png', 77, '2022-10-12', 'foto_parzibyte.me (7).png'),
-(29, 'Comprobante de domicilio.txt', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\Comprobante de domicilio.txt', 81, '2022-10-12', '81Comprobante de domicilio.txt');
+(29, 'Comprobante de domicilio.txt', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\Comprobante de domicilio.txt', 81, '2022-10-12', '81Comprobante de domicilio.txt'),
+(31, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (6).png', 75, '2022-10-18', 'foto_parzibyte.me (6).png'),
+(32, 'Comprobante de domicilio', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-18', 'foto_parzibyte.me (8).png'),
+(33, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\archivo (2).pdf', 75, '2022-10-19', 'archivo (2).pdf'),
+(34, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\cute (9).jpg', 75, '2022-10-19', 'cute (9).jpg'),
+(35, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\cute.jpg', 75, '2022-10-19', 'cute.jpg'),
+(36, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
+(37, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(38, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(39, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(40, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(41, 'Baja', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(42, 'Denuncia', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\foto_parzibyte.me (5).png', 81, '2022-10-21', 'foto_parzibyte.me (5).png'),
+(43, 'Denuncia', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (7).png', 75, '2022-10-21', 'foto_parzibyte.me (7).png'),
+(44, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\cute (9).jpg', 75, '2022-10-21', 'cute (9).jpg'),
+(45, 'Tenencias', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
+(46, 'Tenencias', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
+(47, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\foto_parzibyte.me (8).png', 82, '2022-10-21', 'foto_parzibyte.me (8).png'),
+(48, 'Factura original', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\pruebas.png', 82, '2022-10-22', 'pruebas.png'),
+(49, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\pruebas.png', 81, '2022-10-22', 'pruebas.png'),
+(50, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\pruebas.png', 82, '2022-10-22', 'pruebas.png'),
+(52, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\83\\foto_parzibyte.me (7).png', 83, '2022-10-22', 'foto_parzibyte.me (7).png'),
+(53, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\83\\foto_parzibyte.me (6).png', 83, '2022-10-22', 'foto_parzibyte.me (6).png'),
+(54, 'Factura original', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\83\\pruebas.png', 83, '2022-10-22', 'pruebas.png');
 
 -- --------------------------------------------------------
 
@@ -313,7 +348,7 @@ CREATE TABLE `infosiniestro` (
 --
 
 INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`, `tipoDeCaso`, `cobertura`, `fechaSiniestro`, `estado`, `ciudad`, `region`, `ubicacionTaller`, `financiado`, `regimenFiscal`, `estatusCliente`, `comentariosCliente`, `datosAudatex`, `passwordExterno`, `fechaCarga`, `fechaDecreto`) VALUES
-(75, '1234', '12345', 'A', '', 'DM', '2020-12-12', '', '', '', 'Tlalpan', '', 'Persona fisica', 'Enviado', 'qweqe', 'Sin Datos', 'Sin Password', '2022-10-11', '2022-12-11'),
+(75, '1234', '12345', 'A', '', 'DM', '2020-12-12', '', '', 'Layout ZG A: Guadalajara-Colima-Nayarit', 'Tlalpan', '', 'Persona fisica', 'Enviado', 'qweqe', 'Sin Datos', 'Sin Password', '2022-10-11', '2022-12-11'),
 (76, '2343', '45646', 'A', 'Incendio', 'DM', '2020-10-12', 'Estado de Mexico', 'Todos-Ninguna', 'Layout ZG A: Guadalajara-Colima-Nayarit', ' Toluca', 'Si', 'Persona fisica', 'Documento incorrecto', 'Persona fisicaa', 'Sin Datos', 'Sin Password', '2022-10-12', '2022-10-11'),
 (77, '2343', '45646', 'A', NULL, 'DM', '2020-10-12', NULL, 'Puebla', NULL, 'Benito Juarez', NULL, 'Persona fisica', NULL, NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-10-11'),
 (78, '1234', '12345', 'A', NULL, 'DM', '2020-12-12', NULL, 'Chiapas', NULL, 'Tlalpan', NULL, 'Persona fisica', NULL, NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-12-11'),
@@ -465,6 +500,12 @@ ALTER TABLE `documentosaprobados`
   ADD KEY `fkIdRegistroDocsAprobados` (`fkIdRegistroDocsAprobados`);
 
 --
+-- Indices de la tabla `encuestaplataforma`
+--
+ALTER TABLE `encuestaplataforma`
+  ADD PRIMARY KEY (`idencuestaPlataforma`);
+
+--
 -- Indices de la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
@@ -550,6 +591,12 @@ ALTER TABLE `documentosaprobados`
   MODIFY `iddocumentosaprobados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
+-- AUTO_INCREMENT de la tabla `encuestaplataforma`
+--
+ALTER TABLE `encuestaplataforma`
+  MODIFY `idencuestaPlataforma` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
@@ -565,7 +612,7 @@ ALTER TABLE `fechasseguimiento`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `idimagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idimagenes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `infoauto`
@@ -601,7 +648,7 @@ ALTER TABLE `insertarregistros`
 -- AUTO_INCREMENT de la tabla `mensajesseguimientos`
 --
 ALTER TABLE `mensajesseguimientos`
-  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento`

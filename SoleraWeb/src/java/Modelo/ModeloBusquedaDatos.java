@@ -14,86 +14,104 @@ public class ModeloBusquedaDatos {
     private String estacionProceso;
     private String estatusOperativo;
     private String subEstatusProceso;
-    private String identificacionOficial;
-    private String comprobanteDeDomicilio;
-    private String informacionAdicional;
-    private String facturaDelVehiculo;
-    private String tenencias;
+    private String factura;
+    private String poder;
+    private String identificacion;
+    private String situacion;
+    private String curp;
+    private String estadoDoc;
+    private String tenencia;
     private String baja;
-    private String estadodeCuenta;
-    private String denuncia;
-    private String acreditacion;
+    private String tarjeta;
+    private String polizaDoc;
+    private String comprobante;
 
-    public String getIdentificacionOficial() {
-        return identificacionOficial;
+    public String getFactura() {
+        return this.factura;
     }
 
-    public void setIdentificacionOficial(String identificacionOficial) {
-        this.identificacionOficial = identificacionOficial;
+    public void setFactura(String factura) {
+        this.factura = factura;
     }
 
-    public String getComprobanteDeDomicilio() {
-        return comprobanteDeDomicilio;
+    public String getPoder() {
+        return this.poder;
     }
 
-    public void setComprobanteDeDomicilio(String comprobanteDeDomicilio) {
-        this.comprobanteDeDomicilio = comprobanteDeDomicilio;
+    public void setPoder(String poder) {
+        this.poder = poder;
     }
 
-    public String getInformacionAdicional() {
-        return informacionAdicional;
+    public String getIdentificacion() {
+        return this.identificacion;
     }
 
-    public void setInformacionAdicional(String informacionAdicional) {
-        this.informacionAdicional = informacionAdicional;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
-    public String getFacturaDelVehiculo() {
-        return facturaDelVehiculo;
+    public String getSituacion() {
+        return this.situacion;
     }
 
-    public void setFacturaDelVehiculo(String facturaDelVehiculo) {
-        this.facturaDelVehiculo = facturaDelVehiculo;
+    public void setSituacion(String situacion) {
+        this.situacion = situacion;
     }
 
-    public String getTenencias() {
-        return tenencias;
+    public String getCurp() {
+        return this.curp;
     }
 
-    public void setTenencias(String tenencias) {
-        this.tenencias = tenencias;
+    public void setCurp(String curp) {
+        this.curp = curp;
+    }
+
+    public String getEstadoDoc() {
+        return this.estadoDoc;
+    }
+
+    public void setEstadoDoc(String estadoDoc) {
+        this.estadoDoc = estadoDoc;
+    }
+
+    public String getTenencia() {
+        return this.tenencia;
+    }
+
+    public void setTenencia(String tenencia) {
+        this.tenencia = tenencia;
     }
 
     public String getBaja() {
-        return baja;
+        return this.baja;
     }
 
     public void setBaja(String baja) {
         this.baja = baja;
     }
 
-    public String getEstadodeCuenta() {
-        return estadodeCuenta;
+    public String getTarjeta() {
+        return this.tarjeta;
     }
 
-    public void setEstadodeCuenta(String estadodeCuenta) {
-        this.estadodeCuenta = estadodeCuenta;
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
-    public String getDenuncia() {
-        return denuncia;
+    public String getPolizaDoc() {
+        return this.polizaDoc;
     }
 
-    public void setDenuncia(String denuncia) {
-        this.denuncia = denuncia;
+    public void setPolizaDoc(String polizaDoc) {
+        this.polizaDoc = polizaDoc;
     }
 
-    public String getAcreditacion() {
-        return acreditacion;
+    public String getComprobante() {
+        return this.comprobante;
     }
 
-    public void setAcreditacion(String acreditacion) {
-        this.acreditacion = acreditacion;
+    public void setComprobante(String comprobante) {
+        this.comprobante = comprobante;
     }
 
     public String getIdRegistro() {

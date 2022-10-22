@@ -19,8 +19,8 @@ public class BusquedaParticular {
     ResultSet rs;
 
     public List<ModeloBusquedaDatos> getID(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and idRegistro like '%"
                 + id + "%'";
@@ -42,15 +42,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
             conect.Desconectar();
@@ -62,8 +64,8 @@ public class BusquedaParticular {
 
     public List<ModeloBusquedaDatos> getSiniestro(String id) throws SQLException {
 
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and numSiniestro like '%"
                 + id + "%'";
@@ -85,15 +87,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -103,8 +107,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getPoliza(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and poliza like '%"
                 + id + "%'";
@@ -126,15 +130,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -144,8 +150,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getMarca(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and marca like '%"
                 + id + "%'";
@@ -167,15 +173,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -185,8 +193,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getTipo(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and tipo like '%"
                 + id + "%'";
@@ -208,15 +216,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -226,8 +236,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getModelo(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and modelo like '%"
                 + id + "%'";
@@ -249,15 +259,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -267,8 +279,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getSerie(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and numSerie like '%"
                 + id + "%'";
@@ -290,15 +302,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -308,8 +322,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getEstado(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estado like '%"
                 + id + "%'";
@@ -331,15 +345,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -349,8 +365,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getFechaCarga(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and fechaCarga like '%"
                 + id + "%'";
@@ -372,15 +388,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -390,8 +408,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getEstacion(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estacionProceso like '%"
                 + id + "%'";
@@ -413,15 +431,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {
@@ -431,8 +451,8 @@ public class BusquedaParticular {
     }
 
     public List<ModeloBusquedaDatos> getEstatus(String id) throws SQLException {
-        sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+        sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estatusOperativo like '%"
                 + id + "%'";
@@ -454,15 +474,17 @@ public class BusquedaParticular {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (SQLException e) {

@@ -33,17 +33,7 @@ public class GuardadoImagenesServlet extends HttpServlet {
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fkGuardar = request.getParameter("fkImagenes");
         String realPath = request.getContextPath();
-        out.println(realPath);
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Servlet prueba</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Servlet prueba at</h1>");
-        out.println("</body>");
-        out.println("</html>");
-        File directorio = new File(realPath + "/SoleraWeb/web/documentos/" + fkGuardar + "");
+        File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
         if (!directorio.exists()) {
             if (directorio.mkdirs()) {
                 System.out.println("Directorio creado");
@@ -63,7 +53,7 @@ public class GuardadoImagenesServlet extends HttpServlet {
             if (validarExtenciones(archivo.getSubmittedFileName(), extensiones)) {
                 String rutaImagen = guardarDoc(archivo, cargasImagenes);
                 dGImagenes.guardarImagen(nombre, rutaImagen, fkGuardar, archivo.getSubmittedFileName());
-                // response.sendRedirect("ModuloPrincipal.jsp");
+                response.sendRedirect("ModuloPrincipal.jsp");
             }
         } catch (ServletException | IOException e) {
             // TODO: handle exception

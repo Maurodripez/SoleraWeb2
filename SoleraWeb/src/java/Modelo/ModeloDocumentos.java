@@ -2,22 +2,32 @@ package Modelo;
 
 public class ModeloDocumentos {
     private String id;
-    private String identificacion;
-    private String comprobante;
-    private String infoAdicional;
     private String factura;
-    private String tenencias;
+    private String poder;
+    private String identificacion;
+    private String situacion;
+    private String curp;
+    private String estado;
+    private String tenencia;
     private String baja;
-    private String estadoDeCuenta;
-    private String denuncia;
-    private String acreditacion;
+    private String tarjeta;
+    private String poliza;
+    private String comprobante;
 
-    public String getId() {
-        return this.id;
+    public String getFactura() {
+        return this.factura;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFactura(String factura) {
+        this.factura = factura;
+    }
+
+    public String getPoder() {
+        return this.poder;
+    }
+
+    public void setPoder(String poder) {
+        this.poder = poder;
     }
 
     public String getIdentificacion() {
@@ -28,36 +38,36 @@ public class ModeloDocumentos {
         this.identificacion = identificacion;
     }
 
-    public String getComprobante() {
-        return this.comprobante;
+    public String getSituacion() {
+        return this.situacion;
     }
 
-    public void setComprobante(String comprobante) {
-        this.comprobante = comprobante;
+    public void setSituacion(String situacion) {
+        this.situacion = situacion;
     }
 
-    public String getInfoAdicional() {
-        return this.infoAdicional;
+    public String getCurp() {
+        return this.curp;
     }
 
-    public void setInfoAdicional(String infoAdicional) {
-        this.infoAdicional = infoAdicional;
+    public void setCurp(String curp) {
+        this.curp = curp;
     }
 
-    public String getFactura() {
-        return this.factura;
+    public String getEstado() {
+        return this.estado;
     }
 
-    public void setFactura(String factura) {
-        this.factura = factura;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public String getTenencias() {
-        return this.tenencias;
+    public String getTenencia() {
+        return this.tenencia;
     }
 
-    public void setTenencias(String tenencias) {
-        this.tenencias = tenencias;
+    public void setTenencia(String tenencia) {
+        this.tenencia = tenencia;
     }
 
     public String getBaja() {
@@ -68,28 +78,35 @@ public class ModeloDocumentos {
         this.baja = baja;
     }
 
-    public String getEstadoDeCuenta() {
-        return this.estadoDeCuenta;
+    public String getTarjeta() {
+        return this.tarjeta;
     }
 
-    public void setEstadoDeCuenta(String estadoDeCuenta) {
-        this.estadoDeCuenta = estadoDeCuenta;
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
-    public String getDenuncia() {
-        return this.denuncia;
+    public String getPoliza() {
+        return this.poliza;
     }
 
-    public void setDenuncia(String denuncia) {
-        this.denuncia = denuncia;
+    public void setPoliza(String poliza) {
+        this.poliza = poliza;
     }
 
-    public String getAcreditacion() {
-        return this.acreditacion;
+    public String getComprobante() {
+        return this.comprobante;
     }
 
-    public void setAcreditacion(String acreditacion) {
-        this.acreditacion = acreditacion;
+    public void setComprobante(String comprobante) {
+        this.comprobante = comprobante;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

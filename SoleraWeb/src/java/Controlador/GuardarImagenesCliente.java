@@ -42,8 +42,8 @@ public class GuardarImagenesCliente extends HttpServlet {
       String realPath = request.getContextPath();
       File directorio = new File(realPath + "/SoleraWeb/web/documentos/" + sinComas[0] + "");
       out.println(realPath);
-      File miDir = new File (".");
-      out.println(miDir.getCanonicalPath());
+      String miDir = System.getProperty("user.dir");
+      out.println(miDir);
       String direccionString = directorio.toString();
       if (!directorio.exists()) {
         if (directorio.mkdirs()) {

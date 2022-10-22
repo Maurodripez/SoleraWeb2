@@ -8,14 +8,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import DAO.DAOGuardarImagenes;
 import DAO.DAOTablaDocumentos;
 import DAO.MostrarDocumentosEstados;
 import Modelo.ModeloDocumentos;
 import Modelo.ModeloGuardarImagen;
-import Modelo.UsuariosModelo;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "DocumentosAprobados", urlPatterns = { "/DocumentosAprobados" })
 public class DocumentosAprobados extends HttpServlet {
@@ -39,36 +35,36 @@ public class DocumentosAprobados extends HttpServlet {
             switch (funcARealizar) {
                 case "guardarDocsAprobados":
                     ModeloDocumentos mDocumentos = new ModeloDocumentos();
-                    mDocumentos.setIdentificacion(request.getParameter("identificacion"));
-                    mDocumentos.setComprobante(request.getParameter("comprobante"));
-                    mDocumentos.setInfoAdicional(request.getParameter("infoAdicional"));
                     mDocumentos.setFactura(request.getParameter("factura"));
-                    mDocumentos.setTenencias(request.getParameter("tenencia"));
+                    mDocumentos.setPoder(request.getParameter("poder"));
+                    mDocumentos.setIdentificacion(request.getParameter("identificacion"));
+                    mDocumentos.setSituacion(request.getParameter("situacion"));
+                    mDocumentos.setCurp(request.getParameter("curp"));
+                    mDocumentos.setEstado(request.getParameter("estado"));
+                    mDocumentos.setTenencia(request.getParameter("tenencia"));
                     mDocumentos.setBaja(request.getParameter("baja"));
-                    mDocumentos.setEstadoDeCuenta(request.getParameter("estadoCuenta"));
-                    mDocumentos.setDenuncia(request.getParameter("denuncia"));
-                    mDocumentos.setAcreditacion(request.getParameter("acreditacion"));
+                    mDocumentos.setTarjeta(request.getParameter("tarjeta"));
+                    mDocumentos.setPoliza(request.getParameter("poliza"));
+                    mDocumentos.setComprobante(request.getParameter("comprobante"));
                     mDocumentos.setId(request.getParameter("idRegistro"));
-                    /* TODO output your page here. You may use following sample code. */
                     respuesta = mdEstados.actualizarDocsAprobados(mDocumentos);
                     out.println(respuesta);
                     break;
                 case "mostrarDocsAprobados":
                     String fkId = request.getParameter("idRegistro");
                     for (ModeloDocumentos mDocumentosMostrar : mdEstados.mostrarDocsAprobados(fkId)) {
-                        out.println(mDocumentosMostrar.getIdentificacion() + "," + mDocumentosMostrar.getComprobante()
-                                + "," + mDocumentosMostrar.getInfoAdicional() + "," + mDocumentosMostrar.getFactura()
-                                + "," + mDocumentosMostrar.getTenencias() + "," + mDocumentosMostrar.getBaja() + ","
-                                + mDocumentosMostrar.getEstadoDeCuenta() + "," + mDocumentosMostrar.getDenuncia() + ","
-                                + mDocumentosMostrar.getAcreditacion() + ",");
+                        out.println(mDocumentosMostrar.getFactura() + "," + mDocumentosMostrar.getPoder()
+                                + "," + mDocumentosMostrar.getIdentificacion() + "," + mDocumentosMostrar.getSituacion()
+                                + "," + mDocumentosMostrar.getCurp() + "," + mDocumentosMostrar.getEstado() + ","
+                                + mDocumentosMostrar.getTenencia() + "," + mDocumentosMostrar.getBaja() + ","
+                                + mDocumentosMostrar.getTarjeta() + "," + mDocumentosMostrar.getPoliza() + ","
+                                + mDocumentosMostrar.getComprobante() + ",");
                     }
                     break;
                 case "obtenerSesiones":
-                    HttpSession sesion = request.getSession();
-                    // https://www.arquitecturajava.com/usando-java-session-en-aplicaciones-web/
-                    UsuariosModelo uModelos = new UsuariosModelo();
-                    out.println(request.getSession().getId());
-                    out.println(request.getRequestedSessionId());
+                out.println("entra");
+                    String usuario = (String) request.getAttribute("sesionUsuario");
+                    out.print(usuario);
                     break;
                 case "mostrarTabla":
                     DAOTablaDocumentos dtDocumentos = new DAOTablaDocumentos();
@@ -82,8 +78,10 @@ public class DocumentosAprobados extends HttpServlet {
                                 + "<button id='Ver," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
                                 + "' onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Ver</button>"
                                 + "<button id='Pdf," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
-                                + ","+dgImagenes.getFkImagen()+"' onclick='convertirPDF(this.id)' type='button' class='btn btn-primary'>Pdf</button>"
-                                + "<a href='./documentos/"+dgImagenes.getFkImagen()+"/"+dgImagenes.getNombreOriginal()+"' download='cute.jpg'>"
+                                + "," + dgImagenes.getFkImagen()
+                                + "' onclick='convertirPDF(this.id)' type='button' class='btn btn-primary'>Pdf</button>"
+                                + "<a href='./documentos/" + dgImagenes.getFkImagen() + "/"
+                                + dgImagenes.getNombreOriginal() + "' download='cute.jpg'>"
                                 + "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'"
                                 + " stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'"
                                 + "class='feather feather-download'>"
@@ -94,7 +92,8 @@ public class DocumentosAprobados extends HttpServlet {
                                 + "</a>"
                                 + "<button id='Eliminar," + dgImagenes.getIdImagen() + ","
                                 + dgImagenes.getNombreOriginal()
-                                + ","+dgImagenes.getFkImagen()+"' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btn btn-danger'>Eliminar</button>"
+                                + "," + dgImagenes.getFkImagen()
+                                + "' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btn btn-danger'>Eliminar</button>"
                                 + "</div>"
                                 + "</td>");
                         out.println(" <td class='col'>" + dgImagenes.getNombreImagen() + "</td>");

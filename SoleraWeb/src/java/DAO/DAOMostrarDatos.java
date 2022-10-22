@@ -17,12 +17,12 @@ public class DAOMostrarDatos {
             String subEstatus,
             String fechaBuscar2, String region, String estado, String cobertura) {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
-        String sql = "select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado,fechaCarga, estacionProceso, "
+        String sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+                + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado,fechaCarga, estacionProceso, "
                 + " estatusOperativo, subEstatusProceso from documentosaprobados, fechasseguimiento as fs,  estadoproceso as ep, infosiniestro as iSin, infoauto as ia"
                 + " where idRegistro = ia.fkIdRegistro and idRegistro=fs.fkidRegistro and idRegistro = ep.fkIdRegistroEstadoProceso"
                 + " and idRegistro=fkIdRegistroDocsAprobados and estacionProceso like '%" + estacion
-                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus+"%'"
+                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus + "%'"
                 + " and fechaSeguimiento between '" + fechaBuscar2 + "'  and curdate() and fechaCarga between '"
                 + fechaBuscar1 + "' and curdate() "
                 + " and region like '%" + region + "%' and estado like '%" + estado + "%' and  cobertura like '%"
@@ -63,15 +63,17 @@ public class DAOMostrarDatos {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
             }
         } catch (Exception e) {
@@ -84,8 +86,8 @@ public class DAOMostrarDatos {
     public List<ModeloBusquedaDatos> getTodosSinDocs() {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
         try {
-            String sql = " select identificacionOficial, comprobanteDeDomicilio, informacionAdicional, facturaDelVehiculo, tenencias, baja, estadodeCuenta,"
-                    + " denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
+            String sql = " select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
+            + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
                     + "estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                     + "iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados";
             conect.conectar();
@@ -105,15 +107,17 @@ public class DAOMostrarDatos {
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
                 mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
-                mbDatos.setIdentificacionOficial(rs.getString("identificacionOficial"));
-                mbDatos.setComprobanteDeDomicilio(rs.getString("comprobanteDeDomicilio"));
-                mbDatos.setInformacionAdicional(rs.getString("informacionAdicional"));
-                mbDatos.setFacturaDelVehiculo(rs.getString("facturaDelVehiculo"));
-                mbDatos.setTenencias(rs.getString("tenencias"));
+                mbDatos.setFactura(rs.getString("factura"));
+                mbDatos.setPoder(rs.getString("poder"));
+                mbDatos.setIdentificacion(rs.getString("identificacion"));
+                mbDatos.setSituacion(rs.getString("situacion"));
+                mbDatos.setCurp(rs.getString("curp"));
+                mbDatos.setEstadoDoc(rs.getString("estadoDoc"));
+                mbDatos.setTenencia(rs.getString("tenencia"));
                 mbDatos.setBaja(rs.getString("baja"));
-                mbDatos.setEstadodeCuenta(rs.getString("estadodeCuenta"));
-                mbDatos.setDenuncia(rs.getString("denuncia"));
-                mbDatos.setAcreditacion(rs.getString("acreditacion"));
+                mbDatos.setTarjeta(rs.getString("tarjeta"));
+                mbDatos.setPolizaDoc(rs.getString("polizaDoc"));
+                mbDatos.setComprobante(rs.getString("comprobante"));
                 lista.add(mbDatos);
                 respuesta = "si entra poblemas";
             }
