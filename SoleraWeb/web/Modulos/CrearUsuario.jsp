@@ -3,13 +3,14 @@
 
 <head>
     <%@ page contentType="text/html; charset=UTF-8" %>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Usuario</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script src="../js/jquery-3.6.1.js"></script>
 </head>
 
 <body class="p-4">
@@ -17,33 +18,33 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../Iconos/person-plus.svg" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
+                    class="d-inline-block align-text-top" />
                 Crear usuario
             </a>
         </div>
     </nav>
     <div class="row justify-content-center">
         <div class="card col-5">
-            <div class="card-header">
-                Nuevo usuario
-            </div>
+            <div class="card-header">Nuevo usuario</div>
             <div class="card-body">
+                <input type="hidden" name="sinId" id="idOculto" />
+                <input type="hidden" name="" id="crearUsuario" />
                 <div class="mb-3 row justify-content-center">
                     <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="usuario">
+                        <input type="text" class="form-control" required id="usuario"/>
                     </div>
                 </div>
                 <div class="mb-3 row justify-content-center">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" required id="password" />
                     </div>
                 </div>
                 <div class="mb-3 row justify-content-center">
                     <label for="privilegios" class="col-sm-2 col-form-label">Privilegios</label>
                     <div class="col-sm-6">
-                        <select class="form-select">
+                        <select id="privilegio" required class="form-select">
                             <option selected>Privilegios...</option>
                             <option value="root">Root</option>
                             <option value="supervisor">Supervisor</option>
@@ -55,34 +56,32 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <div class="d-grid col-sm-8 mx-auto">
-                        <button class="btn btn-primary">
+                    <div class="d-grid col-sm-6 mx-auto">
+                        <button onclick="crearUsuario()" class="btn btn-primary" >
                             Crear usuario
+                        </button>
+                    </div>
+                    <div class="d-grid col-sm-6 mx-auto">
+                        <button onclick="EditarUsuario()" class="btn btn-primary">
+                            Editar usuario
                         </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card col-5">
-            <div class="card-header">
-                Editar Usuario
-            </div>
+            <div class="card-header">Editar Usuario</div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="card col-5">
-            <div class="card-header">
-                Eliminar usuario
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <table id="TablaPrincipal" class="table table-hover col float-end">
+                    <thead>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Privilegios</th>
+                    </thead>
+                    <tbody id="TablaUsuarios"></tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -90,6 +89,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+    <script src="./js/AdministracionUsuarios.js"></script>
 </body>
 
 </html>

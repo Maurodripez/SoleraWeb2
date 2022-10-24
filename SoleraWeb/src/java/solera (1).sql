@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2022 a las 20:59:59
+-- Tiempo de generación: 24-10-2022 a las 20:59:29
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -194,7 +194,6 @@ INSERT INTO `imagenes` (`idimagenes`, `nombreImagen`, `rutaImagen`, `fkImagen`, 
 (24, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\76\\foto_parzibyte.me (2).png', 76, '2022-10-12', 'foto_parzibyte.me (2).png'),
 (25, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\76\\foto_parzibyte.me (8).png', 76, '2022-10-12', 'foto_parzibyte.me (8).png'),
 (27, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\77\\foto_parzibyte.me (7).png', 77, '2022-10-12', 'foto_parzibyte.me (7).png'),
-(29, 'Comprobante de domicilio.txt', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\Comprobante de domicilio.txt', 81, '2022-10-12', '81Comprobante de domicilio.txt'),
 (31, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (6).png', 75, '2022-10-18', 'foto_parzibyte.me (6).png'),
 (32, 'Comprobante de domicilio', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-18', 'foto_parzibyte.me (8).png'),
 (33, 'Factura del vehiculo', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\archivo (2).pdf', 75, '2022-10-19', 'archivo (2).pdf'),
@@ -206,7 +205,6 @@ INSERT INTO `imagenes` (`idimagenes`, `nombreImagen`, `rutaImagen`, `fkImagen`, 
 (39, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
 (40, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
 (41, 'Baja', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (8).png', 75, '2022-10-21', 'foto_parzibyte.me (8).png'),
-(42, 'Denuncia', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\foto_parzibyte.me (5).png', 81, '2022-10-21', 'foto_parzibyte.me (5).png'),
 (43, 'Denuncia', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (7).png', 75, '2022-10-21', 'foto_parzibyte.me (7).png'),
 (44, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\cute (9).jpg', 75, '2022-10-21', 'cute (9).jpg'),
 (45, 'Tenencias', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
@@ -248,7 +246,7 @@ INSERT INTO `infoauto` (`idAuto`, `marca`, `tipo`, `modelo`, `numSerie`, `valorI
 (38, 'toyota', '2019', 'yris', '89080776868', NULL, 77, NULL, NULL),
 (39, 'toyota', '2019', 'yris', '89080776868', NULL, 80, NULL, NULL),
 (40, 'suzuki', '2019', 'ignis', '23425636756585856', NULL, 79, NULL, NULL),
-(41, 'suzuki', '2019', 'ignis', '23425636756585856', NULL, 81, NULL, NULL),
+(41, 'suzuki', '2019', 'ignis', '23425636756585856', 'null', 81, 'null', 'null'),
 (42, 'toyota', '2019', 'yris', '89080776868', NULL, 82, NULL, NULL),
 (43, 'suzuki', '2019', 'ignis', '23425636756585856', NULL, 83, NULL, NULL),
 (44, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 84, NULL, NULL),
@@ -303,7 +301,7 @@ INSERT INTO `infocliente` (`idCliente`, `telefonoPrincipal`, `telefonosecundario
 (39, '457576', '67976967', NULL, 'sdadasd@sdfs.com', 77, 'Martha', NULL, NULL),
 (40, '457576', '67976967', NULL, 'sdadasd@sdfs.com', 80, 'Martha', NULL, NULL),
 (41, '2342525235', '13537656', NULL, 'sdad@sdfs.com', 79, 'Marin', NULL, NULL),
-(42, '2342525235', '13537656', NULL, 'sdad@sdfs.com', 81, 'Marin', NULL, NULL),
+(42, '2342525235', '13537656', 'null', 'sdad@sdfs.com', 81, 'Marin', 'null', 'null'),
 (43, '457576', '67976967', NULL, 'sdadasd@sdfs.com', 82, 'Martha', NULL, NULL),
 (44, '2342525235', '13537656', NULL, 'sdad@sdfs.com', 83, 'Marin', NULL, NULL),
 (45, '4456789783', '', NULL, 'may@gil.com', 84, 'mario', NULL, NULL),
@@ -354,7 +352,7 @@ INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`,
 (78, '1234', '12345', 'A', NULL, 'DM', '2020-12-12', NULL, 'Chiapas', NULL, 'Tlalpan', NULL, 'Persona fisica', NULL, NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-12-11'),
 (79, '1234', '12345', 'A', NULL, 'DM', '2020-12-12', NULL, 'Chiapas', NULL, 'Tlalpan', NULL, 'Persona fisica', NULL, NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-12-11'),
 (80, '2343', '45646', 'A', NULL, 'DM', '2020-10-12', NULL, 'Puebla', NULL, 'Benito Juarez', NULL, 'Persona fisica', NULL, NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-10-11'),
-(81, '1234', '12345', 'A', NULL, 'DM', '2020-12-12', NULL, 'Chiapas', NULL, 'Tlalpan', NULL, 'Persona fisica', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-12-11'),
+(81, '1234u', '12345', 'A', 'Colision', 'DM', '2020-12-12', 'Baja California Sur', '', '', 'Tlalpan', '', 'Persona fisica', '', 'null', 'Sin Datos', 'Sin Password', '2022-10-12', '2022-12-11'),
 (82, '2343', '45646', 'A', NULL, 'DM', '2020-10-12', NULL, 'Puebla', NULL, 'Benito Juarez', NULL, 'Persona fisica', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-12', '2022-10-11'),
 (83, '1234', '12345', 'A', NULL, 'DM', '2020-12-12', NULL, 'Chiapas', NULL, 'Tlalpan', NULL, 'Persona fisica', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2022-12-11'),
 (84, '1234', '1234', 'a', NULL, 'dm', '2018-09-11', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-11-10'),
@@ -476,9 +474,9 @@ INSERT INTO `seguimiento` (`idSeguimiento`, `fkIdUsuario`, `fechaModificacion`, 
 
 CREATE TABLE `usuarios` (
   `idUsuarios` int(25) NOT NULL,
-  `usuario` varchar(20) NOT NULL,
-  `contrasena` varchar(30) NOT NULL,
-  `privilegios` varchar(45) NOT NULL
+  `usuario` varchar(20) DEFAULT NULL,
+  `contrasena` varchar(30) DEFAULT NULL,
+  `privilegios` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -486,7 +484,13 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuarios`, `usuario`, `contrasena`, `privilegios`) VALUES
-(1, 'root', '1234', 'admin');
+(1, 'admin', '1234', 'root'),
+(3, 'noadmin2', '1234', 'root'),
+(4, 'teamliderP', 'teamlider', 'teamlider'),
+(5, 'integradorP', 'integrador', 'integrador'),
+(6, 'operadorP', 'operador', 'operador'),
+(7, 'consultaP', 'consulta', 'consulta'),
+(12, 'perez', '1234', 'teamlider');
 
 --
 -- Índices para tablas volcadas
@@ -660,7 +664,7 @@ ALTER TABLE `seguimiento`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuarios` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuarios` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas

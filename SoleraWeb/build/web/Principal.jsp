@@ -14,9 +14,6 @@
 
 <body>
   <b style="display: none" id="UsuarioActivo"><%= (String) session.getAttribute("sesionUsuario") %></b>
-  <button onclick="valoresSesiones('UsuarioActivo')">
-    aprietame
-  </button>
   <% response.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
     if(session.getAttribute("usuarioActivo")==null){ response.sendRedirect("index.jsp"); } %>
   <div id="sideNavigation" class="sidenav font-size: 1.6rem" style="background-color: #222d32 !important">

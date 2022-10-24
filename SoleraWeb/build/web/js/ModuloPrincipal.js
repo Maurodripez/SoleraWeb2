@@ -571,3 +571,27 @@ function convertirPDF(getId) {
   sinPuntos = nombreArchivo.split(".");
   doc.save("" + sinPuntos[0] + ".pdf");
 }
+function valoresSesiones() {
+  let sesion = document.getElementById("UsuarioActivo").textContent;
+  $.ajax({
+    method: "POST",
+    url: "ValidarSesiones",
+    data: {
+      accion: "ValidarUsuario",
+      usuario: sesion,
+    },
+    success: function (result) {
+      if (result === "consulta") {
+        document.getElementById("gDatosBtn").disabled = true;
+        document.getElementById("insertarSeguimiento").disabled = true;
+        document.getElementById("btnAsignarIntegrador").disabled = true;
+        document.getElementById("btnDocsAprobados").disabled = true;
+        document.getElementById("btnSubirDoc").disabled = true;
+        document.getElementsByClassName("btnEliminarClass").disabled = true;
+      }
+    },
+  });
+}
+window.addEventListener("load", function () {
+  valoresSesiones();
+});

@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <b style="display: none" id="UsuarioActivo"><%= (String) session.getAttribute("sesionUsuario") %></b>
     <!--se importa en el archivo jsp el script para poder obtener los valores y mostrarlos de manera dinamica -->
     <!---->
     <%@page import="Controlador.MostrarDatosServlet" %>
@@ -1367,7 +1368,7 @@
                             <input type="hidden" id="idOculto" name="idEditableActual" value="">
                             <!--centrar texto con esta funcion-->
                             <div style="text-align: center">
-                                <button onclick="GuardarRegistros()" class="btn btn-info">
+                                <button id="gDatosBtn" onclick="GuardarRegistros()" class="btn btn-info">
                                     Guardar Datos
                                 </button>
                             </div>
@@ -1692,7 +1693,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-primary">
+                                                <button id="btnAsignarIntegrador" class="btn btn-primary">
                                                     Asignar integrador
                                                 </button>
                                             </div>
@@ -1881,7 +1882,7 @@
                             <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
                             <div class="row">
                                 <div class="col-12 p-2" style="text-align: center">
-                                    <button type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
+                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
                                         Documento</button>
                                 </div>
 
