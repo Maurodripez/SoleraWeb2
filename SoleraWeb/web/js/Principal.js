@@ -45,7 +45,7 @@ function closeNav() {
 }
 window.addEventListener("load", function () {
   let sesion = document.getElementById("UsuarioActivo").textContent;
-  if(sesion!="Admin"){
+  if(sesion!="admin"){
     let crearUsuarios = this.document.getElementById("CrearUsuario");
     crearUsuarios.style = "display:none";
   }
