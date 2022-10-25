@@ -659,3 +659,25 @@ function guardarDocsAprobados(id) {
     },
   });
 }
+function valoresSesiones() {
+  let sesion = document.getElementById("UsuarioActivo").textContent;
+  $.ajax({
+    method: "POST",
+    url: "../ValidarSesiones",
+    data: {
+      accion: "ValidarUsuario",
+      usuario: sesion,
+    },
+    success: function (result) {
+      if (result === "consulta") {
+        document.getElementById("gDatosBtn").disabled = true;
+        document.getElementById("insertarSeguimiento").disabled = true;
+        document.getElementById("btnAsignarIntegrador").disabled = true;
+        document.getElementById("btnDocsAprobados").disabled = true;
+        document.getElementById("btnSubirDoc").disabled = true;
+        $(".btnEliminarClass").prop("disabled", true);
+        // document.getElementsByClassName("btnEliminarClass").disabled = true;
+      }
+    },
+  });
+}

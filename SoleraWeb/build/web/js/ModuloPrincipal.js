@@ -523,6 +523,7 @@ function funcionesBoton(getId) {
               "src",
               "./documentos/" + direccionId + "/" + sinComas[2] + ""
             );
+            valoresSesiones();
           }
         },
       });
@@ -587,7 +588,8 @@ function valoresSesiones() {
         document.getElementById("btnAsignarIntegrador").disabled = true;
         document.getElementById("btnDocsAprobados").disabled = true;
         document.getElementById("btnSubirDoc").disabled = true;
-        document.getElementsByClassName("btnEliminarClass").disabled = true;
+        $(".btnEliminarClass").prop("disabled", true);
+        // document.getElementsByClassName("btnEliminarClass").disabled = true;
       }
     },
   });
