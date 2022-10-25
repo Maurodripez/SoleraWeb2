@@ -93,7 +93,8 @@
                             Enviar
                         </button>
                     </form>
-                    <table id="DatosTabla" class="table table-striped align-middle table-responsive table-hover col float-end text-center">
+                    <table id="DatosTabla"
+                        class="table table-striped align-middle table-responsive table-hover col float-end text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Usuario</th>

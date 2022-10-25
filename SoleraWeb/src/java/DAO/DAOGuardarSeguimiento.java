@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 
 import Modelo.Conexion;
 import Modelo.ModeloGuardarSeguimiento;
+import java.sql.SQLException;
 
 public class DAOGuardarSeguimiento {
     public String GuardarSeguimiento(ModeloGuardarSeguimiento mgSeguimiento) {
@@ -32,19 +33,26 @@ public class DAOGuardarSeguimiento {
             ps.setString(13, mgSeguimiento.getIdRegistro());
             ps.setString(14, mgSeguimiento.getIdRegistro());
             ps.executeUpdate();
-            con.Desconectar();
             respuesta = "aqui si";
+            con.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
-                    + mgSeguimiento.getComentSeguimiento() + "','Solera',curdate(), '" + mgSeguimiento.getIdRegistro()
-                    + "')";
+                    + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',curdate(), '"
+                    + mgSeguimiento.getIdRegistro() + "')";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            con.Desconectar();
+            sql = "update mensajesseguimientos set respondido='si' where fkmensgSeguimientos='"
+                    + mgSeguimiento.getIdRegistro() + "'";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.execute();
+            con.Desconectar();
             respuesta = "Guardado Correcto";
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             // TODO: handle exception
-            // respuesta = "Error al guardar";
+             //respuesta = e;
         }
         return respuesta;
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2022 a las 20:59:29
+-- Tiempo de generación: 25-10-2022 a las 17:05:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -98,7 +98,7 @@ CREATE TABLE `estadoproceso` (
 
 INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`, `subEstatusProceso`, `usuarioSeguimiento`, `fkIdRegistroEstadoProceso`) VALUES
 (27, 'Cancelado', 'Datos incorrectos', 'Nuevo, activacion por proceso normal', NULL, 76),
-(28, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 75),
+(28, 'Nuevo', 'De 1 a 3 documentos', 'Nuevo, activacion por proceso normal', NULL, 75),
 (29, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 78),
 (30, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 77),
 (33, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 80),
@@ -151,7 +151,7 @@ CREATE TABLE `fechasseguimiento` (
 
 INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fechaContactoCliente`, `fechaPrimerEnvioDoc`, `fechaIntegracionexpedienteCompleto`, `fechaTermino`, `contactoFinal`, `siClienteOtro`, `numDatosincorrectos`, `fecharecepcionDocOriginales`, `fechaPago`, `docCompletosCorrectos`, `noindicaFaltantes`, `importePagado`, `comentarios`, `detalles`, `linea`, `guia`, `refactura`, `aviso`, `fkidRegistro`) VALUES
 (29, '2022-10-19', NULL, '2019-09-23', '2022-09-01', '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 76),
-(30, '2022-10-19', NULL, '2022-10-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
+(30, '2022-10-12', NULL, '2022-10-11', '2022-10-11', '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
 (32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 78),
 (33, NULL, NULL, '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 77),
 (34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 79),
@@ -385,7 +385,7 @@ CREATE TABLE `insertarregistros` (
 
 INSERT INTO `insertarregistros` (`idInsertarRegistros`, `respuestaSolera`, `personaContactada`, `tipoPersona`, `contactoSeguimiento`, `fkIdRegistroInsertar`) VALUES
 (23, 'No atendido', 'asegurado', 'Conocido', 'Si', 76),
-(24, NULL, NULL, NULL, NULL, 75),
+(24, 'Atendido', 'asegurado', 'Conocido', 'No', 75),
 (25, NULL, NULL, NULL, NULL, 78),
 (26, NULL, NULL, NULL, NULL, 77),
 (27, NULL, NULL, NULL, NULL, 79),
@@ -413,20 +413,23 @@ CREATE TABLE `mensajesseguimientos` (
   `fkmensgSeguimientos` int(11) DEFAULT NULL,
   `mensajes` varchar(1000) DEFAULT NULL,
   `usuario` varchar(45) DEFAULT NULL,
-  `fechaMensaje` date DEFAULT NULL
+  `fechaMensaje` date DEFAULT NULL,
+  `respondido` varchar(2) DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mensajesseguimientos`
 --
 
-INSERT INTO `mensajesseguimientos` (`idmensajesSeguimientos`, `fkmensgSeguimientos`, `mensajes`, `usuario`, `fechaMensaje`) VALUES
-(1, 75, 'esta todo correcto', 'Solera', '2022-10-14'),
-(2, 76, 'este es un mensaje de pruweba', 'Solera', '2022-10-14'),
-(3, 76, 'correctos', 'Solera', '2022-10-14'),
-(4, 75, 'envie docs', 'marin', '2022-10-15'),
-(5, 75, 'qweqeqqweqe', 'Marin', '2022-10-15'),
-(6, 75, 'envio los documetnos listos', 'Marin', '2022-10-15');
+INSERT INTO `mensajesseguimientos` (`idmensajesSeguimientos`, `fkmensgSeguimientos`, `mensajes`, `usuario`, `fechaMensaje`, `respondido`) VALUES
+(1, 75, 'esta todo correcto', 'Solera', '2022-10-14', 'si'),
+(2, 76, 'este es un mensaje de pruweba', 'Solera', '2022-10-14', 'no'),
+(3, 76, 'correctos', 'Solera', '2022-10-14', 'no'),
+(4, 75, 'envie docs', 'marin', '2022-10-15', 'no'),
+(5, 75, 'qweqeqqweqe', 'Marin', '2022-10-15', 'si'),
+(6, 75, 'envio los documetnos listos', 'Marin', '2022-10-15', 'si'),
+(8, 75, 'prueba hora', 'Marin', '2022-10-25', 'si'),
+(9, 75, 'correctos', 'admin', '2022-10-25', 'si');
 
 -- --------------------------------------------------------
 
@@ -652,7 +655,7 @@ ALTER TABLE `insertarregistros`
 -- AUTO_INCREMENT de la tabla `mensajesseguimientos`
 --
 ALTER TABLE `mensajesseguimientos`
-  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento`

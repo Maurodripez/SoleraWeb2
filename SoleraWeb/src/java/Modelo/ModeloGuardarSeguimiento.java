@@ -14,7 +14,7 @@ public class ModeloGuardarSeguimiento {
     private String fechaTermino;
     private String idRegistro;
     private String estacion;
-
+    private String usuario;
     public ModeloGuardarSeguimiento() {
 
     }
@@ -32,7 +32,8 @@ public class ModeloGuardarSeguimiento {
             String fechaIntExp,
             String fechaFactServ,
             String fechaTermino,
-            String idRegistro) {
+            String idRegistro,
+            String usuario) {
         this.estacion = estacion;
         this.respSolera = respSolera;
         this.persContactada = persContactada;
@@ -46,6 +47,15 @@ public class ModeloGuardarSeguimiento {
         this.idRegistro = idRegistro;
         this.comentSeguimiento = comentSeguimiento;
         this.estatusSeguimiento = estatusSeguimiento;
+        this.usuario = usuario;
+    }
+
+    public String getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getEstacion() {

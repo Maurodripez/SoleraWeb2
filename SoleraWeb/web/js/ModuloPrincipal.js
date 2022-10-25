@@ -455,6 +455,7 @@ function GuardarRegistros() {
   });
 }
 function InsertarSeguimiento() {
+  let sesion = document.getElementById("UsuarioActivo").textContent;
   $.ajax({
     url: "GuardarSeguimiento",
     data: {
@@ -472,6 +473,7 @@ function InsertarSeguimiento() {
       fechaFactServ: document.getElementById("txtFechaFactServ").value,
       fechaTermino: document.getElementById("txtFechaTermino").value,
       idRegistro: document.getElementById("idOculto").value,
+      usuario: sesion,
     },
     success: function (result) {
       alert(result);
@@ -590,7 +592,7 @@ function valoresSesiones() {
         document.getElementById("btnSubirDoc").disabled = true;
         $(".btnEliminarClass").prop("disabled", true);
         // document.getElementsByClassName("btnEliminarClass").disabled = true;
-      }else if (result ==="operador" || result ==="integrador"){
+      } else if (result === "operador" || result === "integrador") {
         document.getElementById("fechaCarga").disabled = true;
       }
     },
@@ -599,3 +601,15 @@ function valoresSesiones() {
 window.addEventListener("load", function () {
   valoresSesiones();
 });
+function mostrarMensajes(getId) {
+  $.ajax({
+    method: "POST",
+    url: "MostrarMensajes",
+    data: {
+      accion: "MostrarMensajes",
+      dias: getId,
+    },
+  }).done(function (data) {
+    alert(data);
+  });
+}
