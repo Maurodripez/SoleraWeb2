@@ -62,7 +62,7 @@ excelInput.addEventListener("change", async function () {
     let nFechaSin = miYear + "-" + miMes + "-" + miDia;
     miYear = contenido[x][15].getUTCFullYear();
     miMes = contenido[x][15].getUTCMonth() + 1;
-    miDia = contenido[x][15].getUTC0Date();
+    miDia = contenido[x][15].getUTCDate();
     if (miMes <= 9) {
       miMes = "0" + miMes;
       console.log(miMes);
@@ -99,3 +99,24 @@ excelInput.addEventListener("change", async function () {
     });
   }
 });
+window.addEventListener("load", function () {
+  valoresSesiones();
+});
+function valoresSesiones() {
+  //si el usuario es solo de consulta, se deshabilitan todos los biotones para modificar
+  let sesion = document.getElementById("UsuarioActivo").textContent;
+  $.ajax({
+    method: "POST",
+    url: "../ValidarSesiones",
+    data: {
+      accion: "ValidarUsuario",
+      usuario: sesion,
+    },
+    success: function (result) {
+      if (result === "consulta") {
+        document.getElementById("file-input").disabled = true;
+        document.getElementById("LeerExcel").disabled = true;
+      }
+    },
+  });
+}

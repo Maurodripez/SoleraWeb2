@@ -3,21 +3,23 @@
 
 <head>
     <%@ page contentType="text/html; charset=UTF-8" %>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Datos</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-    <script src="../js/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" href="../Desplegables/libs/css/bootstrap-datepicker.css" />
-    <script src="../Desplegables/libs/js/bootstrap-datepicker.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Datos</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+            </script>
+        <script src="../js/jquery-3.6.1.js"></script>
+        <link rel="stylesheet" href="../Desplegables/libs/css/bootstrap-datepicker.css" />
+        <script src="../Desplegables/libs/js/bootstrap-datepicker.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous" />
 </head>
 
 <body class="p-2">
+    <b style="display: none" id="UsuarioActivo"><%= (String) session.getAttribute("sesionUsuario") %></b>
     <div class="accordion p-4" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -756,7 +758,7 @@
                             </form>
                         </div>
                     </div>
-                    <table id="DatosTabla" class="table table-hover col float-end">
+                    <table id="DatosTabla" class="text-center table table-hover col float-end">
                         <thead>
                             <tr>
                                 <th class="botonesTabla" scope="col">Editar</th>
@@ -1717,7 +1719,7 @@
                             <input type="hidden" id="idOculto" name="idEditableActual" value="" />
                             <!--centrar texto con esta funcion-->
                             <div style="text-align: center">
-                                <button onclick="GuardarRegistros()" class="btn btn-info">
+                                <button id="gDatosBtn" onclick="GuardarRegistros()" class="btn btn-info">
                                     Guardar Datos
                                 </button>
                             </div>
@@ -2022,13 +2024,13 @@
                                                         Fecha asignacion de integrador
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha" />
+                                                        <input id="fechaContactoCliente" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtfechaContactoCliente" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-primary">
+                                                <button id="btnAsignarIntegrador" class="btn btn-primary">
                                                     Asignar integrador
                                                 </button>
                                             </div>
@@ -2219,7 +2221,7 @@
                             <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
                             <div class="row">
                                 <div class="col-12 p-2" style="text-align: center">
-                                    <button type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
+                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
                                         Documento</button>
                                 </div>
 

@@ -590,6 +590,8 @@ function valoresSesiones() {
         document.getElementById("btnSubirDoc").disabled = true;
         $(".btnEliminarClass").prop("disabled", true);
         // document.getElementsByClassName("btnEliminarClass").disabled = true;
+      }else if (result ==="operador" || result ==="integrador"){
+        document.getElementById("fechaCarga").disabled = true;
       }
     },
   });

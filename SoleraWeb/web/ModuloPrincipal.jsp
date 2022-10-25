@@ -31,26 +31,6 @@
     <% DiasEsperandoRespuesta deRespuesta=new DiasEsperandoRespuesta();%>
     <% Conexion conexion=new Conexion();%>
     <% MostrarDatosServlet mdServlet=new MostrarDatosServlet();%>
-    <div class="row">
-        <div class="col text-left display-6 p-2">
-            <label>
-            </label>
-        </div>
-        <div class="col-2">
-            <form>
-                <div class="form-group float-end p-2">
-                    <label for="exampleFormControlSelect1">Estado Actual</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Disponible</option>
-                        <option>Break</option>
-                        <option>Comida</option>
-                        <option>Sanitario</option>
-                        <option>Supervisor</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-    </div>
     <div class="accordion p-4" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -480,7 +460,7 @@
                     <!--se recupera el id para llenar resultados de la tabla-->
                     <div>
                         <table
-                            class="table table-striped align-middle table-responsive table-hover col float-end text-center">
+                            class="text-center table table-striped align-middle table-responsive table-hover col float-end text-center">
                             <tbody>
                                 <div id="ResultadoAjax" class="row">
 
@@ -1687,8 +1667,8 @@
                                                         Fecha asignacion de integrador
                                                     </label>
                                                     <span class="input-group-append">
-                                                        <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
+                                                        <input id="fechaContactoCliente" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                            name="txtfechaContactoCliente" type="text" placeholder="Fecha">
                                                     </span>
                                                 </div>
                                             </div>

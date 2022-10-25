@@ -1,4 +1,5 @@
 window.addEventListener("load", function () {
+  valoresSesiones();
   $.ajax({
     method: "POST",
     url: "../ControladorMostrarDatos",
@@ -310,7 +311,7 @@ function mostrarDocsAprobados() {
       }
       if (resultados[8] == "true") {
         document.getElementById("checkboxTarjeta").checked = true;
-        porcentaje +=9;
+        porcentaje += 9;
       } else {
         document.getElementById("checkboxTarjeta").checked = false;
       }
@@ -677,6 +678,8 @@ function valoresSesiones() {
         document.getElementById("btnSubirDoc").disabled = true;
         $(".btnEliminarClass").prop("disabled", true);
         // document.getElementsByClassName("btnEliminarClass").disabled = true;
+      }else if (result ==="operador" || result ==="integrador"){
+        document.getElementById("fechaCarga").disabled = true;
       }
     },
   });

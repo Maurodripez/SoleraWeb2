@@ -99,7 +99,7 @@
   <div id="main">
     <!-- Add all your websites page content here  -->
     <div class="container iFrame">
-      <iframe id="controladorIframe" name="iframeControl" scrolling="auto" class="responsive-iframe"
+      <iframe id="controladorIframe" style="border: none" name="iframeControl" scrolling="auto" class="responsive-iframe"
         src="ModuloPrincipal.jsp"></iframe>
     </div>
   </div>
