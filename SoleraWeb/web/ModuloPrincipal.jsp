@@ -18,6 +18,7 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
     <script src="./js/jspdf.min.js"></script>
+    <link rel="stylesheet" href="./Estilos/ModuloPrincipal.css">
 </head>
 
 <body>
@@ -31,10 +32,15 @@
     <% DiasEsperandoRespuesta deRespuesta=new DiasEsperandoRespuesta();%>
     <% Conexion conexion=new Conexion();%>
     <% MostrarDatosServlet mdServlet=new MostrarDatosServlet();%>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Modulo Principal</span>
+        </div>
+    </nav>
     <div class="accordion p-4" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                <button class="acordeonPrincipal accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
                     Documentos Recibidos
@@ -45,8 +51,8 @@
                 <div class="accordion-body">
                     <div class="row">
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
-                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 1" style="width: 18rem">
+                            aria-labelledby="headingOne">
+                            <div id="card0a2D" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
@@ -60,16 +66,20 @@
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                            <!--stroke hace que cambie el color-->
+                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="60"
+                                                height="60" viewBox="0 0 24 24" fill="none" stroke="#605ca8"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-check-square">
+                                                <polyline points="9 11 12 14 22 4"></polyline>
+                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
                                 <!--en collapseresultados ligo el boton de la tabla para que al apretar el boton, se muestren los resultados-->
-                                <button id="txtBuscar0a2" class="btn btn-primary" type="button"
+                                <button id="txtBuscar0a2" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -77,7 +87,7 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 2" style="width: 18rem">
+                            <div id="card3a5D" class="card 2" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
@@ -91,15 +101,18 @@
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-thumbs-up">
                                                 <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                                    d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscar3a5" class="btn btn-primary" type="button"
+                                <button id="txtBuscar3a5" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -108,7 +121,7 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 3" style="width: 18rem">
+                            <div id="card6a14D" class="card 3" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
@@ -122,15 +135,18 @@
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-thumbs-down">
                                                 <path
-                                                    d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z" />
+                                                    d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscar6a14" class="btn btn-primary" type="button"
+                                <button id="txtBuscar6a14" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -139,7 +155,7 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 4" style="width: 18rem">
+                            <div id="cardMas15D" class="card 4" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
                                         <h5 class="card-title">
@@ -153,15 +169,20 @@
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-alert-triangle">
                                                 <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                                </path>
+                                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscarMas15" class="btn btn-primary" type="button"
+                                <button id="txtBuscarMas15" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -174,7 +195,7 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="acordeonPrincipal accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwo">
                     Mensajes Enviados
@@ -186,120 +207,124 @@
                     <div class="row">
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 1" style="width: 18rem">
+                            <div id="card0a2M" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 id="txt0a2" class="card-title"></h5>
                                     </div>
                                     <div class="row">
                                         <div class="col-7">
                                             <p class="card-text">
-                                                Some quick examplebulk of the card's
-                                                content.
+                                                0 a 2 dias
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="60"
+                                                height="60" viewBox="0 0 24 24" fill="none" stroke="#605ca8"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-check-square">
+                                                <polyline points="9 11 12 14 22 4"></polyline>
+                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" onclick="mostrarMensajes(this.id)" class="btn btn-primary"
-                                    type="button" data-bs-toggle="collapse" data-bs-target=".collapseresultados"
-                                    aria-expanded="false"
+                                <button id="btnMsg0a2" class="btnDocumentos btn btn-primary" type="button"
+                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 1" style="width: 18rem">
+                            <div id="card3a5M" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 id="txt3a5" class="card-title"></h5>
                                     </div>
                                     <div class="row">
                                         <div class="col-7">
                                             <p class="card-text">
-                                                Some quick examplebulk of the card's
-                                                content.
+                                                3 a 5 dias
                                             </p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-thumbs-up">
                                                 <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                                    d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" onclick="mostrarMensajes(this.id)" class="btn btn-primary"
-                                    type="button" data-bs-toggle="collapse" data-bs-target=".collapseresultados"
-                                    aria-expanded="false"
+                                <button id="btnMsg3a5" class="btnDocumentos btn btn-primary" type="button"
+                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 1" style="width: 18rem">
+                            <div id="card6a14M" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 id="txt6a14" class="card-title"></h5>
                                     </div>
                                     <div class="row">
                                         <div class="col-7">
                                             <p class="card-text">
-                                                Some quick examplebulk of the card's
-                                                content.
-                                            </p>
+                                                6 a 14 dias</p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-thumbs-down">
                                                 <path
-                                                    d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z" />
+                                                    d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" onclick="mostrarMensajes(this.id)" class="btn btn-primary"
-                                    type="button" data-bs-toggle="collapse" data-bs-target=".collapseresultados"
-                                    aria-expanded="false"
+                                <button id="btnMsg6a14" class="btnDocumentos btn btn-primary" type="button"
+                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card 1" style="width: 18rem">
+                            <div id="cardMas15M" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 id="txtmas15" class="card-title"></h5>
                                     </div>
                                     <div class="row">
                                         <div class="col-7">
                                             <p class="card-text">
-                                                Some quick examplebulk of the card'
-                                                s
-                                                content. </p>
+                                                mas de 15 dias</p>
                                         </div>
                                         <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-alert-triangle">
                                                 <path
-                                                    d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                                </path>
+                                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" onclick="mostrarMensajes(this.id)" class="btn btn-primary"
-                                    type="button" data-bs-toggle="collapse" data-bs-target=".collapseresultados"
-                                    aria-expanded="false"
+                                <button id="btnMsgMas15" class="btnDocumentos btn btn-primary" type="button"
+                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
@@ -311,7 +336,7 @@
         <div class="accordion-item">
             <!--inicio de la tabla de resultados-->
             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="acordeonPrincipal accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree">
                     Tabla de resultados
@@ -323,7 +348,7 @@
                 <div class="accordion-body">
                     <!--inicio de acordeon para mostrar tabla de resutlados-->
                     <div class="row">
-                        <div class="botoncantidadResultados col-2">
+                        <div class="botoncantidadResultados col-lg-2">
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Resultados</option>
                                 <option value="1">5</option>
@@ -331,26 +356,17 @@
                                 <option value="3">20</option>
                             </select>
                         </div>
-                        <div class="col" name="SearchButtonGeneral">
+                        <div class="col p-2" name="SearchButtonGeneral">
                             <!--se implementa el boton busqueda general-->
                             <form class="form-search float-end">
                                 <div class="input-group">
                                     <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral()" class="form-control"
                                         maxlength="128" placeholder="Buscar" size="35" type="text" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                            </svg>
-                                        </button>
-                                    </span>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <table class="table table-hover col float-end text-center">
+                    <table class="tablasPrincipales table table-hover col float-end text-center">
                         <thead>
                             <tr>
                                 <th scope="col">Editar</th>
@@ -473,9 +489,21 @@
                     <!--se recupera el id para llenar resultados de la tabla-->
                     <div>
                         <table
-                            class="text-center table table-striped align-middle table-responsive table-hover col float-end text-center">
+                            class="tablasPrincipales text-center table table-striped align-middle table-responsive table-hover col float-end text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Id registro</th>
+                                    <th scope="col">Dias sin responder</th>
+                                    <th scope="col">Fecha cliente</th>
+                                    <th scope="col">Siniestro</th>
+                                    <th scope="col">Poliza</th>
+                                    <th scope="col">Asegurado</th>
+                                    <th scope="col">Estatus caso</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <div id="ResultadoAjax" class="row">
+                                <div id="ResultadoAjax" class="row p-2">
 
                                 </div>
 

@@ -52,7 +52,7 @@ public class BuscarSiniestros extends HttpServlet {
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
                                 + "<button type='button' id='" + sin.getIdRegistro()
-                                + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                 + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                 + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                 + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -75,7 +75,7 @@ public class BuscarSiniestros extends HttpServlet {
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
                                 + "<button type='button' id='" + sin.getIdRegistro()
-                                + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                 + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                 + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                 + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -98,7 +98,7 @@ public class BuscarSiniestros extends HttpServlet {
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
                                 + "<button type='button' id='" + sin.getIdRegistro()
-                                + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                 + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                 + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                 + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -121,7 +121,7 @@ public class BuscarSiniestros extends HttpServlet {
                         out.println("<tr class='row'>");
                         out.println("<td class='col'>"
                                 + "<button type='button' id='" + sin.getIdRegistro()
-                                + "' class='btn btn-primary' onclick='cambiarNombre(this.id)' data-bs-toggle='modal'"
+                                + "' class='btnDinamicos btn btn-primary' onclick='cambiarNombre(this.id)' data-bs-toggle='modal'"
                                 + "data-bs-target='#staticBackdrop' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                 + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                 + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -147,7 +147,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -176,7 +176,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -205,7 +205,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -234,7 +234,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -263,7 +263,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -291,7 +291,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "
@@ -347,7 +347,7 @@ public class BuscarSiniestros extends HttpServlet {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
                                     + "<button type='button' id='" + sin.getIdRegistro()
-                                    + "' class='btn btn-primary' data-bs-toggle='modal'"
+                                    + "' class='btnDinamicos btn btn-primary' data-bs-toggle='modal'"
                                     + "data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'"
                                     + " width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>"
                                     + "<path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 "

@@ -106,6 +106,7 @@ function buscarId() {
     },
     success: function (result) {
       $("#ResultadoAjax").html(result);
+      document.getElementsByClassName("btnDinamicos").style.background = "#0000FF";
     },
   });
 }
@@ -600,16 +601,47 @@ function valoresSesiones() {
 }
 window.addEventListener("load", function () {
   valoresSesiones();
+  mostrarMensajes();
 });
-function mostrarMensajes(getId) {
+function mostrarMensajes() {
   $.ajax({
     method: "POST",
     url: "MostrarMensajes",
     data: {
       accion: "MostrarMensajes",
-      dias: getId,
+      dias: "btnMsg0a2",
     },
   }).done(function (data) {
-    alert(data);
+    document.getElementById("txt0a2").textContent = data;
+  });
+  $.ajax({
+    method: "POST",
+    url: "MostrarMensajes",
+    data: {
+      accion: "MostrarMensajes",
+      dias: "btnMsg3a5",
+    },
+  }).done(function (data) {
+    document.getElementById("txt3a5").textContent = data;
+  });
+  $.ajax({
+    method: "POST",
+    url: "MostrarMensajes",
+    data: {
+      accion: "MostrarMensajes",
+      dias: "btnMsg6a14",
+    },
+  }).done(function (data) {
+    document.getElementById("txt6a14").textContent = data;
+  });
+  $.ajax({
+    method: "POST",
+    url: "MostrarMensajes",
+    data: {
+      accion: "MostrarMensajes",
+      dias: "btnMsgMas15",
+    },
+  }).done(function (data) {
+    document.getElementById("txtmas15").textContent = data;
   });
 }
