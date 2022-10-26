@@ -279,7 +279,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameInfo" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgInfoVer" class="img-fluid" src="" alt="" onload="resizeImg(this, 200, 100)" />
+                            <img id="imgInfoVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post" id="cargaFactura"
@@ -327,8 +327,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameFactura" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgFacturaVer" class="img-fluid" src="" alt=""
-                                onload="resizeImg(this, 200, 100)" />
+                            <img id="imgFacturaVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post" id="cargaTenencias"
@@ -376,8 +375,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameTenencia" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgTenenciasVer" class="img-fluid" src="" alt=""
-                                onload="resizeImg(this, 200, 100)" />
+                            <img id="imgTenenciasVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post" id="cargaBaja"
@@ -424,7 +422,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameBaja" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgBajaVer" class="img-fluid" src="" alt="" onload="resizeImg(this, 200, 100)" />
+                            <img id="imgBajaVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post" id="cargaEstado"
@@ -473,7 +471,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameEstado" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgEstadoVer" class="img-fluid" src="" alt="" onload="resizeImg(this, 200, 100)" />
+                            <img id="imgEstadoVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post" id="cargaDenuncia"
@@ -521,8 +519,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameDenuncia" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgDenunciaVer" class="img-fluid" src="" alt=""
-                                onload="resizeImg(this, 200, 100)" />
+                            <img id="imgDenunciaVer" class="img-fluid" src="" alt="" />
                         </div>
                         <div class="accordion-item">
                             <form class="formImagenes" enctype="multipart/form-data" method="post"
@@ -573,8 +570,7 @@
                                 </div>
                             </form>
                             <iframe id="iFrameAcreditacion" src="" width="100%" height="500px" frameborder="0"></iframe>
-                            <img id="imgAcreditacionVer" class="img-fluid" src="" alt=""
-                                onload="resizeImg(this, 200, 100)" />
+                            <img id="imgAcreditacionVer" class="img-fluid" src="" alt="" />
                         </div>
                     </div>
                 </div>

@@ -159,8 +159,10 @@ function mortrarImagen(valor) {
     success: function (result) {
       let sinCodificado = result.split("=/=");
       for (let i = 0; i < sinCodificado.length - 1; i = i + 3) {
+        console.log(sinCodificado[i]);
         switch (sinCodificado[i]) {
           case "Identificacion oficial":
+            alert("entra");
             if (abrirCerrarIdent == false) {
               let imagenSrc = document.getElementById("imgIdentificacionVer");
               let iframe = document.getElementById("iFrameIdentificacion");
@@ -297,6 +299,7 @@ function mortrarImagen(valor) {
             break;
 
           case "Tenencias":
+            console.log("aqui entra");
             if (abrirCerrarTenen == false) {
               let imagenSrc = document.getElementById("imgTenenciasVer");
               let iframe = document.getElementById("iFrameTenencia");
@@ -319,12 +322,11 @@ function mortrarImagen(valor) {
                 iframe.style.display = "";
                 abrirCerrarTenen = false;
               } else {
-                imagenSrc.src =
-                  "./documentos/" +
-                  obtenerInfo +
-                  "/" +
-                  sinCodificado[i + 2] +
-                  "";
+                console.log(obtenerInfo);
+                console.log(sinCodificado[i+2]);
+                console.log("./documentos/" + obtenerInfo +"/" +sinCodificado[i + 2] +"");
+                imagenSrc.src ="./documentos/100/cutez-1.jpg";
+                //imagenSrc.src="./documentos/100/cute (1).jpg";
                 abrirCerrarTenen = false;
               }
             }
