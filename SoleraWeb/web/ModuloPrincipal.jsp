@@ -43,7 +43,7 @@
                 <button class="acordeonPrincipal accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                    Documentos Recibidos
+                    Documentos enviados
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -198,7 +198,7 @@
                 <button class="acordeonPrincipal accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwo">
-                    Mensajes Enviados
+                    Mensajes sin leer
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
@@ -230,8 +230,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
+                                <button id="btnMsg0a2" onclick="MostrarMensajes(this.id)"
+                                    class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
@@ -261,8 +262,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg3a5" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
+                                <button id="btnMsg3a5" onclick="MostrarMensajes(this.id)"
+                                    class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
@@ -291,8 +293,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg6a14" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
+                                <button id="btnMsg6a14" onclick="MostrarMensajes(this.id)"
+                                    class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
@@ -323,8 +326,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsgMas15" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
+                                <button id="btnMsgMas15" onclick="MostrarMensajes(this.id)"
+                                    class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
                             </div>
@@ -360,8 +364,8 @@
                             <!--se implementa el boton busqueda general-->
                             <form class="form-search float-end">
                                 <div class="input-group">
-                                    <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral(this.value)" class="form-control"
-                                     placeholder="Buscar" type="text" />
+                                    <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral(this.value)"
+                                        class="form-control" placeholder="Buscar" type="text" />
                                 </div>
                             </form>
                         </div>
@@ -549,28 +553,29 @@
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Actualiza
+                <div class="letreroCedula modal-header">
+                    <h5 class="col-9 modal-title" id="staticBackdropLabel">Actualiza
                         Cedula SOLERA
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="col-2 imgSoleraTitulo">
+                        <img src="./Imagenes Solera/solera_white.png" alt="ImagenSolera" width="130px" height="32">
+                    </div>
+                    <button type="button" class="col-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!--Botnoes de edtiar-->
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio1"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                <path fill-rule="evenodd"
-                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                            </svg>Editar</label>
+                        <label class="btn " for="btnradio1">Editar</label>
 
-                        <button type="button" onclick="mostrarDocsAprobados()" class="btn btn-primary"
+                        <button type="button" onclick="mostrarDocsAprobados()" id="btnDocsMostrar" class="btn"
                             data-bs-toggle="modal" data-bs-target="#cargaDocumentos">
-                            Documentos
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-file">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
                         </button>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">

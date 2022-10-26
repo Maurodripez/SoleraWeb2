@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Estilos/stylesheet.css" />
+  <link rel="stylesheet" href="./Estilos/Principal.css">
   <script src="./js/Principal.js"></script>
   <title>Document</title>
 </head>
@@ -86,12 +87,16 @@
   </div>
 
   <nav class="topnav">
-    <a class="navbar-brand text-white font-size: 1.6rem" href="#"> Solera </a>
+    <a class="navbar-brand text-white font-size: 1.6rem" href="#">
+      <img src="./Imagenes Solera/solera_white.png" alt="LogoSolera" width="150px" height="30px">
+    </a>
     <a href="#" onclick="openNav()">
-      <svg width="15" height="15" id="icoOpen">
-        <path d="M0,5 30,5" stroke="#000" stroke-width="5" />
-        <path d="M0,14 30,14" stroke="#000" stroke-width="5" />
-        <path d="M0,23 30,23" stroke="#000" stroke-width="5" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
       </svg>
     </a>
   </nav>
@@ -99,8 +104,8 @@
   <div id="main">
     <!-- Add all your websites page content here  -->
     <div class="container iFrame">
-      <iframe id="controladorIframe" style="border: none" name="iframeControl" scrolling="auto" class="responsive-iframe"
-        src="ModuloPrincipal.jsp"></iframe>
+      <iframe id="controladorIframe" style="border: none" name="iframeControl" scrolling="auto"
+        class="responsive-iframe" src="ModuloPrincipal.jsp"></iframe>
     </div>
   </div>
 </body>

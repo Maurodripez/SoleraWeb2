@@ -90,3 +90,10 @@ body {
 #TablaPGeneral {
   background-color: #ffffff;
 }
+.letreroCedula {
+  background-color: #605ca8;
+  color: #ffffff;
+}
+#btnDocsMostrar{
+  background-color:#008d4c;
+}
