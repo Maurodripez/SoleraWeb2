@@ -3,36 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOSiniestrosEnRespuesta.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/GuardarImagenesCliente.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/DocumentosAprobados.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOCreacionUsuario.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/SiniestrosNoDocs.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/prueba.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/DatosReporte.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CreacionUsuario.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloBusquedaDatos.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOImagenesCliente.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/MostrarMensajes.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/MensajesSinResponder.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ControladorMostrarDatos.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/GuardadoImagenesServlet.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOGuardarSeguimiento.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/MostrarDocumentosEstados.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOValidarUsuario.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOCargaSiniestro.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BusquedaParticularDatos.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/VistaUsuario.jsp</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/Comentarios.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ObtenerRutas.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ValidarSesiones.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BuscarSiniestros.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOMostrarDatos.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaParticular.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaAjax.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloCreacionUsuario.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ImagenesUsuario.java</file>
+            <file>file:/C:/Users/death/Desktop/Solera%20Web%202/SoleraWeb2/SoleraWeb/web/Estilos/stylesheet.css</file>
+            <file>file:/C:/Users/death/Desktop/Solera%20Web%202/SoleraWeb2/SoleraWeb/src/java/DAO/MensajesSinResponder.java</file>
+            <file>file:/C:/Users/death/Desktop/Solera%20Web%202/SoleraWeb2/SoleraWeb/src/java/DAO/BusquedaAjax.java</file>
         </group>
     </open-files>
 </project-private>

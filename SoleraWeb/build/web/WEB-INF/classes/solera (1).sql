@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-<<<<<<< Updated upstream
 -- Tiempo de generación: 25-10-2022 a las 17:05:30
-=======
--- Tiempo de generación: 24-10-2022 a las 20:59:29
->>>>>>> Stashed changes
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 

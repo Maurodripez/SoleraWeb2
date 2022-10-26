@@ -13,6 +13,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
+        $(".tablaActual").remove();
         $("#ResultadoAjax").html(result);
       },
     });
@@ -29,6 +30,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
+        $(".tablaActual").remove();
         $("#ResultadoAjax").html(result);
       },
     });
@@ -45,6 +47,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
+        $(".tablaActual").remove();
         $("#ResultadoAjax").html(result);
       },
     });
@@ -61,6 +64,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
+        $(".tablaActual").remove();
         $("#ResultadoAjax").html(result);
       },
     });
@@ -75,23 +79,58 @@ $(document).ready(function () {
         mayorQue: txtMayorQue,
       },
       success: function (result) {
+        $(".tablaActual").remove();
         $("#ResultadoAjax").html(result);
       },
     });
   });
 });
 //funciones javascript entranc aqui
-function busquedaGeneral() {
-  let txtFiltro = document.getElementById("txtBtnGeneralBuscar").value;
+function busquedaGeneral(thisValue) {
+  //let txtFiltro = document.getElementById("txtBtnGeneralBuscar").value;
   let txtIdGuardado = document.getElementById("txtBtnGeneralBuscar").id;
   $.ajax({
     url: "buscar.do",
     data: {
-      filtro: txtFiltro,
+      filtro: thisValue,
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $("#ResultadoAjax").html(result);
+      $(".tablaActual").remove();
+      let tablaMensajes = document.getElementById("TablaPGeneral");
+      console.log(result);
+      let sinGuion = result.split("-/");
+      for (let i = 0; i < sinGuion.length - 1; i++) {
+        let sinDiagonal = sinGuion[i].split("//");
+        // Creando los 'td' que almacenará cada parte de la información del usuario actual
+        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinDiagonal[0]} class='btn btn-primary' data-bs-toggle='modal'
+        data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+        </svg></button></td>`;
+        let idRegistro = `<td class='tablaActual'>${sinDiagonal[0]}</td>`;
+        let dias = `<td class='tablaActual'>${sinDiagonal[1]}</td>`;
+        let primerDoc = `<td class='tablaActual'>${sinDiagonal[2]}</td>`;
+        let siniestro = `<td class='tablaActual'>${sinDiagonal[3]}</td>`;
+        let poliza = `<td class='tablaActual'>${sinDiagonal[4]}</td>`;
+        let asegurado = `<td class='tablaActual'>${sinDiagonal[5]}</td>`;
+        let estatus = `<td class='tablaActual'>${sinDiagonal[6]}</td>`;
+        tablaMensajes.innerHTML += `<tr class='tablaActual'>${
+          boton +
+          idRegistro +
+          dias +
+          primerDoc +
+          siniestro +
+          poliza +
+          asegurado +
+          estatus
+        }</tr>`;
+      }
+      // alert(result);
+      //$("#ResultadoAjax").html(result);
     },
   });
 }
@@ -105,8 +144,10 @@ function buscarId() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
-      document.getElementsByClassName("btnDinamicos").style.background = "#0000FF";
+      document.getElementsByClassName("btnDinamicos").style.background =
+        "#0000FF";
     },
   });
 }
@@ -120,6 +161,7 @@ function buscarDiasTranscurridos() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -134,6 +176,7 @@ function buscarFechaInicio() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -148,6 +191,7 @@ function buscarSiniestro() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -162,6 +206,7 @@ function buscarPoliza() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -176,6 +221,7 @@ function buscarAsegurado() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -190,6 +236,7 @@ function buscarEstatusCaso() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
+      $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
     },
   });
@@ -601,9 +648,9 @@ function valoresSesiones() {
 }
 window.addEventListener("load", function () {
   valoresSesiones();
-  mostrarMensajes();
+  CantMensajes();
 });
-function mostrarMensajes() {
+function CantMensajes() {
   $.ajax({
     method: "POST",
     url: "MostrarMensajes",
@@ -643,5 +690,72 @@ function mostrarMensajes() {
     },
   }).done(function (data) {
     document.getElementById("txtmas15").textContent = data;
+  });
+}
+function MostrarMensajes(getId) {
+  let mayor;
+  let menor;
+  switch (getId) {
+    case "btnMsg0a2":
+      mayor = 0;
+      menor = 3;
+      break;
+    case "btnMsg3a5":
+      mayor = 3;
+      menor = 6;
+      break;
+    case "btnMsg6a14":
+      mayor = 6;
+      menor = 15;
+      break;
+    case "btnMsgMas15":
+      menor = 15;
+      mayor = 365;
+      break;
+    default:
+      break;
+  }
+  $.ajax({
+    method: "post",
+    url: "MostrarMensajes",
+    data: {
+      accion: "MostrarTabla",
+      id: getId,
+      mayor,
+      menor,
+    },
+  }).done(function (result) {
+    console.log(result);
+    let tablaMensajes = document.getElementById("TablaPGeneral");
+    let sinGuion = result.split("-/");
+    for (let i = 0; i < sinGuion.length - 1; i++) {
+      let sinDiagonal = sinGuion[i].split("//");
+      // Creando los 'td' que almacenará cada parte de la información del usuario actual
+      let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinDiagonal[0]} class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+       <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button></td>`;
+      let idRegistro = `<td class='tablaActual'>${sinDiagonal[0]}</td>`;
+      let dias = `<td class='tablaActual'>${sinDiagonal[1]}</td>`;
+      let primerDoc = `<td class='tablaActual'>${sinDiagonal[2]}</td>`;
+      let siniestro = `<td class='tablaActual'>${sinDiagonal[3]}</td>`;
+      let poliza = `<td class='tablaActual'>${sinDiagonal[4]}</td>`;
+      let asegurado = `<td class='tablaActual'>${sinDiagonal[5]}</td>`;
+      let estatus = `<td class='tablaActual'>${sinDiagonal[6]}</td>`;
+      tablaMensajes.innerHTML += `<tr class='tablaActual'>${
+        boton +
+        idRegistro +
+        dias +
+        primerDoc +
+        siniestro +
+        poliza +
+        asegurado +
+        estatus
+      }</tr>`;
+    }
   });
 }

@@ -28,7 +28,7 @@ public class GuardarComentarios {
             }
             conect.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
-                    + comentario + "','" + usuario + "',curdate(),'" + id + "')";
+                    + comentario + "','" + usuario + "',now(),'" + id + "')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();

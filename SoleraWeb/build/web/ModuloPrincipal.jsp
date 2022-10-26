@@ -230,7 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg0a2" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="btnMsg0a2" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
@@ -261,7 +261,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg3a5" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="btnMsg3a5" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
@@ -291,7 +291,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsg6a14" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="btnMsg6a14" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
@@ -323,7 +323,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="btnMsgMas15" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="btnMsgMas15" onclick="MostrarMensajes(this.id)" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Mensajes</button>
@@ -360,8 +360,8 @@
                             <!--se implementa el boton busqueda general-->
                             <form class="form-search float-end">
                                 <div class="input-group">
-                                    <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral()" class="form-control"
-                                        maxlength="128" placeholder="Buscar" size="35" type="text" />
+                                    <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral(this.value)" class="form-control"
+                                     placeholder="Buscar" type="text" />
                                 </div>
                             </form>
                         </div>
@@ -502,7 +502,7 @@
                                     <th scope="col">Estatus caso</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="TablaPGeneral">
                                 <div id="ResultadoAjax" class="row p-2">
 
                                 </div>

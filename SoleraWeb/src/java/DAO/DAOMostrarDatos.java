@@ -27,24 +27,6 @@ public class DAOMostrarDatos {
                 + fechaBuscar1 + "' and curdate() "
                 + " and region like '%" + region + "%' and estado like '%" + estado + "%' and  cobertura like '%"
                 + cobertura + "%'";
-        /*
-         * select identificacionOficial, comprobanteDeDomicilio, informacionAdicional,
-         * facturaDelVehiculo, tenencias, baja, estadodeCuenta,
-         * denuncia, acreditacion, idRegistro, numSiniestro, poliza, marca, tipo,
-         * modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso,
-         * estatusOperativo, subEstatusProceso from documentosaprobados,
-         * fechasseguimiento as fs, estadoproceso as ep, infosiniestro as iSin, infoauto
-         * as ia
-         * where iSin.idRegistro = ia.fkIdRegistro and iSin.idRegistro=fs.fkidRegistro
-         * and iSin.idRegistro = ep.fkIdRegistroEstadoProceso
-         * and iSin.idRegistro=fkIdRegistroDocsAprobados and (fechaCarga between
-         * '2022-09-12'
-         * and curdate() and estacionProceso like '%%' and estatusoperativo like '%%'
-         * and subEstatusProceso like '%%'
-         * or fechaSeguimiento between '2022-09-12' and curdate() and region like '%%'
-         * and
-         * estado like '%%' and cobertura like '%%');
-         */
         try {
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);

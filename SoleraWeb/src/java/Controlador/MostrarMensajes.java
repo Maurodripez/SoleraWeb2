@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import DAO.MensajesSinResponder;
+import Modelo.Siniestros;
 
 @WebServlet(name = "MostrarMensajes", urlPatterns = { "/MostrarMensajes" })
 public class MostrarMensajes extends HttpServlet {
@@ -26,6 +27,7 @@ public class MostrarMensajes extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            MensajesSinResponder msResponder = new MensajesSinResponder();
             String accion = request.getParameter("accion");
             switch (accion) {
                 case "MostrarMensajes":
@@ -54,10 +56,22 @@ public class MostrarMensajes extends HttpServlet {
                                 break;
                         }
                     }
-                    MensajesSinResponder msResponder = new MensajesSinResponder();
                     int cantidadMensajes = 23;
                     cantidadMensajes = msResponder.getMensajes(mayor, menor);
                     out.print(cantidadMensajes);
+                    break;
+                case "MostrarTabla":
+                    String mayorT = request.getParameter("mayor");
+                    String menorT = request.getParameter("menor");
+                    for (Siniestros sin : msResponder.getMensajes(mayorT, menorT)) {
+                        out.print(sin.getIdRegistro() + "//");
+                        out.print(sin.getNumSiniestro() + "//");
+                        out.print(sin.getAsegurado() + "//");
+                        out.print(sin.getPoliza() + "//");
+                        out.print(sin.getEstatusCliente() + "//");
+                        out.print(sin.getDiasTranscurridos() + "//");
+                        out.print(sin.getFechaPrimerEnvioDoc() + "-/");
+                    }
                     break;
 
             }

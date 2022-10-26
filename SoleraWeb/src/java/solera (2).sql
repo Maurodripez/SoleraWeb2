@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2022 a las 17:05:30
+-- Tiempo de generación: 26-10-2022 a las 05:16:48
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -64,7 +64,8 @@ INSERT INTO `documentosaprobados` (`iddocumentosaprobados`, `factura`, `poder`, 
 (36, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 88, 'false', 'false'),
 (37, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 89, 'false', 'false'),
 (38, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 90, 'false', 'false'),
-(39, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 91, 'false', 'false');
+(39, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 91, 'false', 'false'),
+(40, 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 'false', 92, 'false', 'false');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE `estadoproceso` (
 
 INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`, `subEstatusProceso`, `usuarioSeguimiento`, `fkIdRegistroEstadoProceso`) VALUES
 (27, 'Cancelado', 'Datos incorrectos', 'Nuevo, activacion por proceso normal', NULL, 76),
-(28, 'Nuevo', 'De 1 a 3 documentos', 'Nuevo, activacion por proceso normal', NULL, 75),
+(28, 'Cancelado', 'Datos incorrectos', 'Nuevo, activacion por proceso normal', NULL, 75),
 (29, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 78),
 (30, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 77),
 (33, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 80),
@@ -113,7 +114,8 @@ INSERT INTO `estadoproceso` (`idProceso`, `estacionProceso`, `estatusOperativo`,
 (42, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 88),
 (43, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 89),
 (44, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 90),
-(45, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 91);
+(45, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 91),
+(46, 'Nuevo', 'Nuevo', 'Nuevo, activacion por proceso normal', NULL, 92);
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,7 @@ CREATE TABLE `fechasseguimiento` (
 
 INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fechaContactoCliente`, `fechaPrimerEnvioDoc`, `fechaIntegracionexpedienteCompleto`, `fechaTermino`, `contactoFinal`, `siClienteOtro`, `numDatosincorrectos`, `fecharecepcionDocOriginales`, `fechaPago`, `docCompletosCorrectos`, `noindicaFaltantes`, `importePagado`, `comentarios`, `detalles`, `linea`, `guia`, `refactura`, `aviso`, `fkidRegistro`) VALUES
 (29, '2022-10-19', NULL, '2019-09-23', '2022-09-01', '2022-09-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 76),
-(30, '2022-10-12', NULL, '2022-10-11', '2022-10-11', '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
+(30, '2022-09-14', NULL, '2022-10-25', '2022-10-26', '2022-10-19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 75),
 (32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 78),
 (33, NULL, NULL, '2022-10-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 77),
 (34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 79),
@@ -166,7 +168,8 @@ INSERT INTO `fechasseguimiento` (`idFechasseguimiento`, `fechaSeguimiento`, `fec
 (43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 88),
 (44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 89),
 (45, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 90),
-(46, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 91);
+(46, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 91),
+(47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 92);
 
 -- --------------------------------------------------------
 
@@ -209,9 +212,7 @@ INSERT INTO `imagenes` (`idimagenes`, `nombreImagen`, `rutaImagen`, `fkImagen`, 
 (44, 'Informacion adicional', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\cute (9).jpg', 75, '2022-10-21', 'cute (9).jpg'),
 (45, 'Tenencias', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
 (46, 'Tenencias', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\75\\foto_parzibyte.me (2).png', 75, '2022-10-21', 'foto_parzibyte.me (2).png'),
-(47, 'Acreditacion', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\foto_parzibyte.me (8).png', 82, '2022-10-21', 'foto_parzibyte.me (8).png'),
 (48, 'Factura original', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\pruebas.png', 82, '2022-10-22', 'pruebas.png'),
-(49, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\81\\pruebas.png', 81, '2022-10-22', 'pruebas.png'),
 (50, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\82\\pruebas.png', 82, '2022-10-22', 'pruebas.png'),
 (52, 'Poder notarial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\83\\foto_parzibyte.me (7).png', 83, '2022-10-22', 'foto_parzibyte.me (7).png'),
 (53, 'Identificacion oficial', 'C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\83\\foto_parzibyte.me (6).png', 83, '2022-10-22', 'foto_parzibyte.me (6).png'),
@@ -256,7 +257,8 @@ INSERT INTO `infoauto` (`idAuto`, `marca`, `tipo`, `modelo`, `numSerie`, `valorI
 (48, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 88, NULL, NULL),
 (49, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 89, NULL, NULL),
 (50, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 90, NULL, NULL),
-(51, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 91, NULL, NULL);
+(51, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 91, NULL, NULL),
+(52, 'suzuki', '2020', 'swift', '242433457353412000', NULL, 92, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -311,7 +313,8 @@ INSERT INTO `infocliente` (`idCliente`, `telefonoPrincipal`, `telefonosecundario
 (49, '4456789783', '', NULL, 'may@gil.com', 88, 'mario', NULL, NULL),
 (50, '4456789783', '', NULL, 'may@gil.com', 89, 'mario', NULL, NULL),
 (51, '4456789783', '', NULL, 'may@gil.com', 90, 'mario', NULL, NULL),
-(52, '4456789783', '', NULL, 'may@gil.com', 91, 'mario', NULL, NULL);
+(52, '4456789783', '', NULL, 'may@gil.com', 91, 'mario', NULL, NULL),
+(53, '4456789783', '', NULL, 'may@gil.com', 92, 'mario', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -362,7 +365,8 @@ INSERT INTO `infosiniestro` (`idRegistro`, `numSiniestro`, `poliza`, `afectado`,
 (88, '1234', '1234', 'a', NULL, 'dm', '2018-09-12', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-11-10'),
 (89, '1234', '1234', 'a', NULL, 'dm', '2018-10-12', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-11-10'),
 (90, '1234', '1234', 'a', NULL, 'dm', '2018-10-11', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-12-10'),
-(91, '1234', '1234', 'a', NULL, 'dm', '2018-10-12', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-12-11');
+(91, '1234', '1234', 'a', NULL, 'dm', '2018-10-12', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', NULL, 'Sin Datos', 'Sin Password', '2022-10-14', '2018-12-11'),
+(92, '1234', '1234', 'a', NULL, 'dm', '2018-10-12', NULL, 'cdmx', NULL, 'Tlalpan', NULL, 'fisico', 'Sin Estatus', 'ninguno', 'Sin Datos', 'Sin Password', '2022-10-24', '2018-12-11');
 
 -- --------------------------------------------------------
 
@@ -385,7 +389,7 @@ CREATE TABLE `insertarregistros` (
 
 INSERT INTO `insertarregistros` (`idInsertarRegistros`, `respuestaSolera`, `personaContactada`, `tipoPersona`, `contactoSeguimiento`, `fkIdRegistroInsertar`) VALUES
 (23, 'No atendido', 'asegurado', 'Conocido', 'Si', 76),
-(24, 'Atendido', 'asegurado', 'Conocido', 'No', 75),
+(24, 'Atendido', 'ikhih', 'Asegurado', 'Si', 75),
 (25, NULL, NULL, NULL, NULL, 78),
 (26, NULL, NULL, NULL, NULL, 77),
 (27, NULL, NULL, NULL, NULL, 79),
@@ -400,7 +404,8 @@ INSERT INTO `insertarregistros` (`idInsertarRegistros`, `respuestaSolera`, `pers
 (36, NULL, NULL, NULL, NULL, 88),
 (37, NULL, NULL, NULL, NULL, 89),
 (38, NULL, NULL, NULL, NULL, 90),
-(39, NULL, NULL, NULL, NULL, 91);
+(39, NULL, NULL, NULL, NULL, 91),
+(40, NULL, NULL, NULL, NULL, 92);
 
 -- --------------------------------------------------------
 
@@ -413,7 +418,7 @@ CREATE TABLE `mensajesseguimientos` (
   `fkmensgSeguimientos` int(11) DEFAULT NULL,
   `mensajes` varchar(1000) DEFAULT NULL,
   `usuario` varchar(45) DEFAULT NULL,
-  `fechaMensaje` date DEFAULT NULL,
+  `fechaMensaje` datetime DEFAULT NULL,
   `respondido` varchar(2) DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -422,14 +427,15 @@ CREATE TABLE `mensajesseguimientos` (
 --
 
 INSERT INTO `mensajesseguimientos` (`idmensajesSeguimientos`, `fkmensgSeguimientos`, `mensajes`, `usuario`, `fechaMensaje`, `respondido`) VALUES
-(1, 75, 'esta todo correcto', 'Solera', '2022-10-14', 'si'),
-(2, 76, 'este es un mensaje de pruweba', 'Solera', '2022-10-14', 'no'),
-(3, 76, 'correctos', 'Solera', '2022-10-14', 'no'),
-(4, 75, 'envie docs', 'marin', '2022-10-15', 'no'),
-(5, 75, 'qweqeqqweqe', 'Marin', '2022-10-15', 'si'),
-(6, 75, 'envio los documetnos listos', 'Marin', '2022-10-15', 'si'),
-(8, 75, 'prueba hora', 'Marin', '2022-10-25', 'si'),
-(9, 75, 'correctos', 'admin', '2022-10-25', 'si');
+(1, 75, 'esta todo correcto', 'Solera', '2022-10-17 00:00:00', 'si'),
+(2, 76, 'este es un mensaje de pruweba', 'Solera', '2022-10-14 00:00:00', 'no'),
+(3, 76, 'correctos', 'Solera', '2022-10-14 00:00:00', 'no'),
+(4, 75, 'envie docs', 'marin', '2022-10-15 00:00:00', 'no'),
+(5, 75, 'qweqeqqweqe', 'Marin', '2022-10-15 00:00:00', 'si'),
+(6, 75, 'envio los documetnos listos', 'Marin', '2022-10-15 00:00:00', 'si'),
+(8, 75, 'prueba horas', 'Marin', '2022-10-25 00:00:00', 'si'),
+(9, 75, 'pruebasd', 'Marin', '2022-10-25 16:58:13', 'si'),
+(10, 75, 'con respuesta ', 'admin', '2022-10-25 00:00:00', 'si');
 
 -- --------------------------------------------------------
 
@@ -467,7 +473,8 @@ INSERT INTO `seguimiento` (`idSeguimiento`, `fkIdUsuario`, `fechaModificacion`, 
 (18, NULL, NULL, NULL, NULL, 88),
 (19, NULL, NULL, NULL, NULL, 89),
 (20, NULL, NULL, NULL, NULL, 90),
-(21, NULL, NULL, NULL, NULL, 91);
+(21, NULL, NULL, NULL, NULL, 91),
+(22, NULL, NULL, NULL, NULL, 92);
 
 -- --------------------------------------------------------
 
@@ -595,7 +602,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `documentosaprobados`
 --
 ALTER TABLE `documentosaprobados`
-  MODIFY `iddocumentosaprobados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `iddocumentosaprobados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `encuestaplataforma`
@@ -607,13 +614,13 @@ ALTER TABLE `encuestaplataforma`
 -- AUTO_INCREMENT de la tabla `estadoproceso`
 --
 ALTER TABLE `estadoproceso`
-  MODIFY `idProceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idProceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `fechasseguimiento`
 --
 ALTER TABLE `fechasseguimiento`
-  MODIFY `idFechasseguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idFechasseguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
@@ -625,7 +632,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `infoauto`
 --
 ALTER TABLE `infoauto`
-  MODIFY `idAuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idAuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `infocarga`
@@ -637,31 +644,31 @@ ALTER TABLE `infocarga`
 -- AUTO_INCREMENT de la tabla `infocliente`
 --
 ALTER TABLE `infocliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `infosiniestro`
 --
 ALTER TABLE `infosiniestro`
-  MODIFY `idRegistro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `idRegistro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de la tabla `insertarregistros`
 --
 ALTER TABLE `insertarregistros`
-  MODIFY `idInsertarRegistros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `idInsertarRegistros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajesseguimientos`
 --
 ALTER TABLE `mensajesseguimientos`
-  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idmensajesSeguimientos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento`
 --
 ALTER TABLE `seguimiento`
-  MODIFY `idSeguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idSeguimiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

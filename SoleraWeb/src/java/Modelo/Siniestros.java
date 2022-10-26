@@ -3,13 +3,13 @@ package Modelo;
 
 public class Siniestros {
 
-    private int idRegistro;
+    private String idRegistro;
     private String numSiniestro;
     private String poliza;
     private String estatusCliente;
     private String asegurado;
     private String fechaPrimerEnvioDoc;
-    private int diasTranscurridos;
+    private String diasTranscurridos;
     private int size;
 
 	public int getSize() {
@@ -21,11 +21,11 @@ public class Siniestros {
 	}
 
 
-    public int getIdRegistro() {
+    public String getIdRegistro() {
         return idRegistro;
     }
 
-    public void setIdRegistro(int idRegistro) {
+    public void setIdRegistro(String idRegistro) {
         this.idRegistro = idRegistro;
     }
 
@@ -69,11 +69,11 @@ public class Siniestros {
         this.fechaPrimerEnvioDoc = fechaPrimerEnvioDoc;
     }
 
-    public int getDiasTranscurridos() {
+    public String getDiasTranscurridos() {
         return diasTranscurridos;
     }
 
-    public void setDiasTranscurridos(int diasTranscurridos) {
+    public void setDiasTranscurridos(String diasTranscurridos) {
         this.diasTranscurridos = diasTranscurridos;
     }
 

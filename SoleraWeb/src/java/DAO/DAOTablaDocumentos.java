@@ -12,7 +12,7 @@ import Modelo.ModeloGuardarImagen;
 public class DAOTablaDocumentos {
     public List<ModeloGuardarImagen> getDocumentos(String idRegistro) {
         List<ModeloGuardarImagen> lista = new ArrayList<>();
-        String respuesta = "no Entra";
+        String respuesta;
         try {
             Conexion conect = new Conexion();
             PreparedStatement ps;

@@ -36,7 +36,7 @@ public class DAOGuardarSeguimiento {
             respuesta = "aqui si";
             con.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
-                    + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',curdate(), '"
+                    + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',now(), '"
                     + mgSeguimiento.getIdRegistro() + "')";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);

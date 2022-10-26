@@ -21,7 +21,7 @@ public class DAOCargaSiniestro {
             String sql = "insert into infosiniestro(numSiniestro,fechaSiniestro,poliza,cobertura,afectado,regimenFiscal,ciudad,ubicacionTaller,fechaDecreto,fechaCarga)"
                     + " values('" + numSiniestro + "','" + fechaSiniestro + "','" + numPoliza + "','" + cobertura
                     + "','" + afectado + "','" + regimen + "','" + ciudad + "','" + taller + "','" + fechaDecreto
-                    + "',curdate())";
+                    + "',now())";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();

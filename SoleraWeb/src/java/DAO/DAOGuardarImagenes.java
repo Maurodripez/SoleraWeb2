@@ -13,7 +13,7 @@ public class DAOGuardarImagenes {
         int rs = 0;
         try {
             conect.conectar();
-            String sql = "insert into imagenes values(null,?,?,?, current_date(),?)";
+            String sql = "insert into imagenes values(null,?,?,?, now(),?)";
             ps = conect.conexion.prepareStatement(sql);
             ps.setString(1, nombre);
             ps.setString(2, rutaImagen);
@@ -21,7 +21,7 @@ public class DAOGuardarImagenes {
             ps.setString(4, nombreOriginal);
             rs = ps.executeUpdate();
             conect.Desconectar();
-            sql = "update fechasseguimiento set fechaPrimerEnvioDoc=curdate() where fkidRegistro='"+fkGuardar+"'";
+            sql = "update fechasseguimiento set fechaPrimerEnvioDoc=now() where fkidRegistro='"+fkGuardar+"'";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();

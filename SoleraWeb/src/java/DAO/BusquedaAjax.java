@@ -12,33 +12,42 @@ import Modelo.Siniestros;
 public class BusquedaAjax {
     Conexion conect = new Conexion();
     PreparedStatement ps;
+    public String respuest = "nada";
 
     // buscar por cualquier manera, letra, nombre, inicial, etc
-    public List<Siniestros> getSiniestroGeneral(String filtro) throws SQLException {
+    public List<Siniestros> getSiniestroGeneral(String filtro) {
         List<Siniestros> lista = new ArrayList<>();
-
-        conect.conectar();
-        String sql = "select idRegistro,numSiniestro, asegurado, poliza, estatusCliente, datediff(CURDATE(),fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
-                + " fechaPrimerEnvioDoc from infosiniestro,fechasseguimiento, infocliente as ia "
-                + " where idRegistro=fechasseguimiento.fkidRegistro and idRegistro=ia.fkIdRegistro and fechaPrimerEnvioDoc is not null and (idRegistro like '%"+filtro+"%' or"
-                + " numSiniestro like '%"+filtro+"%' or ia.asegurado like '%"+filtro+"%' or poliza like '%"+filtro+"%' or "
-                + " estatusCliente like '%"+filtro+"%' or datediff(CURDATE(), fechaPrimerEnvioDoc) like '%"+filtro+"%' or"
-                + " fechaPrimerEnvioDoc like '%"+filtro+"%')";
-        ps = conect.conexion.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        Siniestros siniestros;
-        while (rs.next()) {
-            siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("idRegistro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
-            siniestros.setFechaPrimerEnvioDoc(rs.getString("fechaPrimerEnvioDoc"));
-            siniestros.setNumSiniestro(rs.getString("numSiniestro"));
-            siniestros.setPoliza(rs.getString("poliza"));
-            siniestros.setAsegurado(rs.getString("asegurado"));
-            siniestros.setEstatusCliente(rs.getString("estatusCliente"));
-            lista.add(siniestros);
-
+        try {
+            String sql = "select idRegistro,numSiniestro, asegurado, poliza, estatusCliente, datediff(CURDATE(),fechaPrimerEnvioDoc)"
+                    + " AS 'Dias Transcurridos',"
+                    + " fechaPrimerEnvioDoc from infosiniestro,fechasseguimiento, infocliente as ia "
+                    + " where idRegistro=fechasseguimiento.fkidRegistro and idRegistro=ia.fkIdRegistro"
+                    + " and fechaPrimerEnvioDoc is not null and (idRegistro like '%" + filtro + "%' or"
+                    + " numSiniestro like '%" + filtro + "%' or ia.asegurado like '%" + filtro + "%' or poliza like '%"
+                    + filtro + "%' or "
+                    + " estatusCliente like '%" + filtro + "%' or datediff(CURDATE(), fechaPrimerEnvioDoc) like '%"
+                    + filtro + "%' or"
+                    + " fechaPrimerEnvioDoc like '%" + filtro + "%')";
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Siniestros siniestros;
+            while (rs.next()) {
+                siniestros = new Siniestros();
+                siniestros.setIdRegistro(rs.getString("IdRegistro"));
+                siniestros.setNumSiniestro(rs.getString("numSiniestro"));
+                siniestros.setAsegurado(rs.getString("asegurado"));
+                siniestros.setPoliza(rs.getString("poliza"));
+                siniestros.setEstatusCliente(rs.getString("estatusCliente"));
+                siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
+                siniestros.setFechaPrimerEnvioDoc(rs.getString("fechaPrimerEnvioDoc"));
+                lista.add(siniestros);
+                respuest = "final";
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
         }
+
         return lista;
     }
 
@@ -60,8 +69,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -90,8 +99,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -119,8 +128,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -149,8 +158,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -179,8 +188,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -209,8 +218,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -239,8 +248,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -270,8 +279,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
@@ -301,8 +310,8 @@ public class BusquedaAjax {
         Siniestros siniestros;
         while (rs.next()) {
             siniestros = new Siniestros();
-            siniestros.setIdRegistro(rs.getInt("Id Registro"));
-            siniestros.setDiasTranscurridos(rs.getInt("Dias Transcurridos"));
+            siniestros.setIdRegistro(rs.getString("Id Registro"));
+            siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
             siniestros.setFechaPrimerEnvioDoc(rs.getString("Fecha Envio"));
             siniestros.setNumSiniestro(rs.getString("Numero Siniestro"));
             siniestros.setPoliza(rs.getString("Poliza"));
