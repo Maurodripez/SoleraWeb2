@@ -39,12 +39,7 @@ public class GuardarImagenesCliente extends HttpServlet {
       String fkGuardar = request.getParameter("fkImagenes");
       String[] sinComas = fkGuardar.split(",");
       // se obtienen la direccion real para poder obtenerla de la web
-      String realPath = request.getContextPath();
-      File directorio = new File(realPath + "/SoleraWeb/web/documentos/" + sinComas[0] + "");
-      out.println(realPath);
-      String miDir = System.getProperty("user.dir");
-      out.println(miDir);
-      String direccionString = directorio.toString();
+      File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + sinComas[0] + "");
       if (!directorio.exists()) {
         if (directorio.mkdirs()) {
           System.out.println("Directorio creado");
@@ -53,16 +48,15 @@ public class GuardarImagenesCliente extends HttpServlet {
         }
       } // se crea el directorio para caada caso
       InputStream input = archivo.getInputStream();
-      String finalString1 = direccionString.replaceAll("/", "\\");
       String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + sinComas[0] + "\\";
       // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
       File cargarImagenes = new File(ruta);
       File doc = new File(cargarImagenes, archivo.getSubmittedFileName());
-      // Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
+       Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
       // la carpeta seleccionada
-      // dGImagenes.guardarImagen(sinComas[1], ruta + "" +
-      // archivo.getSubmittedFileName(), sinComas[0],
-      // archivo.getSubmittedFileName());
+       dGImagenes.guardarImagen(sinComas[1], ruta + "" +
+       archivo.getSubmittedFileName(), sinComas[0],
+       archivo.getSubmittedFileName());
       out.println("guardado con exito");
     }
   }

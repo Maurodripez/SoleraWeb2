@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2022 a las 05:16:48
+-- Tiempo de generación: 26-10-2022 a las 17:17:56
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -282,8 +282,8 @@ CREATE TABLE `infocarga` (
 
 CREATE TABLE `infocliente` (
   `idCliente` int(11) NOT NULL,
-  `telefonoPrincipal` varchar(10) NOT NULL,
-  `telefonosecundario` varchar(10) DEFAULT NULL,
+  `telefonoPrincipal` varchar(15) NOT NULL,
+  `telefonosecundario` varchar(15) DEFAULT NULL,
   `contacto` varchar(45) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
   `fkIdRegistro` int(11) DEFAULT NULL,
@@ -324,8 +324,8 @@ INSERT INTO `infocliente` (`idCliente`, `telefonoPrincipal`, `telefonosecundario
 
 CREATE TABLE `infosiniestro` (
   `idRegistro` int(11) NOT NULL,
-  `numSiniestro` varchar(9) DEFAULT NULL,
-  `poliza` varchar(10) DEFAULT NULL,
+  `numSiniestro` varchar(15) DEFAULT NULL,
+  `poliza` varchar(15) DEFAULT NULL,
   `afectado` varchar(25) DEFAULT NULL,
   `tipoDeCaso` varchar(45) DEFAULT NULL,
   `cobertura` varchar(25) DEFAULT NULL,

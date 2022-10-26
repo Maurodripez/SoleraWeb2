@@ -567,7 +567,6 @@ function funcionesBoton(getId) {
               },
             });
           } else {
-            alert(sinComas[2]);
             let imagen = document.getElementById("docSeleccionado");
             imagen.setAttribute(
               "src",
@@ -639,7 +638,6 @@ function valoresSesiones() {
         document.getElementById("btnDocsAprobados").disabled = true;
         document.getElementById("btnSubirDoc").disabled = true;
         $(".btnEliminarClass").prop("disabled", true);
-        // document.getElementsByClassName("btnEliminarClass").disabled = true;
       } else if (result === "operador" || result === "integrador") {
         document.getElementById("fechaCarga").disabled = true;
       }

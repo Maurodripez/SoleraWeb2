@@ -32,7 +32,6 @@ public class GuardadoImagenesServlet extends HttpServlet {
 
     private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fkGuardar = request.getParameter("fkImagenes");
-        String realPath = request.getContextPath();
         File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
         if (!directorio.exists()) {
             if (directorio.mkdirs()) {

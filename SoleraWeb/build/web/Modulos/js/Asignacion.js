@@ -31,7 +31,6 @@ function leerArchivo(e) {
           taller: i.taller,
         },
         success: function (result) {
-          alert(result);
         },
       });
     }
@@ -94,7 +93,6 @@ excelInput.addEventListener("change", async function () {
         taller: contenido[x][16],
       },
       success: function (result) {
-        alert(result);
       },
     });
   }

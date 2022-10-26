@@ -93,7 +93,7 @@ public class DocumentosAprobados extends HttpServlet {
                                 + "<button id='Eliminar," + dgImagenes.getIdImagen() + ","
                                 + dgImagenes.getNombreOriginal()
                                 + "," + dgImagenes.getFkImagen()
-                                + "' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btnEliminarClass btn btn-danger' disabled>Eliminar</button>"
+                                + "' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btnEliminarClass btn btn-danger'>Eliminar</button>"
                                 + "</div>"
                                 + "</td>");
                         out.println(" <td class='col'>" + dgImagenes.getNombreImagen() + "</td>");
