@@ -10,79 +10,71 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.nio.file.Paths;
 import DAO.DAOGuardarImagenes;
 import jakarta.servlet.http.Part;
-import static java.lang.System.out;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.core.MediaType;
 import java.nio.file.Files;
-import java.nio.file.Path;
 
+@Consumes(MediaType.MULTIPART_FORM_DATA)
 @MultipartConfig
 @WebServlet(name = "GuardadoImagenesServlet", urlPatterns = { "/GuardadoImagenesServlet" })
 public class GuardadoImagenesServlet extends HttpServlet {
-    // private String rutaImagenes = "C:\\Users\\death\\Desktop\\Solera Web
-    // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\";
+
+  /**
+   * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+   * methods.
+   *
+   * @param request  servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException      if an I/O error occurs
+   */
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
     DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
-    private final String[] extensiones = { ".pdf", ".png", ".jpg", ".jpeg" };
-
-    @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        guardarArchivo(request, response);
-    }
-
-    private void guardarArchivo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String fkGuardar = request.getParameter("fkImagenes");
-        File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
-        if (!directorio.exists()) {
-            if (directorio.mkdirs()) {
-                System.out.println("Directorio creado");
-            } else {
-                System.out.println("Error al crear directorio");
-            }
-        } // se crea el directorio para caada caso
-        String rutaImagenes = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
-        File cargasImagenes = new File(rutaImagenes);
-        try (PrintWriter out = response.getWriter()) {
-            String nombre = request.getParameter("tipoArchivo");
-            Part archivo = request.getPart("archivo");// nombre de la imagen
-            if (archivo == null) {
-                System.out.println("Selecciona un archivo");
-                return;
-            }
-            if (validarExtenciones(archivo.getSubmittedFileName(), extensiones)) {
-                String rutaImagen = guardarDoc(archivo, cargasImagenes);
-                dGImagenes.guardarImagen(nombre, rutaImagen, fkGuardar, archivo.getSubmittedFileName());
-                response.sendRedirect("ModuloPrincipal.jsp");
-            }
-        } catch (ServletException | IOException e) {
-            // TODO: handle exception
+    response.setContentType("text/html;charset=UTF-8");
+    try (PrintWriter out = response.getWriter()) {
+      Part archivo = request.getPart("imagen");
+      String fkGuardar = request.getParameter("fkImagenes");
+      String nombreArchivo = request.getParameter("tipoArchivo");
+      // se obtienen la direccion real para poder obtenerla de la web
+      File directorio = new File("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/documentos/" + fkGuardar + "");
+      //File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
+      if (!directorio.exists()) {
+        if (directorio.mkdirs()) {
+          System.out.println("Directorio creado");
+        } else {
+          System.out.println("Error al crear directorio");
         }
+      } // se crea el directorio para caada caso
+      InputStream input = archivo.getInputStream();
+      String ruta = "C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
+    //String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
+      // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
+      File cargarImagenes = new File(ruta);
+      File doc = new File(cargarImagenes, nombreArchivo + "-" + archivo.getSubmittedFileName());
+      String archivoUnico = nombreArchivo + "-" + archivo.getSubmittedFileName();
+      Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
+      // la carpeta seleccionada
+      dGImagenes.guardarImagen(nombreArchivo, ruta + "" + archivoUnico, fkGuardar, archivoUnico);
+      out.println("guardado con exito");
     }
+  }
 
-    // metoddo para guardar el archivo///////////
-    private String guardarDoc(Part part, File rutaCargas) {
-        String rutaAbsoluta = "";
-        try {
-            // se obtiene el nobre del archivo
-            Path ruta = Paths.get(part.getSubmittedFileName());// aqui tenemos nombrew del archivo
-            String nombreArchivo = ruta.getFileName().toString();// tenemos el archivo
-            InputStream input = part.getInputStream();
-            if (input != null) {
-                File doc = new File(rutaCargas, nombreArchivo);
-                rutaAbsoluta = doc.getAbsolutePath();
-                Files.copy(input, doc.toPath());// guardsmos el archiuvo en la carpeta seleccionada
-            }
-        } catch (IOException e) {
-        }
-        return rutaAbsoluta;
-    }
-
-    public boolean validarExtenciones(String nombreArchivo, String[] extensiones) {
-        for (String et : extensiones) {
-            if (nombreArchivo.toLowerCase().endsWith(et)) {
-                return true;
-            }
-        }
-        return false;
-    }
+  /**
+   * Handles the HTTP <code>POST</code> method.
+   *
+   * @param request  servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException      if an I/O error occurs
+   */
+  @Override
+  protected void doPost(
+      HttpServletRequest request,
+      HttpServletResponse response)
+      throws ServletException, IOException {
+    processRequest(request, response);
+  }
 }

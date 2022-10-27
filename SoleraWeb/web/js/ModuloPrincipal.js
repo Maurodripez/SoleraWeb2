@@ -757,3 +757,22 @@ function MostrarMensajes(getId) {
     }
   });
 }
+function enviarImagenes() {
+  let imagen;
+  imagen = new FormData(document.getElementById("archivoCargado"));
+  $.ajax({
+    url: "GuardadoImagenesServlet",
+    method: "post",
+    data: imagen,
+    cache: false,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+      alert(result);
+    },
+    error: function () {
+      alert("Servidor anormal, intente nuevamente más tarde ...");
+    },
+  });
+  return false;
+}

@@ -48,7 +48,9 @@ function userSubmit() {
       imagen = new FormData(document.getElementById("cargaAcreditacion"));
       break;
   }
-
+  alert(imagen.FormData);
+  alert(imagen.textContent);
+  alert(imagen.value);
   $.ajax({
     url: "GuardarImagenesCliente",
     method: "post",
@@ -323,9 +325,15 @@ function mortrarImagen(valor) {
                 abrirCerrarTenen = false;
               } else {
                 console.log(obtenerInfo);
-                console.log(sinCodificado[i+2]);
-                console.log("./documentos/" + obtenerInfo +"/" +sinCodificado[i + 2] +"");
-                imagenSrc.src ="./documentos/100/cutez-1.jpg";
+                console.log(sinCodificado[i + 2]);
+                console.log(
+                  "./documentos/" +
+                    obtenerInfo +
+                    "/" +
+                    sinCodificado[i + 2] +
+                    ""
+                );
+                imagenSrc.src = "./documentos/100/cutez-1.jpg";
                 //imagenSrc.src="./documentos/100/cute (1).jpg";
                 abrirCerrarTenen = false;
               }
@@ -472,33 +480,33 @@ function mortrarImagen(valor) {
     },
   });
 }
-function exportTableToExcel(tableID, filename = ''){
+function exportTableToExcel(tableID, filename = "") {
   var downloadLink;
-  var dataType = 'application/vnd.ms-excel';
+  var dataType = "application/vnd.ms-excel";
   var tableSelect = document.getElementById(tableID);
-  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-  
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
   // Specify file name
-  filename = filename?filename+'.xls':'excel_data.xls';
-  
+  filename = filename ? filename + ".xls" : "excel_data.xls";
+
   // Create download link element
   downloadLink = document.createElement("a");
-  
+
   document.body.appendChild(downloadLink);
-  
-  if(navigator.msSaveOrOpenBlob){
-      var blob = new Blob(['ufeff', tableHTML], {
-          type: dataType
-      });
-      navigator.msSaveOrOpenBlob( blob, filename);
-  }else{
-      // Create a link to the file
-      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-  
-      // Setting the file name
-      downloadLink.download = filename;
-      
-      //triggering the function
-      downloadLink.click();
+
+  if (navigator.msSaveOrOpenBlob) {
+    var blob = new Blob(["ufeff", tableHTML], {
+      type: dataType,
+    });
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = "data:" + dataType + ", " + tableHTML;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    //triggering the function
+    downloadLink.click();
   }
 }

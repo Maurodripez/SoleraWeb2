@@ -2193,7 +2193,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <form method="post" action="../GuardadoImagenesServlet" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data"  onsubmit="return enviarImagenes()" id="archivoCargado">
                             <div class="row">
                                 <div class="col-6">
                                     <select name="tipoArchivo" class="form-select form-select-sm"
@@ -2214,14 +2214,15 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <input id="nombreArchivo" name="archivo" class="form-control form-control-sm"
+                                    <input id="nombreArchivo" name="imagen" class="form-control form-control-sm"
                                         type="file">
                                 </div>
                             </div>
                             <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
                             <div class="row">
                                 <div class="col-12 p-2" style="text-align: center">
-                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar" class="btn btn-warning">Subir
+                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar"
+                                        class="btn btn-warning">Subir
                                         Documento</button>
                                 </div>
 

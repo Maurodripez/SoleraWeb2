@@ -1881,7 +1881,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <form method="post" action="GuardadoImagenesServlet" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data"  onsubmit="return enviarImagenes()" id="archivoCargado">
                             <div class="row">
                                 <div class="col-6">
                                     <select name="tipoArchivo" class="form-select form-select-sm"
@@ -1902,7 +1902,7 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <input id="nombreArchivo" name="archivo" class="form-control form-control-sm"
+                                    <input id="nombreArchivo" name="imagen" class="form-control form-control-sm"
                                         type="file">
                                 </div>
                             </div>

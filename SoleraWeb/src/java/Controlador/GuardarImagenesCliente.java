@@ -36,6 +36,7 @@ public class GuardarImagenesCliente extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter()) {
       Part archivo = request.getPart("imagen");
+      out.println(archivo.getSubmittedFileName());
       String fkGuardar = request.getParameter("fkImagenes");
       String[] sinComas = fkGuardar.split(",");
       // se obtienen la direccion real para poder obtenerla de la web
