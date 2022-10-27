@@ -1,24 +1,23 @@
 //funciones jqyuery entran aqui
 $(document).ready(function () {
+  let paginaMas = document.getElementById("botonClickMas");
+  let paginaMenos = document.getElementById("botonClickMenos");
+  let pElement = document.getElementById("paginaActual");
+  let contador = 1;
+  paginaMas.onclick = function() {
+    contador++;
+    pElement.textContent = contador;
+    console.log(pElement.textContent);
+  };
+  paginaMenos.onclick = function() {
+    contador--;
+    pElement.textContent = contador;
+    console.log(pElement.textContent);
+  };
   //////////////inicio de todos los botones de busqueda////////////////////
-  $("#txtBotonEditar").click(function () {
-    let txtIdGuardado = this.id;
-    let txtMayorQue = 0;
-    let txtMenorQue = 3;
-    $.ajax({
-      url: "buscar.do",
-      data: {
-        idGuardado: txtIdGuardado,
-        mayorQue: txtMayorQue,
-        menorQue: txtMenorQue,
-      },
-      success: function (result) {
-        $(".tablaActual").remove();
-        $("#ResultadoAjax").html(result);
-      },
-    });
-  });
   $("#txtBuscar0a2").click(function () {
+    let pElement = document.getElementById("paginaActual");
+    console.log(pElement.textContent);
     let txtIdGuardado = this.id;
     let txtMayorQue = 0;
     let txtMenorQue = 3;
@@ -37,7 +36,7 @@ $(document).ready(function () {
   });
   $("#txtBuscar3a5").click(function () {
     let txtIdGuardado = this.id;
-    let txtMayorQue = 2;
+    let txtMayorQue = 3;
     let txtMenorQue = 6;
     $.ajax({
       url: "buscar.do",
@@ -54,7 +53,7 @@ $(document).ready(function () {
   });
   $("#txtBuscar6a14").click(function () {
     let txtIdGuardado = this.id;
-    let txtMayorQue = 5;
+    let txtMayorQue = 6;
     let txtMenorQue = 15;
     $.ajax({
       url: "buscar.do",
@@ -71,7 +70,7 @@ $(document).ready(function () {
   });
   $("#txtBuscarMas15").click(function () {
     let txtIdGuardado = this.id;
-    let txtMayorQue = 14;
+    let txtMayorQue = 15;
     $.ajax({
       url: "buscar.do",
       data: {
@@ -146,8 +145,6 @@ function buscarId() {
     success: function (result) {
       $(".tablaActual").remove();
       $("#ResultadoAjax").html(result);
-      document.getElementsByClassName("btnDinamicos").style.background =
-        "#0000FF";
     },
   });
 }
@@ -724,6 +721,7 @@ function MostrarMensajes(getId) {
     },
   }).done(function (result) {
     console.log(result);
+    $(".tablaActual").remove();
     let tablaMensajes = document.getElementById("TablaPGeneral");
     let sinGuion = result.split("-/");
     for (let i = 0; i < sinGuion.length - 1; i++) {

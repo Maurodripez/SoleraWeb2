@@ -143,6 +143,7 @@ public class BuscarSiniestros extends HttpServlet {
                     if (filtro != "")
 
                     {
+                        out.println("entra");
                         for (Siniestros sin : bAjax.getIdRegistro(filtro)) {
                             out.println("<tr class='row'>");
                             out.println("<td class='col'>"
