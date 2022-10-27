@@ -70,7 +70,6 @@ window.addEventListener("load", function () {
 function buscarDatos() {
   txtFechaCarga = document.getElementById("txtFechaCarga").value;
   txtEstacion = document.getElementById("txtEstacion").value;
-  console.log(txtEstacion);
   if (txtEstacion == "Selecciona...") {
     txtEstacion = "";
   }
@@ -109,7 +108,6 @@ function buscarDatos() {
       cobertura: txtCobertura,
     },
     success: function (result) {
-      console.log(result);
       let tablaDatos = document.getElementById("mostrarTablaDatos");
       let sinDiagonal = result.split("//");
       $(".tablaActual").remove();

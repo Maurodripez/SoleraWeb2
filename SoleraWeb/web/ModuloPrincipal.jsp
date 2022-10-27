@@ -32,11 +32,29 @@
     <% DiasEsperandoRespuesta deRespuesta=new DiasEsperandoRespuesta();%>
     <% Conexion conexion=new Conexion();%>
     <% MostrarDatosServlet mdServlet=new MostrarDatosServlet();%>
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Modulo Principal</span>
+    <div class="row">
+        <div class="col text-left display-6 p-2">
+            <nav class="navbar bg-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Modulo Principal</span>
+                </div>
+            </nav>
         </div>
-    </nav>
+        <div class="col-2">
+            <form>
+                <div class="form-group float-end p-2">
+                    <label for="exampleFormControlSelect1">Estado Actual</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Disponible</option>
+                        <option>Break</option>
+                        <option>Comida</option>
+                        <option>Sanitario</option>
+                        <option>Supervisor</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="accordion p-4" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -129,7 +147,7 @@
                                         </h5>
                                     </div>
                                     <div class="row">
-                                        <div class="col-5">
+                                        <div class="col-7">
                                             <p class="card-text">
                                                 6-14 Dias
                                             </p>

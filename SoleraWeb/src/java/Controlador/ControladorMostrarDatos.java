@@ -16,17 +16,17 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-@WebServlet(name = "ControladorMostrarDatos", urlPatterns = {"/ControladorMostrarDatos"})
+@WebServlet(name = "ControladorMostrarDatos", urlPatterns = { "/ControladorMostrarDatos" })
 public class ControladorMostrarDatos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class ControladorMostrarDatos extends HttpServlet {
         float porcentajeDocs = 0;
         String porcentajeTotal = "0";
         DAOMostrarDatos daoMDatos = new DAOMostrarDatos();
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             if ("mostrarTabla".equals(accion)) {
                 String fechaCarga = request.getParameter("fechaCarga");
                 String estacion = request.getParameter("estacion");
@@ -55,7 +55,6 @@ public class ControladorMostrarDatos extends HttpServlet {
                         case "Hoy":
                             fechaHoy = LocalDate.now();
                             fechaBuscar1 = fechaHoy.toString();
-                            out.println(fechaBuscar1 + ",");
                             break;
                         case "Ayer": {
                             Calendar cal = Calendar.getInstance();
@@ -143,6 +142,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaBuscar1, estacion, estatus,
                         subEstatus,
                         fechaBuscar2, region, estado, cobertura)) {
+                    out.println(fechaBuscar1);
+                    out.println(fechaBuscar2);
                     out.print(mbDatos.getIdRegistro() + ",");
                     out.print(mbDatos.getNumSiniestro() + ",");
                     out.print(mbDatos.getPoliza() + ",");
@@ -346,10 +347,10 @@ public class ControladorMostrarDatos extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -360,10 +361,10 @@ public class ControladorMostrarDatos extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

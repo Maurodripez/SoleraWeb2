@@ -60,7 +60,7 @@ public class DAOCargaSiniestro {
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
-            sql = "insert into fechasseguimiento(fkidRegistro)values('" + id + "')";
+            sql = "insert into fechasseguimiento(fkidRegistro,fechaSeguimiento)values('" + id + "',now())";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
