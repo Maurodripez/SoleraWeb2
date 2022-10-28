@@ -46,9 +46,9 @@
     </div>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-          <span id="encabezadoDatos" class="navbar-brand mb-0 h1">Seguimiento cedulas seguros Solera</span>
+            <span id="encabezadoDatos" class="navbar-brand mb-0 h1">Seguimiento cedulas seguros Solera</span>
         </div>
-      </nav>
+    </nav>
     <div class="accordion p-4" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -243,15 +243,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Estacion
                                 </label>
                                 <select class="filtrosBusqueda form-select" id="txtEstacion">
@@ -267,15 +266,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Estatus
                                 </label>
                                 <select class="filtrosBusqueda form-select" id="txtEstatus">
@@ -307,15 +305,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Subestatus
                                 </label>
                                 <select class="filtrosBusqueda form-select" id="txtSubEstatus">
@@ -377,15 +374,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Region
                                 </label>
                                 <select class="filtrosBusqueda form-select" id="txtRegion">
@@ -434,15 +430,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Estado
                                 </label>
                                 <select id="txtEstado" class="filtrosBusqueda form-select" name="txtEstado" required>
@@ -493,15 +488,14 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-plus-square">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
-                                    </rect>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-plus-square">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2">
+                                        </rect>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
                                     Cobertura
                                 </label>
                                 <select class="filtrosBusqueda form-select" id="txtCobertura">
@@ -542,61 +536,20 @@
                 <div class="accordion-body">
                     <!--inicio de acordeon para mostrar tabla de resutlados-->
                     <div class="row">
-                        <div class="botoncantidadResultados col-1">
-                            <select class="form-select" aria-label="Default
-                                        select example">
+                        <div class="botoncantidadResultados col-lg-2">
+                            <select class="form-select" aria-label="Default select example">
                                 <option selected>Resultados</option>
                                 <option value="1">5</option>
                                 <option value="2">10</option>
                                 <option value="3">20</option>
                             </select>
                         </div>
-                        <div class="col" name="SearchButtonGeneral">
+                        <div class="col p-2" name="SearchButtonGeneral">
                             <!--se implementa el boton busqueda general-->
                             <form class="form-search float-end">
                                 <div class="input-group">
-                                    <input class="form-control" maxlength="128" placeholder="Buscar" size="35"
-                                        type="text" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-search" viewBox="0
-                                                     0
-                                                     16
-                                                     16">
-                                                <path d="M11.742
-                                                      10.344a6.5
-                                                      6.5
-                                                      0
-                                                      1
-                                                      0-1.397
-                                                      1.398h-.001c.03.04.062.078.098.115l3.85
-                                                      3.85a1
-                                                      1
-                                                      0
-                                                      0
-                                                      0
-                                                      1.415-1.414l-3.85-3.85a1.007
-                                                      1.007
-                                                      0
-                                                      0
-                                                      0-.115-.1zM12
-                                                      6.5a5.5
-                                                      5.5
-                                                      0
-                                                      1
-                                                      1-11
-                                                      0
-                                                      5.5
-                                                      5.5
-                                                      0
-                                                      0
-                                                      1
-                                                      11
-                                                      0z" />
-                                            </svg>
-                                        </button>
-                                    </span>
+                                    <input id="txtBtnGeneralBuscar" onkeyup="busquedaGeneral(this.value)"
+                                        class="form-control" placeholder="Buscar" type="text" />
                                 </div>
                             </form>
                         </div>
@@ -614,7 +567,7 @@
                                 <th scope="col">Fecha carga</th>
                                 <th scope="col">Estacion</th>
                                 <th scope="col">Estatus</th>
-                                <th scope="col">% de documentos</th>
+                                <th scope="col">% de docs</th>
                                 <th scope="col">% total</th>
                                 <th scope="col">Estado</th>
                             </tr>
@@ -636,7 +589,7 @@
                                             <div class="input-group">
                                                 <input id="bRegistro" onkeyup="busquedaParticular(this.id,this.value)"
                                                     class="busquedaParticular form-control" maxlength="128"
-                                                    placeholder="cola" size="15" type="text" />
+                                                    placeholder="Buscar" size="15" type="text" />
                                             </div>
                                         </form>
                                     </div>
@@ -816,16 +769,15 @@
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
                             checked />
-                        <label class="btn" for="btnradio1"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
-                                viewBox="0 0 16 16">
+                        <label class="btn" for="btnradio1"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path
                                     d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                 <path fill-rule="evenodd"
                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                             </svg>Editar</label>
 
-                            <button type="button" onclick="mostrarDocsAprobados()" id="btnDocsMostrar" class="btn"
+                        <button type="button" onclick="mostrarDocsAprobados()" id="btnDocsMostrar" class="btn"
                             data-bs-toggle="modal" data-bs-target="#cargaDocumentos">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
                                 fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"

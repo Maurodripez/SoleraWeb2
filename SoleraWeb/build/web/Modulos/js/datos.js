@@ -1,38 +1,10 @@
 var contador = 0;
 window.addEventListener("load", function () {
   valoresSesiones();
-
-  $.ajax({
-    method: "POST",
-    url: "../ControladorMostrarDatos",
-    data: {
-      accion: "MostrarSiniestrosNoDocs",
-      soloDatos: "SoloDatos",
-    },
-    success: function (result) {
-      mostrarTabla(result);
-    },
-  });
+  recargarSiniestros();
   //muestra los dias paasados por documentos
-  $.ajax({
-    method: "POST",
-    url: "../SiniestrosNoDocs",
-    data: {
-      accion: "SiniestrosEnRespuesta",
-    },
-    success: function (result) {
-      let sinComas = result.split(",");
-      $("#de0a2").html(sinComas[0]);
-      $("#de3a5").html(sinComas[1]);
-      $("#de6a14").html(sinComas[2]);
-      $("#mas15").html(sinComas[3]);
-    },
-  });
 });
 function buscarDatos() {
-  let pElement = document.getElementById("paginaActual");
-  console.log(pElement.textContent);
-  console.log(parseInt(pElement.textContent) * 10);
   txtFechaCarga = document.getElementById("txtFechaCarga").value;
   txtEstacion = document.getElementById("txtEstacion").value;
   if (txtEstacion == "Selecciona...") {
@@ -74,17 +46,6 @@ function buscarDatos() {
     },
     success: function (result) {
       mostrarTabla(result);
-    },
-  });
-}
-function validarUsuario() {
-  $.ajax({
-    url: "../ControladorMostrarDatos",
-    data: {
-      valiar: "usuario?",
-    },
-    success: function (result) {
-      alert(result);
     },
   });
 }
@@ -388,25 +349,7 @@ function InsertarSeguimiento() {
   });
 }
 $(document).ready(function () {
-  let paginaMas = document.getElementById("botonClickMas");
-  let paginaMenos = document.getElementById("botonClickMenos");
-  let paginaActual = document.getElementById("paginaActual");
-  paginaMas.onclick = function () {
-    let tBodyActual = document.getElementById("tBody:" + contador);
-    tBodyActual.style.display = "none";
-    contador++;
-    paginaActual.textContent = contador;
-    tBodyActual = document.getElementById("tBody:" + contador);
-    tBodyActual.style.removeProperty("display");
-  };
-  paginaMenos.onclick = function () {
-    let tBodyActual = document.getElementById("tBody:" + contador);
-    tBodyActual.style.display = "none";
-    contador--;
-    paginaActual.textContent = contador;
-    tBodyActual = document.getElementById("tBody:" + contador);
-    tBodyActual.style.removeProperty("display");
-  };
+  controlPaginado();
   //funcion para limpiar el regitro
   $("#limpiarRegistro").click(function () {
     $(".filtrosBusqueda").val($(".filtrosBusqueda option:first").val());
@@ -450,48 +393,7 @@ function exportTableToExcel(tableID, filename = "") {
       soloDatos: "SoloDatos",
     },
     success: function (result) {
-      let tablaDatos = document.getElementById("mostrarTablaDatos");
-      let sinDiagonal = result.split("//");
-      $(".tablaActual").remove();
-      for (let i = 0; i < sinDiagonal.length - 1; i++) {
-        let sinComas = sinDiagonal[i].split(",");
-        // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-        </svg></button></td>`;
-        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
-        tablaDatos.innerHTML += `<tr class='tablaActual'>${
-          boton +
-          registro +
-          siniestro +
-          poliza +
-          marca +
-          tipo +
-          serie +
-          carga +
-          estacion +
-          estatus +
-          porcentajeDocs +
-          porcentajeTotal +
-          estado
-        }</tr>`;
-      }
+      mostrarTabla(result);
     },
   });
   //muestra los dias paasados por documentos
@@ -587,7 +489,7 @@ function valoresSesiones() {
     },
   });
 }
-function mostrarTabla(result){
+function mostrarTabla(result) {
   //funcion para generar talbas en automatico con lo resultados
   let tablaDatos = document.getElementById("DatosTabla");
   let sinDiagonal = result.split("//");
@@ -611,14 +513,30 @@ function mostrarTabla(result){
     let sinComas = sinDiagonal[i].split(",");
     if (i % 9 == 0 && i != 0) {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
-      boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-     data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-     width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-     <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-     1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
+      <button type='button' id=${
+        sinComas[0] + ",Eliminar"
+      } class='btn btn-danger'
+      onclick='eliminarSiniestro(this.id)'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="feather feather-trash-2">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+      <line x1="10" y1="11" x2="10" y2="17"></line>
+      <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg></button>
+      <button type='button' id=${
+        sinComas[0]
+      } class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
       <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-     0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-     </svg></button></td>`;
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button>
+    </div></td>`;
       registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
       siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
       poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
@@ -632,7 +550,7 @@ function mostrarTabla(result){
       porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
       estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
       tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-        boton +
+        btnGrupo +
         registro +
         siniestro +
         poliza +
@@ -652,17 +570,32 @@ function mostrarTabla(result){
       tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
       tblBody[numeroTBody].style.display = "none";
       tablaDatos.appendChild(tblBody[numeroTBody]);
-      console.log(i + " es multiplo de 9");
     } else {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
-      let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-    data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-    width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-    <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-    1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-     <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-    0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-    </svg></button></td>`;
+      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
+      <button type='button' id=${
+        sinComas[0] + ",Eliminar"
+      } class='btn btn-danger'
+      onclick='eliminarSiniestro(this.id)'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="feather feather-trash-2">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+      <line x1="10" y1="11" x2="10" y2="17"></line>
+      <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg></button>
+      <button type='button' id=${
+        sinComas[0]
+      } class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+      <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button>
+    </div></td>`;
       let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
       let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
       let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
@@ -676,7 +609,7 @@ function mostrarTabla(result){
       let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
       let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
       tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-        boton +
+        btnGrupo +
         registro +
         siniestro +
         poliza +
@@ -692,4 +625,95 @@ function mostrarTabla(result){
       }</tr>`;
     }
   }
+}
+function controlPaginado() {
+  //funcion para controlar el pagina de los resultados
+  let paginaMas = document.getElementById("botonClickMas");
+  let paginaMenos = document.getElementById("botonClickMenos");
+  let paginaActual = document.getElementById("paginaActual");
+  paginaMas.onclick = function () {
+    //saber el tamano de la cantidad de tbodys para no dar error
+    let tBodys = document.getElementsByClassName("tBody").length;
+    let tBodyActual = document.getElementById("tBody:" + contador);
+    if (contador < tBodys - 1) {
+      tBodyActual.style.display = "none";
+      contador++;
+      paginaActual.textContent = contador;
+      tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.removeProperty("display");
+    }
+  };
+  paginaMenos.onclick = function () {
+    if (contador > 0) {
+      let tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.display = "none";
+      contador--;
+      paginaActual.textContent = contador;
+      tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.removeProperty("display");
+    }
+  };
+}
+function eliminarSiniestro(getId) {
+  //funcion para borrar el siniestro
+  let sinComas = getId.split(",");
+  let idEliminar = sinComas[0];
+  let mensaje;
+  let opcion = confirm("Confirma para eliminar siniestro");
+  if (opcion == true) {
+    $.ajax({
+      method: "POST",
+      url: "../EliminarSiniestro",
+      data: {
+        idEliminar,
+      },
+    }).done(function (respuesta) {
+      alert(respuesta);
+      contador = 0;
+      paginaActual.textContent = contador;
+      recargarSiniestros();
+    });
+  } else {
+    mensaje = "Movimiento cancelado";
+  }
+}
+function recargarSiniestros() {
+  $.ajax({
+    method: "POST",
+    url: "../ControladorMostrarDatos",
+    data: {
+      accion: "MostrarSiniestrosNoDocs",
+      soloDatos: "SoloDatos",
+    },
+    success: function (result) {
+      mostrarTabla(result);
+    },
+  });
+  $.ajax({
+    method: "POST",
+    url: "../SiniestrosNoDocs",
+    data: {
+      accion: "SiniestrosEnRespuesta",
+    },
+    success: function (result) {
+      let sinComas = result.split(",");
+      $("#de0a2").html(sinComas[0]);
+      $("#de3a5").html(sinComas[1]);
+      $("#de6a14").html(sinComas[2]);
+      $("#mas15").html(sinComas[3]);
+    },
+  });
+}
+function busquedaGeneral(thisValue) {
+  $.ajax({
+    method:"POST",
+    url: "../BusquedaGeneral",
+    data: {
+      filtro: thisValue,
+    },
+    success: function (result) {
+      console.log(result);
+      mostrarTabla(result);
+    },
+  });
 }
