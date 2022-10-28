@@ -97,3 +97,14 @@
   #btnDocsMostrar{
     background-color:#008d4c;
   }
+  #encabezadoTabla{
+    background-color: #605ca8;
+    color: #ffffff;
+  }
+  #seccionBotones{
+    background-color: #605ca8;
+    color: #ffffff;
+  }
+#encabezadoDatos{
+  font-size: 30px;
+}

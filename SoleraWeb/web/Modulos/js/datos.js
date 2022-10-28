@@ -1,4 +1,4 @@
-var contador = 1;
+var contador = 0;
 window.addEventListener("load", function () {
   valoresSesiones();
 
@@ -10,47 +10,7 @@ window.addEventListener("load", function () {
       soloDatos: "SoloDatos",
     },
     success: function (result) {
-      let tablaMensajes = document.getElementById("mostrarTablaDatos");
-      let sinDiagonal = result.split("//");
-      for (let i = 0; i < sinDiagonal.length - 1; i++) {
-        let sinComas = sinDiagonal[i].split(",");
-        // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-        </svg></button></td>`;
-        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
-        tablaMensajes.innerHTML += `<tr class='tablaActual'>${
-          boton +
-          registro +
-          siniestro +
-          poliza +
-          marca +
-          tipo +
-          serie +
-          carga +
-          estacion +
-          estatus +
-          porcentajeDocs +
-          porcentajeTotal +
-          estado
-        }</tr>`;
-      }
+      mostrarTabla(result);
     },
   });
   //muestra los dias paasados por documentos
@@ -70,11 +30,6 @@ window.addEventListener("load", function () {
   });
 });
 function buscarDatos() {
-  if (funcionActual != "buscarDatos") {
-    contador = 1;
-    funcionActual = "buscarDatos";
-    document.getElementById("paginaActual").textContent = 1;
-  }
   let pElement = document.getElementById("paginaActual");
   console.log(pElement.textContent);
   console.log(parseInt(pElement.textContent) * 10);
@@ -118,48 +73,7 @@ function buscarDatos() {
       cobertura: txtCobertura,
     },
     success: function (result) {
-      let tablaDatos = document.getElementById("mostrarTablaDatos");
-      let sinDiagonal = result.split("//");
-      $(".tablaActual").remove();
-      for (let i = 0; i < sinDiagonal.length - 1; i++) {
-        let sinComas = sinDiagonal[i].split(",");
-        // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-        </svg></button></td>`;
-        let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-        let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-        let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-        let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-        let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-        let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-        let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-        let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-        let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-        let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-        let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-        let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
-        tablaDatos.innerHTML += `<tr class='tablaActual'>${
-          boton +
-          registro +
-          siniestro +
-          poliza +
-          marca +
-          tipo +
-          serie +
-          carga +
-          estacion +
-          estatus +
-          porcentajeDocs +
-          porcentajeTotal +
-          estado
-        }</tr>`;
-      }
+      mostrarTabla(result);
     },
   });
 }
@@ -476,17 +390,22 @@ function InsertarSeguimiento() {
 $(document).ready(function () {
   let paginaMas = document.getElementById("botonClickMas");
   let paginaMenos = document.getElementById("botonClickMenos");
-  let pElement = document.getElementById("paginaActual");
-
+  let paginaActual = document.getElementById("paginaActual");
   paginaMas.onclick = function () {
+    let tBodyActual = document.getElementById("tBody:" + contador);
+    tBodyActual.style.display = "none";
     contador++;
-    pElement.textContent = contador;
-    console.log(pElement.textContent);
+    paginaActual.textContent = contador;
+    tBodyActual = document.getElementById("tBody:" + contador);
+    tBodyActual.style.removeProperty("display");
   };
   paginaMenos.onclick = function () {
+    let tBodyActual = document.getElementById("tBody:" + contador);
+    tBodyActual.style.display = "none";
     contador--;
-    pElement.textContent = contador;
-    console.log(pElement.textContent);
+    paginaActual.textContent = contador;
+    tBodyActual = document.getElementById("tBody:" + contador);
+    tBodyActual.style.removeProperty("display");
   };
   //funcion para limpiar el regitro
   $("#limpiarRegistro").click(function () {
@@ -593,11 +512,6 @@ function exportTableToExcel(tableID, filename = "") {
 }
 //funcion para buscar en tiempo real los resultados
 function busquedaParticular(getId, getValue) {
-  if (funcionActual != "busquedaParticular") {
-    contador = 1;
-    funcionActual = "busquedaParticular";
-    document.getElementById("paginaActual").textContent = 1;
-  }
   let pElement = document.getElementById("paginaActual");
   console.log(pElement.textContent);
   console.log(parseInt(pElement.textContent) * 10);
@@ -609,107 +523,7 @@ function busquedaParticular(getId, getValue) {
       valor: getValue,
     },
     success: function (result) {
-      let tablaDatos = document.getElementById("DatosTabla");
-      let sinDiagonal = result.split("//");
-      $(".tablaActual").remove();
-      $(".tablaActual").remove();
-      let resultado = (sinDiagonal.length - 1) / 10;
-      let cantidadTablas;
-      if (resultado % 1 == 0) {
-        cantidadTablas = resultado;
-      } else {
-        cantidadTablas = Math.trunc((sinDiagonal.length - 1) / 10) + 2;
-        console.log(cantidadTablas);
-      }
-      let numeroTBody = 0;
-      let tblBody = new Array();
-      tblBody[numeroTBody] = document.createElement("tbody");
-      tblBody[numeroTBody].setAttribute("class","tBody:"+numeroTBody);
-      tablaDatos.appendChild(tblBody[numeroTBody]);
-      for (let i = 0; i < sinDiagonal.length - 1; i++) {
-        let sinComas = sinDiagonal[i].split(",");
-        if (i % 9 == 0 && i != 0) {
-          // Creando los 'td' que almacenará cada parte de la información del usuario actual
-          boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-         data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-         width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-         1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-          <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-         0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-         </svg></button></td>`;
-          registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-          siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-          poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-          marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-          tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-          serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-          carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-          estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-          estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-          porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-          porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-          estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
-          tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-            boton +
-            registro +
-            siniestro +
-            poliza +
-            marca +
-            tipo +
-            serie +
-            carga +
-            estacion +
-            estatus +
-            porcentajeDocs +
-            porcentajeTotal +
-            estado
-          }</tr>`;
-          numeroTBody+=1;
-          tblBody[numeroTBody]=document.createElement("tbody");
-          tblBody[numeroTBody].setAttribute("class","tBody:"+numeroTBody);
-          tblBody[numeroTBody].style.display="none";
-          tablaDatos.appendChild(tblBody[numeroTBody]);
-          console.log(i + " es multiplo de 9");
-        } else {
-          // Creando los 'td' que almacenará cada parte de la información del usuario actual
-          let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
-        data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-        </svg></button></td>`;
-          let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-          let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-          let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-          let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-          let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-          let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-          let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-          let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-          let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-          let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-          let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-          let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
-          tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-            boton +
-            registro +
-            siniestro +
-            poliza +
-            marca +
-            tipo +
-            serie +
-            carga +
-            estacion +
-            estatus +
-            porcentajeDocs +
-            porcentajeTotal +
-            estado
-          }</tr>`;
-        }
-      }
+      mostrarTabla(result);
     },
   });
 }
@@ -772,4 +586,110 @@ function valoresSesiones() {
       }
     },
   });
+}
+function mostrarTabla(result){
+  //funcion para generar talbas en automatico con lo resultados
+  let tablaDatos = document.getElementById("DatosTabla");
+  let sinDiagonal = result.split("//");
+  $(".tablaActual").remove();
+  $(".tBody").remove();
+  let resultado = (sinDiagonal.length - 1) / 10;
+  let cantidadTablas;
+  if (resultado % 1 == 0) {
+    cantidadTablas = resultado;
+  } else {
+    cantidadTablas = Math.trunc((sinDiagonal.length - 1) / 10) + 2;
+    console.log(cantidadTablas);
+  }
+  let numeroTBody = 0;
+  let tblBody = new Array();
+  tblBody[numeroTBody] = document.createElement("tbody");
+  tblBody[numeroTBody].setAttribute("class", "tBody");
+  tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
+  tablaDatos.appendChild(tblBody[numeroTBody]);
+  for (let i = 0; i < sinDiagonal.length - 1; i++) {
+    let sinComas = sinDiagonal[i].split(",");
+    if (i % 9 == 0 && i != 0) {
+      // Creando los 'td' que almacenará cada parte de la información del usuario actual
+      boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
+     data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+     width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+     <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+     1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+      <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+     0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+     </svg></button></td>`;
+      registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+      siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+      poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+      marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+      tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+      serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+      carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+      estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+      estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+      porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+      porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+      estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
+        boton +
+        registro +
+        siniestro +
+        poliza +
+        marca +
+        tipo +
+        serie +
+        carga +
+        estacion +
+        estatus +
+        porcentajeDocs +
+        porcentajeTotal +
+        estado
+      }</tr>`;
+      numeroTBody += 1;
+      tblBody[numeroTBody] = document.createElement("tbody");
+      tblBody[numeroTBody].setAttribute("class", "tBody");
+      tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
+      tblBody[numeroTBody].style.display = "none";
+      tablaDatos.appendChild(tblBody[numeroTBody]);
+      console.log(i + " es multiplo de 9");
+    } else {
+      // Creando los 'td' que almacenará cada parte de la información del usuario actual
+      let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinComas[0]} class='btn btn-primary' data-bs-toggle='modal'
+    data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+    width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+    <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+    1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+     <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+    0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+    </svg></button></td>`;
+      let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+      let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
+      let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
+      let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
+      let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
+      let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
+      let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
+      let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
+      let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
+      let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
+      let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
+      let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
+        boton +
+        registro +
+        siniestro +
+        poliza +
+        marca +
+        tipo +
+        serie +
+        carga +
+        estacion +
+        estatus +
+        porcentajeDocs +
+        porcentajeTotal +
+        estado
+      }</tr>`;
+    }
+  }
 }
