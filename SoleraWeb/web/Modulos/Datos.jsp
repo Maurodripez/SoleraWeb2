@@ -793,7 +793,6 @@
                                 </td>
                             </div>
                         </thead>
-                        <tbody id="mostrarTablaDatos"></tbody>
                     </table>
                     <p style="display: none" id="paginaActual" name="uno">1</p>
                     <div class="row">

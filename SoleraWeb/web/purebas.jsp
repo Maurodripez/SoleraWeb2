@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <script src="./js/pruebasrutas.js"></script>
-</head>
-<body>
-<div id="TableList"></div>
-<a href="javascript:prevPage()" id="btn_prev">Prev</a>&nbsp;
-<a href="javascript:nextPage()" id="btn_next">Next</a><br>
-page: <span id="page"></span>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo 1.1</title>
+        <style type="text/css">
+            #areaContador {
+                font-size: 40px;
+                font-weight: bold;
+                font-family: impact;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="botonClick">Click</button>
+        <p id="areaContador"></p>
+        <script type="text/javascript">
+            var botonElement = document.getElementById("botonClick");
+            var pElement = document.getElementById("areaContador");
+            var contador = 0;
+            botonElement.onclick = function () {
+                contador++;
+                pElement.textContent = contador;
+            }
+        </script>
+    </body>
 </html>

@@ -1,4 +1,3 @@
-var funcionActual = "Ninguna";
 var contador = 1;
 window.addEventListener("load", function () {
   valoresSesiones();
@@ -613,6 +612,7 @@ function busquedaParticular(getId, getValue) {
       let tablaDatos = document.getElementById("DatosTabla");
       let sinDiagonal = result.split("//");
       $(".tablaActual").remove();
+      $(".tablaActual").remove();
       let resultado = (sinDiagonal.length - 1) / 10;
       let cantidadTablas;
       if (resultado % 1 == 0) {
@@ -624,6 +624,7 @@ function busquedaParticular(getId, getValue) {
       let numeroTBody = 0;
       let tblBody = new Array();
       tblBody[numeroTBody] = document.createElement("tbody");
+      tblBody[numeroTBody].setAttribute("class","tBody:"+numeroTBody);
       tablaDatos.appendChild(tblBody[numeroTBody]);
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split(",");
@@ -664,6 +665,11 @@ function busquedaParticular(getId, getValue) {
             porcentajeTotal +
             estado
           }</tr>`;
+          numeroTBody+=1;
+          tblBody[numeroTBody]=document.createElement("tbody");
+          tblBody[numeroTBody].setAttribute("class","tBody:"+numeroTBody);
+          tblBody[numeroTBody].style.display="none";
+          tablaDatos.appendChild(tblBody[numeroTBody]);
           console.log(i + " es multiplo de 9");
         } else {
           // Creando los 'td' que almacenará cada parte de la información del usuario actual
@@ -702,10 +708,6 @@ function busquedaParticular(getId, getValue) {
             porcentajeTotal +
             estado
           }</tr>`;
-          numeroTBody+=1;
-          tblBody[numeroTBody]=document.createElement("tbody");
-          tablaDatos.appendChild(tblBody[numeroTBody]);
-          console.log(i + " no es multiplo de 9");
         }
       }
     },
