@@ -39,15 +39,15 @@ public class BusquedaParticularDatos extends HttpServlet {
             switch (idRegistro) {
                 case "bRegistro":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getID(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -81,7 +81,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -99,22 +99,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bSiniestro":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getSiniestro(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -148,7 +148,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -166,22 +166,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bPoliza":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getPoliza(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -215,7 +215,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -233,22 +233,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bMarca":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getMarca(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -282,7 +282,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -300,22 +300,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bTipo":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getTipo(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -349,7 +349,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -367,22 +367,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bSerie":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getSerie(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -416,7 +416,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -434,22 +434,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bCarga":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getFechaCarga(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -483,7 +483,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -501,22 +501,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bEstacion":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getEstacion(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -550,7 +550,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -568,22 +568,22 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
                 case "bEstatus":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getEstatus(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -617,7 +617,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -635,8 +635,8 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
 
@@ -648,15 +648,15 @@ public class BusquedaParticularDatos extends HttpServlet {
 
                 case "bEstado":
                     for (ModeloBusquedaDatos mbDatos : bParticular.getEstado(value)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -690,7 +690,7 @@ public class BusquedaParticularDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -708,8 +708,8 @@ public class BusquedaParticularDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                     }
                     break;
             }

@@ -492,7 +492,7 @@ function valoresSesiones() {
 function mostrarTabla(result) {
   //funcion para generar talbas en automatico con lo resultados
   let tablaDatos = document.getElementById("DatosTabla");
-  let sinDiagonal = result.split("//");
+  let sinDiagonal = result.split("/_-");
   $(".tablaActual").remove();
   $(".tBody").remove();
   let resultado = (sinDiagonal.length - 1) / 10;
@@ -510,7 +510,7 @@ function mostrarTabla(result) {
   tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
   tablaDatos.appendChild(tblBody[numeroTBody]);
   for (let i = 0; i < sinDiagonal.length - 1; i++) {
-    let sinComas = sinDiagonal[i].split(",");
+    let sinComas = sinDiagonal[i].split("-_/");
     if (i % 9 == 0 && i != 0) {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">

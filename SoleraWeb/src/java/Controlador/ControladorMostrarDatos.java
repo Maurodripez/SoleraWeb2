@@ -144,15 +144,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                         fechaBuscar2, region, estado, cobertura)) {
                     out.println(fechaBuscar1);
                     out.println(fechaBuscar2);
-                    out.print(mbDatos.getIdRegistro() + ",");
-                    out.print(mbDatos.getNumSiniestro() + ",");
-                    out.print(mbDatos.getPoliza() + ",");
-                    out.print(mbDatos.getMarca() + ",");
-                    out.print(mbDatos.getTipo() + ",");
-                    out.print(mbDatos.getNumSerie() + ",");
-                    out.print(mbDatos.getFechaCarga() + ",");
-                    out.print(mbDatos.getEstacionProceso() + ",");
-                    out.print(mbDatos.getEstatusOperativo() + ",");
+                    out.print(mbDatos.getIdRegistro() + "-_/");
+                    out.print(mbDatos.getNumSiniestro() + "-_/");
+                    out.print(mbDatos.getPoliza() + "-_/");
+                    out.print(mbDatos.getMarca() + "-_/");
+                    out.print(mbDatos.getTipo() + "-_/");
+                    out.print(mbDatos.getNumSerie() + "-_/");
+                    out.print(mbDatos.getFechaCarga() + "-_/");
+                    out.print(mbDatos.getEstacionProceso() + "-_/");
+                    out.print(mbDatos.getEstatusOperativo() + "-_/");
                     if ("true".equals(mbDatos.getFactura())) {
                         porcentajeDocs += 10;
                     }
@@ -186,7 +186,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                     if ("true".equals(mbDatos.getComprobante())) {
                         porcentajeDocs += 9;
                     }
-                    out.println(porcentajeDocs + ",");
+                    out.println(porcentajeDocs + "-_/");
                     switch (mbDatos.getEstatusOperativo()) {
                         case "De 1 a 3 documentos":
                             porcentajeTotal = "25%";
@@ -207,8 +207,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                             porcentajeTotal = "0%";
                             break;
                     }
-                    out.println(porcentajeTotal + ",");
-                    out.print(mbDatos.getEstado() + "//");
+                    out.println(porcentajeTotal + "-_/");
+                    out.print(mbDatos.getEstado() + "/_-");
                 }
             } else if ("MostrarSiniestrosNoDocs".equals(accion)) {
                 String porcentaje = request.getParameter("porcentajes");
@@ -271,15 +271,15 @@ public class ControladorMostrarDatos extends HttpServlet {
                         }
                         out.print(porcentajeTotal + ",");
                     } else if ("SoloDatos".equals(soloDatos)) {
-                        out.print(mbDatos.getIdRegistro() + ",");
-                        out.print(mbDatos.getNumSiniestro() + ",");
-                        out.print(mbDatos.getPoliza() + ",");
-                        out.print(mbDatos.getMarca() + ",");
-                        out.print(mbDatos.getTipo() + ",");
-                        out.print(mbDatos.getNumSerie() + ",");
-                        out.print(mbDatos.getFechaCarga() + ",");
-                        out.print(mbDatos.getEstacionProceso() + ",");
-                        out.print(mbDatos.getEstatusOperativo() + ",");
+                        out.print(mbDatos.getIdRegistro() + "-_/");
+                        out.print(mbDatos.getNumSiniestro() + "-_/");
+                        out.print(mbDatos.getPoliza() + "-_/");
+                        out.print(mbDatos.getMarca() + "-_/");
+                        out.print(mbDatos.getTipo() + "-_/");
+                        out.print(mbDatos.getNumSerie() + "-_/");
+                        out.print(mbDatos.getFechaCarga() + "-_/");
+                        out.print(mbDatos.getEstacionProceso() + "-_/");
+                        out.print(mbDatos.getEstatusOperativo() + "-_/");
                         if ("true".equals(mbDatos.getFactura())) {
                             porcentajeDocs += 10;
                         }
@@ -313,7 +313,7 @@ public class ControladorMostrarDatos extends HttpServlet {
                         if ("true".equals(mbDatos.getComprobante())) {
                             porcentajeDocs += 9;
                         }
-                        out.print(porcentajeDocs + ",");
+                        out.print(porcentajeDocs + "-_/");
                         switch (mbDatos.getEstatusOperativo()) {
                             case "De 1 a 3 documentos":
                                 porcentajeTotal = "25%";
@@ -331,8 +331,8 @@ public class ControladorMostrarDatos extends HttpServlet {
                                 porcentajeTotal = "0%";
                                 break;
                         }
-                        out.print(porcentajeTotal + ",");
-                        out.print(mbDatos.getEstado() + "//");
+                        out.print(porcentajeTotal + "-_/");
+                        out.print(mbDatos.getEstado() + "/_-");
                         cont += 1;
                     }
                 }
