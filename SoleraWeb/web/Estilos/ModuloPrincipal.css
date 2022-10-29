@@ -84,7 +84,10 @@ body {
 .acordeonPrincipal {
   background-color: #d2d6de;
 }
-.tablasPrincipales {
+#encabezadoTabla {
+  background-color: #9896c7;
+}
+#seccionBotones {
   background-color: #9896c7;
 }
 #TablaPGeneral {
@@ -96,4 +99,8 @@ body {
 }
 #btnDocsMostrar{
   background-color:#008d4c;
+}
+.calendario{
+  align-items: center;
+  display: flex;
 }

@@ -1,36 +1,77 @@
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Ejemplo 1.1</title>
-    <style type="text/css">
-        #areaContador {
-            font-size: 40px;
-            font-weight: bold;
-            font-family: impact;
-            margin: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <p id="ejemplo">
-        En este párrafo se mostrará la opción clickada por el usuario
-    </p>
-
-    <button onclick="eliminar()">Clicka para mostrar mensaje</button>
-    <script type="text/javascript">
-        function eliminar() {
-            let mensaje;
-            let opcion = confirm("Confirma para eliminar siniestro");
-            if (opcion == true) {
-                mensaje = "Has clickado OK";
-            } else {
-                mensaje = "Has clickado Cancelar";
-            }
-            alert("Siniestro eliminado");
-        }
-    </script>
-</body>
-
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Exportar tabla HTML a Excel</title>
+        <script src="./js/xlsx.full.min.js"></script>
+        <script src="./js/FileSaver.min.js"></script>
+        <script src="./js/tableexport.min.js"></script>
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <h1>Tabla HTML a Excel</h1>
+        <p>
+            Exportar los datos de una tabla de una página web a una hoja de cálculo de Excel
+            <br>
+            <a href="//parzibyte.me/blog">By Parzibyte</a>
+        </p>
+        <button id="btnExportar">Exportar</button>
+        <br>
+        <br>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="text" placeholder="Hola">
+                    </th>
+                    <th>Lenguaje</th>
+                    <th>Sitio web</th>
+                    <th>Algunos usos</th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" placeholder="Hola">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Hola">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Hola">
+                    </th>
+                    <th>
+                        <input type="text" placeholder="Hola">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        <button>hola</button>
+                    </th>
+                    <td>PHP</td>
+                    <td>php.net</td>
+                    <td>Aplicaciones web</td>
+                </tr>
+                <tr>
+                    <th>
+                        <button>hola</button>
+                    </th>
+                    <td>Python</td>
+                    <td>python.org</td>
+                    <td>Aplicaciones web y de escritorio. Machine learning</td>
+                </tr>
+                <tr>
+                    <th>
+                        <button>hola</button>
+                    </th>
+                    <td>islaBit</td>
+                    <td>islabit.com</td>
+                    <td>¡Cursos y tutoriales de Excel gratis! ^^</td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="./js/pruebasrutas.js"></script>
+    </body>
 </html>

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Datos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
@@ -91,8 +92,9 @@
                                     </div>
                                 </div>
                                 <!--en collapseresultados ligo el boton de la tabla para que al apretar el boton, se muestren los resultados-->
-                                <button id="txtBuscar0a2" class="btnDocumentos btn btn-primary" type="button"
-                                    data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
+                                <button id="txtBuscar0a2" onclick="busquedaPorDias('0,3')"
+                                    class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
+                                    data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
                             </div>
@@ -124,7 +126,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscar3a5" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="txtBuscar3a5" onclick="busquedaPorDias('3,6')" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -158,7 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscar6a14" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="txtBuscar6a14" onclick="busquedaPorDias('6,15')" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -194,7 +196,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="txtBuscarMas15" class="btnDocumentos btn btn-primary" type="button"
+                                <button id="txtBuscarMas15" onclick="busquedaPorDias('15,360')" class="btnDocumentos btn btn-primary" type="button"
                                     data-bs-toggle="collapse" data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
                                     Documentos</button>
@@ -557,7 +559,7 @@
                     <table id="DatosTabla" class="text-center table table-hover col float-end">
                         <thead id="encabezadoTabla">
                             <tr>
-                                <th class="botonesTabla" scope="col">Editar</th>
+                                <th class="encabezadoBtn" scope="col">Editar</th>
                                 <th scope="col">Id registro</th>
                                 <th scope="col">Siniestro</th>
                                 <th scope="col">Poliza</th>

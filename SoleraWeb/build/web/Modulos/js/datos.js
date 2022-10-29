@@ -357,10 +357,10 @@ $(document).ready(function () {
 });
 function exportTableToExcel(tableID, filename = "") {
   $(".botonesTabla").remove();
-  var downloadLink;
-  var dataType = "application/vnd.ms-excel";
-  var tableSelect = document.getElementById(tableID);
-  var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+  let downloadLink;
+  let dataType = "application/vnd.ms-excel";
+  let tableSelect = document.getElementById(tableID);
+  let tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
 
   // Specify file name
   filename = filename ? filename + ".xls" : "excel_data.xls";
@@ -371,7 +371,7 @@ function exportTableToExcel(tableID, filename = "") {
   document.body.appendChild(downloadLink);
 
   if (navigator.msSaveOrOpenBlob) {
-    var blob = new Blob(["ufeff", tableHTML], {
+    let blob = new Blob(["ufeff", tableHTML], {
       type: dataType,
     });
     navigator.msSaveOrOpenBlob(blob, filename);
@@ -706,13 +706,27 @@ function recargarSiniestros() {
 }
 function busquedaGeneral(thisValue) {
   $.ajax({
-    method:"POST",
+    method: "POST",
     url: "../BusquedaGeneral",
     data: {
       filtro: thisValue,
     },
     success: function (result) {
       console.log(result);
+      mostrarTabla(result);
+    },
+  });
+}
+function busquedaPorDias(getId) {
+  let sinComas = getId.split(",");
+  $.ajax({
+    method: "POST",
+    url: "../MostrarDatosDias",
+    data: {
+      mayor: sinComas[0],
+      menor: sinComas[1],
+    },
+    success: function (result) {
       mostrarTabla(result);
     },
   });

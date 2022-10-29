@@ -388,8 +388,8 @@
                             </form>
                         </div>
                     </div>
-                    <table class="tablasPrincipales table table-hover col float-end text-center">
-                        <thead>
+                    <table id="DatosTabla" class="tablasPrincipales table table-hover col float-end text-center">
+                        <thead id="encabezadoTabla">
                             <tr>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Id registro</th>
@@ -402,7 +402,7 @@
                             </tr>
                         </thead>
 
-                        <tr>
+                        <thead id="seccionBotones">
                             <div class="row">
                                 <td>
                                     <div class="col-2" name="SearchButtonGeneral">
@@ -505,7 +505,7 @@
                                     </div>
                                 </td>
                             </div>
-                        </tr>
+                            </tr>
 
                     </table>
                     <!--se recupera el id para llenar resultados de la tabla-->
@@ -559,7 +559,7 @@
     </div>
 
     <!-- Modal para actualizacion de datos -->
-    <div class="modal fade" name="nombreModal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    <div class="modal fade" name="nombreModal" id="despliegueInfo" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-lg">
             <div class="modal-content">
@@ -655,10 +655,12 @@
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <div class="row 1">
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker">
-                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                        <div class="row mx-md-n5">
+                                            <div class="col px-md-5 ">
+                                                <div class="col-4 input-group-sm mb-3 calendario date"
+                                                    id="datepicker">
+                                                    <label class="input-group-text input-sm fw-bold"
+                                                        for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
                                                             viewBox="0 0 16 16">
@@ -675,8 +677,8 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -684,14 +686,14 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        No Siniestro:
+                                                        Siniestro:
                                                     </label>
                                                     <input id="numSiniestro" pattern="[SIN]{3}[0-8]{8}" type="text"
                                                         class="form-control" name="txtNumSiniestro">
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -705,8 +707,10 @@
                                                         name="txtNumPoliza">
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                        </div>
+                                        <div class="row mx-md-n5">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -725,10 +729,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row 2">
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -759,8 +761,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -786,8 +788,11 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker2">
+                                        </div>
+                                        <div class="row mx-md-n5">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 calendario date"
+                                                    id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -799,15 +804,13 @@
                                                         </svg>
                                                         Fecha Siniestro
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="fechaSiniestro"
+                                                        <input  class="input-group-append" id="fechaSiniestro"
                                                             pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
                                                             name="txtFechaSiniestro" type="text" placeholder="Fecha">
-                                                    </span>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -822,10 +825,8 @@
                                                         name="txtDatosAudatex">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row 3">
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -936,8 +937,10 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                        </div>
+                                        <div class="row mx-md-n5">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -957,8 +960,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -1025,8 +1028,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -1042,9 +1045,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row 4">
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                        <div class="row  mx-md-n5">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-calendar-check p-1"
@@ -1067,8 +1070,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -1095,8 +1098,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -1111,8 +1114,10 @@
                                                         name="txtPassExterno">
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
+                                        </div>
+                                        <div class="row mx-md-n5">
+                                            <div class="col px-md-5">
+                                                <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -1120,7 +1125,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Estatus cliente:
+                                                        Estatus:
 
                                                     </label>
                                                     <select id="estatusCliente" class="form-select" name="txtEstatus"
@@ -1146,13 +1151,11 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row 4 p-2">
-                                            <label id="txtcomentarios">Comentarios
-                                                del
-                                                cliente</label>
-                                            <input id="comentariosCliente" type="text" class="form-control"
-                                                name="txtComentariosCliente" id="exampleFormControlInput1">
+                                            <div class="col px-md-5">
+                                                <label id="txtcomentarios">Comentarios</label>
+                                                <input id="comentariosCliente" type="text" class="form-control"
+                                                    name="txtComentariosCliente" id="exampleFormControlInput1">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1891,7 +1894,8 @@
                         </div>
                     </div>
                     <div class="col">
-                        <form method="post" enctype="multipart/form-data"  onsubmit="return enviarImagenes()" id="archivoCargado">
+                        <form method="post" enctype="multipart/form-data" onsubmit="return enviarImagenes()"
+                            id="archivoCargado">
                             <div class="row">
                                 <div class="col-6">
                                     <select name="tipoArchivo" class="form-select form-select-sm"

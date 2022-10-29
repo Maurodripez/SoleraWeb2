@@ -8,30 +8,31 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import DAO.DAOBusquedaGeneralDatos;
+import DAO.DAOMostrarPorDias;
 import Modelo.ModeloBusquedaDatos;
 
-@WebServlet(name = "BusquedaGeneral", urlPatterns = { "/BusquedaGeneral" })
-public class BusquedaGeneral extends HttpServlet {
+@WebServlet(name = "MostrarDatosDias", urlPatterns = {"/MostrarDatosDias"})
+public class MostrarDatosDias extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
+            String mayor= request.getParameter("mayor");
+            String menor = request.getParameter("menor");
+            DAOMostrarPorDias dmDias = new DAOMostrarPorDias();
             float porcentajeDocs = 0;
             String porcentajeTotal = "0";
-            DAOBusquedaGeneralDatos dbgDatos = new DAOBusquedaGeneralDatos();
-            String filtro = request.getParameter("filtro");
-            for (ModeloBusquedaDatos mbDatos : dbgDatos.getBusquedaGeneral(filtro)) {
+            for (ModeloBusquedaDatos mbDatos : dmDias.getPorDias(mayor, menor)) {
                 out.print(mbDatos.getIdRegistro() + "-_/");
                 out.print(mbDatos.getNumSiniestro() + "-_/");
                 out.print(mbDatos.getPoliza() + "-_/");
@@ -95,22 +96,21 @@ public class BusquedaGeneral extends HttpServlet {
                 out.print(porcentajeTotal + "-_/");
                 out.print(mbDatos.getEstado() + "/_-");
             }
-
         }
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
+    public void MostrarDatos(String mayor, String menor){
+    }
 }

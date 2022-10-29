@@ -32,7 +32,7 @@
                 <div class="mb-3 row justify-content-center">
                     <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" required id="usuario"/>
+                        <input type="text" class="form-control" required id="usuario" />
                     </div>
                 </div>
                 <div class="mb-3 row justify-content-center">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3 row">
                     <div class="d-grid col-sm-6 mx-auto">
-                        <button onclick="crearUsuario()" class="btn btn-primary" >
+                        <button onclick="crearUsuario()" class="btn btn-primary">
                             Crear usuario
                         </button>
                     </div>
@@ -72,16 +72,18 @@
         <div class="card col-5">
             <div class="card-header">Editar Usuario</div>
             <div class="card-body">
-                <table id="TablaPrincipal" class="table table-hover col float-end">
-                    <thead>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                        <th>Usuario</th>
-                        <th>Contraseña</th>
-                        <th>Privilegios</th>
-                    </thead>
-                    <tbody id="TablaUsuarios"></tbody>
-                </table>
+                <div class="table-responsive">
+                    <table id="TablaPrincipal" class="table table-hover col float-end">
+                        <thead>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>Privilegios</th>
+                        </thead>
+                        <tbody id="TablaUsuarios"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

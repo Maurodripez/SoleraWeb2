@@ -4,12 +4,12 @@ $(document).ready(function () {
   let paginaMenos = document.getElementById("botonClickMenos");
   let pElement = document.getElementById("paginaActual");
   let contador = 1;
-  paginaMas.onclick = function() {
+  paginaMas.onclick = function () {
     contador++;
     pElement.textContent = contador;
     console.log(pElement.textContent);
   };
-  paginaMenos.onclick = function() {
+  paginaMenos.onclick = function () {
     contador--;
     pElement.textContent = contador;
     console.log(pElement.textContent);
@@ -17,7 +17,6 @@ $(document).ready(function () {
   //////////////inicio de todos los botones de busqueda////////////////////
   $("#txtBuscar0a2").click(function () {
     let pElement = document.getElementById("paginaActual");
-    console.log(pElement.textContent);
     let txtIdGuardado = this.id;
     let txtMayorQue = 0;
     let txtMenorQue = 3;
@@ -29,8 +28,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
-        $(".tablaActual").remove();
-        $("#ResultadoAjax").html(result);
+        mostrarTabla(result);
       },
     });
   });
@@ -46,8 +44,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
-        $(".tablaActual").remove();
-        $("#ResultadoAjax").html(result);
+        mostrarTabla(result);
       },
     });
   });
@@ -63,8 +60,7 @@ $(document).ready(function () {
         menorQue: txtMenorQue,
       },
       success: function (result) {
-        $(".tablaActual").remove();
-        $("#ResultadoAjax").html(result);
+        mostrarTabla(result);
       },
     });
   });
@@ -78,8 +74,7 @@ $(document).ready(function () {
         mayorQue: txtMayorQue,
       },
       success: function (result) {
-        $(".tablaActual").remove();
-        $("#ResultadoAjax").html(result);
+        mostrarTabla(result);
       },
     });
   });
@@ -95,41 +90,7 @@ function busquedaGeneral(thisValue) {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      let tablaMensajes = document.getElementById("TablaPGeneral");
-      console.log(result);
-      let sinGuion = result.split("-/");
-      for (let i = 0; i < sinGuion.length - 1; i++) {
-        let sinDiagonal = sinGuion[i].split("//");
-        // Creando los 'td' que almacenará cada parte de la información del usuario actual
-        let boton = `<td class='tablaActual botonesTabla col'><button type='button' id=${sinDiagonal[0]} class='btn btn-primary' data-bs-toggle='modal'
-        data-bs-target='#staticBackdrop'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
-        width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-        <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
-        1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-         <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
-        0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-        </svg></button></td>`;
-        let idRegistro = `<td class='tablaActual'>${sinDiagonal[0]}</td>`;
-        let dias = `<td class='tablaActual'>${sinDiagonal[1]}</td>`;
-        let primerDoc = `<td class='tablaActual'>${sinDiagonal[2]}</td>`;
-        let siniestro = `<td class='tablaActual'>${sinDiagonal[3]}</td>`;
-        let poliza = `<td class='tablaActual'>${sinDiagonal[4]}</td>`;
-        let asegurado = `<td class='tablaActual'>${sinDiagonal[5]}</td>`;
-        let estatus = `<td class='tablaActual'>${sinDiagonal[6]}</td>`;
-        tablaMensajes.innerHTML += `<tr class='tablaActual'>${
-          boton +
-          idRegistro +
-          dias +
-          primerDoc +
-          siniestro +
-          poliza +
-          asegurado +
-          estatus
-        }</tr>`;
-      }
-      // alert(result);
-      //$("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -143,8 +104,7 @@ function buscarId() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -158,8 +118,7 @@ function buscarDiasTranscurridos() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -173,8 +132,7 @@ function buscarFechaInicio() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -188,8 +146,7 @@ function buscarSiniestro() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -203,8 +160,7 @@ function buscarPoliza() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -218,8 +174,7 @@ function buscarAsegurado() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -233,8 +188,7 @@ function buscarEstatusCaso() {
       idGuardado: txtIdGuardado,
     },
     success: function (result) {
-      $(".tablaActual").remove();
-      $("#ResultadoAjax").html(result);
+      mostrarTabla(result);
     },
   });
 }
@@ -720,7 +674,6 @@ function MostrarMensajes(getId) {
       menor,
     },
   }).done(function (result) {
-    console.log(result);
     $(".tablaActual").remove();
     let tablaMensajes = document.getElementById("TablaPGeneral");
     let sinGuion = result.split("-/");
@@ -773,4 +726,143 @@ function enviarImagenes() {
     },
   });
   return false;
+}
+function mostrarTabla(result) {
+  //funcion para generar talbas en automatico con lo resultados
+  let tablaDatos = document.getElementById("DatosTabla");
+  let sinDiagonal = result.split("/_-");
+  $(".tablaActual").remove();
+  $(".tBody").remove();
+  let resultado = (sinDiagonal.length - 1) / 10;
+  let cantidadTablas;
+  if (resultado % 1 == 0) {
+    cantidadTablas = resultado;
+  } else {
+    cantidadTablas = Math.trunc((sinDiagonal.length - 1) / 10) + 2;
+  }
+  let numeroTBody = 0;
+  let tblBody = new Array();
+  tblBody[numeroTBody] = document.createElement("tbody");
+  tblBody[numeroTBody].setAttribute("class", "tBody");
+  tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
+  tablaDatos.appendChild(tblBody[numeroTBody]);
+  for (let i = 0; i < sinDiagonal.length - 1; i++) {
+    let sinComas = sinDiagonal[i].split("-_/");
+    if (i % 9 == 0 && i != 0) {
+      // Creando los 'td' que almacenará cada parte de la información del usuario actual
+      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
+      <button type='button' id=${
+        sinComas[0] + ",Eliminar"
+      } class='btn btn-danger'
+      onclick='eliminarSiniestro(this.id)'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="feather feather-trash-2">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+      <line x1="10" y1="11" x2="10" y2="17"></line>
+      <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg></button>
+      <button type='button' id=${
+        sinComas[0]
+      } class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+      <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button>
+    </div></td>`;
+      registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+      diasSinResp = `<td class='tablaActual'>${sinComas[1]}</td>`;
+      fechaEnvioDoc = `<td class='tablaActual'>${sinComas[2]}</td>`;
+      siniestro = `<td class='tablaActual'>${sinComas[3]}</td>`;
+      poliza = `<td class='tablaActual'>${sinComas[4]}</td>`;
+      asegurado = `<td class='tablaActual'>${sinComas[5]}</td>`;
+      estatus = `<td class='tablaActual'>${sinComas[6]}</td>`;
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
+        btnGrupo +
+        registro +
+        diasSinResp +
+        fechaEnvioDoc +
+        siniestro +
+        poliza +
+        asegurado +
+        estatus
+      }</tr>`;
+      numeroTBody += 1;
+      tblBody[numeroTBody] = document.createElement("tbody");
+      tblBody[numeroTBody].setAttribute("class", "tBody");
+      tblBody[numeroTBody].setAttribute("id", "tBody:" + numeroTBody);
+      tblBody[numeroTBody].style.display = "none";
+      tablaDatos.appendChild(tblBody[numeroTBody]);
+    } else {
+      // Creando los 'td' que almacenará cada parte de la información del usuario actual
+      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
+      <button type='button' id=${
+        sinComas[0] + ",Eliminar"
+      } class='btn btn-danger'
+      onclick='eliminarSiniestro(this.id)'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="feather feather-trash-2">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+      <line x1="10" y1="11" x2="10" y2="17"></line>
+      <line x1="14" y1="11" x2="14" y2="17"></line>
+      </svg></button>
+      <button type='button' id=${
+        sinComas[0]
+      } class='btn btn-primary' data-bs-toggle='modal'
+      data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
+      width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+      <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
+      1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
+      <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 
+      0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
+      </svg></button>
+    </div></td>`;
+      registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
+      diasSinResp = `<td class='tablaActual'>${sinComas[1]}</td>`;
+      fechaEnvioDoc = `<td class='tablaActual'>${sinComas[2]}</td>`;
+      siniestro = `<td class='tablaActual'>${sinComas[3]}</td>`;
+      poliza = `<td class='tablaActual'>${sinComas[4]}</td>`;
+      asegurado = `<td class='tablaActual'>${sinComas[5]}</td>`;
+      estatus = `<td class='tablaActual'>${sinComas[6]}</td>`;
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
+        btnGrupo +
+        registro +
+        diasSinResp +
+        fechaEnvioDoc +
+        siniestro +
+        poliza +
+        asegurado +
+        estatus
+      }</tr>`;
+    }
+  }
+}
+function eliminarSiniestro(getId) {
+  //funcion para borrar el siniestro
+  let sinComas = getId.split(",");
+  let idEliminar = sinComas[0];
+  let mensaje;
+  let opcion = confirm("Confirma para eliminar siniestro");
+  if (opcion == true) {
+    $.ajax({
+      method: "POST",
+      url: "../EliminarSiniestro",
+      data: {
+        idEliminar,
+      },
+    }).done(function (respuesta) {
+      alert(respuesta);
+      contador = 0;
+      paginaActual.textContent = contador;
+      recargarSiniestros();
+    });
+  } else {
+    mensaje = "Movimiento cancelado";
+  }
 }
