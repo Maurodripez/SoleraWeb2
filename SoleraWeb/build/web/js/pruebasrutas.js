@@ -1,21 +1,11 @@
-const $btnExportar = document.querySelector("#btnExportar"),
-  $tabla = document.querySelector("#tabla");
+$(document).ready(function(){
 
-$btnExportar.addEventListener("click", function () {
-  let tableExport = new TableExport($tabla, {
-    exportButtons: false, // No queremos botones
-    filename: "Mi tabla de Excel", //Nombre del archivo de Excel
-    sheetname: "Mi tabla de Excel", //Título de la hoja
+  $('.input-daterange').datepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      calendarWeeks : true,
+      clearBtn: true,
+      disableTouchKeyboard: true
   });
-  let datos = tableExport.getExportData();
-  let preferenciasDocumento = datos.tabla.xlsx;
-  tableExport.export2file(
-    preferenciasDocumento.data,
-    preferenciasDocumento.mimeType,
-    preferenciasDocumento.filename,
-    preferenciasDocumento.fileExtension,
-    preferenciasDocumento.merges,
-    preferenciasDocumento.RTL,
-    preferenciasDocumento.sheetname
-  );
-});
+  
+  });

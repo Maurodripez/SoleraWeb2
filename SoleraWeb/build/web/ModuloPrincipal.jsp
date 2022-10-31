@@ -589,13 +589,13 @@
                         </button>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio3"><svg xmlns="http://www.w3.org/2000/svg"
+                        <label id="encuestaBtn" class="btn btn-outline-primary" for="btnradio3"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
                                 <path
                                     d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
                                 <path
                                     d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                            </svg>Encuesta</label>
+                            </svg></label>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
                         <label class="btn btn-outline-primary" for="btnradio4"><svg xmlns="http://www.w3.org/2000/svg"
@@ -609,8 +609,6 @@
                         </button>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio6">Radio
-                            3</label>
                     </div>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
@@ -656,13 +654,11 @@
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="row mx-md-n5">
-                                            <div class="col px-md-5 ">
-                                                <div class="col-4 input-group-sm mb-3 calendario date"
-                                                    id="datepicker">
-                                                    <label class="input-group-text input-sm fw-bold"
-                                                        for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                            <div class="col px-md-5">
+                                                <div class="calendario date" id="datepicker2">
+                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -671,14 +667,13 @@
                                                         </svg>
                                                         Fecha Carga
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="fechaCarga"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaCarga"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
                                             <div class="col px-md-5">
-                                                <div class="input-group-sm mb-3 input-group mb-3">
+                                                <div class="input-group-sm input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -693,7 +688,7 @@
                                                 </div>
                                             </div>
                                             <div class="col px-md-5">
-                                                <div class="input-group-sm mb-3">
+                                                <div class="input-group-sm input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                             fill="currentColor" class="bi bi-plus-square-fill p-1"
@@ -733,12 +728,10 @@
                                                 <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                             viewBox="0 0 16 16">
                                                             <path
-                                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                            <path
-                                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
                                                         Tipo caso:
                                                     </label>
@@ -791,11 +784,10 @@
                                         </div>
                                         <div class="row mx-md-n5">
                                             <div class="col px-md-5">
-                                                <div class="input-group-sm mb-3 calendario date"
-                                                    id="datepicker2">
+                                                <div class="input-group-sm mb-3 calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -804,9 +796,9 @@
                                                         </svg>
                                                         Fecha Siniestro
                                                     </label>
-                                                        <input  class="input-group-append" id="fechaSiniestro"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaSiniestro" type="text" placeholder="Fecha">
+                                                    <input class="input-group-append" id="fechaSiniestro"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
                                             <div class="col px-md-5">
@@ -818,7 +810,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Datos Audatex:
+                                                        Datos Audatex
 
                                                     </label>
                                                     <input id="datosAudatex" type="text" class="form-control"
@@ -829,14 +821,12 @@
                                                 <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                             viewBox="0 0 16 16">
                                                             <path
-                                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                            <path
-                                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Estado:
+                                                        Estado
                                                     </label>
                                                     <select id="estado" class="form-select" name="txtEstado" required>
                                                         <option selected>
@@ -948,7 +938,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Ciudad:
+                                                        Ciudad
 
                                                     </label>
                                                     <select id="ciudad" class="form-select" name="txtCiudad" required>
@@ -969,7 +959,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Region:
+                                                        Region
                                                     </label>
                                                     <select class="form-select" id="region">
                                                         <option selected>
@@ -1037,7 +1027,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Taller/Corralon:
+                                                        Taller
 
                                                     </label>
                                                     <input id="ubicacionTaller" type="text" class="form-control"
@@ -1050,14 +1040,12 @@
                                                 <div class="input-group-sm mb-3 input-group mb-3">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                             viewBox="0 0 16 16">
                                                             <path
-                                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                            <path
-                                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Financiado:
+                                                        Financiado
                                                     </label>
                                                     <select id="financiado" class="form-select" name="txtFinanciado">
                                                         <option selected>
@@ -1079,7 +1067,7 @@
                                                             <path
                                                                 d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                         </svg>
-                                                        Regimen:
+                                                        Regimen
 
                                                     </label>
                                                     <select id="regimenFiscal" class="form-select" name="txtRegimen"
@@ -1152,9 +1140,9 @@
                                                 </div>
                                             </div>
                                             <div class="col px-md-5">
-                                                <label id="txtcomentarios">Comentarios</label>
                                                 <input id="comentariosCliente" type="text" class="form-control"
-                                                    name="txtComentariosCliente" id="exampleFormControlInput1">
+                                                    name="txtComentariosCliente" id="exampleFormControlInput1"
+                                                    placeholder="Comentarios">
                                             </div>
                                         </div>
                                     </div>
@@ -1175,12 +1163,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Marca:
                                                 </label>
@@ -1190,12 +1176,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Tipo:
                                                 </label>
@@ -1205,12 +1189,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Año:
                                                 </label>
@@ -1219,12 +1201,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Placas:
                                                 </label>
@@ -1235,12 +1215,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     No. Serie:
                                                 </label>
@@ -1250,12 +1228,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Valor indemnizacion:
                                                 </label>
@@ -1265,12 +1241,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Valor comercial:
                                                 </label>
@@ -1296,12 +1270,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Asegurado:
                                                 </label>
@@ -1311,12 +1283,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Correo:
                                                 </label>
@@ -1325,12 +1295,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Telefono Principal:
                                                 </label>
@@ -1340,12 +1308,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Telefono Secundario:
                                                 </label>
@@ -1357,12 +1323,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Contacto:
                                                 </label>
@@ -1372,12 +1336,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Correo Contacto:
                                                 </label>
@@ -1387,12 +1349,10 @@
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
                                                         viewBox="0 0 16 16">
                                                         <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     Telefono Contacto:
                                                 </label>
@@ -1529,15 +1489,20 @@
                                                     <option value="Visto">Visto</option>
                                                 </select>
                                             </div>
-                                            <div class="col">
-                                                <div class="input-group mb-3">
-                                                    <label>Persona contactada</label>
-                                                    <input id="txtPersContactada" type="text" class="form-control"
-                                                        placeholder="Mensaje" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col input-group mb-3">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                    </svg>
+                                                    Persona contactada</label>
+                                                <input id="txtPersContactada" type="text" class="form-control"
+                                                    placeholder="Mensaje" aria-describedby="basic-addon1">
+                                            </div>
                                             <div class="input-group mb-3 col">
                                                 <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -1580,33 +1545,11 @@
 
                                         </div>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker3">
+                                            <div class="col mb-3">
+                                                <div class="calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                            <path
-                                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                        </svg>
-                                                        Fecha seguimiento
-                                                    </label>
-                                                    <span class="input-group-append">
-                                                        <input id="txtFechaSeguimiento"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha"
-                                                            autocomplete="off">
-                                                    </span>
-                                                </div>
-                                            </div>
-
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker4">
-                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -1615,19 +1558,16 @@
                                                         </svg>
                                                         fecha primer envio de documentos
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="txtFechaPrimEnvDocs"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="txtFechaPrimEnvDocs"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
-
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker5">
+                                            <div class="col mb-3">
+                                                <div class="calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -1636,19 +1576,18 @@
                                                         </svg>
                                                         Fecha de integracion de expediente
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="txtFechaIntExp"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="txtFechaIntExp"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
-
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker6">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -1657,99 +1596,113 @@
                                                         </svg>
                                                         Fecha de facturacion de servicio
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="txtFechaFactServ"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="txtFechaFactServ"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker7">
+                                            <div class="col mb-3">
+                                                <div class="calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha termino
+                                                        Fecha Termino
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="txtFechaTermino"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtFechaCarga" type="text" placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="txtFechaTermino"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div style="text-align: center">
-                                            <button id="insertarSeguimiento" onclick="InsertarSeguimiento()"
-                                                class="btn btn-info">
-                                                Insertar seguimiento
-                                            </button>
                                         </div>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="input-group mb-3 col">
+                                            <div class="fSeguimientoClass col mb-3">
+                                                <div class="calendario date" id="datepicker2">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                        </svg>
-                                                        Contacto
-                                                    </label>
-                                                    <select class="form-select" id="txtEstatus">
-                                                        <option selected>Selecciona...
-                                                        </option>
-                                                        <option value="Demo AOL">Demo AOL
-                                                        </option>>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="calendario input-group date" id="datepicker8">
-                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                            fill="currentColor" class="bi bi-calendar-check"
                                                             viewBox="0 0 16 16">
                                                             <path
                                                                 d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha asignacion de integrador
+                                                        Fecha seguimiento
                                                     </label>
-                                                    <span class="input-group-append">
-                                                        <input id="fechaContactoCliente"
-                                                            pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                            name="txtfechaContactoCliente" type="text"
-                                                            placeholder="Fecha">
-                                                    </span>
+                                                    <input class="input-group-append" id="txtFechaSeguimiento"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                        type="text" placeholder="Fecha">
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <button id="btnAsignarIntegrador" class="btn btn-primary">
-                                                    Asignar integrador
-                                                </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" style="text-align: center">
+                                        <button id="insertarSeguimiento" onclick="InsertarSeguimiento()"
+                                            class="btn btn-info">
+                                            Insertar seguimiento
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="input-group mb-3 col">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                    </svg>
+                                                    Contacto
+                                                </label>
+                                                <select class="form-select" id="txtEstatus">
+                                                    <option selected>Selecciona...
+                                                    </option>
+                                                    <option value="Demo AOL">Demo AOL
+                                                    </option>>
+                                                </select>
                                             </div>
+                                        </div>
+                                        <div class="fSeguimientoClass col mb-3">
+                                            <div class="calendario date" id="datepicker2">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                                        fill="currentColor" class="bi bi-calendar-check"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                        <path
+                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                    </svg>
+                                                    Fecha asignacion
+                                                </label>
+                                                <input class="input-group-append" id="fechaContactoCliente"
+                                                    pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
+                                                    type="text" placeholder="Fecha">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <button id="btnAsignarIntegrador" class="btn btn-primary">
+                                                Asignar integrador
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Modal Documentos-->
@@ -2032,15 +1985,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(".calendario").datepicker({
-            timepicker: false,
-            datepicker: true,
-            format: "yyyy-mm-dd",
-            value: "2022-09-14",
-            weeks: true,
-        });
-    </script>
 </body>
 
 </html>

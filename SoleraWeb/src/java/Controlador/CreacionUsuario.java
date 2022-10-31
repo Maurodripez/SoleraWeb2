@@ -35,19 +35,22 @@ public class CreacionUsuario extends HttpServlet {
                     String usuario = request.getParameter("usuario");
                     String password = request.getParameter("password");
                     String privilegio = request.getParameter("privilegio");
-                    String respusta = dcUsuario.crearUsuario(usuario, password, privilegio);
+                    String nombre = request.getParameter("nombre");
+                    String respusta = dcUsuario.crearUsuario(usuario, password, privilegio, nombre);
                     out.println(respusta);
                     break;
                 case "TablaUsuarios":
                     for (ModeloCreacionUsuario mcUsuario : dcUsuario.getUsuarios()) {
-                        out.print(mcUsuario.getId() + "," + mcUsuario.getUsuario() + "," + mcUsuario.getPassword() + ","
+                        out.print(mcUsuario.getId() + mcUsuario.getUsuario() + ","  + "," + mcUsuario.getNombre() + ","
+                                + mcUsuario.getPassword() + ","
                                 + mcUsuario.getPrivilegio() + "//");
                     }
                     break;
                 case "CargarDatos":
                     String id = request.getParameter("id");
                     for (ModeloCreacionUsuario mcUsuario : dcUsuario.cargarUsuario(id)) {
-                        out.print(mcUsuario.getId() + "," + mcUsuario.getUsuario() + "," + mcUsuario.getPassword() + ","
+                        out.print(mcUsuario.getId() + "," + mcUsuario.getNombre() + "," + mcUsuario.getUsuario() + ","
+                                + mcUsuario.getPassword() + ","
                                 + mcUsuario.getPrivilegio());
                     }
                     break;
@@ -56,7 +59,8 @@ public class CreacionUsuario extends HttpServlet {
                     usuario = request.getParameter("usuario");
                     password = request.getParameter("password");
                     privilegio = request.getParameter("privilegio");
-                    String respuesta = dcUsuario.editarUsuario(id, usuario, password, privilegio);
+                    nombre = request.getParameter("nombre");
+                    String respuesta = dcUsuario.editarUsuario(id, usuario, password, privilegio, nombre);
                     out.print(respuesta);
                     break;
                 case "ValidarUsuario":
@@ -66,7 +70,7 @@ public class CreacionUsuario extends HttpServlet {
                     out.print(usuarioExiste);
                     break;
                 case "EliminarUsuario":
-                id = request.getParameter("id");
+                    id = request.getParameter("id");
                     String resp = dcUsuario.EliminarUsuario(id);
                     out.print(resp);
                     break;

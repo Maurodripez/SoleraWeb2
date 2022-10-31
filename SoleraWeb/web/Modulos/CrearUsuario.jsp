@@ -24,11 +24,17 @@
         </div>
     </nav>
     <div class="row justify-content-center">
-        <div class="card col-5">
+        <div class="card col-6">
             <div class="card-header">Nuevo usuario</div>
             <div class="card-body">
                 <input type="hidden" name="sinId" id="idOculto" />
                 <input type="hidden" name="" id="crearUsuario" />
+                <div class="mb-3 row justify-content-center">
+                    <label for="nombre" class="col-sm-2 col-form-label">Nombre real</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" required id="nombre" />
+                    </div>
+                </div>
                 <div class="mb-3 row justify-content-center">
                     <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
                     <div class="col-sm-6">
@@ -78,6 +84,7 @@
                             <th>Editar</th>
                             <th>Eliminar</th>
                             <th>Usuario</th>
+                            <th>Nombre</th>
                             <th>Contraseña</th>
                             <th>Privilegios</th>
                         </thead>
@@ -91,7 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
-    <script src="./js/AdministracionUsuarios.js"></script>
+    <script src="./js/nuevoUsuario.js"></script>
 </body>
 
 </html>

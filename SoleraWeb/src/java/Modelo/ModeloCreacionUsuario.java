@@ -5,6 +5,15 @@ public class ModeloCreacionUsuario {
     private String password;
     private String privilegio;
     private String id;
+    private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getId() {
         return this.id;

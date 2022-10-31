@@ -1,5 +1,12 @@
 //funciones jqyuery entran aqui
 $(document).ready(function () {
+  $(".calendario").datepicker({
+    timepicker: false,
+    datepicker: true,
+    format: "yyyy-mm-dd",
+    value: "2022-09-14",
+    weeks: true,
+});
   let paginaMas = document.getElementById("botonClickMas");
   let paginaMenos = document.getElementById("botonClickMenos");
   let pElement = document.getElementById("paginaActual");

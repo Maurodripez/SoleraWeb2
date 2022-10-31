@@ -9,6 +9,7 @@ import Modelo.Conexion;
 import Modelo.ModeloBusquedaDatos;
 
 public class DAOBusquedaGeneralDatos {
+
     public List<ModeloBusquedaDatos> getBusquedaGeneral(String filtro) {
         List<ModeloBusquedaDatos> lista = new ArrayList();
         Conexion conect = new Conexion();

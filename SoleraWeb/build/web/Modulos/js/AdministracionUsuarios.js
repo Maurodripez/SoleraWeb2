@@ -1,7 +1,10 @@
 function crearUsuario() {
   let longitudUser = document.getElementById("usuario").value;
+  alert(longitudUser);
   let longitudPass = document.getElementById("password").value;
+  alert(longitudPass);sdgf
   let longitudPriv = document.getElementById("privilegio").value;
+  alert(longitudPriv);
   if (
     longitudUser.length > 0 &&
     longitudPass.length > 0 &&
@@ -46,19 +49,26 @@ function crearUsuario() {
   }
 }
 function EliminarUsuario(getName) {
-  $.ajax({
-    method: "POST",
-    url: "../CreacionUsuario",
-    data: {
-      id: getName,
-      accion: "EliminarUsuario",
-    },
-    success: function (result) {
-      alert(result);
-      $(".tablaActual").remove();
-      cargarTabla();
-    },
-  });
+  alert(getName);
+  let opcion = confirm("Confirma para eliminar siniestro");
+  alert("entra");
+  if (opcion == true) {
+    $.ajax({
+      method: "POST",
+      url: "../CreacionUsuario",
+      data: {
+        id: getName,
+        accion: "EliminarUsuario",
+      },
+      success: function (result) {
+        alert(result);
+        $(".tablaActual").remove();
+        cargarTabla();
+      },
+    });
+  } else {
+    mensaje = "Movimiento cancelado";
+  }
 }
 function cargarTabla() {
   $.ajax({
@@ -147,6 +157,3 @@ function EditarUsuario() {
 window.addEventListener("load", function () {
   cargarTabla();
 });
-function permisos(){
-  
-}

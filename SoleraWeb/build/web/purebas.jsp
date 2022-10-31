@@ -1,77 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Exportar tabla HTML a Excel</title>
-        <script src="./js/xlsx.full.min.js"></script>
-        <script src="./js/FileSaver.min.js"></script>
-        <script src="./js/tableexport.min.js"></script>
-        <link rel="stylesheet" href="estilos.css">
-    </head>
-    <body>
-        <h1>Tabla HTML a Excel</h1>
-        <p>
-            Exportar los datos de una tabla de una página web a una hoja de cálculo de Excel
-            <br>
-            <a href="//parzibyte.me/blog">By Parzibyte</a>
-        </p>
-        <button id="btnExportar">Exportar</button>
-        <br>
-        <br>
-        <table id="tabla">
-            <thead>
-                <tr>
-                    <th>
-                        <input type="text" placeholder="Hola">
-                    </th>
-                    <th>Lenguaje</th>
-                    <th>Sitio web</th>
-                    <th>Algunos usos</th>
-                </tr>
-                <tr>
-                    <th>
-                        <input type="text" placeholder="Hola">
-                    </th>
-                    <th>
-                        <input type="text" placeholder="Hola">
-                    </th>
-                    <th>
-                        <input type="text" placeholder="Hola">
-                    </th>
-                    <th>
-                        <input type="text" placeholder="Hola">
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>
-                        <button>hola</button>
-                    </th>
-                    <td>PHP</td>
-                    <td>php.net</td>
-                    <td>Aplicaciones web</td>
-                </tr>
-                <tr>
-                    <th>
-                        <button>hola</button>
-                    </th>
-                    <td>Python</td>
-                    <td>python.org</td>
-                    <td>Aplicaciones web y de escritorio. Machine learning</td>
-                </tr>
-                <tr>
-                    <th>
-                        <button>hola</button>
-                    </th>
-                    <td>islaBit</td>
-                    <td>islabit.com</td>
-                    <td>¡Cursos y tutoriales de Excel gratis! ^^</td>
-                </tr>
-            </tbody>
-        </table>
-        <script src="./js/pruebasrutas.js"></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./pruebas.css">
+</head>
+<body>
+
+<div class="container px-1 px-sm-5 mx-auto">
+  <form autocomplete="off">
+    <div class="flex-row d-flex justify-content-center">
+      <div class="col-lg-3 col-11 px-1">
+        <div class="input-group input-daterange">
+          <input type="text" id="start" class="form-control text-left mr-2">
+          <label class="ml-3 form-control-placeholder" id="start-p" for="start">Start Date</label>
+          <span class="fa fa-calendar" id="fa-1"></span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="./js/pruebasrutas.js"></script>
+</body>
 </html>

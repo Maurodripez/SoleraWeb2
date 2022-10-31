@@ -15,15 +15,16 @@ public class DAOCreacionUsuario {
     ResultSet rs;
     String sql;
 
-    public String crearUsuario(String usuario, String password, String privilegio) {
+    public String crearUsuario(String usuario, String password, String privilegio, String nombre) {
         String respuesta;
         try {
-            sql = "insert into usuarios(usuario,contrasena, privilegios) values(?,?,?)";
+            sql = "insert into usuarios(usuario,contrasena, privilegios,nombreReal) values(?,?,?,?)";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.setString(1, usuario);
             ps.setString(2, password);
             ps.setString(3, privilegio);
+            ps.setString(4, nombre);
             ps.executeUpdate();
             respuesta = "Creacion exitosa";
         } catch (SQLException e) {
@@ -36,7 +37,7 @@ public class DAOCreacionUsuario {
     public List<ModeloCreacionUsuario> getUsuarios() {
         List<ModeloCreacionUsuario> lista = new ArrayList<>();
         try {
-            sql = "select idUsuarios, usuario, contrasena, privilegios from usuarios";
+            sql = "select idUsuarios, usuario, contrasena,nombreReal, privilegios from usuarios";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -46,6 +47,7 @@ public class DAOCreacionUsuario {
                 cUsuario.setUsuario(rs.getString("usuario"));
                 cUsuario.setPassword(rs.getString("contrasena"));
                 cUsuario.setPrivilegio(rs.getString("privilegios"));
+                cUsuario.setNombre(rs.getString("nombreReal"));
                 lista.add(cUsuario);
             }
         } catch (SQLException e) {
@@ -57,7 +59,7 @@ public class DAOCreacionUsuario {
     public List<ModeloCreacionUsuario> cargarUsuario(String id) {
         List<ModeloCreacionUsuario> lista = new ArrayList<>();
         try {
-            sql = "select idUsuarios, usuario, contrasena, privilegios from usuarios where idUsuarios=?";
+            sql = "select idUsuarios, usuario, contrasena,nombreReal, privilegios from usuarios where idUsuarios=?";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.setString(1, id);
@@ -68,6 +70,7 @@ public class DAOCreacionUsuario {
                 mcUsuario.setUsuario(rs.getString("usuario"));
                 mcUsuario.setPassword(rs.getString("contrasena"));
                 mcUsuario.setPrivilegio(rs.getString("privilegios"));
+                mcUsuario.setNombre(rs.getString("nombreReal"));
                 lista.add(mcUsuario);
             }
         } catch (SQLException e) {
@@ -76,16 +79,17 @@ public class DAOCreacionUsuario {
         return lista;
     }
 
-    public String editarUsuario(String id, String usuario, String password, String privilegio) {
+    public String editarUsuario(String id, String usuario, String password, String privilegio,String nombre) {
         String respuesta;
         try {
-            sql = "update usuarios set usuario=?, contrasena=?, privilegios=? where idUsuarios=?";
+            sql = "update usuarios set usuario=?, contrasena=?, privilegios=?,nombreReal=? where idUsuarios=?";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.setString(1, usuario);
             ps.setString(2, password);
             ps.setString(3, privilegio);
-            ps.setString(4, id);
+            ps.setString(4,nombre);
+            ps.setString(5, id);
             ps.executeUpdate();
             respuesta = "Actualizacion exitosa";
         } catch (SQLException e) {
