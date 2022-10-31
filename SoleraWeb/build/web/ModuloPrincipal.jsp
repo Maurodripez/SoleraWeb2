@@ -561,7 +561,7 @@
     <!-- Modal para actualizacion de datos -->
     <div class="modal fade" name="nombreModal" id="despliegueInfo" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="letreroCedula modal-header">
                     <h5 class="col-9 modal-title" id="staticBackdropLabel">Actualiza
@@ -631,10 +631,7 @@
                                                 <th scope="col">Usuario</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <div id="ResultadoHistorico" class="row">
-
-                                            </div>
+                                        <tbody id="ResultadoHistorico">
                                         </tbody>
                                     </table>
                                 </div>
@@ -1703,12 +1700,11 @@
             </div>
         </div>
     </div>
-    </div>
 
     <!-- Modal Documentos-->
     <div class="modal fade" id="cargaDocumentos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Carga de Documentos
@@ -1865,6 +1861,7 @@
                                         <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
                                         <option value="Poliza">Poliza</option>
                                         <option value="Comprobante de domicilio">Comprobante de domicilio</option>
+                                        <option value="Informacion adicional">Informacion adicional</option>
                                     </select>
                                 </div>
 
@@ -1903,18 +1900,21 @@
                                     </div>
                                 </div>
                                 <table class="table table-hover col float-end text-center">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <td></td>
                                             <th>Archivo</th>
                                             <th>Detalles</th>
                                             <th>Fecha de carga</th>
                                         </tr>
+                                    </thead>
+                                    <tbody id="mostrarTablaImagenes">
+
                                     </tbody>
                                 </table>
                                 <table>
                                     <tbody>
-                                        <div id="mostrarTablaImagenes" class="row">
+                                        <div>
                                         </div>
                                     </tbody>
                                 </table>
@@ -1931,6 +1931,8 @@
                             <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
+                                    <iframe id="iFrameIdentificacion" src="" width="100%" height="500px"
+                                    frameborder="0"></iframe>
                                     <img id="docSeleccionado" src="" alt="">
                                 </div>
                             </div>
@@ -1943,7 +1945,6 @@
                     data-bs-toggle="modal">Cerrar</button>
             </div>
         </div>
-    </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

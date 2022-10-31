@@ -55,7 +55,7 @@ public class MostrarDocumentosEstados {
                 mDocumentos.setIdentificacion(rs.getString("identificacion"));
                 mDocumentos.setSituacion(rs.getString("situacion"));
                 mDocumentos.setCurp(rs.getString("curp"));
-                mDocumentos.setBaja(rs.getString("estadoDoc"));
+                mDocumentos.setEstado(rs.getString("estadoDoc"));
                 mDocumentos.setTenencia(rs.getString("tenencia"));
                 mDocumentos.setBaja(rs.getString("baja"));
                 mDocumentos.setTarjeta(rs.getString("tarjeta"));

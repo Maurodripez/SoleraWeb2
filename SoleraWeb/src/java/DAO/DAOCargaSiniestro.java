@@ -8,7 +8,8 @@ import java.sql.SQLException;
 
 public class DAOCargaSiniestro {
     // script para la creacion del nuevo registro y sus fk
-    public String setSiniestro(String numSiniestro, String fechaSiniestro, String numPoliza, String cobertura,
+    public String setSiniestro(String usuario, String numSiniestro, String fechaSiniestro, String numPoliza,
+            String cobertura,
             String afectado, String nomAsegurado, String regimen, String telefonoPrincipal, String telefonoSec,
             String correo, String marca, String tipo, String modelo, String numSerie, String ciudad,
             String fechaDecreto, String taller) {
@@ -17,9 +18,18 @@ public class DAOCargaSiniestro {
         ResultSet rs;
         String respuesta = "nada";
         try {
+            String nombreReal = null;
             String id = null;
-            String sql = "insert into infosiniestro(numSiniestro,fechaSiniestro,poliza,cobertura,afectado,regimenFiscal,ciudad,ubicacionTaller,fechaDecreto,fechaCarga)"
-                    + " values('" + numSiniestro + "','" + fechaSiniestro + "','" + numPoliza + "','" + cobertura
+            String sql = "select nombreReal from usuarios where usuario='" + usuario + "'";
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                nombreReal = rs.getString("nombreReal");
+            }
+            conect.Desconectar();
+            sql = "insert into infosiniestro(usuarioCarga,numSiniestro,fechaSiniestro,poliza,cobertura,afectado,regimenFiscal,ciudad,ubicacionTaller,fechaDecreto,fechaCarga)"
+                    + " values('"+nombreReal+"','" + numSiniestro + "','" + fechaSiniestro + "','" + numPoliza + "','" + cobertura
                     + "','" + afectado + "','" + regimen + "','" + ciudad + "','" + taller + "','" + fechaDecreto
                     + "',now())";
             conect.conectar();

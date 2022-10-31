@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import DAO.BusquedaAjax;
-import Modelo.Conexion;
 import Modelo.Siniestros;
 import java.sql.SQLException;
 import java.util.logging.Level;

@@ -28,7 +28,7 @@ public class CargarSiniestro extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //servlet para la creacion de nuevos siniestros
+            // servlet para la creacion de nuevos siniestros
             String respuesta = "Error al entrar";
             DAOCargaSiniestro dcSiniestro = new DAOCargaSiniestro();
             String numSiniestro = request.getParameter("numSiniestro");
@@ -48,7 +48,8 @@ public class CargarSiniestro extends HttpServlet {
             String ciudad = request.getParameter("ciudad");
             String fechaDecreto = request.getParameter("fechaDecreto");
             String taller = request.getParameter("taller");
-            respuesta = dcSiniestro.setSiniestro(numSiniestro, fechaSiniestro, numPoliza, cobertura, afectado,
+            String sesion = request.getParameter("sesion");
+            respuesta = dcSiniestro.setSiniestro(sesion,numSiniestro, fechaSiniestro, numPoliza, cobertura, afectado,
                     nomAsegurado, regimen, telefonoPrincipal, telefonoSec, correo, marca, tipo, modelo, numSerie,
                     ciudad, fechaDecreto, taller);
             out.println(respuesta);

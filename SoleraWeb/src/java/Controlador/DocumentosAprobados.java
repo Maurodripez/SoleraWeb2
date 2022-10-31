@@ -62,7 +62,7 @@ public class DocumentosAprobados extends HttpServlet {
                     }
                     break;
                 case "obtenerSesiones":
-                out.println("entra");
+                    out.println("entra");
                     String usuario = (String) request.getAttribute("sesionUsuario");
                     out.print(usuario);
                     break;
@@ -71,35 +71,10 @@ public class DocumentosAprobados extends HttpServlet {
                     String idRegistro = request.getParameter("idRegistro");
                     // todos tienen el mismo id porque son un grupo
                     for (ModeloGuardarImagen dgImagenes : dtDocumentos.getDocumentos(idRegistro)) {
-                        out.println("<tr class='row'>");
-                        out.println("<td class='col'>"
-                                + "<div class='btn-toolbar' role='toolbar' aria-label='Toolbar with button groups'>"
-                                + "<div class='btn-group me-2' role='group' aria-label='First group'>"
-                                + "<button id='Ver," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
-                                + "' onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Ver</button>"
-                                + "<button id='Pdf," + dgImagenes.getIdImagen() + "," + dgImagenes.getNombreOriginal()
-                                + "," + dgImagenes.getFkImagen()
-                                + "' onclick='convertirPDF(this.id)' type='button' class='btn btn-primary'>Pdf</button>"
-                                + "<a href='./documentos/" + dgImagenes.getFkImagen() + "/"
-                                + dgImagenes.getNombreOriginal() + "' download='cute.jpg'>"
-                                + "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'"
-                                + " stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'"
-                                + "class='feather feather-download'>"
-                                + "<path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'></path>"
-                                + "<polyline points='7 10 12 15 17 10'></polyline>"
-                                + "<line x1='12' y1='15' x2='12' y2='3'></line>"
-                                + "</svg>"
-                                + "</a>"
-                                + "<button id='Eliminar," + dgImagenes.getIdImagen() + ","
-                                + dgImagenes.getNombreOriginal()
-                                + "," + dgImagenes.getFkImagen()
-                                + "' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btnEliminarClass btn btn-danger'>Eliminar</button>"
-                                + "</div>"
-                                + "</td>");
-                        out.println(" <td class='col'>" + dgImagenes.getNombreImagen() + "</td>");
-                        out.println(" <td class='col'>" + dgImagenes.getNombreOriginal() + "</td>");
-                        out.println(" <td class='col'>" + dgImagenes.getFechaCarga() + "</td>");
-                        out.println("</tr>");
+                        out.print(dgImagenes.getIdImagen() + "-_/");
+                        out.print(dgImagenes.getNombreImagen() + "-_/");
+                        out.print(dgImagenes.getFechaCarga() + "-_/");
+                        out.print(dgImagenes.getNombreOriginal() + "/_-");
                     }
                     break;
             }

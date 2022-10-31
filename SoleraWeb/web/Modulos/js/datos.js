@@ -131,6 +131,9 @@ function cambiarNombre(get) {
       telContacto.value = resultados[30];
     },
   });
+  mostrarHistorico();
+  let iframe = document.getElementById("iFrameIdentificacion");
+  iframe.style.display = "none";
 }
 function mostrarDocsAprobados() {
   let porcentaje = 0;
@@ -215,7 +218,9 @@ function mostrarDocsAprobados() {
       porcentajeBarra.innerHTML = porcentaje + "%";
     },
   });
-
+  tablaImagenes(txtIdRegistro);
+}
+function tablaImagenes(txtIdRegistro) {
   $.ajax({
     url: "../DocumentosAprobados",
     data: {
@@ -231,8 +236,10 @@ function funcionesBoton(getId) {
   let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
   let sinPuntos = getId.split(".");
+  let iframe = document.getElementById("iFrameIdentificacion");
   switch (sinComas[0]) {
     case "Ver":
+      iframe.style.display = "none";
       $.ajax({
         method: "POST",
         url: "../FuncionesBtnDocs",
@@ -241,7 +248,6 @@ function funcionesBoton(getId) {
         },
         success: function (result) {
           if (sinPuntos[1] === "txt") {
-            alert("entra aqui");
             let imagen = document.getElementById("docSeleccionado");
             $.ajax({
               method: "POST",
@@ -250,16 +256,17 @@ function funcionesBoton(getId) {
                 accion: "traerImagen64",
               },
               success: function (result) {
+                iframe.style.display = "none";
                 imagen.src = result;
               },
             });
+          } else if (sinPuntos[1] === "pdf" || sinPuntos[1]==="docx") {
+                iframe.src ="../documentos/" + direccionId + "/" + sinComas[2] + "";
+                iframe.style.display = "";
           } else {
-            alert(sinComas[2]);
             let imagen = document.getElementById("docSeleccionado");
-            imagen.setAttribute(
-              "src",
-              "../documentos/" + direccionId + "/" + sinComas[2] + ""
-            );
+            iframe.style.display = "none";
+            imagen.setAttribute("src","../documentos/" + direccionId + "/" + sinComas[2] + "");
           }
         },
       });
@@ -267,7 +274,7 @@ function funcionesBoton(getId) {
     case "Eliminar":
       $.ajax({
         method: "POST",
-        url: "FuncionesBtnDocs",
+        url: "../FuncionesBtnDocs",
         data: {
           accion: "Eliminar",
           fkId: sinComas[3],
@@ -729,5 +736,43 @@ function busquedaPorDias(getId) {
     success: function (result) {
       mostrarTabla(result);
     },
+  });
+}
+function enviarImagenes() {
+  let imagen;
+  imagen = new FormData(document.getElementById("archivoCargado"));
+  $.ajax({
+    url: "../GuardadoImagenesServlet",
+    method: "post",
+    data: imagen,
+    cache: false,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+      mostrarDocsAprobados();
+      alert(result);
+    },
+    error: function () {
+      alert("Servidor anormal, intente nuevamente más tarde ...");
+    },
+  });
+  return false;
+}
+function mostrarHistorico() {
+  let inputNombreFk = document.getElementById("fkIdOculto").value;
+  let tabla = document.getElementById("ResultadoHistorico");
+  $.ajax({
+    method: "POST",
+    url: "../TablasInteracciones",
+    data: {
+      accion: "TablaHistorica",
+      inputNombreFk,
+    },
+  }).done(function (respuesta) {
+    let sinCodificar = respuesta.split("-_/");
+    let fechaCarga = `<td>${sinCodificar[0]}</td>`;
+    let estatus = `<td>${sinCodificar[1]}</td>`;
+    let usuario = `<td>${sinCodificar[2]}</td>`;
+    tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
   });
 }

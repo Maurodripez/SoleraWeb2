@@ -2,7 +2,7 @@ function crearUsuario() {
   let longitudUser = document.getElementById("usuario").value;
   alert(longitudUser);
   let longitudPass = document.getElementById("password").value;
-  alert(longitudPass);sdgf
+  alert(longitudPass);
   let longitudPriv = document.getElementById("privilegio").value;
   alert(longitudPriv);
   if (

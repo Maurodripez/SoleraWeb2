@@ -6,7 +6,7 @@ $(document).ready(function () {
     format: "yyyy-mm-dd",
     value: "2022-09-14",
     weeks: true,
-});
+  });
   let paginaMas = document.getElementById("botonClickMas");
   let paginaMenos = document.getElementById("botonClickMenos");
   let pElement = document.getElementById("paginaActual");
@@ -285,6 +285,9 @@ function cambiarNombre(get) {
       telContacto.value = resultados[30];
     },
   });
+  mostrarHistorico();
+  let iframe = document.getElementById("iFrameIdentificacion");
+  iframe.style.display = "none";
 }
 function guardarDocsAprobados(id) {
   let txtFactura = document.getElementById("checkboxFactura");
@@ -413,7 +416,35 @@ function mostrarDocsAprobados() {
       idRegistro: txtIdRegistro,
     },
     success: function (result) {
-      $("#mostrarTablaImagenes").html(result);
+      let sinCodificado = result.split("/_-");
+      for(let i=0;i<sinCodificado-1;i++){
+        let sinCodificado2 = sinCodificado[i].splt("-_/");
+        let tablaImagenes = document.getElementById("mostrarTablaImagenes");
+        let btnGrupo =`<td><div class="btn-group tablaActual botonesTabla" role="group">
+        <button id=${'Ver,' + sinCodificado2[0] + "," + sinCodificado2[3]}
+        onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Ver</button>
+        <button id=${'Pdf," +  + "," + dgImagenes.getNombreOriginal()
+        "," + dgImagenes.getFkImagen()}
+        onclick='convertirPDF(this.id)' type='button' class='btn btn-primary'>Pdf</button>"
+        <a href='./documentos/" + dgImagenes.getFkImagen() + "/"
+        dgImagenes.getNombreOriginal() + "' download='cute.jpg'>"
+        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'"
+        stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'"
+        class='feather feather-download'>"
+        <path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'></path>"
+        <polyline points='7 10 12 15 17 10'></polyline>"
+        <line x1='12' y1='15' x2='12' y2='3'></line>"
+        </svg>"
+        </a>"
+        <button id='Eliminar," + dgImagenes.getIdImagen() + ","
+        dgImagenes.getNombreOriginal()
+        "," + dgImagenes.getFkImagen()
+        ' onclick='funcionesBoton(this.id)'' onclick='funcionesBoton(this.id)' type='button' class='btnEliminarClass btn btn-danger'>Eliminar</button>"
+        </div>"
+        </td>")`;
+        $("#mostrarTablaImagenes").html(result);
+      }
+
     },
   });
 }
@@ -502,6 +533,7 @@ function funcionesBoton(getId) {
   let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
   let sinPuntos = getId.split(".");
+  let iframe = document.getElementById("iFrameIdentificacion");
   switch (sinComas[0]) {
     case "Ver":
       $.ajax({
@@ -512,25 +544,25 @@ function funcionesBoton(getId) {
         },
         success: function (result) {
           if (sinPuntos[1] === "txt") {
-            alert("entra aqui");
             let imagen = document.getElementById("docSeleccionado");
             $.ajax({
               method: "POST",
-              url: "leerImagenes",
+              url: "../leerImagenes",
               data: {
                 accion: "traerImagen64",
               },
               success: function (result) {
+                iframe.style.display = "none";
                 imagen.src = result;
               },
             });
+          } else if (sinPuntos[1] === "pdf" || sinPuntos[1]==="docx" || sinPuntos[1]==="jfif") {
+                iframe.src ="./documentos/" + direccionId + "/" + sinComas[2] + "";
+                iframe.style.display = "";
           } else {
             let imagen = document.getElementById("docSeleccionado");
-            imagen.setAttribute(
-              "src",
-              "./documentos/" + direccionId + "/" + sinComas[2] + ""
-            );
-            valoresSesiones();
+            iframe.style.display = "none";
+            imagen.setAttribute("src","../documentos/" + direccionId + "/" + sinComas[2] + "");
           }
         },
       });
@@ -727,6 +759,7 @@ function enviarImagenes() {
     contentType: false,
     success: function (result) {
       alert(result);
+      mostrarDocsAprobados();
     },
     error: function () {
       alert("Servidor anormal, intente nuevamente más tarde ...");
@@ -872,4 +905,22 @@ function eliminarSiniestro(getId) {
   } else {
     mensaje = "Movimiento cancelado";
   }
+}
+function mostrarHistorico() {
+  let inputNombreFk = document.getElementById("fkIdOculto").value;
+  let tabla = document.getElementById("ResultadoHistorico");
+  $.ajax({
+    method: "POST",
+    url: "TablasInteracciones",
+    data: {
+      accion: "TablaHistorica",
+      inputNombreFk,
+    },
+  }).done(function (respuesta) {
+    let sinCodificar = respuesta.split("-_/");
+    let fechaCarga = `<td>${sinCodificar[0]}</td>`;
+    let estatus = `<td>${sinCodificar[1]}</td>`;
+    let usuario = `<td>${sinCodificar[2]}</td>`;
+    tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
+  });
 }

@@ -30,15 +30,13 @@ function leerArchivo(e) {
           fechaDecreto: i.fechaDecreto,
           taller: i.taller,
         },
-        success: function (result) {
-        },
+        success: function (result) {},
       });
     }
     mostrarContenido(contenido);
   };
   lector.readAsText(archivo);
 }
-
 document
   .getElementById("file-input")
   .addEventListener("change", leerArchivo, false);
@@ -48,6 +46,7 @@ excelInput.addEventListener("change", async function () {
   if (!contenido) {
     return;
   }
+  let sesion = document.getElementById("UsuarioActivo").textContent;
   for (let x = 1; x < contenido.length; x++) {
     let miYear = contenido[x][1].getUTCFullYear();
     let miMes = contenido[x][1].getUTCMonth() + 1;
@@ -64,7 +63,6 @@ excelInput.addEventListener("change", async function () {
     miDia = contenido[x][15].getUTCDate();
     if (miMes <= 9) {
       miMes = "0" + miMes;
-      console.log(miMes);
     }
     if (miDia <= 9) {
       miDia = "0" + miDia;
@@ -91,10 +89,11 @@ excelInput.addEventListener("change", async function () {
         ciudad: contenido[x][14],
         fechaDecreto: nFechaDec,
         taller: contenido[x][16],
+        sesion,
       },
-      success: function (result) {
-      },
+      success: function (result) {},
     });
+
   }
 });
 window.addEventListener("load", function () {
