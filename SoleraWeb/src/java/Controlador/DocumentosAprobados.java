@@ -67,7 +67,6 @@ public class DocumentosAprobados extends HttpServlet {
                     out.print(usuario);
                     break;
                 case "mostrarTabla":
-                out.print("entra");
                     DAOTablaDocumentos dtDocumentos = new DAOTablaDocumentos();
                     String idRegistro = request.getParameter("idRegistro");
                     // todos tienen el mismo id porque son un grupo

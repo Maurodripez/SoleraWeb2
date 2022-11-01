@@ -233,20 +233,11 @@ function tablaImagenes(txtIdRegistro) {
         let sinCodificado2 = sinCodificado[i].split("-_/");
         let tablaImagenes = document.getElementById("mostrarTablaImagenes");
         let btnGrupo = `<td><div class='btn-group tablaActual botonesTabla' role='group'>
-        <button id=${"Ver," + sinCodificado2[0] + "," + sinCodificado2[3]}
+        <button id='Ver,${sinCodificado2[0]},${sinCodificado2[3]}'
         onclick='funcionesBoton(this.id)' type='button' class='btn btn-primary'>Ver</button>
-        <button id=${
-          "Pdf," +
-          sinCodificado2[0] +
-          "," +
-          sinCodificado2[3] +
-          "," +
-          sinCodificado2[4]
-        }
+        <button id='Pdf,${sinCodificado2[0]},${sinCodificado2[3]},${sinCodificado2[4]}'
         onclick='convertirPDF(this.id)' type='button' class='btn btn-primary'>Pdf</button>
-        <a href=${
-          "./documentos/" + sinCodificado2[4] + "/" + sinCodificado2[3]
-        } download='cute.jpg'>
+        <a href='./documentos/${sinCodificado2[4]}/${sinCodificado2[3]}' download='cute.jpg'>
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'
         stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
         class='feather feather-download'>
@@ -254,19 +245,12 @@ function tablaImagenes(txtIdRegistro) {
         <polyline points='7 10 12 15 17 10'></polyline>
         <line x1='12' y1='15' x2='12' y2='3'></line>
         </svg></a>
-        <button id=${
-          "Eliminar," +
-          sinCodificado2[0] +
-          "," +
-          sinCodificado2[3] +
-          "," +
-          sinCodificado2[4]
-        }
+        <button id='Eliminar,${sinCodificado2[0]},${sinCodificado2[3]},${sinCodificado2[4]}'
         onclick='funcionesBoton(this.id)' type='button' class='btnEliminarClass btn btn-danger'>Eliminar</button>
         </div></td>`;
         let archivo = `<td>${sinCodificado2[1]}</td>`;
         let fechaCarga = `<td>${sinCodificado2[2]}</td>`;
-        tablaImagenes.innerHTML += `<tr>${btnGrupo + archivo + fechaCarga}</tr>`;
+        tablaImagenes.innerHTML += `<tr class='tablaImagenes'>${btnGrupo + archivo + fechaCarga}</tr>`;
       }
     },
   });
@@ -322,7 +306,9 @@ function funcionesBoton(getId) {
         },
         success: function (result) {
           alert(result);
-          mostrarDocsAprobados(); //se manda de nueva la funcion para actualizar las imagene que estan borradas
+          $(".tablaImagenes").remove();
+          let txtIdRegistro = document.getElementById("idOculto").value;
+          tablaImagenes(txtIdRegistro); //se manda de nueva la funcion para actualizar las imagene que estan borradas
         },
       });
       break;
