@@ -12,6 +12,7 @@ public class MostrarDocumentosEstados {
     Conexion conect = new Conexion();
     PreparedStatement ps;
     public String respuesta;
+    ResultSet rs;
 
     public String actualizarDocsAprobados(ModeloDocumentos mDocumentos) {
         String sql = "update documentosaprobados set factura =?, poder =?,"
@@ -68,5 +69,22 @@ public class MostrarDocumentosEstados {
             respuesta = "Error al mostrar";
         }
         return lista;
+    }
+
+    public String docsYaCargados(String id) {
+        String respuesta="";
+        try {
+            String sql = "select nombreImagen from imagenes where fkImagen='" + id + "'";
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                respuesta += rs.getString("nombreImagen")+"-_/";
+            }
+        } catch (Exception e) {
+            respuesta = "error al ejecutar";
+            // TODO: handle exception
+        }
+        return respuesta;
     }
 }

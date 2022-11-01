@@ -589,8 +589,9 @@
                         </button>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                        <label id="encuestaBtn" class="btn btn-outline-primary" for="btnradio3"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
+                        <label id="encuestaBtn" class="btn btn-outline-primary" for="btnradio3"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-journal" viewBox="0 0 16 16">
                                 <path
                                     d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
                                 <path
@@ -1704,7 +1705,7 @@
     <!-- Modal Documentos-->
     <div class="modal fade" id="cargaDocumentos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Carga de Documentos
@@ -1720,204 +1721,192 @@
                         </div>
                     </div>
 
-                    <div class="accordion p-2" id="documentosAprobadosPanel">
-                        <div class="row">
-                            <div class="accordion-item col">
-                                <h2 class="accordion-header" id="panelPFisicas">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelPFisicas-collapseOne" aria-expanded="true"
-                                        aria-controls="panelPFisicas-collapseOne">
-                                        Documentos aprobados
-                                    </button>
-                                </h2>
-                                <div id="panelPFisicas-collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="panelPFisicas-headingOne">
-                                    <div class="accordion-body">
+                    <div class="accordion" id="documentosAprobadosPanel">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelPFisicas">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelPFisicas-collapseOne" aria-expanded="true"
+                                    aria-controls="panelPFisicas-collapseOne">
+                                    Documentos aprobados
+                                </button>
+                            </h2>
+                            <div id="panelPFisicas-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelPFisicas-headingOne">
+                                <div class="accordion-body">
 
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxFactura">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Factura original
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxPoder">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Poder notarial
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxIdentificacion">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Identificacion oficial
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxSituacion">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Situacion fiscal
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxCurp">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Curp
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxEstado">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Estado de cuenta
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxTenencia">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Tenencia
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxBaja">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Baja de placas
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxTarjeta">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Tarjeta circulacion
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxPoliza">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Poliza
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxComprobante">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Comprobante domicilio
-                                                    </label>
-                                                </li>
-                                            </div>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxFactura">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Factura original
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxPoder">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Poder notarial
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxIdentificacion">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Identificacion oficial
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxSituacion">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Situacion fiscal
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxCurp">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Curp
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxEstado">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Estado de cuenta
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxTenencia">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Tenencia
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxBaja">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Baja de placas
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxTarjeta">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Tarjeta circulacion
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxPoliza">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Poliza
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxComprobante">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Comprobante domicilio
+                                                </label>
+                                            </li>
+                                        </div>
+                                        <div class="col-12" style="text-align: center">
                                             <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
-                                                type="button" class="btn btn-primary btn-sm">Guardar</button>
-                                        </ul>
+                                            type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
+                                        </div>
+                                    </ul>
+                                    <div class="col">
+                                        <form method="post" enctype="multipart/form-data"
+                                            onsubmit="return enviarImagenes()" id="archivoCargado">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <select name="tipoArchivo" class="form-select form-select-sm"
+                                                        aria-label="Default select example">
+                                                        <option selected>Selecciona...</option>
+                                                        <option id="selectFactura" value="Factura original">Factura original</option>
+                                                        <option id="selectPoder" value="Poder notarial">Poder notarial</option>
+                                                        <option id="selectIdenti" value="Identificacion oficial">Identificacion oficial
+                                                        </option>
+                                                        <option id="selectConstancia" value="Constancia SF">Constancia SF</option>
+                                                        <option id="selectCurp" value="Curp">Curp</option>
+                                                        <option id="selectEstado" value="Estado de cuenta">Estado de cuenta</option>
+                                                        <option id="selectTenencia" value="Tenencias">Tenencias</option>
+                                                        <option id="selectbaja" value="Baja de placas">Baja de placas</option>
+                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">Tarjeta de circulacion
+                                                        </option>
+                                                        <option id="selectPoliza" value="Poliza">Poliza</option>
+                                                        <option id="selectCompro" value="Comprobante de domicilio">Comprobante de
+                                                            domicilio</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <input id="nombreArchivo" name="imagen"
+                                                        class="form-control form-control-sm" type="file">
+                                                </div>
+                                            </div>
+                                            <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
+                                            <div class="row">
+                                                <div class="col-12 p-2" style="text-align: center">
+                                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar"
+                                                        class="btn btn-warning">Subir
+                                                        Documento</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <form method="post" enctype="multipart/form-data" onsubmit="return enviarImagenes()"
-                            id="archivoCargado">
-                            <div class="row">
-                                <div class="col-6">
-                                    <select name="tipoArchivo" class="form-select form-select-sm"
-                                        aria-label="Default select example">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Factura original">Factura original</option>
-                                        <option value="Poder notarial">Poder notarial</option>
-                                        <option value="Identificacion oficial">Identificacion oficial</option>
-                                        <option value="Constancia SF">Constancia SF</option>
-                                        <option value="Curp">Curp</option>
-                                        <option value="Estado de cuenta">Estado de cuenta</option>
-                                        <option value="Tenencias">Tenencias</option>
-                                        <option value="Baja de placas">Baja de placas</option>
-                                        <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
-                                        <option value="Poliza">Poliza</option>
-                                        <option value="Comprobante de domicilio">Comprobante de domicilio</option>
-                                        <option value="Informacion adicional">Informacion adicional</option>
-                                    </select>
-                                </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Tabla de Documentos
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <table class="table table-hover col float-end text-center">
+                                        <thead>
+                                            <tr>
+                                                <td>Botones</td>
+                                                <th>Archivo</th>
+                                                <th>Fecha de carga</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="mostrarTablaImagenes">
 
-                                <div class="col-6">
-                                    <input id="nombreArchivo" name="imagen" class="form-control form-control-sm"
-                                        type="file">
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                            <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
-                            <div class="row">
-                                <div class="col-12 p-2" style="text-align: center">
-                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar"
-                                        class="btn btn-warning">Subir
-                                        Documento</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-                    <div>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
-                                        Tabla de Documentos
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="input-group input-group-sm">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Buscar</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input"
-                                            aria-describedby="inputGroup-sizing-sm">
-                                    </div>
-                                </div>
-                                <table class="table table-hover col float-end text-center">
-                                    <thead>
-                                        <tr>
-                                            <td></td>
-                                            <th>Archivo</th>
-                                            <th>Detalles</th>
-                                            <th>Fecha de carga</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="mostrarTablaImagenes">
-
-                                    </tbody>
-                                </table>
-                                <table>
-                                    <tbody>
-                                        <div>
-                                        </div>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -1932,60 +1921,59 @@
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <iframe id="iFrameIdentificacion" src="" width="100%" height="500px"
-                                    frameborder="0"></iframe>
+                                        frameborder="0"></iframe>
                                     <img id="docSeleccionado" src="" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-target="#staticBackdrop"
-                    data-bs-toggle="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Camara</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div>
-                        <img name="falseVideo" id="mostrarimagen64" src="" alt="">
-                    </div>
-                    <div>
-                        <select name="tipoArchivo" id="nombreDocVideo" class="form-select form-select-sm"
-                            aria-label="Default select example">
-                            <option selected>Selecciona...</option>
-                            <option value="Factura original">Factura original</option>
-                            <option value="Poder notarial">Poder notarial</option>
-                            <option value="Identificacion oficial">Identificacion oficial</option>
-                            <option value="Constancia SF">Constancia SF</option>
-                            <option value="Curp">Curp</option>
-                            <option value="Estado de cuenta">Estado de cuenta</option>
-                            <option value="Tenencias">Tenencias</option>
-                            <option value="Baja de placas">Baja de placas</option>
-                            <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
-                            <option value="Poliza">Poliza</option>
-                            <option value="Comprobante de domicilio">Comprobante de domicilio</option>
-                        </select>
-                        <button onclick="GuardarImagenVideo()">
-                            guardar Imagen
-                        </button>
-                    </div>
-                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-target="#staticBackdrop"
+                        data-bs-toggle="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalVideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Camara</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div>
+                            <img name="falseVideo" id="mostrarimagen64" src="" alt="">
+                        </div>
+                        <div>
+                            <select name="tipoArchivo" id="nombreDocVideo" class="form-select form-select-sm"
+                                aria-label="Default select example">
+                                <option selected>Selecciona...</option>
+                                <option value="Factura original">Factura original</option>
+                                <option value="Poder notarial">Poder notarial</option>
+                                <option value="Identificacion oficial">Identificacion oficial</option>
+                                <option value="Constancia SF">Constancia SF</option>
+                                <option value="Curp">Curp</option>
+                                <option value="Estado de cuenta">Estado de cuenta</option>
+                                <option value="Tenencias">Tenencias</option>
+                                <option value="Baja de placas">Baja de placas</option>
+                                <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
+                                <option value="Poliza">Poliza</option>
+                                <option value="Comprobante de domicilio">Comprobante de domicilio</option>
+                            </select>
+                            <button onclick="GuardarImagenVideo()">
+                                guardar Imagen
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

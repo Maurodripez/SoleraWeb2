@@ -67,6 +67,7 @@ public class DocumentosAprobados extends HttpServlet {
                     out.print(usuario);
                     break;
                 case "mostrarTabla":
+                out.print("entra");
                     DAOTablaDocumentos dtDocumentos = new DAOTablaDocumentos();
                     String idRegistro = request.getParameter("idRegistro");
                     // todos tienen el mismo id porque son un grupo
@@ -74,8 +75,14 @@ public class DocumentosAprobados extends HttpServlet {
                         out.print(dgImagenes.getIdImagen() + "-_/");
                         out.print(dgImagenes.getNombreImagen() + "-_/");
                         out.print(dgImagenes.getFechaCarga() + "-_/");
-                        out.print(dgImagenes.getNombreOriginal() + "/_-");
+                        out.print(dgImagenes.getNombreOriginal() + "-_/");
+                        out.print(dgImagenes.getFkImagen() + "/_-");
                     }
+                    break;
+                case "docsYaCargados":
+                    idRegistro = request.getParameter("txtIdRegistro");
+                    String r = mdEstados.docsYaCargados(idRegistro);
+                    out.print(r);
                     break;
             }
         }

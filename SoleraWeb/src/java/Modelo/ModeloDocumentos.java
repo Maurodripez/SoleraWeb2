@@ -13,6 +13,15 @@ public class ModeloDocumentos {
     private String tarjeta;
     private String poliza;
     private String comprobante;
+    private String docsCargados;
+
+    public String getDocsCargados() {
+        return this.docsCargados;
+    }
+
+    public void setDocsCargados(String docsCargados) {
+        this.docsCargados = docsCargados;
+    }
 
     public String getFactura() {
         return this.factura;

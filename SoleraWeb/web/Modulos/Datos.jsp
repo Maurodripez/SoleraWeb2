@@ -1962,222 +1962,207 @@
                         </div>
                     </div>
                     <div class="accordion p-2" id="documentosAprobadosPanel">
-                        <div class="row">
-                            <div class="accordion-item col">
-                                <h2 class="accordion-header" id="panelPFisicas">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelPFisicas-collapseOne" aria-expanded="true"
-                                        aria-controls="panelPFisicas-collapseOne">
-                                        Documentos aprobados
-                                    </button>
-                                </h2>
-                                <div id="panelPFisicas-collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="panelPFisicas-headingOne">
-                                    <div class="accordion-body">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelPFisicas">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelPFisicas-collapseOne" aria-expanded="true"
+                                    aria-controls="panelPFisicas-collapseOne">
+                                    Documentos aprobados
+                                </button>
+                            </h2>
+                            <div id="panelPFisicas-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelPFisicas-headingOne">
+                                <div class="accordion-body">
 
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxFactura">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Factura original
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxPoder">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Poder notarial
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxIdentificacion">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Identificacion oficial
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxSituacion">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Situacion fiscal
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxCurp">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Curp
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxEstado">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Estado de cuenta
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxTenencia">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Tenencia
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxBaja">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Baja de placas
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxTarjeta">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Tarjeta circulacion
-                                                    </label>
-                                                </li>
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxPoliza">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Poliza
-                                                    </label>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-group list-group-flush">
-                                            <div class="row">
-                                                <li class="col list-group-item list-group-item-sm">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="checkboxComprobante">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Comprobante domicilio
-                                                    </label>
-                                                </li>
-                                            </div>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxFactura">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Factura original
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxPoder">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Poder notarial
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxIdentificacion">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Identificacion oficial
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxSituacion">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Situacion fiscal
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxCurp">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Curp
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxEstado">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Estado de cuenta
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxTenencia">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Tenencia
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxBaja">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Baja de placas
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxTarjeta">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Tarjeta circulacion
+                                                </label>
+                                            </li>
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxPoliza">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Poliza
+                                                </label>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="row">
+                                            <li class="col list-group-item list-group-item-sm">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="checkboxComprobante">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Comprobante domicilio
+                                                </label>
+                                            </li>
+                                        </div>
+                                        <div class="col-12" style="text-align: center">
                                             <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
-                                                type="button" class="btn btn-primary btn-sm">Guardar</button>
-                                        </ul>
+                                            type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
+                                        </div>
+                                    </ul>
+                                    <div class="col">
+                                        <form method="post" enctype="multipart/form-data"
+                                            onsubmit="return enviarImagenes()" id="archivoCargado">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <select name="tipoArchivo" class="form-select form-select-sm"
+                                                        aria-label="Default select example">
+                                                        <option selected>Selecciona...</option>
+                                                        <option value="Factura original">Factura original</option>
+                                                        <option value="Poder notarial">Poder notarial</option>
+                                                        <option value="Identificacion oficial">Identificacion oficial
+                                                        </option>
+                                                        <option value="Constancia SF">Constancia SF</option>
+                                                        <option value="Curp">Curp</option>
+                                                        <option value="Estado de cuenta">Estado de cuenta</option>
+                                                        <option value="Tenencias">Tenencias</option>
+                                                        <option value="Baja de placas">Baja de placas</option>
+                                                        <option value="Tarjeta de circulacion">Tarjeta de circulacion
+                                                        </option>
+                                                        <option value="Poliza">Poliza</option>
+                                                        <option value="Comprobante de domicilio">Comprobante de
+                                                            domicilio</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <input id="nombreArchivo" name="imagen"
+                                                        class="form-control form-control-sm" type="file">
+                                                </div>
+                                            </div>
+                                            <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
+                                            <div class="row">
+                                                <div class="col-12 p-2" style="text-align: center">
+                                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar"
+                                                        class="btn btn-warning">Subir
+                                                        Documento</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <form method="post" enctype="multipart/form-data" onsubmit="return enviarImagenes()"
-                            id="archivoCargado">
-                            <div class="row">
-                                <div class="col-6">
-                                    <select name="tipoArchivo" class="form-select form-select-sm"
-                                        aria-label="Default select example">
-                                        <option selected>Selecciona...</option>
-                                        <option value="Factura original">Factura original</option>
-                                        <option value="Poder notarial">Poder notarial</option>
-                                        <option value="Identificacion oficial">Identificacion oficial</option>
-                                        <option value="Constancia SF">Constancia SF</option>
-                                        <option value="Curp">Curp</option>
-                                        <option value="Estado de cuenta">Estado de cuenta</option>
-                                        <option value="Tenencias">Tenencias</option>
-                                        <option value="Baja de placas">Baja de placas</option>
-                                        <option value="Tarjeta de circulacion">Tarjeta de circulacion</option>
-                                        <option value="Poliza">Poliza</option>
-                                        <option value="Comprobante de domicilio">Comprobante de domicilio</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-6">
-                                    <input id="nombreArchivo" name="imagen" class="form-control form-control-sm"
-                                        type="file">
-                                </div>
-                            </div>
-                            <input name="fkImagenes" id="fkIdOculto" type="hidden" value="idGenerico">
-                            <div class="row">
-                                <div class="col-12 p-2" style="text-align: center">
-                                    <button id="btnSubirDoc" type="submit" name="accion" value="agregar"
-                                        class="btn btn-warning">Subir
-                                        Documento</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-                    <div>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
-                                        Tabla de Documentos
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div id="botonoesDescarga" class="p-2">
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            Small button
-                                        </button>
-                                        <button type="button" class="btn btn-secondary btn-sm">
-                                            Small button
-                                        </button>
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-text" id="inputGroup-sizing-sm">Buscar</span>
-                                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-sm" />
-                                        </div>
-                                    </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Tabla de Documentos
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
                                     <table class="table table-hover col float-end text-center">
-                                        <tbody>
+                                        <thead>
                                             <tr>
-                                                <td></td>
+                                                <td>Botones</td>
                                                 <th>Archivo</th>
-                                                <th>Detalles</th>
                                                 <th>Fecha de carga</th>
                                             </tr>
-                                        </tbody>
-                                    </table>
-                                    <table>
-                                        <tbody>
-                                            <div id="mostrarTablaImagenes" class="row"></div>
+                                        </thead>
+                                        <tbody id="mostrarTablaImagenes">
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                        aria-controls="flush-collapseTwo">
-                                        Visualizar imagen
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <iframe id="iFrameIdentificacion" src="" width="100%" height="500px"
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    Visualizar imagen
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <iframe id="iFrameIdentificacion" src="" width="100%" height="500px"
                                         frameborder="0"></iframe>
-                                        <img id="docSeleccionado" src="" alt="" />
-                                    </div>
+                                    <img id="docSeleccionado" src="" alt="" />
                                 </div>
                             </div>
                         </div>
