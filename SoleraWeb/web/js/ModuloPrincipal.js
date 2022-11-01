@@ -589,7 +589,7 @@ function funcionesBoton(getId) {
           alert(result);
           let txtIdRegistro = document.getElementById("idOculto").value;
           $(".tablaImagenes").remove();
-          tablaImagenes(txtIdRegistro) //se manda de nueva la funcion para actualizar las imagene que estan borradas
+          mostrarDocsAprobados(); //se manda de nueva la funcion para actualizar las imagene que estan borradas
         },
       });
       break;
@@ -769,6 +769,7 @@ function enviarImagenes() {
     contentType: false,
     success: function (result) {
       alert(result);
+      $(".tablaImagenes").remove();
       mostrarDocsAprobados();
     },
     error: function () {
@@ -927,10 +928,11 @@ function mostrarHistorico() {
       inputNombreFk,
     },
   }).done(function (respuesta) {
+    $(".historicoTablaDatos").remove();
     let sinCodificar = respuesta.split("-_/");
-    let fechaCarga = `<td>${sinCodificar[0]}</td>`;
-    let estatus = `<td>${sinCodificar[1]}</td>`;
-    let usuario = `<td>${sinCodificar[2]}</td>`;
+    let fechaCarga = `<td class='historicoTablaDatos'>${sinCodificar[0]}</td>`;
+    let estatus = `<td class='historicoTablaDatos'>${sinCodificar[1]}</td>`;
+    let usuario = `<td class='historicoTablaDatos'>${sinCodificar[2]}</td>`;
     tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
   });
 }
@@ -983,3 +985,4 @@ function docsYaCargados(txtIdRegistro) {
     }
   });
 }
+//https://datatables.net/

@@ -774,6 +774,7 @@ function enviarImagenes() {
     processData: false,
     contentType: false,
     success: function (result) {
+      $(".tablaImagenes").remove();
       mostrarDocsAprobados();
       alert(result);
     },
@@ -794,10 +795,12 @@ function mostrarHistorico() {
       inputNombreFk,
     },
   }).done(function (respuesta) {
+    $(".historicoTablaDatos").remove();
     let sinCodificar = respuesta.split("-_/");
-    let fechaCarga = `<td>${sinCodificar[0]}</td>`;
-    let estatus = `<td>${sinCodificar[1]}</td>`;
-    let usuario = `<td>${sinCodificar[2]}</td>`;
+    let fechaCarga = `<td class='historicoTablaDatos'>${sinCodificar[0]}</td>`;
+    let estatus = `<td class='historicoTablaDatos'>${sinCodificar[1]}</td>`;
+    let usuario = `<td class='historicoTablaDatos'>${sinCodificar[2]}</td>`;
     tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
   });
 }
+//https://datatables.net/

@@ -841,8 +841,7 @@
                                                 <th scope="col">Usuario</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <div id="ResultadoHistorico" class="row"></div>
+                                        <tbody id="ResultadoHistorico">
                                         </tbody>
                                     </table>
                                 </div>

@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Estilos/stylesheet.css" />
   <link rel="stylesheet" href="./Estilos/Principal.css">
+  <link rel="icon" type="image/jpg" href="./Imagenes Solera/solera-squareLogo-1641391060257.png"/>
   <script src="./js/Principal.js"></script>
   <title>Document</title>
 </head>

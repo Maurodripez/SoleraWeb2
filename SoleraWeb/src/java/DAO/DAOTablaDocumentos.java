@@ -111,11 +111,13 @@ public class DAOTablaDocumentos {
                 conteo = rs.getInt("conteo");
             }
             conect.Desconectar();
-            sql = "update fechasseguimiento set fechaPrimerEnvioDoc=null where fkidRegistro='" + idRegistro + "'";
-            conect.conectar();
-            ps = conect.conexion.prepareStatement(sql);
-            ps.executeUpdate();
-            conect.Desconectar();
+            if (conteo == 0) {
+                sql = "update fechasseguimiento set fechaPrimerEnvioDoc=null where fkidRegistro='" + idRegistro + "'";
+                conect.conectar();
+                ps = conect.conexion.prepareStatement(sql);
+                ps.executeUpdate();
+                conect.Desconectar();
+            }
             sql = "delete from imagenes where idimagenes=?";// se ejecuta la funcion sql para eliminar el registro
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
