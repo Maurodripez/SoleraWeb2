@@ -13,8 +13,8 @@ public class DAOGuardarSeguimiento {
         String respuesta = "null";
         try {
             String sql = "update insertarregistros, seguimiento, fechasseguimiento, estadoproceso set respuestaSolera=?,"
-                    + " estatusOperativo=?, personaContactada=?, tipoPersona=?, contactoSeguimiento=?, fechaSeguimiento = ?, "
-                    + "fechaPrimerEnvioDoc=?, fechaIntegracionexpedienteCompleto=?, fechaTermino=?, estacionProceso=?"
+                    + " estatusOperativo=?, personaContactada=?, tipoPersona=?, contactoSeguimiento=?, fechaSeguimiento = curdate(), "
+                    + " fechaIntegracionexpedienteCompleto=?, fechaTermino=?, estacionProceso=?"
                     + " where fkIdRegistroSeguimiento=? and fkIdRegistroEstadoProceso=? and fkIdRegistroInsertar=? and fkidRegistro=?";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
@@ -23,8 +23,6 @@ public class DAOGuardarSeguimiento {
             ps.setString(3, mgSeguimiento.getPersContactada());
             ps.setString(4, mgSeguimiento.getTipoPersona());
             ps.setString(5, mgSeguimiento.getTipoContacto());
-            ps.setString(6, mgSeguimiento.getFechaSeguimiento());
-            ps.setString(7, mgSeguimiento.getFechaPrimEnvDocs());
             ps.setString(8, mgSeguimiento.getFechaIntExp());
             ps.setString(9, mgSeguimiento.getFechaTermino());
             ps.setString(10, mgSeguimiento.getEstacion());

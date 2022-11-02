@@ -1554,11 +1554,11 @@
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        fecha primer envio de documentos
+                                                        Primer envio de documentos
                                                     </label>
                                                     <input class="input-group-append" id="txtFechaPrimEnvDocs"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
-                                                        type="text" placeholder="Fecha">
+                                                        type="text" placeholder="Fecha" disabled>
                                                 </div>
                                             </div>
                                             <div class="col mb-3">
@@ -1572,7 +1572,7 @@
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha de integracion de expediente
+                                                        Integracion de expediente
                                                     </label>
                                                     <input class="input-group-append" id="txtFechaIntExp"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
@@ -1592,7 +1592,7 @@
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha de facturacion de servicio
+                                                        Facturacion de servicio
                                                     </label>
                                                     <input class="input-group-append" id="txtFechaFactServ"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
@@ -1610,7 +1610,7 @@
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha Termino
+                                                        Termino
                                                     </label>
                                                     <input class="input-group-append" id="txtFechaTermino"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
@@ -1630,7 +1630,7 @@
                                                             <path
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                         </svg>
-                                                        Fecha seguimiento
+                                                        Seguimiento
                                                     </label>
                                                     <input class="input-group-append" id="txtFechaSeguimiento"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
