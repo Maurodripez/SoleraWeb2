@@ -493,9 +493,7 @@ function GuardarRegistros() {
 }
 function InsertarSeguimiento() {
   let sesion = document.getElementById("UsuarioActivo").textContent;
-  let longitud = document.getElementById("txtFechaPrimEnvDocs").value;
-  alert(longitud.length);
-  alert(document.getElementById("txtEstacion").value);
+  console.log(document.getElementById("txtSubEstatus").value);
   $.ajax({
     url: "GuardarSeguimiento",
     data: {
@@ -503,6 +501,7 @@ function InsertarSeguimiento() {
       comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
       estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
         .value,
+      subEstatus: document.getElementById("txtSubEstatus").value,
       respSolera: document.getElementById("txtRespSolera").value,
       persContactada: document.getElementById("txtPersContactada").value,
       tipoPersona: document.getElementById("txtTipoPersona").value,
@@ -984,6 +983,30 @@ function docsYaCargados(txtIdRegistro) {
         selectaOcultar.disabled = true;
       }
     }
+  });
+}
+function tablaSeguimiento() {
+  $.ajax({
+    method: "post",
+    url: "TablasInteracciones",
+    data: {
+      accion: "tablaSeguimiento",
+      idRegistro: document.getElementById("idOculto").value,
+    },
+  }).done(function (result) {
+    let tablseguimiento = document.getElementById("tablaSegEstatus");
+    let sinCodificado = result.split("/_-");
+    for (let i = 0; i < sinCodificado.length - 1; i++) {
+      let sinCodificado2 = sinCodificado[i].split("-_/");
+      usuario = `<td>${sinCodificado2[12]}</td>`;
+      fecha = `<td>${sinCodificado2[11]}</td>`;
+      estatus = `<td>${sinCodificado2[2]}</td>`;
+      comentario = `<td>${sinCodificado2[0]}</td>`;
+      tablseguimiento.innerHTML += `<tr>${
+        usuario + fecha + estatus + comentario
+      }</tr>`;
+    }
+    console.log(result);
   });
 }
 //https://datatables.net/

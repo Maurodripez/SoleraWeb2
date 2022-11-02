@@ -1,5 +1,6 @@
 var contador = 0;
 window.addEventListener("load", function () {
+  alert("hola");
   valoresSesiones();
   recargarSiniestros();
   //muestra los dias paasados por documentos
@@ -219,6 +220,7 @@ function mostrarDocsAprobados() {
     },
   });
   tablaImagenes(txtIdRegistro);
+  docsYaCargados(txtIdRegistro);
 }
 function tablaImagenes(txtIdRegistro) {
   $.ajax({
@@ -250,7 +252,9 @@ function tablaImagenes(txtIdRegistro) {
         </div></td>`;
         let archivo = `<td>${sinCodificado2[1]}</td>`;
         let fechaCarga = `<td>${sinCodificado2[2]}</td>`;
-        tablaImagenes.innerHTML += `<tr class='tablaImagenes'>${btnGrupo + archivo + fechaCarga}</tr>`;
+        tablaImagenes.innerHTML += `<tr class='tablaImagenes'>${
+          btnGrupo + archivo + fechaCarga
+        }</tr>`;
       }
     },
   });
@@ -283,13 +287,17 @@ function funcionesBoton(getId) {
                 imagen.src = result;
               },
             });
-          } else if (sinPuntos[1] === "pdf" || sinPuntos[1]==="docx") {
-                iframe.src ="../documentos/" + direccionId + "/" + sinComas[2] + "";
-                iframe.style.display = "";
+          } else if (sinPuntos[1] === "pdf" || sinPuntos[1] === "docx") {
+            iframe.src =
+              "../documentos/" + direccionId + "/" + sinComas[2] + "";
+            iframe.style.display = "";
           } else {
             let imagen = document.getElementById("docSeleccionado");
             iframe.style.display = "none";
-            imagen.setAttribute("src","../documentos/" + direccionId + "/" + sinComas[2] + "");
+            imagen.setAttribute(
+              "src",
+              "../documentos/" + direccionId + "/" + sinComas[2] + ""
+            );
           }
         },
       });
@@ -801,6 +809,79 @@ function mostrarHistorico() {
     let estatus = `<td class='historicoTablaDatos'>${sinCodificar[1]}</td>`;
     let usuario = `<td class='historicoTablaDatos'>${sinCodificar[2]}</td>`;
     tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
+  });
+}
+function tablaSeguimiento() {
+  $.ajax({
+    method: "post",
+    url: "../TablasInteracciones",
+    data: {
+      accion: "tablaSeguimiento",
+      idRegistro: document.getElementById("idOculto").value,
+    },
+  }).done(function (result) {
+    let tablseguimiento = document.getElementById("tablaSegEstatus");
+    let sinCodificado = result.split("/_-");
+    for (let i = 0; i < sinCodificado.length - 1; i++) {
+      let sinCodificado2 = sinCodificado[i].split("-_/");
+      usuario = `<td>${sinCodificado2[12]}</td>`;
+      fecha = `<td>${sinCodificado2[11]}</td>`;
+      estatus = `<td>${sinCodificado2[2]}</td>`;
+      comentario = `<td>${sinCodificado2[0]}</td>`;
+      tablseguimiento.innerHTML += `<tr>${
+        usuario + fecha + estatus + comentario
+      }</tr>`;
+    }
+    console.log(result);
+  });
+}
+function docsYaCargados(txtIdRegistro) {
+  $.ajax({
+    method: "POST",
+    url: "../DocumentosAprobados",
+    data: {
+      txtIdRegistro,
+      funcARealizar: "docsYaCargados",
+    },
+  }).done(function (result) {
+    let sinCodificado = result.split("-_/");
+    let selectaOcultar;
+    for (let i = 0; i < sinCodificado.length - 1; i++) {
+      if (sinCodificado[i] === "Factura original") {
+        selectaOcultar = document.getElementById("selectFactura");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Poder notarial") {
+        selectaOcultar = document.getElementById("selectPoder");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Identificacion oficial") {
+        selectaOcultar = document.getElementById("selectIdenti");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Constancia SF") {
+        selectaOcultar = document.getElementById("selectConstancia");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Curp") {
+        selectaOcultar = document.getElementById("selectCurp");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Estado de cuenta") {
+        selectaOcultar = document.getElementById("selectEstado");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Tenencias") {
+        selectaOcultar = document.getElementById("selectTenencia");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Baja de placas") {
+        selectaOcultar = document.getElementById("selectbaja");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Tarjeta de circulacion") {
+        selectaOcultar = document.getElementById("selectTarjeta");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Poliza") {
+        selectaOcultar = document.getElementById("selectPoliza");
+        selectaOcultar.disabled = true;
+      } else if (sinCodificado[i] === "Comprobante de domicilio") {
+        selectaOcultar = document.getElementById("selectCompro");
+        selectaOcultar.disabled = true;
+      }
+    }
   });
 }
 //https://datatables.net/

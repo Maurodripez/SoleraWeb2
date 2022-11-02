@@ -14,7 +14,6 @@ public class DAOTablaDocumentos {
 
     public List<ModeloGuardarImagen> getDocumentos(String idRegistro) {
         List<ModeloGuardarImagen> lista = new ArrayList<>();
-        String respuesta = "No inicia";
         try {
             Conexion conect = new Conexion();
             PreparedStatement ps;
@@ -34,11 +33,9 @@ public class DAOTablaDocumentos {
                 mgImagen.setFechaCarga(rs.getString("fechaCarga"));
                 mgImagen.setFkImagen(rs.getString("fkImagen"));
                 lista.add(mgImagen);
-                respuesta = "correcto";
             }
         } catch (Exception e) {
             // TODO: handle exception
-            respuesta = "error";
         }
         return lista;
 

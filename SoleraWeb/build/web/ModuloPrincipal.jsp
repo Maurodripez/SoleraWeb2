@@ -1371,7 +1371,7 @@
                         </form>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="txtSegEstatus">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                <button onclick="tablaSeguimiento()" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseFive" aria-expanded="false"
                                     aria-controls="flush-collapseFive">
                                     Seguimiento estatus
@@ -1381,20 +1381,15 @@
                                 aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <table class="table table-hover col float-end text-center">
-                                        <tbody>
+                                        <thead>
                                             <tr>
                                                 <th>Usuario</th>
                                                 <th>fecha</th>
                                                 <th>Tipo</th>
                                                 <th>Comentario</th>
                                             </tr>
-                                        </tbody>
-                                    </table>
-                                    <table>
-                                        <tbody>
-                                            <div id="resultSeguimientos" class="row">
-
-                                            </div>
+                                        </thead>
+                                        <tbody id="tablaSegEstatus">
 
                                         </tbody>
                                     </table>
@@ -1476,7 +1471,25 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    Respuesta Solera
+                                                    Sub Estatus
+                                                </label>
+                                                <select class="form-select" id="txtSubEstatus">
+                                                    <option selected>Selecciona...</option>
+                                                    <option value="En seguimiento">En seguimiento
+                                                    </option>
+                                                    <option value="Cancelado">Cancelado
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group mb-3 col">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                    </svg>
+                                                    Respuesta
                                                 </label>
                                                 <select class="form-select" id="txtRespSolera">
                                                     <option selected>Selecciona...</option>

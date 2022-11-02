@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import Modelo.Conexion;
 import Modelo.ModeloGuardarSeguimiento;
@@ -10,28 +11,29 @@ public class DAOGuardarSeguimiento {
     public String GuardarSeguimiento(ModeloGuardarSeguimiento mgSeguimiento) {
         Conexion con = new Conexion();
         PreparedStatement ps;
-        String respuesta = "null";
+        String nombreReal = "";
+        String respuesta = null;
         try {
-            String sql = "update insertarregistros, seguimiento, fechasseguimiento, estadoproceso set respuestaSolera=?,"
-                    + " estatusOperativo=?, personaContactada=?, tipoPersona=?, contactoSeguimiento=?, fechaSeguimiento = curdate(), "
-                    + " fechaIntegracionexpedienteCompleto=?, fechaTermino=?, estacionProceso=?"
-                    + " where fkIdRegistroSeguimiento=? and fkIdRegistroEstadoProceso=? and fkIdRegistroInsertar=? and fkidRegistro=?";
+            String sql = "select nombreReal from usuarios where usuario = '" + mgSeguimiento.getUsuario() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
-            ps.setString(1, mgSeguimiento.getRespSolera());
-            ps.setString(2, mgSeguimiento.getEstatusSeguimiento());
-            ps.setString(3, mgSeguimiento.getPersContactada());
-            ps.setString(4, mgSeguimiento.getTipoPersona());
-            ps.setString(5, mgSeguimiento.getTipoContacto());
-            ps.setString(8, mgSeguimiento.getFechaIntExp());
-            ps.setString(9, mgSeguimiento.getFechaTermino());
-            ps.setString(10, mgSeguimiento.getEstacion());
-            ps.setString(11, mgSeguimiento.getIdRegistro());
-            ps.setString(12, mgSeguimiento.getIdRegistro());
-            ps.setString(13, mgSeguimiento.getIdRegistro());
-            ps.setString(14, mgSeguimiento.getIdRegistro());
-            ps.executeUpdate();
-            respuesta = "aqui si";
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                nombreReal = rs.getString("nombreReal");
+            }
+            sql = "insert into seguimientoprincipal(comentarios,estacionPrincipal, estatusSeguimiento,subEstatus, respuestaSolera,"
+                    + " personaContactada, tipodePersona, contacto,"
+                    + " integraciondeexpediente, facturaciondeservicio, termino, fechaseguimiento, usuario,fkIdRegistroSegPrincipal)"
+                    + " values('" + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getEstacion()
+                    + "','" + mgSeguimiento.getEstatusSeguimiento() + "','" + mgSeguimiento.getSubEstatus()
+                    + "','" + mgSeguimiento.getRespSolera() + "','" + mgSeguimiento.getPersContactada()
+                    + "','" + mgSeguimiento.getTipoPersona() + "','" + mgSeguimiento.getTipoContacto()
+                    + "','" + mgSeguimiento.getFechaIntExp() + "','" + mgSeguimiento.getFechaFactServ()
+                    + "','" + mgSeguimiento.getFechaTermino() + "',now(),'" + nombreReal
+                    + "','" + mgSeguimiento.getIdRegistro() + "')";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.execute();
             con.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
                     + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',now(), '"
@@ -50,7 +52,7 @@ public class DAOGuardarSeguimiento {
 
         } catch (SQLException e) {
             // TODO: handle exception
-             //respuesta = e;
+            // respuesta = e;
         }
         return respuesta;
 

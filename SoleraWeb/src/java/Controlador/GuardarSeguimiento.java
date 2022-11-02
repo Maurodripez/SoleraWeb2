@@ -35,12 +35,11 @@ public class GuardarSeguimiento extends HttpServlet {
             mgSeguimiento.setEstacion(request.getParameter("estacion"));
             mgSeguimiento.setComentSeguimiento(request.getParameter("comentSeguimiento"));
             mgSeguimiento.setEstatusSeguimiento(request.getParameter("estatusSeguimiento"));
+            mgSeguimiento.setSubEstatus(request.getParameter("subEstatus"));
             mgSeguimiento.setRespSolera(request.getParameter("respSolera"));
             mgSeguimiento.setPersContactada(request.getParameter("persContactada"));
             mgSeguimiento.setTipoPersona(request.getParameter("tipoPersona"));
             mgSeguimiento.setTipoContacto(request.getParameter("tipoContacto"));
-            mgSeguimiento.setFechaSeguimiento(request.getParameter("fechaSeguimiento"));
-            mgSeguimiento.setFechaPrimEnvDocs(request.getParameter("fechaPrimEnvDocs"));
             mgSeguimiento.setFechaIntExp(request.getParameter("fechaIntExp"));
             mgSeguimiento.setFechaFactServ(request.getParameter("fechaFactServ"));
             mgSeguimiento.setFechaTermino(request.getParameter("fechaTermino"));

@@ -1608,7 +1608,7 @@
                         </form>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="txtSegEstatus">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                <button onclick="tablaSeguimiento()" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseFive" aria-expanded="false"
                                     aria-controls="flush-collapseFive">
                                     Seguimiento estatus
@@ -1618,20 +1618,15 @@
                                 aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <table class="table table-hover col float-end text-center">
-                                        <tbody>
+                                        <thead>
                                             <tr>
                                                 <th>Usuario</th>
                                                 <th>fecha</th>
                                                 <th>Tipo</th>
                                                 <th>Comentario</th>
                                             </tr>
-                                        </tbody>
-                                    </table>
-                                    <table>
-                                        <tbody>
-                                            <div id="resultSeguimientos" class="row">
-
-                                            </div>
+                                        </thead>
+                                        <tbody id="tablaSegEstatus">
 
                                         </tbody>
                                     </table>
@@ -2185,7 +2180,7 @@
             weeks: true,
         });
     </script>
-    <script src="./js/datos.js"></script>
+    <script src="./js/DatosResp.js"></script>
 </body>
 
 </html>
