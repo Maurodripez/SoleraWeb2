@@ -518,7 +518,7 @@ function InsertarSeguimiento() {
     },
     success: function (result) {
       alert(result);
-      tablaSeguimiento()
+      tablaSeguimiento();
     },
   });
 }
@@ -652,6 +652,7 @@ function valoresSesiones() {
 window.addEventListener("load", function () {
   valoresSesiones();
   CantMensajes();
+  diasSinRespuesta();
 });
 function CantMensajes() {
   $.ajax({
@@ -1034,6 +1035,7 @@ function tablaSeguimiento() {
         usuario + fecha + estatus + comentario
       }</tr>`;
     }
+    tablaSeguimiento.style.fontSize = "0.7em";
   });
 }
 //https://datatables.net/
@@ -1066,5 +1068,21 @@ function consultausuarios() {
       option.text = sinCodificado[i];
       selectIntegradores.add(option);
     }
+  });
+}
+function diasSinRespuesta() {
+  $.ajax({
+    method: "POST",
+    url: "DiasEnRespuesta",
+  }).done(function (result) {
+    let sinCodificado = result.split("/-_");
+    $("#de0a2").html(sinCodificado[0]);
+    $("#de3a5").html(sinCodificado[1]);
+    $("#de6a14").html(sinCodificado[2]);
+    $("#mas15").html(sinCodificado[3]);
+    document.getElementById("de0a2").style.fontSize="2em";
+    document.getElementById("de3a5").style.fontSize="2em";
+    document.getElementById("de6a14").style.fontSize="2em";
+    document.getElementById("mas15").style.fontSize="2em";
   });
 }

@@ -73,8 +73,7 @@
                             <div id="card0a2D" class="card 1" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <%=deRespuesta.Dias0a2()%>
+                                        <h5 id="de0a2" class="card-title">
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -108,8 +107,7 @@
                             <div id="card3a5D" class="card 2" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <%=deRespuesta.Dias3a5()%>
+                                        <h5 id="de3a5" class="card-title">
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -142,8 +140,8 @@
                             <div id="card6a14D" class="card 3" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <%=deRespuesta.Dias6a14()%>
+                                        <h5 id="de6a14" class="card-title">
+
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -176,8 +174,7 @@
                             <div id="cardMas15D" class="card 4" style="width: 18rem">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <%=deRespuesta.DiasMas15()%>
+                                        <h5 id="mas15" class="card-title">
                                         </h5>
                                     </div>
                                     <div class="row">
@@ -1364,7 +1361,7 @@
                             <input type="hidden" id="idOculto" name="idEditableActual" value="">
                             <!--centrar texto con esta funcion-->
                             <div style="text-align: center">
-                                <button id="gDatosBtn" onclick="GuardarRegistros()" class="btn btn-info">
+                                <button id="gDatosBtn" onclick="GuardarRegistros()" class="m-2 btn btn-info">
                                     Guardar Datos
                                 </button>
                             </div>
