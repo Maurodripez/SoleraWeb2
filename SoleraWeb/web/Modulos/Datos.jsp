@@ -1610,7 +1610,7 @@
                         </form>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="txtSegEstatus">
-                                <button onclick="tablaSeguimiento()" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseFive" aria-expanded="false"
                                     aria-controls="flush-collapseFive">
                                     Seguimiento estatus
@@ -1894,8 +1894,6 @@
                                                 <select class="form-select" id="txtIntegrador">
                                                     <option selected>Selecciona...
                                                     </option>
-                                                    <option value="Demo AOL">Demo AOL
-                                                    </option>>
                                                 </select>
                                             </div>
                                         </div>

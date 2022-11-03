@@ -288,6 +288,7 @@ function cambiarNombre(get) {
   mostrarHistorico();
   let iframe = document.getElementById("iFrameIdentificacion");
   iframe.style.display = "none";
+  tablaSeguimiento();
 }
 function guardarDocsAprobados(id) {
   let txtFactura = document.getElementById("checkboxFactura");
@@ -995,6 +996,7 @@ function tablaSeguimiento() {
       idRegistro: document.getElementById("idOculto").value,
     },
   }).done(function (result) {
+    $(".claseTablaSeguimiento").remove();
     let tablseguimiento = document.getElementById("tablaSegEstatus");
     let sinCodificado = result.split("/_-");
     for (let i = 0; i < sinCodificado.length - 1; i++) {
@@ -1003,7 +1005,7 @@ function tablaSeguimiento() {
       fecha = `<td>${sinCodificado2[11]}</td>`;
       estatus = `<td>${sinCodificado2[2]}</td>`;
       comentario = `<td>${sinCodificado2[0]}</td>`;
-      tablseguimiento.innerHTML += `<tr>${
+      tablseguimiento.innerHTML += `<tr class='claseTablaSeguimiento'>${
         usuario + fecha + estatus + comentario
       }</tr>`;
     }
@@ -1023,5 +1025,22 @@ function asignarIntegrador() {
   }).done(function (result) {
     alert(result);
     tablaSeguimiento();
+  });
+}
+function consultausuarios() {
+  $.ajax({
+    method: "POST",
+    url: "ConsultaUsuarios",
+    data: {
+      accion: "consultaUsuarios",
+    },
+  }).done(function (response) {
+    let sinCodificado = response.split("/-_");
+    for (let i = 0; i < sinCodificado.length - 1; i++) {
+      let selectIntegradores = document.getElementById("txtIntegrador");
+      let option = document.createElement("option");
+      option.text = sinCodificado[i];
+      selectIntegradores.add(option);
+    }
   });
 }
