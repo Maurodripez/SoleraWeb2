@@ -43,7 +43,8 @@ function valoresSesiones() {
         let crearUsuarios = document.getElementById("CrearUsuario");
         crearUsuarios.style = "display:none";
         let asignacion = document.getElementById("Asignacion");
-        asignacion.style = "display:none";
+        asignacion
+        .style = "display:none";
       }
     },
   });

@@ -39,8 +39,9 @@ public class GuardadoImagenesServlet extends HttpServlet {
       String fkGuardar = request.getParameter("fkImagenes");
       String nombreArchivo = request.getParameter("tipoArchivo");
       // se obtienen la direccion real para poder obtenerla de la web
-      File directorio = new File("C:/Users/death/Desktop/Solera Web 2/SoleraWeb2/SoleraWeb/web/documentos/" + fkGuardar + "");
-     // File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
+      // File directorio = new File("C:/Users/death/Desktop/Solera Web
+      // 2/SoleraWeb2/SoleraWeb/web/documentos/" + fkGuardar + "");
+      File directorio = new File("C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/documentos/" + fkGuardar + "");
       if (!directorio.exists()) {
         if (directorio.mkdirs()) {
           System.out.println("Directorio creado");
@@ -49,12 +50,14 @@ public class GuardadoImagenesServlet extends HttpServlet {
         }
       } // se crea el directorio para caada caso
       InputStream input = archivo.getInputStream();
-      String ruta = "C:\\Users\\death\\Desktop\\Solera Web 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
-    //String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
+      // String ruta = "C:\\Users\\death\\Desktop\\Solera Web
+      // 2\\SoleraWeb2\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
+      String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
       // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
       File cargarImagenes = new File(ruta);
-      File doc = new File(cargarImagenes, nombreArchivo + "-" + archivo.getSubmittedFileName());
-      String archivoUnico = nombreArchivo + "-" + archivo.getSubmittedFileName();
+      String nombreCorregido = archivo.getSubmittedFileName().replaceAll("_", "-");
+      File doc = new File(cargarImagenes, nombreArchivo + "-" + nombreCorregido);
+      String archivoUnico = nombreArchivo + "-" + nombreCorregido;
       Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
       // la carpeta seleccionada
       dGImagenes.guardarImagen(nombreArchivo, ruta + "" + archivoUnico, fkGuardar, archivoUnico);

@@ -2063,19 +2063,19 @@
                                                     <select name="tipoArchivo" class="form-select form-select-sm"
                                                         aria-label="Default select example">
                                                         <option selected>Selecciona...</option>
-                                                        <option value="Factura original">Factura original</option>
-                                                        <option value="Poder notarial">Poder notarial</option>
-                                                        <option value="Identificacion oficial">Identificacion oficial
+                                                        <option id="selectFactura" value="Factura original">Factura original</option>
+                                                        <option id="selectPoder" value="Poder notarial">Poder notarial</option>
+                                                        <option id="selectIdenti" value="Identificacion oficial">Identificacion oficial
                                                         </option>
-                                                        <option value="Constancia SF">Constancia SF</option>
-                                                        <option value="Curp">Curp</option>
-                                                        <option value="Estado de cuenta">Estado de cuenta</option>
-                                                        <option value="Tenencias">Tenencias</option>
-                                                        <option value="Baja de placas">Baja de placas</option>
-                                                        <option value="Tarjeta de circulacion">Tarjeta de circulacion
+                                                        <option id="selectConstancia" value="Constancia SF">Constancia SF</option>
+                                                        <option id="selectCurp" value="Curp">Curp</option>
+                                                        <option id="selectEstado" value="Estado de cuenta">Estado de cuenta</option>
+                                                        <option id="selectTenencia" value="Tenencias">Tenencias</option>
+                                                        <option id="selectbaja" value="Baja de placas">Baja de placas</option>
+                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">Tarjeta de circulacion
                                                         </option>
-                                                        <option value="Poliza">Poliza</option>
-                                                        <option value="Comprobante de domicilio">Comprobante de
+                                                        <option id="selectPoliza" value="Poliza">Poliza</option>
+                                                        <option id="selectCompro" value="Comprobante de domicilio">Comprobante de
                                                             domicilio</option>
                                                     </select>
                                                 </div>

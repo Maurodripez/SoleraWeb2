@@ -289,6 +289,8 @@ function cambiarNombre(get) {
   let iframe = document.getElementById("iFrameIdentificacion");
   iframe.style.display = "none";
   tablaSeguimiento();
+  let txtIdRegistro = document.getElementById("idOculto").value;
+  docsYaCargados(txtIdRegistro);
 }
 function guardarDocsAprobados(id) {
   let txtFactura = document.getElementById("checkboxFactura");
@@ -420,6 +422,7 @@ function tablaImagenes(txtIdRegistro) {
       idRegistro: txtIdRegistro,
     },
     success: function (result) {
+      $(".tablaImagenes").remove();
       let sinCodificado = result.split("/_-");
       for (let i = 0; i < sinCodificado.length - 1; i++) {
         let sinCodificado2 = sinCodificado[i].split("-_/");
@@ -939,6 +942,28 @@ function mostrarHistorico() {
   });
 }
 function docsYaCargados(txtIdRegistro) {
+  selectaOcultar = document.getElementById("selectFactura");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectPoder");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectIdenti");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectConstancia");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectCurp");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectEstado");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectTenencia");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectbaja");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectTarjeta");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectPoliza");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectCompro");
+  selectaOcultar.disabled = false;
   $.ajax({
     method: "POST",
     url: "DocumentosAprobados",
@@ -1009,7 +1034,6 @@ function tablaSeguimiento() {
         usuario + fecha + estatus + comentario
       }</tr>`;
     }
-    console.log(result);
   });
 }
 //https://datatables.net/
