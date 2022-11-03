@@ -1697,7 +1697,7 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <button id="btnAsignarIntegrador" class="btn btn-primary">
+                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador" class="btn btn-primary">
                                                 Asignar integrador
                                             </button>
                                         </div>

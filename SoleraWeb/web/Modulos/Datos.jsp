@@ -14,6 +14,8 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
     <script src="../js/jquery-3.6.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <link rel="stylesheet" href="../Desplegables/libs/css/bootstrap-datepicker.css" />
     <script src="../Desplegables/libs/js/bootstrap-datepicker.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -1617,7 +1619,7 @@
                             <div id="flush-collapseFive" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    <table class="table table-hover col float-end text-center">
+                                    <table id="tablaSeguimientos" class="table table-hover col float-end text-center">
                                         <thead>
                                             <tr>
                                                 <th>Usuario</th>
@@ -1889,7 +1891,7 @@
                                                     </svg>
                                                     Contacto
                                                 </label>
-                                                <select class="form-select" id="txtEstatus">
+                                                <select class="form-select" id="txtIntegrador">
                                                     <option selected>Selecciona...
                                                     </option>
                                                     <option value="Demo AOL">Demo AOL
@@ -1897,26 +1899,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="fSeguimientoClass col mb-3">
-                                            <div class="calendario date" id="datepicker2">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                        fill="currentColor" class="bi bi-calendar-check"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                    </svg>
-                                                    Fecha asignacion
-                                                </label>
-                                                <input class="input-group-append" id="fechaContactoCliente"
-                                                    pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaTermino"
-                                                    type="text" placeholder="Fecha">
-                                            </div>
-                                        </div>
                                         <div class="col">
-                                            <button id="btnAsignarIntegrador" class="btn btn-primary">
+                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador" class="btn btn-primary">
                                                 Asignar integrador
                                             </button>
                                         </div>
@@ -2180,7 +2164,7 @@
             weeks: true,
         });
     </script>
-    <script src="./js/DatosResp.js"></script>
+    <script src="./js/datos.js"></script>
 </body>
 
 </html>

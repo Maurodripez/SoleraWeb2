@@ -1,6 +1,5 @@
 var contador = 0;
 window.addEventListener("load", function () {
-  alert("hola");
   valoresSesiones();
   recargarSiniestros();
   //muestra los dias paasados por documentos
@@ -368,6 +367,7 @@ function InsertarSeguimiento() {
   $.ajax({
     url: "../GuardarSeguimiento",
     data: {
+      accion: "guardarSeguimiento",
       estacion: document.getElementById("txtEstacion").value,
       comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
       estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
@@ -385,10 +385,12 @@ function InsertarSeguimiento() {
     },
     success: function (result) {
       alert(result);
+      tablaSeguimiento();
     },
   });
 }
 $(document).ready(function () {
+  $("#tablaSeguimientos").DataTable();
   controlPaginado();
   //funcion para limpiar el regitro
   $("#limpiarRegistro").click(function () {
@@ -541,7 +543,6 @@ function mostrarTabla(result) {
     cantidadTablas = resultado;
   } else {
     cantidadTablas = Math.trunc((sinDiagonal.length - 1) / 10) + 2;
-    console.log(cantidadTablas);
   }
   let numeroTBody = 0;
   let tblBody = new Array();
@@ -832,7 +833,6 @@ function tablaSeguimiento() {
         usuario + fecha + estatus + comentario
       }</tr>`;
     }
-    console.log(result);
   });
 }
 function docsYaCargados(txtIdRegistro) {
@@ -885,3 +885,17 @@ function docsYaCargados(txtIdRegistro) {
   });
 }
 //https://datatables.net/
+function asignarIntegrador() {
+  $.ajax({
+    method: "POST",
+    url: "../GuardarSeguimiento",
+    data: {
+      accion: "AsignarIntegrador",
+      integrador: document.getElementById("txtIntegrador").value,
+      idRegistro: document.getElementById("idOculto").value,
+    },
+  }).done(function (result) {
+    alert(result);
+    tablaSeguimiento();
+  });
+}

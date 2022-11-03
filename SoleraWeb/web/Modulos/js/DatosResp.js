@@ -1,6 +1,5 @@
 var contador = 0;
 window.addEventListener("load", function () {
-  alert("hola");
   valoresSesiones();
   recargarSiniestros();
   //muestra los dias paasados por documentos
@@ -832,7 +831,7 @@ function tablaSeguimiento() {
         usuario + fecha + estatus + comentario
       }</tr>`;
     }
-    console.log(result);
+    $('#tablaSeguimientos').DataTable();
   });
 }
 function docsYaCargados(txtIdRegistro) {
@@ -885,3 +884,6 @@ function docsYaCargados(txtIdRegistro) {
   });
 }
 //https://datatables.net/
+$(document).ready( function () {
+  $('#tablaSeguimientos').DataTable();
+} );

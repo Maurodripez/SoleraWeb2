@@ -514,6 +514,7 @@ function InsertarSeguimiento() {
     },
     success: function (result) {
       alert(result);
+      tablaSeguimiento()
     },
   });
 }
@@ -1010,3 +1011,17 @@ function tablaSeguimiento() {
   });
 }
 //https://datatables.net/
+function asignarIntegrador() {
+  $.ajax({
+    method: "POST",
+    url: "GuardarSeguimiento",
+    data: {
+      accion: "AsignarIntegrador",
+      integrador: document.getElementById("txtIntegrador").value,
+      idRegistro: document.getElementById("idOculto").value,
+    },
+  }).done(function (result) {
+    alert(result);
+    tablaSeguimiento();
+  });
+}

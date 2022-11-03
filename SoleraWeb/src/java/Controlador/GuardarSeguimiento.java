@@ -30,23 +30,35 @@ public class GuardarSeguimiento extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String respuesta = "nada";
         try (PrintWriter out = response.getWriter()) {
-            ModeloGuardarSeguimiento mgSeguimiento = new ModeloGuardarSeguimiento();
+            String accion = request.getParameter("accion");
             DAOGuardarSeguimiento daoGSeguimiento = new DAOGuardarSeguimiento();
-            mgSeguimiento.setEstacion(request.getParameter("estacion"));
-            mgSeguimiento.setComentSeguimiento(request.getParameter("comentSeguimiento"));
-            mgSeguimiento.setEstatusSeguimiento(request.getParameter("estatusSeguimiento"));
-            mgSeguimiento.setSubEstatus(request.getParameter("subEstatus"));
-            mgSeguimiento.setRespSolera(request.getParameter("respSolera"));
-            mgSeguimiento.setPersContactada(request.getParameter("persContactada"));
-            mgSeguimiento.setTipoPersona(request.getParameter("tipoPersona"));
-            mgSeguimiento.setTipoContacto(request.getParameter("tipoContacto"));
-            mgSeguimiento.setFechaIntExp(request.getParameter("fechaIntExp"));
-            mgSeguimiento.setFechaFactServ(request.getParameter("fechaFactServ"));
-            mgSeguimiento.setFechaTermino(request.getParameter("fechaTermino"));
-            mgSeguimiento.setIdRegistro(request.getParameter("idRegistro"));
-            mgSeguimiento.setUsuario(request.getParameter("usuario"));
-            respuesta = daoGSeguimiento.GuardarSeguimiento(mgSeguimiento);
-            out.println(respuesta);
+            switch (accion) {
+                case "guardarSeguimiento":
+                    ModeloGuardarSeguimiento mgSeguimiento = new ModeloGuardarSeguimiento();
+                    mgSeguimiento.setEstacion(request.getParameter("estacion"));
+                    mgSeguimiento.setComentSeguimiento(request.getParameter("comentSeguimiento"));
+                    mgSeguimiento.setEstatusSeguimiento(request.getParameter("estatusSeguimiento"));
+                    mgSeguimiento.setSubEstatus(request.getParameter("subEstatus"));
+                    mgSeguimiento.setRespSolera(request.getParameter("respSolera"));
+                    mgSeguimiento.setPersContactada(request.getParameter("persContactada"));
+                    mgSeguimiento.setTipoPersona(request.getParameter("tipoPersona"));
+                    mgSeguimiento.setTipoContacto(request.getParameter("tipoContacto"));
+                    mgSeguimiento.setFechaIntExp(request.getParameter("fechaIntExp"));
+                    mgSeguimiento.setFechaFactServ(request.getParameter("fechaFactServ"));
+                    mgSeguimiento.setFechaTermino(request.getParameter("fechaTermino"));
+                    mgSeguimiento.setIdRegistro(request.getParameter("idRegistro"));
+                    mgSeguimiento.setUsuario(request.getParameter("usuario"));
+                    respuesta = daoGSeguimiento.GuardarSeguimiento(mgSeguimiento);
+                    out.println(respuesta);
+                    break;
+                case "AsignarIntegrador":
+                    String integrador = request.getParameter("integrador");
+                    String idRegistro = request.getParameter("idRegistro");
+                    String r = null;
+                    r = daoGSeguimiento.asignarIntegrador(integrador, idRegistro);
+                    out.println(r);
+                    break;
+            }
         }
     }
 

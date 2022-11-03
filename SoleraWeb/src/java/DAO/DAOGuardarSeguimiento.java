@@ -8,11 +8,12 @@ import Modelo.ModeloGuardarSeguimiento;
 import java.sql.SQLException;
 
 public class DAOGuardarSeguimiento {
+    Conexion con = new Conexion();
+    PreparedStatement ps;
+    String nombreReal = "";
+    String respuesta = null;
+
     public String GuardarSeguimiento(ModeloGuardarSeguimiento mgSeguimiento) {
-        Conexion con = new Conexion();
-        PreparedStatement ps;
-        String nombreReal = "";
-        String respuesta = null;
         try {
             String sql = "select nombreReal from usuarios where usuario = '" + mgSeguimiento.getUsuario() + "'";
             con.conectar();
@@ -53,6 +54,23 @@ public class DAOGuardarSeguimiento {
         } catch (SQLException e) {
             // TODO: handle exception
             // respuesta = e;
+        }
+        return respuesta;
+
+    }
+
+    public String asignarIntegrador(String integrador, String idRegistro) {
+        respuesta = null;
+        try {
+            String sql = "insert into seguimientoprincipal(estatusSeguimiento,fechaseguimiento, fkIdRegistroSegPrincipal) values('"
+                    + integrador + "',curdate(),'" + idRegistro + "')";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.executeUpdate();
+            respuesta = "Integrador asignado";
+
+        } catch (Exception e) {
+            // TODO: handle exception
         }
         return respuesta;
 
