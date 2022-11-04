@@ -558,6 +558,7 @@ function mostrarTabla(result) {
   for (let i = 0; i < sinDiagonal.length - 1; i++) {
     let sinComas = sinDiagonal[i].split("-_/");
     if (i % 9 == 0 && i != 0) {
+      console.log("entra");
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
       <button type='button' id=${
@@ -734,7 +735,7 @@ function recargarSiniestros() {
     success: function (result) {
       mostrarTabla(result);
     },
-  });
+  }); //
   $.ajax({
     method: "POST",
     url: "../SiniestrosNoDocs",
@@ -842,28 +843,28 @@ function tablaSeguimiento() {
   });
 }
 function docsYaCargados(txtIdRegistro) {
-    selectaOcultar = document.getElementById("selectFactura");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectPoder");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectIdenti");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectConstancia");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectCurp");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectEstado");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectTenencia");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectbaja");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectTarjeta");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectPoliza");
-    selectaOcultar.disabled = false;
-    selectaOcultar = document.getElementById("selectCompro");
-    selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectFactura");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectPoder");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectIdenti");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectConstancia");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectCurp");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectEstado");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectTenencia");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectbaja");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectTarjeta");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectPoliza");
+  selectaOcultar.disabled = false;
+  selectaOcultar = document.getElementById("selectCompro");
+  selectaOcultar.disabled = false;
   $.ajax({
     method: "POST",
     url: "../DocumentosAprobados",
@@ -942,5 +943,50 @@ function consultausuarios() {
       option.text = sinCodificado[i];
       selectIntegradores.add(option);
     }
+  });
+}
+function busquedaConFiltros() {
+  let checkTerminados = document.getElementById("terminadosBtn");
+  let checkSeguimiento = document.getElementById("enSeguimientoBtn");
+  let checkIncorrectos = document.getElementById("datosIncorrectosBtn");
+  console.log(checkTerminados.checked);
+  if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("3Checked");
+  } else if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoSeguimiento");
+  } else if (
+    checkTerminados.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoIncorrecto");
+  } else if (
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("seguimientoIncorrecto");
+  } else if (checkTerminados.checked == true) {
+    funcionAjaxParaFiltros("terminado");
+  } else if (checkSeguimiento.checked == true) {
+    funcionAjaxParaFiltros("seguimiento");
+  } else if (checkIncorrectos.checked == true) {
+    funcionAjaxParaFiltros("incorrectos");
+  }
+}
+function funcionAjaxParaFiltros(filtro) {
+  $.ajax({
+    method: "POST",
+    url: "../BusquedaConFiltros",
+    data: {
+      accion: filtro,
+    },
+  }).done(function (result) {
+    mostrarTabla(result);
   });
 }

@@ -29,7 +29,8 @@ public class DAOCargaSiniestro {
             }
             conect.Desconectar();
             sql = "insert into infosiniestro(usuarioCarga,numSiniestro,fechaSiniestro,poliza,cobertura,afectado,regimenFiscal,ciudad,ubicacionTaller,fechaDecreto,fechaCarga)"
-                    + " values('"+nombreReal+"','" + numSiniestro + "','" + fechaSiniestro + "','" + numPoliza + "','" + cobertura
+                    + " values('" + nombreReal + "','" + numSiniestro + "','" + fechaSiniestro + "','" + numPoliza
+                    + "','" + cobertura
                     + "','" + afectado + "','" + regimen + "','" + ciudad + "','" + taller + "','" + fechaDecreto
                     + "',now())";
             conect.conectar();

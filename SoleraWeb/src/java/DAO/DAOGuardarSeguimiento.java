@@ -49,6 +49,11 @@ public class DAOGuardarSeguimiento {
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
             con.Desconectar();
+            sql = "update fechasseguimiento set fechaSeguimiento=curdate() where fkidRegistro='"+mgSeguimiento.getIdRegistro()+"'";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.execute();
+            con.Desconectar();
             respuesta = "Guardado Correcto";
 
         } catch (SQLException e) {

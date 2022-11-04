@@ -123,3 +123,20 @@
   justify-content: center;
   align-items: center;
 }
+.SiniestrosDesglozados{
+  border: none;
+  padding: 0%;
+}
+#svgCardCheck{
+  padding: 0%;
+  margin:0%;
+  border: none;
+}
+.letrerosDias{
+  padding: 0%;
+  border: none;
+}
+.fondodesglozados{
+  background-color: transparent;
+  border: none;
+}

@@ -11,7 +11,7 @@ import Modelo.ModeloBusquedaDatos;
 public class DAOBusquedaGeneralDatos {
 
     public List<ModeloBusquedaDatos> getBusquedaGeneral(String filtro) {
-        List<ModeloBusquedaDatos> lista = new ArrayList();
+        List<ModeloBusquedaDatos> lista = new ArrayList<>();
         Conexion conect = new Conexion();
         PreparedStatement ps;
         ResultSet rs;

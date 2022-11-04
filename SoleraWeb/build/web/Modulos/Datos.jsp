@@ -15,7 +15,8 @@
     </script>
     <script src="../js/jquery-3.6.1.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
+    </script>
     <link rel="stylesheet" href="../Desplegables/libs/css/bootstrap-datepicker.css" />
     <script src="../Desplegables/libs/js/bootstrap-datepicker.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -65,25 +66,57 @@
             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                 aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
+                    <div class="mb-3 form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="terminadosBtn" value="terminadosBtn">
+                        <label class="form-check-label" for="terminadosBtn">Terminados</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="enSeguimientoBtn" value="enSeguimientoBtn">
+                        <label class="form-check-label" for="enSeguimientoBtn">En seguimiento</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="datosIncorrectosBtn"
+                            value="datosIncorrectosBtn">
+                        <label class="form-check-label" for="datosIncorrectosBtn">datos incorrectos o sin
+                            contacto</label>
+                    </div>
+                    <div class="mb-3 form-check form-check-inline">
+                        <button onclick="busquedaConFiltros()" id="aplicarCheckBoxs"
+                            class="btn btn-primary">Aplicar</button>
+                    </div>
                     <div class="row">
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne">
-                            <div id="card0a2D" class="card 1" style="width: 18rem">
+                            <div id="card0a2D" class="card 1">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <div id="de0a2"></div>
-                                        </h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <p class="card-text">
-                                                0-2 Dias
-                                            </p>
+                                        <div class="CantidadSiniestros pt-5 col-2">
+                                            <h5 style="font-size: 30px" class="card-title">
+                                                <div id="de0a2"></div>
+                                            </h5>
                                         </div>
-                                        <div class="col-5">
+                                        <div class="SiniestrosDesglozados col-8">
+                                            <ul class="SiniestrosDesglozados list-group">
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Terminados
+                                                    <span class="badge bg-primary rounded-pill">14</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    En seguimiento
+                                                    <span class="badge bg-primary rounded-pill">2</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Incorrectos / Sin contacto
+                                                    <span class="badge bg-primary rounded-pill">1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="pt-5 col-2">
                                             <!--stroke hace que cambie el color-->
-                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="60"
+                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="55"
                                                 height="60" viewBox="0 0 24 24" fill="none" stroke="#605ca8"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-check-square">
@@ -92,6 +125,11 @@
                                                 </path>
                                             </svg>
                                         </div>
+                                    </div>
+                                    <div class="p-0 row">
+                                        <p style="text-align:center" class="letrerosDias card-text">
+                                            0-2 Dias
+                                        </p>
                                     </div>
                                 </div>
                                 <!--en collapseresultados ligo el boton de la tabla para que al apretar el boton, se muestren los resultados-->
@@ -104,21 +142,36 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div id="card3a5D" class="card 2" style="width: 18rem">
+                            <div id="card3a5D" class="card 2">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <div id="de3a5"></div>
-                                        </h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <p class="card-text">
-                                                3-5 Dias
-                                            </p>
+                                        <div class="CantidadSiniestros pt-5 col-2">
+                                            <h5 style="font-size: 30px" class="card-title">
+                                                <div id="de3a5"></div>
+                                            </h5>
                                         </div>
-                                        <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                        <div class="SiniestrosDesglozados col-8">
+                                            <ul class="SiniestrosDesglozados list-group">
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Terminados
+                                                    <span class="badge bg-primary rounded-pill">14</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    En seguimiento
+                                                    <span class="badge bg-primary rounded-pill">2</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Incorrectos / Sin contacto
+                                                    <span class="badge bg-primary rounded-pill">1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="pt-5 col-2">
+                                            <!--stroke hace que cambie el color-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="60"
                                                 viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-thumbs-up">
@@ -127,6 +180,11 @@
                                                 </path>
                                             </svg>
                                         </div>
+                                    </div>
+                                    <div class="p-0 row">
+                                        <p style="text-align:center" class="letrerosDias card-text">
+                                            0-2 Dias
+                                        </p>
                                     </div>
                                 </div>
                                 <button id="txtBuscar3a5" onclick="busquedaPorDias('3,6')"
@@ -139,29 +197,49 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div id="card6a14D" class="card 3" style="width: 18rem">
+                            <div id="card6a14D" class="card 3">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <div id="de6a14"></div>
-                                        </h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <p class="card-text">
-                                                6-14 Dias
-                                            </p>
+                                        <div class="CantidadSiniestros pt-5 col-2">
+                                            <h5 style="font-size: 30px" class="card-title">
+                                                <div id="de6a14"></div>
+                                            </h5>
                                         </div>
-                                        <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                        <div class="SiniestrosDesglozados col-8">
+                                            <ul class="SiniestrosDesglozados list-group">
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Terminados
+                                                    <span class="badge bg-primary rounded-pill">14</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    En seguimiento
+                                                    <span class="badge bg-primary rounded-pill">2</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Incorrectos / Sin contacto
+                                                    <span class="badge bg-primary rounded-pill">1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="pt-5 col-2">
+                                            <!--stroke hace que cambie el color-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="60"
                                                 viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-thumbs-down">
                                                 <path
                                                     d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17">
                                                 </path>
-                                            </svg>
+                                            </svg></svg>
                                         </div>
+                                    </div>
+                                    <div class="p-0 row">
+                                        <p style="text-align:center" class="letrerosDias card-text">
+                                            0-2 Dias
+                                        </p>
                                     </div>
                                 </div>
                                 <button id="txtBuscar6a14" onclick="busquedaPorDias('6,15')"
@@ -174,34 +252,54 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div id="cardMas15D" class="card 4" style="width: 18rem">
+                            <div id="cardMas15D" class="card 4">
                                 <div class="card-body">
                                     <div class="row">
-                                        <h5 class="card-title">
-                                            <div id="mas15"></div>
-                                        </h5>
+                                        <div class="CantidadSiniestros pt-5 col-2">
+                                            <h5 style="font-size: 30px" class="card-title">
+                                                <div id="mas15"></div>
+                                            </h5>
+                                        </div>
+                                        <div class="SiniestrosDesglozados col-8">
+                                            <ul class="SiniestrosDesglozados list-group">
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Terminados
+                                                    <span class="badge bg-primary rounded-pill">14</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    En seguimiento
+                                                    <span class="badge bg-primary rounded-pill">2</span>
+                                                </li>
+                                                <li style="font-size: 13px"
+                                                    class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
+                                                    Incorrectos / Sin contacto
+                                                    <span class="badge bg-primary rounded-pill">1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="pt-5 col-2">
+                                            <!--stroke hace que cambie el color-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="60"
+                                            viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-alert-triangle">
+                                            <path
+                                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                            </path>
+                                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                        </svg>
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-7">
-                                            <p class="card-text">
-                                                Mas de 15 Dias
-                                            </p>
-                                        </div>
-                                        <div class="col-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
-                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-alert-triangle">
-                                                <path
-                                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                                                </path>
-                                                <line x1="12" y1="9" x2="12" y2="13"></line>
-                                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                            </svg>
-                                        </div>
+                                    <div class="p-0 row">
+                                        <p style="text-align:center" class="letrerosDias card-text">
+                                            0-2 Dias
+                                        </p>
                                     </div>
                                 </div>
-                                <button id="txtBuscarMas15" onclick="busquedaPorDias('15,360')"
+                                <button id="txtBuscarMas15" onclick="busquedaPorDias('15,60')"
                                     class="btnDocumentos btn btn-primary" type="button" data-bs-toggle="collapse"
                                     data-bs-target=".collapseresultados" aria-expanded="false"
                                     aria-controls="multiCollapseExample1 multiCollapseExample2">Mostrar
@@ -1680,25 +1778,32 @@
                                                     <select class="form-select" id="txtEstatusSeguimiento">
                                                         <option selected>Selecciona...
                                                         </option>
-                                                        <option value="Con contacto sin documentos">
-                                                            Con contacto sin documentos
+                                                        <option
+                                                            value="CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)">
+                                                            CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION,
+                                                            POLIZA NO PAGADA)</option>
+                                                        <option value="CASO REABIERTO">CASO REABIERTO</option>
+                                                        <option value="CON CONTACTO SIN COOPERACION DEL CLIENTE">CON
+                                                            CONTACTO SIN COOPERACION DEL CLIENTE</option>
+                                                        <option value="CON CONTACTO SIN DOCUMENTOS">CON CONTACTO SIN
+                                                            DOCUMENTOS</option>
+                                                        <option
+                                                            value="CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)">
+                                                            CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)</option>
+                                                        <option value="DATOS INCORRECTOS">DATOS INCORRECTOS</option>
+                                                        <option value="DE 1 A 3 DOCUMENTOS">DE 1 A 3 DOCUMENTOS</option>
+                                                        <option value="DE 4 A 6 DOCUMENTOS">DE 4 A 6 DOCUMENTOS</option>
+                                                        <option value="DE 7 A 10 DOCUMENTOS">DE 7 A 10 DOCUMENTOS
                                                         </option>
-                                                        <option value="Datos incorrectos">
-                                                            Datos incorrectos</option>
-                                                        <option value="De 1 a 3 documentos">
-                                                            De 1 a 3 documentos</option>
-                                                        <option value="De 4 a 6 documentos">
-                                                            De 4 a 6 documentos</option>
-                                                        <option value="De 7 a 10 documentos">De
-                                                            7 a 10 documentos</option>
-                                                        <option value="Nuevo2">Nuevo
+                                                        <option value="NUEVO">NUEVO</option>
+                                                        <option value="SIN CONTACTO">SIN CONTACTO</option>
+                                                        <option value="SIN CONTACTO EN 30 DIAS">SIN CONTACTO EN 30 DIAS
                                                         </option>
-                                                        <option value="Sin Contacto">Sin
-                                                            Contacto</option>
-                                                        <option value="Sin contacto en 30 dia2">
-                                                            Sin contacto en 30 dia</option>
-                                                        <option value="Total de documentos">
-                                                            Total de documentos</option>
+                                                        <option value="TERMINADO ENTREGA ORIGINALES EN OFICINA">
+                                                            TERMINADO ENTREGA ORIGINALES EN OFICINA</option>
+                                                        <option value="TERMINADO POR PROCESO COMPLETO">TERMINADO POR
+                                                            PROCESO COMPLETO</option>
+                                                        <option value="TOTAL DE DOCUMENTOS">TOTAL DE DOCUMENTOS</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -1898,7 +2003,8 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador" class="btn btn-primary">
+                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador"
+                                                class="btn btn-primary">
                                                 Asignar integrador
                                             </button>
                                         </div>
@@ -2052,7 +2158,7 @@
                                         </div>
                                         <div class="col-12" style="text-align: center">
                                             <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
-                                            type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
+                                                type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
                                         </div>
                                     </ul>
                                     <div class="col">
@@ -2063,19 +2169,27 @@
                                                     <select name="tipoArchivo" class="form-select form-select-sm"
                                                         aria-label="Default select example">
                                                         <option selected>Selecciona...</option>
-                                                        <option id="selectFactura" value="Factura original">Factura original</option>
-                                                        <option id="selectPoder" value="Poder notarial">Poder notarial</option>
-                                                        <option id="selectIdenti" value="Identificacion oficial">Identificacion oficial
+                                                        <option id="selectFactura" value="Factura original">Factura
+                                                            original</option>
+                                                        <option id="selectPoder" value="Poder notarial">Poder notarial
                                                         </option>
-                                                        <option id="selectConstancia" value="Constancia SF">Constancia SF</option>
+                                                        <option id="selectIdenti" value="Identificacion oficial">
+                                                            Identificacion oficial
+                                                        </option>
+                                                        <option id="selectConstancia" value="Constancia SF">Constancia
+                                                            SF</option>
                                                         <option id="selectCurp" value="Curp">Curp</option>
-                                                        <option id="selectEstado" value="Estado de cuenta">Estado de cuenta</option>
+                                                        <option id="selectEstado" value="Estado de cuenta">Estado de
+                                                            cuenta</option>
                                                         <option id="selectTenencia" value="Tenencias">Tenencias</option>
-                                                        <option id="selectbaja" value="Baja de placas">Baja de placas</option>
-                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">Tarjeta de circulacion
+                                                        <option id="selectbaja" value="Baja de placas">Baja de placas
+                                                        </option>
+                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">
+                                                            Tarjeta de circulacion
                                                         </option>
                                                         <option id="selectPoliza" value="Poliza">Poliza</option>
-                                                        <option id="selectCompro" value="Comprobante de domicilio">Comprobante de
+                                                        <option id="selectCompro" value="Comprobante de domicilio">
+                                                            Comprobante de
                                                             domicilio</option>
                                                     </select>
                                                 </div>

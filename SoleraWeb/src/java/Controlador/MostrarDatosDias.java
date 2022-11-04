@@ -32,6 +32,8 @@ public class MostrarDatosDias extends HttpServlet {
             DAOMostrarPorDias dmDias = new DAOMostrarPorDias();
             float porcentajeDocs = 0;
             String porcentajeTotal = "0";
+            //String r = dmDias.getPorDias(mayor, menor);
+           // out.println(r);
             for (ModeloBusquedaDatos mbDatos : dmDias.getPorDias(mayor, menor)) {
                 out.print(mbDatos.getIdRegistro() + "-_/");
                 out.print(mbDatos.getNumSiniestro() + "-_/");
