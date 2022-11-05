@@ -449,9 +449,14 @@ function exportTableToExcel(tableID, filename = "") {
     url: "../SiniestrosNoDocs",
     data: {
       accion: "SiniestrosEnRespuesta",
+      cero: "0",
+      tres: "3",
+      seis: "6",
+      quince: "15",
+      treinta: "30",
     },
     success: function (result) {
-      let sinComas = result.split(",");
+      let sinComas = result.split("/-_");
       $("#de0a2").html(sinComas[0]);
       $("#de3a5").html(sinComas[1]);
       $("#de6a14").html(sinComas[2]);
@@ -558,7 +563,6 @@ function mostrarTabla(result) {
   for (let i = 0; i < sinDiagonal.length - 1; i++) {
     let sinComas = sinDiagonal[i].split("-_/");
     if (i % 9 == 0 && i != 0) {
-      console.log("entra");
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
       <button type='button' id=${
@@ -743,11 +747,23 @@ function recargarSiniestros() {
       accion: "SiniestrosEnRespuesta",
     },
     success: function (result) {
-      let sinComas = result.split(",");
+      let sinComas = result.split("/-_");
       $("#de0a2").html(sinComas[0]);
       $("#de3a5").html(sinComas[1]);
       $("#de6a14").html(sinComas[2]);
       $("#mas15").html(sinComas[3]);
+      document.getElementById("terminados0a2").textContent = sinComas[4];
+      document.getElementById("seguimiento0a2").textContent = sinComas[5];
+      document.getElementById("incorrectos0a2").textContent = sinComas[6];
+      document.getElementById("terminados3a5").textContent = sinComas[7];
+      document.getElementById("seguimiento3a5").textContent = sinComas[8];
+      document.getElementById("incorrectos3a5").textContent = sinComas[9];
+      document.getElementById("terminados6a14").textContent = sinComas[10];
+      document.getElementById("seguimiento6a14").textContent = sinComas[11];
+      document.getElementById("incorrectos6a14").textContent = sinComas[12];
+      document.getElementById("terminadosmas15").textContent = sinComas[13];
+      document.getElementById("seguimientomas15").textContent = sinComas[14];
+      document.getElementById("incorrectosmas15").textContent = sinComas[15];
     },
   });
 }
@@ -765,18 +781,37 @@ function busquedaGeneral(thisValue) {
   });
 }
 function busquedaPorDias(getId) {
-  let sinComas = getId.split(",");
-  $.ajax({
-    method: "POST",
-    url: "../MostrarDatosDias",
-    data: {
-      mayor: sinComas[0],
-      menor: sinComas[1],
-    },
-    success: function (result) {
-      mostrarTabla(result);
-    },
-  });
+  let checkTerminados = document.getElementById("terminadosBtn");
+  let checkSeguimiento = document.getElementById("enSeguimientoBtn");
+  let checkIncorrectos = document.getElementById("datosIncorrectosBtn");
+  if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("3Checked", getId);
+  } else if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoSeguimiento", getId);
+  } else if (
+    checkTerminados.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoIncorrecto", getId);
+  } else if (
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("seguimientoIncorrecto", getId);
+  } else if (checkTerminados.checked == true) {
+    funcionAjaxParaFiltros("terminado", getId);
+  } else if (checkSeguimiento.checked == true) {
+    funcionAjaxParaFiltros("seguimiento", getId);
+  } else if (checkIncorrectos.checked == true) {
+    funcionAjaxParaFiltros("incorrectos", getId);
+  }
 }
 function enviarImagenes() {
   let imagen;
@@ -949,7 +984,6 @@ function busquedaConFiltros() {
   let checkTerminados = document.getElementById("terminadosBtn");
   let checkSeguimiento = document.getElementById("enSeguimientoBtn");
   let checkIncorrectos = document.getElementById("datosIncorrectosBtn");
-  console.log(checkTerminados.checked);
   if (
     checkTerminados.checked == true &&
     checkSeguimiento.checked == true &&
@@ -979,8 +1013,22 @@ function busquedaConFiltros() {
     funcionAjaxParaFiltros("incorrectos");
   }
 }
-function funcionAjaxParaFiltros(filtro) {
+function funcionAjaxParaFiltros(filtro, getId) {
+  let sinComas = getId.split(",");
   $.ajax({
+    method: "POST",
+    url: "../MostrarDatosDias",
+    data: {
+      mayor: sinComas[0],
+      menor: sinComas[1],
+      accion: filtro,
+    },
+    success: function (result) {
+      console.log(result);
+      mostrarTabla(result);
+    },
+  });
+  /* $.ajax({
     method: "POST",
     url: "../BusquedaConFiltros",
     data: {
@@ -988,5 +1036,5 @@ function funcionAjaxParaFiltros(filtro) {
     },
   }).done(function (result) {
     mostrarTabla(result);
-  });
+  });*/
 }

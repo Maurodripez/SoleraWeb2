@@ -35,10 +35,27 @@ public class SiniestrosNoDocs extends HttpServlet {
             switch (accion) {
                 case "SiniestrosEnRespuesta":
                     dseRespuesta.todosDias();
-                    out.print(dseRespuesta.contador0a2 + ",");
-                    out.print(dseRespuesta.contador3a5 + ",");
-                    out.print(dseRespuesta.contador6a14 + ",");
-                    out.print(dseRespuesta.contadormas15);
+                    out.print(dseRespuesta.contador0a2 + "/-_");
+                    out.print(dseRespuesta.contador3a5 + "/-_");
+                    out.print(dseRespuesta.contador6a14 + "/-_");
+                    out.print(dseRespuesta.contadormas15 + "/-_");
+                    String cero = request.getParameter("cero");
+                    String tres = request.getParameter("tres");
+                    String seis = request.getParameter("seis");
+                    String quince = request.getParameter("quince");
+                    String treinta = request.getParameter("treinta");
+                    dseRespuesta.getPorEstatus(cero, tres);
+                    out.print(dseRespuesta.terminados + "/-_" + dseRespuesta.seguimiento + "/-_"
+                            + dseRespuesta.incorrectos + "/-_");
+                    dseRespuesta.getPorEstatus(tres, seis);
+                    out.print(dseRespuesta.terminados + "/-_" + dseRespuesta.seguimiento + "/-_"
+                            + dseRespuesta.incorrectos + "/-_");
+                    dseRespuesta.getPorEstatus(seis, quince);
+                    out.print(dseRespuesta.terminados + "/-_" + dseRespuesta.seguimiento + "/-_"
+                            + dseRespuesta.incorrectos + "/-_");
+                    dseRespuesta.getPorEstatus(quince, treinta);
+                    out.print(dseRespuesta.terminados + "/-_" + dseRespuesta.seguimiento + "/-_"
+                            + dseRespuesta.incorrectos + "/-_");
                     break;
             }
         }
