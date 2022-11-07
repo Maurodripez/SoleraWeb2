@@ -1720,16 +1720,22 @@
                                     <table id="tablaSeguimientos" class="table table-hover col float-end text-center">
                                         <thead>
                                             <tr>
-                                                <th>Usuario</th>
-                                                <th>fecha</th>
-                                                <th>Tipo</th>
-                                                <th>Comentario</th>
+                                                <th class="col">Usuario</th>
+                                                <th class="col">fecha</th>
+                                                <th class="col">Tipo</th>
+                                                <th class="col-6">Comentario</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tablaSegEstatus">
-
-                                        </tbody>
                                     </table>
+                                    <div class="row">
+                                        <p style="display: none" id="paginaActualSeg" name="uno">0</p>
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination">
+                                              <li id="btnMenosSeg" class="page-item"><a class="page-link">Anterior</a></li>
+                                              <li id="btnMasSeg" class="page-item"><a class="page-link">Siguiente</a></li>
+                                            </ul>
+                                          </nav>
+                                    </div>
                                     <div id="datosSeguimiento">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1">C</span>

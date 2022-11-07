@@ -41,7 +41,7 @@ public class DAOTablaHistorica {
     public List<ModeloTablaSeguimiento> getSeguimiento(String id) {
         List<ModeloTablaSeguimiento> lista = new ArrayList<>();
         try {
-            sql = "select * from seguimientoprincipal where fkIdRegistroSegPrincipal='" + id + "'";
+            sql = "select * from seguimientoprincipal where fkIdRegistroSegPrincipal='" + id + "' order by fechaseguimiento desc" ;
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();

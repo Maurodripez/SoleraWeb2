@@ -1,4 +1,5 @@
 var contador = 0;
+var contadorSeg = 0;
 window.addEventListener("load", function () {
   valoresSesiones();
   recargarSiniestros();
@@ -387,15 +388,14 @@ function InsertarSeguimiento() {
       fechaFactServ: document.getElementById("txtFechaFactServ").value,
       fechaTermino: document.getElementById("txtFechaTermino").value,
       idRegistro: document.getElementById("idOculto").value,
+      usuario:document.getElementById("UsuarioActivo").textContent,
     },
-    success: function (result) {
-      alert(result);
+    success: function () {
       tablaSeguimiento();
     },
   });
 }
 $(document).ready(function () {
-  $("#tablaSeguimientos").DataTable();
   controlPaginado();
   //funcion para limpiar el regitro
   $("#limpiarRegistro").click(function () {
@@ -432,37 +432,7 @@ function exportTableToExcel(tableID, filename = "") {
     //triggering the function
     downloadLink.click();
   }
-  $.ajax({
-    method: "POST",
-    url: "../ControladorMostrarDatos",
-    data: {
-      accion: "MostrarSiniestrosNoDocs",
-      soloDatos: "SoloDatos",
-    },
-    success: function (result) {
-      mostrarTabla(result);
-    },
-  });
-  //muestra los dias paasados por documentos
-  $.ajax({
-    method: "POST",
-    url: "../SiniestrosNoDocs",
-    data: {
-      accion: "SiniestrosEnRespuesta",
-      cero: "0",
-      tres: "3",
-      seis: "6",
-      quince: "15",
-      treinta: "30",
-    },
-    success: function (result) {
-      let sinComas = result.split("/-_");
-      $("#de0a2").html(sinComas[0]);
-      $("#de3a5").html(sinComas[1]);
-      $("#de6a14").html(sinComas[2]);
-      $("#mas15").html(sinComas[3]);
-    },
-  });
+  recargarSiniestros();
 }
 //funcion para buscar en tiempo real los resultados
 function busquedaParticular(getId, getValue) {
@@ -539,6 +509,211 @@ function valoresSesiones() {
         document.getElementById("fechaCarga").disabled = true;
       }
     },
+  });
+}
+function controlPaginado() {
+  //funcion para controlar el pagina de los resultados
+  let paginaMas = document.getElementById("botonClickMas");
+  let paginaMenos = document.getElementById("botonClickMenos");
+  let paginaMasSeg = document.getElementById("btnMasSeg");
+  let paginaMenosSeg = document.getElementById("btnMenosSeg");
+  let paginaActual = document.getElementById("paginaActual");
+  let paginaActualSeg = document.getElementById("paginaActualSeg");
+  paginaMas.onclick = function () {
+    //saber el tamano de la cantidad de tbodys para no dar error
+    let tBodys = document.getElementsByClassName("tBody").length;
+    let tBodyActual = document.getElementById("tBody:" + contador);
+    if (contador < tBodys - 1) {
+      tBodyActual.style.display = "none";
+      contador++;
+      paginaActual.textContent = contador;
+      tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.removeProperty("display");
+    }
+  };
+  paginaMenos.onclick = function () {
+    if (contador > 0) {
+      let tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.display = "none";
+      contador--;
+      paginaActual.textContent = contador;
+      tBodyActual = document.getElementById("tBody:" + contador);
+      tBodyActual.style.removeProperty("display");
+    }
+  };
+  paginaMasSeg.onclick = function () {
+    let tBodysSeg = document.getElementsByClassName("tBodySeg").length;
+    let tBodyActualSeg = document.getElementById("tBodySeg:" + contadorSeg);
+    if (contadorSeg < tBodysSeg - 1) {
+      tBodyActualSeg.style.display = "none";
+      contadorSeg++;
+      paginaActualSeg.textContent = contadorSeg;
+      tBodyActualSeg = document.getElementById("tBodySeg:" + contadorSeg);
+      tBodyActualSeg.style.removeProperty("display");
+    }
+  };
+  paginaMenosSeg.onclick = function () {
+    if (contadorSeg > 0) {
+      let tBodyActualSeg = document.getElementById("tBodySeg:" + contadorSeg);
+      tBodyActualSeg.style.display = "none";
+      contadorSeg--;
+      paginaActualSeg.textContent = contadorSeg;
+      tBodyActualSeg = document.getElementById("tBodySeg:" + contadorSeg);
+      tBodyActualSeg.style.removeProperty("display");
+    }
+  };
+}
+function eliminarSiniestro(getId) {
+  //funcion para borrar el siniestro
+  let sinComas = getId.split(",");
+  let idEliminar = sinComas[0];
+  let mensaje;
+  let opcion = confirm("Confirma para eliminar siniestro");
+  if (opcion == true) {
+    $.ajax({
+      method: "POST",
+      url: "../EliminarSiniestro",
+      data: {
+        idEliminar,
+      },
+    }).done(function (respuesta) {
+      alert(respuesta);
+      contador = 0;
+      paginaActual.textContent = contador;
+      recargarSiniestros();
+    });
+  } else {
+    mensaje = "Movimiento cancelado";
+  }
+}
+function recargarSiniestros() {
+  $.ajax({
+    method: "POST",
+    url: "../ControladorMostrarDatos",
+    data: {
+      accion: "MostrarSiniestrosNoDocs",
+      soloDatos: "SoloDatos",
+    },
+    success: function (result) {
+      mostrarTabla(result);
+    },
+  }); //
+  $.ajax({
+    method: "POST",
+    url: "../SiniestrosNoDocs",
+    data: {
+      accion: "SiniestrosEnRespuesta",
+      cero: "0",
+      tres: "3",
+      seis: "6",
+      quince: "15",
+      treinta: "30",
+    },
+    success: function (result) {
+      let sinComas = result.split("/-_");
+      $("#de0a2").html(sinComas[0]);
+      $("#de3a5").html(sinComas[1]);
+      $("#de6a14").html(sinComas[2]);
+      $("#mas15").html(sinComas[3]);
+      document.getElementById("terminados0a2").textContent = sinComas[4];
+      document.getElementById("seguimiento0a2").textContent = sinComas[5];
+      document.getElementById("incorrectos0a2").textContent = sinComas[6];
+      document.getElementById("terminados3a5").textContent = sinComas[7];
+      document.getElementById("seguimiento3a5").textContent = sinComas[8];
+      document.getElementById("incorrectos3a5").textContent = sinComas[9];
+      document.getElementById("terminados6a14").textContent = sinComas[10];
+      document.getElementById("seguimiento6a14").textContent = sinComas[11];
+      document.getElementById("incorrectos6a14").textContent = sinComas[12];
+      document.getElementById("terminadosmas15").textContent = sinComas[13];
+      document.getElementById("seguimientomas15").textContent = sinComas[14];
+      document.getElementById("incorrectosmas15").textContent = sinComas[15];
+    },
+  });
+}
+function busquedaGeneral(thisValue) {
+  $.ajax({
+    method: "POST",
+    url: "../BusquedaGeneral",
+    data: {
+      filtro: thisValue,
+    },
+    success: function (result) {
+      console.log(result);
+      mostrarTabla(result);
+    },
+  });
+}
+function busquedaPorDias(getId) {
+  let checkTerminados = document.getElementById("terminadosBtn");
+  let checkSeguimiento = document.getElementById("enSeguimientoBtn");
+  let checkIncorrectos = document.getElementById("datosIncorrectosBtn");
+  if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("3Checked", getId);
+  } else if (
+    checkTerminados.checked == true &&
+    checkSeguimiento.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoSeguimiento", getId);
+  } else if (
+    checkTerminados.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("terminadoIncorrecto", getId);
+  } else if (
+    checkSeguimiento.checked == true &&
+    checkIncorrectos.checked == true
+  ) {
+    funcionAjaxParaFiltros("seguimientoIncorrecto", getId);
+  } else if (checkTerminados.checked == true) {
+    funcionAjaxParaFiltros("terminado", getId);
+  } else if (checkSeguimiento.checked == true) {
+    funcionAjaxParaFiltros("seguimiento", getId);
+  } else if (checkIncorrectos.checked == true) {
+    funcionAjaxParaFiltros("incorrectos", getId);
+  }
+}
+function enviarImagenes() {
+  let imagen;
+  imagen = new FormData(document.getElementById("archivoCargado"));
+  $.ajax({
+    url: "../GuardadoImagenesServlet",
+    method: "post",
+    data: imagen,
+    cache: false,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+      $(".tablaImagenes").remove();
+      mostrarDocsAprobados();
+      alert(result);
+    },
+    error: function () {
+      alert("Servidor anormal, intente nuevamente más tarde ...");
+    },
+  });
+  return false;
+}
+function mostrarHistorico() {
+  let inputNombreFk = document.getElementById("fkIdOculto").value;
+  let tabla = document.getElementById("ResultadoHistorico");
+  $.ajax({
+    method: "POST",
+    url: "../TablasInteracciones",
+    data: {
+      accion: "TablaHistorica",
+      inputNombreFk,
+    },
+  }).done(function (respuesta) {
+    $(".historicoTablaDatos").remove();
+    let sinCodificar = respuesta.split("-_/");
+    let fechaCarga = `<td class='historicoTablaDatos'>${sinCodificar[0]}</td>`;
+    let estatus = `<td class='historicoTablaDatos'>${sinCodificar[1]}</td>`;
+    let usuario = `<td class='historicoTablaDatos'>${sinCodificar[2]}</td>`;
+    tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
   });
 }
 function mostrarTabla(result) {
@@ -677,182 +852,6 @@ function mostrarTabla(result) {
     }
   }
 }
-function controlPaginado() {
-  //funcion para controlar el pagina de los resultados
-  let paginaMas = document.getElementById("botonClickMas");
-  let paginaMenos = document.getElementById("botonClickMenos");
-  let paginaActual = document.getElementById("paginaActual");
-  paginaMas.onclick = function () {
-    //saber el tamano de la cantidad de tbodys para no dar error
-    let tBodys = document.getElementsByClassName("tBody").length;
-    let tBodyActual = document.getElementById("tBody:" + contador);
-    if (contador < tBodys - 1) {
-      tBodyActual.style.display = "none";
-      contador++;
-      paginaActual.textContent = contador;
-      tBodyActual = document.getElementById("tBody:" + contador);
-      tBodyActual.style.removeProperty("display");
-    }
-  };
-  paginaMenos.onclick = function () {
-    if (contador > 0) {
-      let tBodyActual = document.getElementById("tBody:" + contador);
-      tBodyActual.style.display = "none";
-      contador--;
-      paginaActual.textContent = contador;
-      tBodyActual = document.getElementById("tBody:" + contador);
-      tBodyActual.style.removeProperty("display");
-    }
-  };
-}
-function eliminarSiniestro(getId) {
-  //funcion para borrar el siniestro
-  let sinComas = getId.split(",");
-  let idEliminar = sinComas[0];
-  let mensaje;
-  let opcion = confirm("Confirma para eliminar siniestro");
-  if (opcion == true) {
-    $.ajax({
-      method: "POST",
-      url: "../EliminarSiniestro",
-      data: {
-        idEliminar,
-      },
-    }).done(function (respuesta) {
-      alert(respuesta);
-      contador = 0;
-      paginaActual.textContent = contador;
-      recargarSiniestros();
-    });
-  } else {
-    mensaje = "Movimiento cancelado";
-  }
-}
-function recargarSiniestros() {
-  $.ajax({
-    method: "POST",
-    url: "../ControladorMostrarDatos",
-    data: {
-      accion: "MostrarSiniestrosNoDocs",
-      soloDatos: "SoloDatos",
-    },
-    success: function (result) {
-      mostrarTabla(result);
-    },
-  }); //
-  $.ajax({
-    method: "POST",
-    url: "../SiniestrosNoDocs",
-    data: {
-      accion: "SiniestrosEnRespuesta",
-    },
-    success: function (result) {
-      let sinComas = result.split("/-_");
-      $("#de0a2").html(sinComas[0]);
-      $("#de3a5").html(sinComas[1]);
-      $("#de6a14").html(sinComas[2]);
-      $("#mas15").html(sinComas[3]);
-      document.getElementById("terminados0a2").textContent = sinComas[4];
-      document.getElementById("seguimiento0a2").textContent = sinComas[5];
-      document.getElementById("incorrectos0a2").textContent = sinComas[6];
-      document.getElementById("terminados3a5").textContent = sinComas[7];
-      document.getElementById("seguimiento3a5").textContent = sinComas[8];
-      document.getElementById("incorrectos3a5").textContent = sinComas[9];
-      document.getElementById("terminados6a14").textContent = sinComas[10];
-      document.getElementById("seguimiento6a14").textContent = sinComas[11];
-      document.getElementById("incorrectos6a14").textContent = sinComas[12];
-      document.getElementById("terminadosmas15").textContent = sinComas[13];
-      document.getElementById("seguimientomas15").textContent = sinComas[14];
-      document.getElementById("incorrectosmas15").textContent = sinComas[15];
-    },
-  });
-}
-function busquedaGeneral(thisValue) {
-  $.ajax({
-    method: "POST",
-    url: "../BusquedaGeneral",
-    data: {
-      filtro: thisValue,
-    },
-    success: function (result) {
-      console.log(result);
-      mostrarTabla(result);
-    },
-  });
-}
-function busquedaPorDias(getId) {
-  let checkTerminados = document.getElementById("terminadosBtn");
-  let checkSeguimiento = document.getElementById("enSeguimientoBtn");
-  let checkIncorrectos = document.getElementById("datosIncorrectosBtn");
-  if (
-    checkTerminados.checked == true &&
-    checkSeguimiento.checked == true &&
-    checkIncorrectos.checked == true
-  ) {
-    funcionAjaxParaFiltros("3Checked", getId);
-  } else if (
-    checkTerminados.checked == true &&
-    checkSeguimiento.checked == true
-  ) {
-    funcionAjaxParaFiltros("terminadoSeguimiento", getId);
-  } else if (
-    checkTerminados.checked == true &&
-    checkIncorrectos.checked == true
-  ) {
-    funcionAjaxParaFiltros("terminadoIncorrecto", getId);
-  } else if (
-    checkSeguimiento.checked == true &&
-    checkIncorrectos.checked == true
-  ) {
-    funcionAjaxParaFiltros("seguimientoIncorrecto", getId);
-  } else if (checkTerminados.checked == true) {
-    funcionAjaxParaFiltros("terminado", getId);
-  } else if (checkSeguimiento.checked == true) {
-    funcionAjaxParaFiltros("seguimiento", getId);
-  } else if (checkIncorrectos.checked == true) {
-    funcionAjaxParaFiltros("incorrectos", getId);
-  }
-}
-function enviarImagenes() {
-  let imagen;
-  imagen = new FormData(document.getElementById("archivoCargado"));
-  $.ajax({
-    url: "../GuardadoImagenesServlet",
-    method: "post",
-    data: imagen,
-    cache: false,
-    processData: false,
-    contentType: false,
-    success: function (result) {
-      $(".tablaImagenes").remove();
-      mostrarDocsAprobados();
-      alert(result);
-    },
-    error: function () {
-      alert("Servidor anormal, intente nuevamente más tarde ...");
-    },
-  });
-  return false;
-}
-function mostrarHistorico() {
-  let inputNombreFk = document.getElementById("fkIdOculto").value;
-  let tabla = document.getElementById("ResultadoHistorico");
-  $.ajax({
-    method: "POST",
-    url: "../TablasInteracciones",
-    data: {
-      accion: "TablaHistorica",
-      inputNombreFk,
-    },
-  }).done(function (respuesta) {
-    $(".historicoTablaDatos").remove();
-    let sinCodificar = respuesta.split("-_/");
-    let fechaCarga = `<td class='historicoTablaDatos'>${sinCodificar[0]}</td>`;
-    let estatus = `<td class='historicoTablaDatos'>${sinCodificar[1]}</td>`;
-    let usuario = `<td class='historicoTablaDatos'>${sinCodificar[2]}</td>`;
-    tabla.innerHTML += `<tr>${fechaCarga + estatus + usuario}</tr>`;
-  });
-}
 function tablaSeguimiento() {
   $.ajax({
     method: "post",
@@ -863,17 +862,42 @@ function tablaSeguimiento() {
     },
   }).done(function (result) {
     $(".claseTablaSeguimiento").remove();
-    let tablseguimiento = document.getElementById("tablaSegEstatus");
+    let numeroTBody = 0;
+    let tblBody = new Array();
+    tblBody[numeroTBody] = document.createElement("tbody");
+    tblBody[numeroTBody].setAttribute("class", "tBodySeg");
+    tblBody[numeroTBody].setAttribute("id", "tBodySeg:" + numeroTBody);
+    let tablaseguimiento = document.getElementById("tablaSeguimientos");
+    tablaseguimiento.appendChild(tblBody[numeroTBody]);
     let sinCodificado = result.split("/_-");
     for (let i = 0; i < sinCodificado.length - 1; i++) {
-      let sinCodificado2 = sinCodificado[i].split("-_/");
-      usuario = `<td>${sinCodificado2[12]}</td>`;
-      fecha = `<td>${sinCodificado2[11]}</td>`;
-      estatus = `<td>${sinCodificado2[2]}</td>`;
-      comentario = `<td>${sinCodificado2[0]}</td>`;
-      tablseguimiento.innerHTML += `<tr class='claseTablaSeguimiento'>${
-        usuario + fecha + estatus + comentario
-      }</tr>`;
+      //console.log("entra");
+      if (i % 5 == 0 && i != 0) {
+        let sinCodificado2 = sinCodificado[i].split("-_/");
+        usuario = `<td style='font-size: 12px'>${sinCodificado2[12]}</td>`;
+        fecha = `<td style='font-size: 12px'>${sinCodificado2[11]}</td>`;
+        estatus = `<td style='font-size: 12px'>${sinCodificado2[2]}</td>`;
+        comentario = `<td style='font-size: 12px'>${sinCodificado2[0]}</td>`;
+        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${
+          usuario + fecha + estatus + comentario
+        }</tr>`;
+        tablaseguimiento.appendChild(tblBody[numeroTBody]);
+        numeroTBody += 1;
+        tblBody[numeroTBody] = document.createElement("tbody");
+        tblBody[numeroTBody].setAttribute("class", "tBodySeg");
+        tblBody[numeroTBody].setAttribute("id", "tBodySeg:" + numeroTBody);
+        tblBody[numeroTBody].style.display = "none";
+        tablaseguimiento.appendChild(tblBody[numeroTBody]);
+      } else {
+        let sinCodificado2 = sinCodificado[i].split("-_/");
+        usuario = `<td style='font-size: 12px'>${sinCodificado2[12]}</td>`;
+        fecha = `<td style='font-size: 12px'>${sinCodificado2[11]}</td>`;
+        estatus = `<td style='font-size: 12px'>${sinCodificado2[2]}</td>`;
+        comentario = `<td style='font-size: 12px'>${sinCodificado2[0]}</td>`;
+        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${
+          usuario + fecha + estatus + comentario
+        }</tr>`;
+      }
     }
   });
 }
@@ -1028,13 +1052,4 @@ function funcionAjaxParaFiltros(filtro, getId) {
       mostrarTabla(result);
     },
   });
-  /* $.ajax({
-    method: "POST",
-    url: "../BusquedaConFiltros",
-    data: {
-      accion: filtro,
-    },
-  }).done(function (result) {
-    mostrarTabla(result);
-  });*/
 }
