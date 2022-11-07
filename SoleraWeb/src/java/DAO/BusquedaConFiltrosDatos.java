@@ -187,8 +187,8 @@ public class BusquedaConFiltrosDatos {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia, baja, tarjeta, polizaDoc, comprobante,"
                 + " idRegistro, numSiniestro, poliza, marca, modelo, numSerie,estado, fechaCarga, estacionProceso,estatusCliente"
-                + " from fechasseguimiento as fs, infosiniestro, infoauto, estadoproceso,fechasseguimiento as fs where fs.fkidRegistro=idRegistro"
-                + " and idRegistro=infoauto.fkidRegistro and idRegistro=fkIdRegistroEstadoProceso and idRegistro = fs.fkidRegistro"
+                + " from documentosaprobados, infosiniestro, infoauto, estadoproceso,fechasseguimiento as fs where fs.fkidRegistro=idRegistro"
+                + " and idRegistro=infoauto.fkidRegistro and idRegistro=fkIdRegistroEstadoProceso and fkIdRegistroDocsAprobados=idRegistro"
                 + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor
                 + "' and datediff(CURDATE(), fechaSeguimiento)<'" + menor + "')";
         try {

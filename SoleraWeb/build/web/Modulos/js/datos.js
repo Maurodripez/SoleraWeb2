@@ -388,7 +388,7 @@ function InsertarSeguimiento() {
       fechaFactServ: document.getElementById("txtFechaFactServ").value,
       fechaTermino: document.getElementById("txtFechaTermino").value,
       idRegistro: document.getElementById("idOculto").value,
-      usuario:document.getElementById("UsuarioActivo").textContent,
+      usuario: document.getElementById("UsuarioActivo").textContent,
     },
     success: function () {
       tablaSeguimiento();
@@ -674,6 +674,12 @@ function busquedaPorDias(getId) {
     funcionAjaxParaFiltros("seguimiento", getId);
   } else if (checkIncorrectos.checked == true) {
     funcionAjaxParaFiltros("incorrectos", getId);
+  } else if (
+    checkTerminados.checked == false &&
+    checkSeguimiento.checked == false &&
+    checkIncorrectos.checked == false
+  ) {
+    funcionAjaxParaFiltros("3Checked", getId);
   }
 }
 function enviarImagenes() {
@@ -763,18 +769,18 @@ function mostrarTabla(result) {
       0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
       </svg></button>
     </div></td>`;
-      registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-      siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-      poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-      marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-      tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-      serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-      carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-      estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-      estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-      porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-      porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-      estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+      registro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[0]}</td>`;
+      siniestro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[1]}</td>`;
+      poliza = `<td style='font-size: 14px' class='tablaActual'>${sinComas[2]}</td>`;
+      marca = `<td style='font-size: 14px' class='tablaActual'>${sinComas[3]}</td>`;
+      tipo = `<td style='font-size: 14px' class='tablaActual'>${sinComas[4]}</td>`;
+      serie = `<td style='font-size: 14px' class='tablaActual'>${sinComas[5]}</td>`;
+      carga = `<td style='font-size: 14px' class='tablaActual'>${sinComas[6]}</td>`;
+      estacion = `<td style='font-size: 14px' class='tablaActual'>${sinComas[7]}</td>`;
+      estatus = `<td style='font-size: 14px' class='tablaActual'>${sinComas[8]}</td>`;
+      porcentajeDocs = `<td style='font-size: 14px' class='tablaActual'>${sinComas[9]}</td>`;
+      porcentajeTotal = `<td style='font-size: 14px' class='tablaActual'>${sinComas[10]}</td>`;
+      estado = `<td style='font-size: 14px' class='tablaActual'>${sinComas[11]}</td>`;
       tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
         btnGrupo +
         registro +
@@ -822,18 +828,18 @@ function mostrarTabla(result) {
       0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
       </svg></button>
     </div></td>`;
-      let registro = `<td class='tablaActual'>${sinComas[0]}</td>`;
-      let siniestro = `<td class='tablaActual'>${sinComas[1]}</td>`;
-      let poliza = `<td class='tablaActual'>${sinComas[2]}</td>`;
-      let marca = `<td class='tablaActual'>${sinComas[3]}</td>`;
-      let tipo = `<td class='tablaActual'>${sinComas[4]}</td>`;
-      let serie = `<td class='tablaActual'>${sinComas[5]}</td>`;
-      let carga = `<td class='tablaActual'>${sinComas[6]}</td>`;
-      let estacion = `<td class='tablaActual'>${sinComas[7]}</td>`;
-      let estatus = `<td class='tablaActual'>${sinComas[8]}</td>`;
-      let porcentajeDocs = `<td class='tablaActual'>${sinComas[9]}</td>`;
-      let porcentajeTotal = `<td class='tablaActual'>${sinComas[10]}</td>`;
-      let estado = `<td class='tablaActual'>${sinComas[11]}</td>`;
+      let registro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[0]}</td>`;
+      let siniestro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[1]}</td>`;
+      let poliza = `<td style='font-size: 14px' class='tablaActual'>${sinComas[2]}</td>`;
+      let marca = `<td style='font-size: 14px' class='tablaActual'>${sinComas[3]}</td>`;
+      let tipo = `<td style='font-size: 14px' class='tablaActual'>${sinComas[4]}</td>`;
+      let serie = `<td style='font-size: 14px' class='tablaActual'>${sinComas[5]}</td>`;
+      let carga = `<td style='font-size: 14px' class='tablaActual'>${sinComas[6]}</td>`;
+      let estacion = `<td style='font-size: 14px' class='tablaActual'>${sinComas[7]}</td>`;
+      let estatus = `<td style='font-size: 14px' class='tablaActual'>${sinComas[8]}</td>`;
+      let porcentajeDocs = `<td style='font-size: 14px' class='tablaActual'>${sinComas[9]}</td>`;
+      let porcentajeTotal = `<td style='font-size: 14px' class='tablaActual'>${sinComas[10]}</td>`;
+      let estado = `<td style='font-size: 14px' class='tablaActual'>${sinComas[11]}</td>`;
       tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
         btnGrupo +
         registro +
@@ -1048,7 +1054,6 @@ function funcionAjaxParaFiltros(filtro, getId) {
       accion: filtro,
     },
     success: function (result) {
-      console.log(result);
       mostrarTabla(result);
     },
   });

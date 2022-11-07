@@ -142,8 +142,6 @@ public class ControladorMostrarDatos extends HttpServlet {
                 for (ModeloBusquedaDatos mbDatos : daoMDatos.obtenerDatos(fechaBuscar1, estacion, estatus,
                         subEstatus,
                         fechaBuscar2, region, estado, cobertura)) {
-                    out.println(fechaBuscar1);
-                    out.println(fechaBuscar2);
                     out.print(mbDatos.getIdRegistro() + "-_/");
                     out.print(mbDatos.getNumSiniestro() + "-_/");
                     out.print(mbDatos.getPoliza() + "-_/");

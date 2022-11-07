@@ -80,10 +80,6 @@
                         <label class="form-check-label" for="datosIncorrectosBtn">datos incorrectos o sin
                             contacto</label>
                     </div>
-                    <div class="mb-3 form-check form-check-inline">
-                        <button onclick="busquedaConFiltros()" id="aplicarCheckBoxs"
-                            class="btn btn-primary">Aplicar</button>
-                    </div>
                     <div class="row">
                         <div id="collapseOne" class="accordion-collapse collapse show col-3"
                             aria-labelledby="headingOne">
@@ -91,7 +87,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 30px" class="card-title">
+                                            <h5 style="font-size: 25px" class="card-title">
                                                 <div id="de0a2"></div>
                                             </h5>
                                         </div>
@@ -100,24 +96,27 @@
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
-                                                    <span id="terminados0a2" class="badge bg-primary rounded-pill"></span>
+                                                    <span id="terminados0a2"
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
-                                                    <span id="seguimiento0a2" class="badge bg-primary rounded-pill">2</span>
+                                                    <span id="seguimiento0a2"
+                                                        class="badge bg-primary rounded-pill">2</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
-                                                    <span id="incorrectos0a2" class="badge bg-primary rounded-pill">1</span>
+                                                    <span id="incorrectos0a2"
+                                                        class="badge bg-primary rounded-pill">1</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="pt-5 col-2">
+                                        <div class="pt-5 col-3">
                                             <!--stroke hace que cambie el color-->
-                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="55"
-                                                height="55" viewBox="0 0 24 24" fill="none" stroke="#605ca8"
+                                            <svg id="svgCardCheck" xmlns="http://www.w3.org/2000/svg" width="60"
+                                                height="60" viewBox="0 0 24 24" fill="none" stroke="#605ca8"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-check-square">
                                                 <polyline points="9 11 12 14 22 4"></polyline>
@@ -146,7 +145,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 30px" class="card-title">
+                                            <h5 style="font-size: 25px" class="card-title">
                                                 <div id="de3a5"></div>
                                             </h5>
                                         </div>
@@ -155,23 +154,26 @@
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
-                                                    <span id="terminados3a5" class="badge bg-primary rounded-pill">14</span>
+                                                    <span id="terminados3a5"
+                                                        class="badge bg-primary rounded-pill">14</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
-                                                    <span id="seguimiento3a5" class="badge bg-primary rounded-pill">2</span>
+                                                    <span id="seguimiento3a5"
+                                                        class="badge bg-primary rounded-pill">2</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
-                                                    <span id="incorrectos3a5" class="badge bg-primary rounded-pill">1</span>
+                                                    <span id="incorrectos3a5"
+                                                        class="badge bg-primary rounded-pill">1</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="pt-5 col-2">
+                                        <div class="pt-5 col-3">
                                             <!--stroke hace que cambie el color-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
                                                 viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-thumbs-up">
@@ -183,7 +185,7 @@
                                     </div>
                                     <div class="p-0 row">
                                         <p style="text-align:center" class="letrerosDias card-text">
-                                            0-2 Dias
+                                            3-5 Dias
                                         </p>
                                     </div>
                                 </div>
@@ -201,7 +203,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 30px" class="card-title">
+                                            <h5 style="font-size: 25px" class="card-title">
                                                 <div id="de6a14"></div>
                                             </h5>
                                         </div>
@@ -210,23 +212,26 @@
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
-                                                    <span id="terminados6a14" class="badge bg-primary rounded-pill">14</span>
+                                                    <span id="terminados6a14"
+                                                        class="badge bg-primary rounded-pill">14</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
-                                                    <span id="seguimiento6a14" class="badge bg-primary rounded-pill">2</span>
+                                                    <span id="seguimiento6a14"
+                                                        class="badge bg-primary rounded-pill">2</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
-                                                    <span id="incorrectos6a14" class="badge bg-primary rounded-pill">1</span>
+                                                    <span id="incorrectos6a14"
+                                                        class="badge bg-primary rounded-pill">1</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="pt-5 col-2">
+                                        <div class="pt-5 col-3">
                                             <!--stroke hace que cambie el color-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
                                                 viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-thumbs-down">
@@ -238,7 +243,7 @@
                                     </div>
                                     <div class="p-0 row">
                                         <p style="text-align:center" class="letrerosDias card-text">
-                                            0-2 Dias
+                                            6-14 Dias
                                         </p>
                                     </div>
                                 </div>
@@ -256,7 +261,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 30px" class="card-title">
+                                            <h5 style="font-size: 25px" class="card-title">
                                                 <div id="mas15"></div>
                                             </h5>
                                         </div>
@@ -265,37 +270,40 @@
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
-                                                    <span id="terminadosmas15" class="badge bg-primary rounded-pill">14</span>
+                                                    <span id="terminadosmas15"
+                                                        class="badge bg-primary rounded-pill">14</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
-                                                    <span id="seguimientomas15" class="badge bg-primary rounded-pill">2</span>
+                                                    <span id="seguimientomas15"
+                                                        class="badge bg-primary rounded-pill">2</span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
-                                                    <span id="incorrectosmas15" class="badge bg-primary rounded-pill">1</span>
+                                                    <span id="incorrectosmas15"
+                                                        class="badge bg-primary rounded-pill">1</span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="pt-5 col-2">
+                                        <div class="pt-5 col-3">
                                             <!--stroke hace que cambie el color-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55"
-                                            viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-alert-triangle">
-                                            <path
-                                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                                            </path>
-                                            <line x1="12" y1="9" x2="12" y2="13"></line>
-                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                        </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                                viewBox="0 0 24 24" fill="none" stroke="#605ca8" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-alert-triangle">
+                                                <path
+                                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                                </path>
+                                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                            </svg>
                                         </div>
                                     </div>
                                     <div class="p-0 row">
                                         <p style="text-align:center" class="letrerosDias card-text">
-                                            0-2 Dias
+                                            Mas de 15 Dias
                                         </p>
                                     </div>
                                 </div>
@@ -1731,10 +1739,12 @@
                                         <p style="display: none" id="paginaActualSeg" name="uno">0</p>
                                         <nav aria-label="Page navigation example">
                                             <ul class="pagination">
-                                              <li id="btnMenosSeg" class="page-item"><a class="page-link">Anterior</a></li>
-                                              <li id="btnMasSeg" class="page-item"><a class="page-link">Siguiente</a></li>
+                                                <li id="btnMenosSeg" class="page-item"><a class="page-link">Anterior</a>
+                                                </li>
+                                                <li id="btnMasSeg" class="page-item"><a class="page-link">Siguiente</a>
+                                                </li>
                                             </ul>
-                                          </nav>
+                                        </nav>
                                     </div>
                                     <div id="datosSeguimiento">
                                         <div class="input-group mb-3">
