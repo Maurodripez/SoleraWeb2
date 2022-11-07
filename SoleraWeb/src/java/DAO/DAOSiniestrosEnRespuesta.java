@@ -20,7 +20,7 @@ public class DAOSiniestrosEnRespuesta {
     public String seguimiento = "";
     public String incorrectos = "";
     public void todosDias() throws SQLException {
-        sql = "select if(datediff(curdate(), fechaseguimiento)>=0 and datediff(curdate(), fechaseguimiento)<3,'yes','no') as diferencia from seguimientoprincipal group by fkIdRegistroSegPrincipal";
+        sql = "select if(datediff(curdate(), fechaSeguimiento)>=0 and datediff(curdate(), fechaSeguimiento)<3,'yes','no') as diferencia from fechasseguimiento";
         conect.conectar();
         ps = conect.conexion.prepareStatement(sql);
         rs = ps.executeQuery();
@@ -30,7 +30,7 @@ public class DAOSiniestrosEnRespuesta {
             }
         }
         conect.Desconectar();
-        sql = "select if(datediff(curdate(), fechaseguimiento)>=3 and datediff(curdate(), fechaseguimiento)<6,'yes','no') as diferencia from seguimientoprincipal group by fkIdRegistroSegPrincipal";
+        sql = "select if(datediff(curdate(), fechaSeguimiento)>=3 and datediff(curdate(), fechaSeguimiento)<6,'yes','no') as diferencia from fechasseguimiento";
         conect.conectar();
         ps = conect.conexion.prepareStatement(sql);
         rs = ps.executeQuery();
@@ -40,7 +40,7 @@ public class DAOSiniestrosEnRespuesta {
             }
         }
         conect.Desconectar();
-        sql = "select if(datediff(curdate(), fechaseguimiento)>=6 and datediff(curdate(), fechaseguimiento)<15,'yes','no') as diferencia from seguimientoprincipal group by fkIdRegistroSegPrincipal";
+        sql = "select if(datediff(curdate(), fechaSeguimiento)>=6 and datediff(curdate(), fechaSeguimiento)<15,'yes','no') as diferencia from fechasseguimiento";
         conect.conectar();
         ps = conect.conexion.prepareStatement(sql);
         rs = ps.executeQuery();
@@ -50,7 +50,7 @@ public class DAOSiniestrosEnRespuesta {
             }
         }
         conect.Desconectar();
-        sql = "select if(datediff(curdate(), fechaseguimiento)>=15 and datediff(curdate(), fechaseguimiento)<45,'yes','no') as diferencia from seguimientoprincipal group by fkIdRegistroSegPrincipal";
+        sql = "select if(datediff(curdate(), fechaSeguimiento)>=15 and datediff(curdate(), fechaSeguimiento)<45,'yes','no') as diferencia from fechasseguimiento";
         conect.conectar();
         ps = conect.conexion.prepareStatement(sql);
         rs = ps.executeQuery();

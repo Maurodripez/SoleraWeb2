@@ -607,7 +607,7 @@ function recargarSiniestros() {
       tres: "3",
       seis: "6",
       quince: "15",
-      treinta: "30",
+      treinta: "45",
     },
     success: function (result) {
       let sinComas = result.split("/-_");

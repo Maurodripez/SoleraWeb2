@@ -41,7 +41,7 @@ public class BusquedaConFiltros extends HttpServlet {
                 case "seguimientoIncorrecto":
                     break;
                 case "terminado":
-                    for (ModeloBusquedaDatos mbDatos : bfDatos.getTerminados()) {
+                  /*  for (ModeloBusquedaDatos mbDatos : bfDatos.getTerminados()) {
                         out.print(mbDatos.getIdRegistro() + "-_/");
                         out.print(mbDatos.getNumSiniestro() + "-_/");
                         out.print(mbDatos.getPoliza() + "-_/");
@@ -104,7 +104,7 @@ public class BusquedaConFiltros extends HttpServlet {
                         }
                         out.print(porcentajeTotal + "-_/");
                         out.print(mbDatos.getEstado() + "/_-");
-                    }
+                    }*/
                     break;
                 case "seguimiento":
                     break;
