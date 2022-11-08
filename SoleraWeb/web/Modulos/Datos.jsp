@@ -87,7 +87,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 25px" class="card-title">
+                                            <h5 style="font-size: 22px" class="card-title">
                                                 <div id="de0a2"></div>
                                             </h5>
                                         </div>
@@ -145,7 +145,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 25px" class="card-title">
+                                            <h5 style="font-size: 22px" class="card-title">
                                                 <div id="de3a5"></div>
                                             </h5>
                                         </div>
@@ -203,7 +203,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 25px" class="card-title">
+                                            <h5 style="font-size: 22px" class="card-title">
                                                 <div id="de6a14"></div>
                                             </h5>
                                         </div>
@@ -261,7 +261,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="CantidadSiniestros pt-5 col">
-                                            <h5 style="font-size: 25px" class="card-title">
+                                            <h5 style="font-size: 22px" class="card-title">
                                                 <div id="mas15"></div>
                                             </h5>
                                         </div>

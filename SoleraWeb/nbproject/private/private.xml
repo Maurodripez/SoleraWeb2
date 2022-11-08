@@ -19,6 +19,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CreacionUsuario.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloBusquedaDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOImagenesCliente.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaConFiltrosDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOTablaDocumentos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/MostrarMensajes.java</file>
@@ -40,6 +41,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/Comentarios.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ConsultaUsuarios.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ObtenerRutas.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/Modulos/js/datos.js</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ValidarSesiones.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BuscarSiniestros.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOMostrarDatos.java</file>
