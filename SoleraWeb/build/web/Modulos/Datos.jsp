@@ -213,19 +213,19 @@
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
                                                     <span id="terminados6a14"
-                                                        class="badge bg-primary rounded-pill">14</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
                                                     <span id="seguimiento6a14"
-                                                        class="badge bg-primary rounded-pill">2</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
                                                     <span id="incorrectos6a14"
-                                                        class="badge bg-primary rounded-pill">1</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -271,19 +271,19 @@
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Terminados
                                                     <span id="terminadosmas15"
-                                                        class="badge bg-primary rounded-pill">14</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     En seguimiento
                                                     <span id="seguimientomas15"
-                                                        class="badge bg-primary rounded-pill">2</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                                 <li style="font-size: 13px"
                                                     class="fondodesglozados list-group-item d-flex justify-content-between align-items-center">
                                                     Incorrectos / Sin contacto
                                                     <span id="incorrectosmas15"
-                                                        class="badge bg-primary rounded-pill">1</span>
+                                                        class="badge bg-primary rounded-pill"></span>
                                                 </li>
                                             </ul>
                                         </div>

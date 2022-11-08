@@ -54,7 +54,7 @@ public class DAOGuardarSeguimiento {
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
             con.Desconectar();
-            sql = "update infosiniestro set estatusCliente='"+mgSeguimiento.getEstatusSeguimiento()+"' where fkidRegistro='"+mgSeguimiento.getIdRegistro()+"'";
+            sql = "update infosiniestro set estatusSeguimientoSin='"+mgSeguimiento.getEstatusSeguimiento()+"' where fkidRegistro='"+mgSeguimiento.getIdRegistro()+"'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();

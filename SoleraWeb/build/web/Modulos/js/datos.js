@@ -67,6 +67,7 @@ function cambiarNombre(get) {
       ///////si en java todo sale correcto, se mandan los resultados y se realiza la obtencion de datos y dividirlos para desplegarlos en pantalla
       resultados = result.split(","); ///mandamos los datos por nmedio de , y asi poder dividirlos ymandarlos de manera individual
       //sebuscan los id para poder modificar su contenido
+      console.log(result);
       let fechaCarga = document.getElementById("fechaCarga");
       let numSiniestro = document.getElementById("numSiniestro");
       let poliza = document.getElementById("poliza");
@@ -638,7 +639,6 @@ function busquedaGeneral(thisValue) {
       filtro: thisValue,
     },
     success: function (result) {
-      console.log(result);
       mostrarTabla(result);
     },
   });
