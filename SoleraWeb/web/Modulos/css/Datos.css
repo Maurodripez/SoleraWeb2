@@ -108,9 +108,6 @@
 #encabezadoDatos{
   font-size: 30px;
 }
-.calendario {
-  display: flex;
-}
 .fechaInput {
   border: none;
 }

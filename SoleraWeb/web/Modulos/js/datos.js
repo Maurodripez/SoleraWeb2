@@ -117,8 +117,8 @@ function cambiarNombre(get) {
       estatusCliente.value = resultados[15];
       comentariosCliente.value = resultados[16];
       marca.value = resultados[17];
-      tipo.value = resultados[18];
-      modelo.value = resultados[19];
+      tipo.value = resultados[19];
+      modelo.value = resultados[18];
       placas.value = resultados[20];
       numSerie.value = resultados[21];
       valIndemnizacion.value = resultados[22];

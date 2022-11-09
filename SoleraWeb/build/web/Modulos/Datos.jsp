@@ -938,7 +938,7 @@
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                aria-labelledby="flush-headingOne">
                                 <div class="accordion-body">
                                     <!--se crea la tabla para el historico-->
                                     <table class="table table-striped text-center">
@@ -965,39 +965,38 @@
                                     </button>
                                 </h2>
 
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse show"
+                                    aria-labelledby="flush-headingTwo">
                                     <div class="accordion-body">
                                         <div class="row mx-md-n5">
-                                            <div class="col px-md-5">
-                                                <div class="calendario date" id="datepicker2">
-                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                            fill="currentColor" class="bi bi-calendar-check"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                            <path
-                                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                        </svg>
-                                                        Fecha Carga
-                                                    </label>
-                                                    <input class="input-group-append" id="fechaCarga"
-                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaCarga"
-                                                        type="text" placeholder="Fecha">
+                                            <div class="calendario date col px-md-5">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    Fecha Carga
+                                                </label>
+                                                <div class="input-group-sm input-group mb-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        fill="currentColor" class="bi bi-calendar-check p-1"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                        <path
+                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                    </svg>
+                                                    <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" type="text"
+                                                        class="form-control input-group-append" placeholder="Fecha" name="txtFechaCarga">
                                                 </div>
                                             </div>
                                             <div class="col px-md-5">
+                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                    Siniestro:
+                                                </label>
                                                 <div class="input-group-sm input-group mb-3">
-                                                    <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                            fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                        </svg>
-                                                        Siniestro:
-                                                    </label>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                    </svg>
                                                     <input id="numSiniestro" pattern="[SIN]{3}[0-8]{8}" type="text"
                                                         class="form-control" name="txtNumSiniestro">
                                                 </div>
@@ -1099,7 +1098,7 @@
                                         </div>
                                         <div class="row mx-md-n5">
                                             <div class="col px-md-5">
-                                                <div class="input-group-sm mb-3 calendario date" id="datepicker2">
+                                                <div class="input-group-sm mb-3 calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
@@ -1471,8 +1470,8 @@
                                         Vehiculo
                                     </button>
                                 </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseThree" class="accordion-collapse collapse show"
+                                    aria-labelledby="flush-headingThree">
                                     <div class="accordion-body">
                                         <div class="row 1">
                                             <div class="input-group mb-3 col">
@@ -1592,8 +1591,8 @@
                                         Asegurado
                                     </button>
                                 </h2>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseFour" class="accordion-collapse collapse show"
+                                    aria-labelledby="flush-headingFour">
                                     <div class="accordion-body">
                                         <div class="row 1">
                                             <div class="input-group mb-3 col">
@@ -1722,8 +1721,8 @@
                                     Seguimiento estatus
                                 </button>
                             </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapseFive" class="accordion-collapse collapse "
+                                aria-labelledby="flush-headingFive">
                                 <div class="accordion-body">
                                     <table id="tablaSeguimientos" class="table table-hover col float-end text-center">
                                         <thead>
@@ -1899,7 +1898,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col mb-3">
-                                                <div class="calendario date" id="datepicker2">
+                                                <div class="calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
@@ -1917,7 +1916,7 @@
                                                 </div>
                                             </div>
                                             <div class="col mb-3">
-                                                <div class="calendario date" id="datepicker2">
+                                                <div class="calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
@@ -1937,7 +1936,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col mb-3">
-                                                <div class="calendario date" id="datepicker2">
+                                                <div class="calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
@@ -1955,7 +1954,7 @@
                                                 </div>
                                             </div>
                                             <div class="col mb-3">
-                                                <div class="calendario date" id="datepicker2">
+                                                <div class="calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
@@ -1975,7 +1974,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="fSeguimientoClass col mb-3">
-                                                <div class="calendario date" id="datepicker2">
+                                                <div class="calendario date">
                                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                             fill="currentColor" class="bi bi-calendar-check"
