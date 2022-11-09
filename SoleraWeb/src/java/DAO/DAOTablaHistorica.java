@@ -20,14 +20,14 @@ public class DAOTablaHistorica {
         String estatus;
         String usuario;
         try {
-            sql = "select fechaCarga, usuarioCarga, estatusOperativo from infosiniestro, estadoproceso where idRegistro='"
+            sql = "select fechaCarga, usuarioCarga, estatusSeguimientoSin from infosiniestro, estadoproceso where idRegistro='"
                     + id + "' and fkIdRegistroEstadoProceso='" + id + "'";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 fechaCarga = rs.getString("fechaCarga");
-                estatus = rs.getString("estatusOperativo");
+                estatus = rs.getString("estatusSeguimientoSin");
                 usuario = rs.getString("usuarioCarga");
                 r = fechaCarga + "-_/" + estatus + "-_/" + usuario;
             }

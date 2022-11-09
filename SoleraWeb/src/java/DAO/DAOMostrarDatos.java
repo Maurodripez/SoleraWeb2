@@ -19,10 +19,10 @@ public class DAOMostrarDatos {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
         String sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado,fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from documentosaprobados, fechasseguimiento as fs,  estadoproceso as ep, infosiniestro as iSin, infoauto as ia"
+                + " estatusSeguimientoSin, subEstatusProceso from documentosaprobados, fechasseguimiento as fs,  estadoproceso as ep, infosiniestro as iSin, infoauto as ia"
                 + " where idRegistro = ia.fkIdRegistro and idRegistro=fs.fkidRegistro and idRegistro = ep.fkIdRegistroEstadoProceso"
                 + " and idRegistro=fkIdRegistroDocsAprobados and estacionProceso like '%" + estacion
-                + "%' and estatusoperativo like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus + "%'"
+                + "%' and estatusSeguimientoSin like '%" + estatus + "%' and subEstatusProceso like '%" + subEstatus + "%'"
                 + " and fechaSeguimiento between '" + fechaBuscar2 + "'  and curdate() and fechaCarga between '"
                 + fechaBuscar1 + "' and curdate() "
                 + " and region like '%" + region + "%' and estado like '%" + estado + "%' and  cobertura like '%"
@@ -43,7 +43,7 @@ public class DAOMostrarDatos {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -70,7 +70,7 @@ public class DAOMostrarDatos {
         try {
             String sql = " select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
             + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                    + "estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                    + "estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                     + "iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class DAOMostrarDatos {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));

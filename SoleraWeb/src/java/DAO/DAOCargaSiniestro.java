@@ -65,7 +65,7 @@ public class DAOCargaSiniestro {
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
-            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso,estacionProceso,estatusOperativo)values('" + id
+            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso,estacionProceso,estatusSeguimientoSin)values('" + id
                     + "','Nuevo','Nuevo')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);

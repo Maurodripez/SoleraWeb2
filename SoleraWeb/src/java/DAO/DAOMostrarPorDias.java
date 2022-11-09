@@ -19,7 +19,7 @@ public class DAOMostrarPorDias {
         try {
             sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                     + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso,"
-                    + " estatusOperativo, subEstatusProceso from fechasseguimiento, infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados "
+                    + " estatusSeguimientoSin, subEstatusProceso from fechasseguimiento, infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados "
                     + " where fechasseguimiento.fkidRegistro=idRegistro and iSin.idRegistro = infoauto.fkIdRegistro and"
                     + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados"
                     + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor
@@ -39,7 +39,7 @@ public class DAOMostrarPorDias {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));

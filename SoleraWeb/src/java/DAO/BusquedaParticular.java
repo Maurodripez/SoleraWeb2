@@ -21,7 +21,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getID(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and idRegistro like '%"
                 + id + "%'";
         try {
@@ -40,7 +40,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -66,7 +66,7 @@ public class BusquedaParticular {
 
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and numSiniestro like '%"
                 + id + "%'";
         try {
@@ -85,7 +85,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -109,7 +109,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getPoliza(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and poliza like '%"
                 + id + "%'";
         try {
@@ -128,7 +128,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -152,7 +152,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getMarca(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and marca like '%"
                 + id + "%'";
         try {
@@ -171,7 +171,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -195,7 +195,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getTipo(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and tipo like '%"
                 + id + "%'";
         try {
@@ -214,7 +214,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -238,7 +238,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getModelo(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and modelo like '%"
                 + id + "%'";
         try {
@@ -257,7 +257,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -281,7 +281,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getSerie(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and numSerie like '%"
                 + id + "%'";
         try {
@@ -300,7 +300,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -324,7 +324,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getEstado(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estado like '%"
                 + id + "%'";
         try {
@@ -343,7 +343,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -367,7 +367,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getFechaCarga(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and fechaCarga like '%"
                 + id + "%'";
         try {
@@ -386,7 +386,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -410,7 +410,7 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getEstacion(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
                 + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estacionProceso like '%"
                 + id + "%'";
         try {
@@ -429,7 +429,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));
@@ -453,8 +453,8 @@ public class BusquedaParticular {
     public List<ModeloBusquedaDatos> getEstatus(String id) throws SQLException {
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia,"
                 + " baja, tarjeta, polizaDoc, comprobante, idRegistro, numSiniestro, poliza, marca, tipo, modelo, numSerie, estado, iSin.fechaCarga as fechaCarga, estacionProceso, "
-                + " estatusOperativo, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
-                + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estatusOperativo like '%"
+                + " estatusSeguimientoSin, subEstatusProceso from infosiniestro as iSin, infoauto, estadoproceso, documentosaprobados where iSin.idRegistro = infoauto.fkIdRegistro and "
+                + " iSin.idRegistro = estadoproceso.fkIdRegistroEstadoProceso and iSin.idRegistro=fkIdRegistroDocsAprobados and estatusSeguimientoSin like '%"
                 + id + "%'";
         try {
             conect.conectar();
@@ -472,7 +472,7 @@ public class BusquedaParticular {
                 mbDatos.setEstado(rs.getString("estado"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusOperativo"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 mbDatos.setSubEstatusProceso(rs.getString("subEstatusProceso"));
                 mbDatos.setFactura(rs.getString("factura"));
                 mbDatos.setPoder(rs.getString("poder"));

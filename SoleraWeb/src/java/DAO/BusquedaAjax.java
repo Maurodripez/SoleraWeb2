@@ -18,14 +18,14 @@ public class BusquedaAjax {
     public List<Siniestros> getSiniestroGeneral(String filtro) {
         List<Siniestros> lista = new ArrayList<>();
         try {
-            String sql = "select idRegistro,numSiniestro, asegurado, poliza, estatusOperativo, datediff(CURDATE(),fechaPrimerEnvioDoc)"
+            String sql = "select idRegistro,numSiniestro, asegurado, poliza, estatusSeguimientoSin, datediff(CURDATE(),fechaPrimerEnvioDoc)"
                     + " AS 'Dias Transcurridos',"
                     + " fechaPrimerEnvioDoc from estadoproceso, infosiniestro,fechasseguimiento, infocliente as ia "
                     + " where idRegistro=fkIdRegistroEstadoProceso and idRegistro=fechasseguimiento.fkidRegistro and idRegistro=ia.fkIdRegistro"
                     + " and fechaPrimerEnvioDoc is not null and (idRegistro like '%" + filtro + "%' or"
                     + " numSiniestro like '%" + filtro + "%' or ia.asegurado like '%" + filtro + "%' or poliza like '%"
                     + filtro + "%' or "
-                    + " estatusOperativo like '%" + filtro + "%' or datediff(CURDATE(), fechaPrimerEnvioDoc) like '%"
+                    + " estatusSeguimientoSin like '%" + filtro + "%' or datediff(CURDATE(), fechaPrimerEnvioDoc) like '%"
                     + filtro + "%' or"
                     + " fechaPrimerEnvioDoc like '%" + filtro + "%')";
             conect.conectar();
@@ -38,7 +38,7 @@ public class BusquedaAjax {
                 siniestros.setNumSiniestro(rs.getString("numSiniestro"));
                 siniestros.setAsegurado(rs.getString("asegurado"));
                 siniestros.setPoliza(rs.getString("poliza"));
-                siniestros.setEstatusCliente(rs.getString("estatusOperativo"));
+                siniestros.setEstatusCliente(rs.getString("estatusSeguimientoSin"));
                 siniestros.setDiasTranscurridos(rs.getString("Dias Transcurridos"));
                 siniestros.setFechaPrimerEnvioDoc(rs.getString("fechaPrimerEnvioDoc"));
                 lista.add(siniestros);
@@ -57,7 +57,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idRegistro as 'Id Registro',"
                 + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-                + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+                + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
                 + " datediff(CURDATE(), fseguimiento.fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
                 + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
                 + " from estadoproceso, infoSiniestro as iSin, fechasseguimiento as fSeguimiento, "
@@ -89,7 +89,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select idregistro as 'Id Registro',"
                 + " numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-                + " poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+                + " poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
                 + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos', "
                 + " fechaPrimerEnvioDoc as 'Fecha Envio' "
                 + " from infoSiniestro as iSin, fechasseguimiento as fSeguimiento, "
@@ -119,7 +119,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
                 + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-                + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+                + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
                 + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
                 + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
                 + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -149,7 +149,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -179,7 +179,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -209,7 +209,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -239,7 +239,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -270,7 +270,7 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
@@ -301,12 +301,12 @@ public class BusquedaAjax {
         conect.conectar();
         String sql = "select iSin.idregistro as 'Id Registro',"
         + " iSin.numSiniestro as 'Numero Siniestro', ia.asegurado as 'Asegurado', "
-        + " iSin.poliza as 'Poliza', estatusOperativo as 'Estatus Cliente', "
+        + " iSin.poliza as 'Poliza', estatusSeguimientoSin as 'Estatus Cliente', "
         + " datediff(CURDATE(), fechaPrimerEnvioDoc) AS 'Dias Transcurridos',"
         + " fseguimiento.fechaPrimerEnvioDoc as 'Fecha Envio' "
         + " from estadoproceso, infoSiniestro as iSin,fechasseguimiento as fSeguimiento, infocliente as ia"
         + " where fechaPrimerEnvioDoc is not null and idRegistro=fkIdRegistroEstadoProceso and ia.fkIdRegistro = iSin.idRegistro "
-        + " and iSin.idRegistro = fSeguimiento.fkidRegistro and estatusOperativo like '%" + filtro + "%'";
+        + " and iSin.idRegistro = fSeguimiento.fkidRegistro and estatusSeguimientoSin like '%" + filtro + "%'";
         ps = conect.conexion.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Siniestros siniestros;

@@ -48,15 +48,15 @@ public class DAOConsultasMapas {
         List<ModeloGraficas> lista = new ArrayList<>();
         try {
             conect.conectar();
-            String sql = "select count(estatusOperativo) as conteo, estatusOperativo"
-                    + " from estadoproceso where estatusOperativo is not null group by estatusOperativo";
+            String sql = "select count(estatusSeguimientoSin) as conteo, estatusSeguimientoSin"
+                    + " from estadoproceso where estatusSeguimientoSin is not null group by estatusSeguimientoSin";
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
             ModeloGraficas mGraficas;
             while (rs.next()) {
                 mGraficas = new ModeloGraficas();
                 mGraficas.setConteo(rs.getString("conteo"));
-                mGraficas.setEstatus(rs.getString("estatusOperativo"));
+                mGraficas.setEstatus(rs.getString("estatusSeguimientoSin"));
                 lista.add(mGraficas);
                 contadorPorcentaje += rs.getInt("conteo");
                 respuesta = "sin problemas";

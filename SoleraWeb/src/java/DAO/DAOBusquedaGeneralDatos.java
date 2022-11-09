@@ -18,14 +18,14 @@ public class DAOBusquedaGeneralDatos {
         String sql;
         try {
             sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia, baja, tarjeta, polizaDoc, comprobante,"
-                    + " idRegistro, numSiniestro, poliza, marca, modelo, numSerie, fechaCarga, estacionProceso,estatusCliente"
+                    + " idRegistro, numSiniestro, poliza, marca, modelo, numSerie, fechaCarga, estacionProceso,estatusSeguimientoSin"
                     + " from documentosaprobados, infosiniestro, infoauto, estadoproceso where idRegistro=fkIdRegistroDocsAprobados and"
                     + " idRegistro= fkIdRegistro and idRegistro=fkIdRegistroEstadoProceso"
                     + " and (idRegistro like '%" + filtro + "%' or numSiniestro like '%" + filtro
                     + "%' or poliza like '%" + filtro + "%' or marca like '%" + filtro + "%' or modelo like '%"
                     + filtro + "%'"
                     + " or numSerie like '%" + filtro + "%' or fechaCarga like '%" + filtro
-                    + "%' or estacionProceso like '%" + filtro + "%' or estatusCliente like '%" + filtro + "%');";
+                    + "%' or estacionProceso like '%" + filtro + "%' or estatusSeguimientoSin like '%" + filtro + "%');";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -50,7 +50,7 @@ public class DAOBusquedaGeneralDatos {
                 mbDatos.setNumSerie(rs.getString("numSerie"));
                 mbDatos.setFechaCarga(rs.getString("fechaCarga"));
                 mbDatos.setEstacionProceso(rs.getString("estacionProceso"));
-                mbDatos.setEstatusOperativo(rs.getString("estatusCliente"));
+                mbDatos.setEstatusOperativo(rs.getString("estatusSeguimientoSin"));
                 lista.add(mbDatos);
             }
         } catch (Exception e) {

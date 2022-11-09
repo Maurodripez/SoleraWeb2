@@ -66,9 +66,9 @@ public class DAOSiniestrosEnRespuesta {
         String r = "";
         try {
             // terminados
-            sql = "select count(estatusCliente) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
-                    + " and (estatusCliente='TOTAL DE DOCUMENTOS' or estatusCliente='TERMINADO POR PROCESO COMPLETO' or estatusCliente='TERMINADO ENTREGA ORIGINALES EN OFICINA'"
-                    + " or estatusCliente='CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)')"
+            sql = "select count(estatusSeguimientoSin) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
+                    + " and (estatusSeguimientoSin='TOTAL DE DOCUMENTOS' or estatusSeguimientoSin='TERMINADO POR PROCESO COMPLETO' or estatusSeguimientoSin='TERMINADO ENTREGA ORIGINALES EN OFICINA'"
+                    + " or estatusSeguimientoSin='CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)')"
                     + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor
                     + "' and datediff(CURDATE(), fechaSeguimiento)<'" + menor + "')";
             conect.conectar();
@@ -79,10 +79,10 @@ public class DAOSiniestrosEnRespuesta {
             }
             conect.Desconectar();
             // seguimiento
-            sql = "select count(estatusCliente) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
-                    + " and (estatusCliente='CASO REABIERTO' or estatusCliente='CON CONTACTO SIN DOCUMENTOS' "
-                    + " or estatusCliente='DE 1 A 3 DOCUMENTOS' or estatusCliente='DE 4 A 6 DOCUMENTOS' or estatusCliente='DE 7 A 10 DOCUMENTOS'"
-                    + " or estatusCliente='NUEVO' or estatusCliente='SIN CONTACTO')"
+            sql = "select count(estatusSeguimientoSin) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
+                    + " and (estatusSeguimientoSin='CASO REABIERTO' or estatusSeguimientoSin='CON CONTACTO SIN DOCUMENTOS' "
+                    + " or estatusSeguimientoSin='DE 1 A 3 DOCUMENTOS' or estatusSeguimientoSin='DE 4 A 6 DOCUMENTOS' or estatusSeguimientoSin='DE 7 A 10 DOCUMENTOS'"
+                    + " or estatusSeguimientoSin='NUEVO' or estatusSeguimientoSin='SIN CONTACTO')"
                     + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor
                     + "' and datediff(CURDATE(), fechaSeguimiento)<'" + menor + "')";
             conect.conectar();
@@ -93,10 +93,10 @@ public class DAOSiniestrosEnRespuesta {
             }
             conect.Desconectar();
             // terminados
-            sql = "select count(estatusCliente) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
-                    + " and (estatusCliente='CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)'"
-                    + " or estatusCliente='CON CONTACTO SIN COOPERACION DEL CLIENTE' "
-                    + " or estatusCliente='DATOS INCORRECTOS' or estatusCliente='SIN CONTACTO EN 30 DIAS')"
+            sql = "select count(estatusSeguimientoSin) as contador from fechasseguimiento as fs, infosiniestro where fs.fkidRegistro=idRegistro"
+                    + " and (estatusSeguimientoSin='CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)'"
+                    + " or estatusSeguimientoSin='CON CONTACTO SIN COOPERACION DEL CLIENTE' "
+                    + " or estatusSeguimientoSin='DATOS INCORRECTOS' or estatusSeguimientoSin='SIN CONTACTO EN 30 DIAS')"
                     + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor
                     + "' and datediff(CURDATE(), fechaSeguimiento)<'" + menor + "')";
             conect.conectar();
