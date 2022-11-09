@@ -1439,8 +1439,8 @@
                                                         <option value="Documento incorrecto">
                                                             Documento incorrecto
                                                         </option>
-                                                        <option value="revision">
-                                                            revision
+                                                        <option value="Revision">
+                                                            Revision
                                                         </option>
                                                         <option value="Enviado">
                                                             Enviado
