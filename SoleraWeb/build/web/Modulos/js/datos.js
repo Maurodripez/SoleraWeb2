@@ -139,6 +139,7 @@ function cambiarNombre(get) {
   consultausuarios();
   let txtIdRegistro = document.getElementById("idOculto").value;
   docsYaCargados(txtIdRegistro);
+  document.getElementById("txtComentSeguimiento").value = '';
 }
 function mostrarDocsAprobados() {
   let porcentaje = 0;
