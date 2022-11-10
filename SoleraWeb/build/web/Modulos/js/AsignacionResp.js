@@ -30,7 +30,9 @@ function leerArchivo(e) {
           fechaDecreto: i.fechaDecreto,
           taller: i.taller,
         },
-        success: function (result) {},
+        success: function (result) {
+          console.log(result);
+        },
       });
     }
     mostrarContenido(contenido);
@@ -40,6 +42,7 @@ function leerArchivo(e) {
 document
   .getElementById("file-input")
   .addEventListener("change", leerArchivo, false);
+  alert("wer");
 const excelInput = document.getElementById("LeerExcel");
 excelInput.addEventListener("change", async function () {
   const contenido = await readXlsxFile(excelInput.files[0]);
@@ -91,7 +94,10 @@ excelInput.addEventListener("change", async function () {
         taller: contenido[x][16],
         sesion,
       },
-      success: function (result) {},
+      success: function (result) {
+        alert("sale");
+        console.log(result);
+      },
     });
 
   }

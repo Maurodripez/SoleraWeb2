@@ -37,7 +37,7 @@ public class DAOCargaSiniestro {
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
-
+            respuesta="0";
             sql = "select idRegistro from infosiniestro where numSiniestro ='" + numSiniestro + "'";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
@@ -47,6 +47,7 @@ public class DAOCargaSiniestro {
                 id = rs.getString("idRegistro");
             }
             conect.Desconectar();
+            respuesta="1";
             sql = "insert into infocliente(asegurado,telefonoPrincipal,telefonosecundario,correo,fkIdRegistro)"
                     + " values('" + nomAsegurado + "','" + telefonoPrincipal + "','" + telefonoSec + "','" + correo
                     + "','" + id + "')";
@@ -54,33 +55,39 @@ public class DAOCargaSiniestro {
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
+            respuesta="2";
             sql = "insert into infoauto(marca,tipo,modelo,numSerie,infoauto.fkIdRegistro) values('" + marca
                     + "','" + modelo + "','" + tipo + "','" + numSerie + "','" + id + "')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
+            respuesta="3";
             sql = "insert into documentosaprobados(fkIdRegistroDocsAprobados)values('" + id + "')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
-            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso,estacionProceso,estatusSeguimientoSin)values('" + id
+            respuesta="4";
+            sql = "insert into estadoproceso(fkIdRegistroEstadoProceso,estacionProceso,estatusOperativo)values('" + id
                     + "','Nuevo','Nuevo')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
+            respuesta="5";
             sql = "insert into fechasseguimiento(fkidRegistro,fechaSeguimiento)values('" + id + "',now())";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
+            respuesta="6";
             sql = "insert into insertarregistros(fkIdRegistroInsertar)values('" + id + "')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
             ps.executeUpdate();
             conect.Desconectar();
+            respuesta="7";
             sql = "insert into seguimiento(fkIdRegistroSeguimiento)values('" + id + "')";
             conect.conectar();
             ps = conect.conexion.prepareStatement(sql);
@@ -89,7 +96,7 @@ public class DAOCargaSiniestro {
             respuesta = "ejecucion con exito";
         } catch (SQLException e) {
             // TODO: handle exception
-            respuesta = "Error al guardar";
+           // respuesta = "Error al guardar";
         }
         return respuesta;
     }
