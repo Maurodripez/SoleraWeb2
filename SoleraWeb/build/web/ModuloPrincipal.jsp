@@ -1692,7 +1692,8 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador" class="btn btn-primary">
+                                            <button onclick="asignarIntegrador()" id="btnAsignarIntegrador"
+                                                class="btn btn-primary">
                                                 Asignar integrador
                                             </button>
                                         </div>
@@ -1844,7 +1845,7 @@
                                         </div>
                                         <div class="col-12" style="text-align: center">
                                             <button id="btnDocsAprobados" onclick="guardarDocsAprobados(this.id)"
-                                            type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
+                                                type="button" class="mb-3 mt-3 btn btn-primary">Guardar</button>
                                         </div>
                                     </ul>
                                     <div class="col">
@@ -1855,20 +1856,34 @@
                                                     <select name="tipoArchivo" class="form-select form-select-sm"
                                                         aria-label="Default select example">
                                                         <option selected>Selecciona...</option>
-                                                        <option id="selectFactura" value="Factura original">Factura original</option>
-                                                        <option id="selectPoder" value="Poder notarial">Poder notarial</option>
-                                                        <option id="selectIdenti" value="Identificacion oficial">Identificacion oficial
+                                                        <option id="selectFactura" value="Factura original">Factura
+                                                            original</option>
+                                                        <option id="selectPoder" value="Poder notarial">Poder notarial
                                                         </option>
-                                                        <option id="selectConstancia" value="Constancia SF">Constancia SF</option>
+                                                        <option id="selectIdenti" value="Identificacion oficial">
+                                                            Identificacion oficial
+                                                        </option>
+                                                        <option id="selectConstancia" value="Constancia SF">Constancia
+                                                            SF</option>
                                                         <option id="selectCurp" value="Curp">Curp</option>
-                                                        <option id="selectEstado" value="Estado de cuenta">Estado de cuenta</option>
+                                                        <option id="selectEstado" value="Estado de cuenta">Estado de
+                                                            cuenta</option>
                                                         <option id="selectTenencia" value="Tenencias">Tenencias</option>
-                                                        <option id="selectbaja" value="Baja de placas">Baja de placas</option>
-                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">Tarjeta de circulacion
+                                                        <option id="selectbaja" value="Baja de placas">Baja de placas
+                                                        </option>
+                                                        <option id="selectTarjeta" value="Tarjeta de circulacion">
+                                                            Tarjeta de circulacion
                                                         </option>
                                                         <option id="selectPoliza" value="Poliza">Poliza</option>
-                                                        <option id="selectCompro" value="Comprobante de domicilio">Comprobante de
+                                                        <option id="selectCompro" value="Comprobante de domicilio">
+                                                            Comprobante de
                                                             domicilio</option>
+                                                        <option id="selectTarjeta" value="RFC">
+                                                            RFC
+                                                        </option>
+                                                        <option id="selectTarjeta" value="Documentos adicionales">
+                                                            Documentos adicionales
+                                                        </option>
                                                     </select>
                                                 </div>
 
