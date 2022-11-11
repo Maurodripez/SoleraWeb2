@@ -945,3 +945,12 @@ $(document).ready(function () {
     console.log(data);
   });
 });
+function mostrarMovimientos() {
+  $.ajax({
+    method: "POST",
+    url: "../ExportarUsuarios",
+    data: {
+      accion: "MostrarMov",
+    },
+  });
+}

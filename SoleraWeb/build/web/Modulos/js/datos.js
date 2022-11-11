@@ -139,7 +139,7 @@ function cambiarNombre(get) {
   consultausuarios();
   let txtIdRegistro = document.getElementById("idOculto").value;
   docsYaCargados(txtIdRegistro);
-  document.getElementById("txtComentSeguimiento").value = '';
+  document.getElementById("txtComentSeguimiento").value = "";
 }
 function mostrarDocsAprobados() {
   let porcentaje = 0;
@@ -371,6 +371,7 @@ function GuardarRegistros() {
   });
 }
 function InsertarSeguimiento() {
+  alert(document.getElementById("txtFechaSeguimientoPicker").value);
   $.ajax({
     url: "../GuardarSeguimiento",
     data: {
@@ -383,12 +384,13 @@ function InsertarSeguimiento() {
       persContactada: document.getElementById("txtPersContactada").value,
       tipoPersona: document.getElementById("txtTipoPersona").value,
       tipoContacto: document.getElementById("txTipoContacto").value,
-      fechaSeguimiento: document.getElementById("txtFechaSeguimiento").value,
       fechaPrimEnvDocs: document.getElementById("txtFechaPrimEnvDocs").value,
       fechaIntExp: document.getElementById("txtFechaIntExp").value,
       fechaFactServ: document.getElementById("txtFechaFactServ").value,
       fechaTermino: document.getElementById("txtFechaTermino").value,
       idRegistro: document.getElementById("idOculto").value,
+      fechaSeguimiento: document.getElementById("txtFechaSeguimientoPicker")
+        .value,
       usuario: document.getElementById("UsuarioActivo").textContent,
     },
     success: function () {
@@ -1058,4 +1060,83 @@ function funcionAjaxParaFiltros(filtro, getId) {
       mostrarTabla(result);
     },
   });
+}
+function exportarUsuarios() {
+  $.ajax({
+    method: "POST",
+    url: "../ExportarUsuarios",
+    data: {},
+  });
+}
+function exportTableToExcel2(tableID, filename = "") {
+  $.ajax({
+    method: "POST",
+    url: "../DatosExportar",
+    data: {
+      accion: "tablaExportar",
+    },
+  }).done(function (result) {
+      //funcion para generar talbas en automatico con lo resultados
+  let tablaDatos = document.getElementById("tablaExportar");
+  let sinDiagonal = result.split("/-_");
+  for (let i = 0; i < sinDiagonal.length - 1; i++) {
+    let sinComas = sinDiagonal[i].split("-_/");
+      let registro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[0]}</td>`;
+      let siniestro = `<td style='font-size: 14px' class='tablaActual'>${sinComas[1]}</td>`;
+      let poliza = `<td style='font-size: 14px' class='tablaActual'>${sinComas[2]}</td>`;
+      let marca = `<td style='font-size: 14px' class='tablaActual'>${sinComas[3]}</td>`;
+      let tipo = `<td style='font-size: 14px' class='tablaActual'>${sinComas[4]}</td>`;
+      let serie = `<td style='font-size: 14px' class='tablaActual'>${sinComas[5]}</td>`;
+      let carga = `<td style='font-size: 14px' class='tablaActual'>${sinComas[6]}</td>`;
+      let estacion = `<td style='font-size: 14px' class='tablaActual'>${sinComas[7]}</td>`;
+      let estatus = `<td style='font-size: 14px' class='tablaActual'>${sinComas[8]}</td>`;
+      let porcentajeDocs = `<td style='font-size: 14px' class='tablaActual'>${sinComas[9]}</td>`;
+      let porcentajeTotal = `<td style='font-size: 14px' class='tablaActual'>${sinComas[10]}</td>`;
+      let estado = `<td style='font-size: 14px' class='tablaActual'>${sinComas[11]}</td>`;
+      tablaDatos.innerHTML += `<tr class='tablaActual'>${
+        registro +
+        siniestro +
+        poliza +
+        marca +
+        tipo +
+        serie +
+        carga +
+        estacion +
+        estatus +
+        porcentajeDocs +
+        porcentajeTotal +
+        estado
+      }</tr>`;
+    }
+  });
+  // $(".botonesTabla").remove();
+  let downloadLink;
+  let dataType = "application/vnd.ms-excel";
+  let tableSelect = document.getElementById(tableID);
+  let tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
+  // Specify file name
+  filename = filename ? filename + ".xls" : "excel_data.xls";
+
+  // Create download link element
+  downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+
+  if (navigator.msSaveOrOpenBlob) {
+    let blob = new Blob(["ufeff", tableHTML], {
+      type: dataType,
+    });
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = "data:" + dataType + ", " + tableHTML;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    //triggering the function
+    downloadLink.click();
+  }
+  // recargarSiniestros();
 }

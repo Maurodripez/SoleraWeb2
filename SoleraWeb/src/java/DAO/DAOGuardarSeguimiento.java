@@ -30,11 +30,12 @@ public class DAOGuardarSeguimiento {
                     + "','" + mgSeguimiento.getRespSolera() + "','" + mgSeguimiento.getPersContactada()
                     + "','" + mgSeguimiento.getTipoPersona() + "','" + mgSeguimiento.getTipoContacto()
                     + "','" + mgSeguimiento.getFechaIntExp() + "','" + mgSeguimiento.getFechaFactServ()
-                    + "','" + mgSeguimiento.getFechaTermino() + "',now(),'" + nombreReal
+                    + "','" + mgSeguimiento.getFechaTermino() + "','"+mgSeguimiento.getFechaSeguimiento()+"','" + nombreReal
                     + "','" + mgSeguimiento.getIdRegistro() + "')";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            respuesta="0";
             con.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
                     + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',now(), '"
@@ -42,19 +43,24 @@ public class DAOGuardarSeguimiento {
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            respuesta="1";
             con.Desconectar();
             sql = "update mensajesseguimientos set respondido='si' where fkmensgSeguimientos='"
                     + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            respuesta="2";
             con.Desconectar();
-            sql = "update fechasseguimiento set fechaSeguimiento=curdate() where fkidRegistro='"+mgSeguimiento.getIdRegistro()+"'";
+            sql = "update fechasseguimiento set fechaSeguimiento=curdate() where fkidRegistro='"
+                    + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            respuesta="3";
             con.Desconectar();
-            sql = "update infosiniestro set estatusSeguimientoSin='"+mgSeguimiento.getEstatusSeguimiento()+"' where idRegistro='"+mgSeguimiento.getIdRegistro()+"'";
+            sql = "update infosiniestro set estatusSeguimientoSin='" + mgSeguimiento.getEstatusSeguimiento()
+                    + "' where idRegistro='" + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
@@ -78,7 +84,14 @@ public class DAOGuardarSeguimiento {
             ps = con.conexion.prepareStatement(sql);
             ps.executeUpdate();
             respuesta = "Integrador asignado";
-
+            con.Desconectar();
+            sql = "update infosiniestro set usuarioAsignadoSin='" + integrador
+                    + "',fechaAsignacion=now() where idRegistro = '" + idRegistro + "'";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.executeUpdate();
+            respuesta = "Integrador asignado";
+            con.Desconectar();
         } catch (Exception e) {
             // TODO: handle exception
         }
