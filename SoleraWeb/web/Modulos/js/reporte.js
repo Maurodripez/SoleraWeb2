@@ -946,11 +946,15 @@ $(document).ready(function () {
   });
 });
 function mostrarMovimientos() {
+  alert("ebntra");
   $.ajax({
     method: "POST",
     url: "../ExportarUsuarios",
     data: {
       accion: "MostrarMov",
     },
+  }).done(function (result) {
+    alert(result);
+    console.log(result);
   });
 }

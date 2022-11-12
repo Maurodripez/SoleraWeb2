@@ -632,12 +632,53 @@
                             type="button" class="btn btn-primary">
                             Exportar
                         </button>
-                        <button onclick="exportTableToExcel2('DatosTabla', 'datosExportados')" id="exportarTablaUsuarios" type="button" class="btn btn-primary">
-                        Usuarios
-                    </button>
-                    <table id="tablaExportar">
+                        <button onclick="buscarDatosExportar()" id="exportarTablaUsuarios" type="button"
+                            class="btn btn-primary">
+                            Usuarios
+                        </button>
+                        <table id="tablaExportar" style="display: none">
+                            <thead>
+                                <tr>
+                                    <th scope="col">numSiniestro</th>
+                                    <th scope="col">poliza</th>
+                                    <th scope="col">afectado</th>
+                                    <th scope="col">tipoDeCaso</th>
+                                    <th scope="col">cobertura</th>
+                                    <th scope="col">fechaSiniestro</th>
+                                    <th scope="col">estado</th>
+                                    <th scope="col">ciudad</th>
+                                    <th scope="col">region</th>
+                                    <th scope="col">ubicacionTaller</th>
+                                    <th scope="col">regimenFiscal</th>
+                                    <th scope="col">estatusCliente</th>
+                                    <th scope="col">comentariosCliente</th>
+                                    <th scope="col">fechaCarga</th>
+                                    <th scope="col">usuarioCarga</th>
+                                    <th scope="col">estatusSeguimientoSin</th>
+                                    <th scope="col">usuarioAsignadoSin</th>
+                                    <th scope="col">fechaAsignacion</th>
+                                    <th scope="col">fechaSeguimiento</th>
+                                    <th scope="col">comentarios</th>
+                                    <th scope="col">marca</th>
+                                    <th scope="col">tipo</th>
+                                    <th scope="col">modelo</th>
+                                    <th scope="col">numSerie</th>
+                                    <th scope="col">valorIndemnizacion</th>
+                                    <th scope="col">valorComercial</th>
+                                    <th scope="col">placas</th>
+                                    <th scope="col">telefonoPrincipal</th>
+                                    <th scope="col">telefonosecundario</th>
+                                    <th scope="col">contacto</th>
+                                    <th scope="col">correo</th>
+                                    <th scope="col">asegurado</th>
+                                    <th scope="col">correoContacto</th>
+                                    <th scope="col">telContacto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tBodyExportar">
 
-                    </table>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -1917,9 +1958,9 @@
                                                         <path
                                                             d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                                     </svg>
-                                                    <input id="txtFechaSeguimientoPicker" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                        type="text" class="form-control input-group-append"
-                                                        placeholder="Fecha">
+                                                    <input id="txtFechaSeguimientoPicker"
+                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" type="text"
+                                                        class="form-control input-group-append" placeholder="Fecha">
                                                 </div>
                                             </div>
                                             <div class="col mb-3">
