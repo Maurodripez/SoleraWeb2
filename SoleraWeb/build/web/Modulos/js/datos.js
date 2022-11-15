@@ -1185,3 +1185,15 @@ function buscarDatosExportar() {
       // recargarSiniestros();
     });
 }
+function mostrarMovimientos() {
+  $.ajax({
+    method: "POST",
+    url: "../ExportarUsuarios",
+    data: {
+      accion: "MostrarMov",
+    },
+  }).done(function (result) {
+    alert(result);
+    console.log(result);
+  });
+}

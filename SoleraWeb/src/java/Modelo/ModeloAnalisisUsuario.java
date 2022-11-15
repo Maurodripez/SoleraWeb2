@@ -8,6 +8,15 @@ public class ModeloAnalisisUsuario {
     private String viernes;
     private String sabado;
     private String domingo;
+    private String totalMov;
+
+    public String getTotalMov() {
+        return this.totalMov;
+    }
+
+    public void setTotalMov(String totalMov) {
+        this.totalMov = totalMov;
+    }
 
     public String getLunes() {
         return this.lunes;

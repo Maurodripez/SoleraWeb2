@@ -1,6 +1,7 @@
 //se llama a la funcion cundo carga la pagina
 //funcion para obtener los siniestros por estdos y cambior los colores en el mapa de la repyublica
 window.addEventListener("load", function () {
+  mostrarMovimientos();
   $.ajax({
     method: "POST",
     url: "../MostrarDatosMapas",
@@ -137,6 +138,13 @@ window.addEventListener("load", function CartasEstacion() {
   });
 });
 $(document).ready(function () {
+  $(".calendario").datepicker({
+    timepicker: false,
+    datepicker: true,
+    format: "yyyy-mm-dd",
+    value: "2022-09-14",
+    weeks: true,
+  });
   //mostrar en tiempo real la grafica de folios//
   $.ajax({
     method: "POST",
@@ -934,19 +942,8 @@ $(document).ready(function () {
       chart2.render();
     },
   });
-
-  var fs = require("fs");
-
-  fs.readFile("hol.txt", "utf8", function (err, data) {
-    if (err) {
-      return console.log(err);
-    }
-
-    console.log(data);
-  });
 });
 function mostrarMovimientos() {
-  alert("ebntra");
   $.ajax({
     method: "POST",
     url: "../ExportarUsuarios",
@@ -954,7 +951,44 @@ function mostrarMovimientos() {
       accion: "MostrarMov",
     },
   }).done(function (result) {
-    alert(result);
+    let tabla = document.getElementById("TablaReporte");
+    let sinCodificado = result.split("/-_");
+    for (let i = 0; i < sinCodificado.length - 1; i++) {
+      let sinCodificado2 = sinCodificado[i].split("-_/");
+      let usuario = `<td>${sinCodificado2[0]}</td>`;
+      let total = `<td>${sinCodificado2[1]}</td>`;
+      let lunes = `<td>${sinCodificado2[2]}</td>`;
+      let martes = `<td>${sinCodificado2[3]}</td>`;
+      let miercoles = `<td>${sinCodificado2[4]}</td>`;
+      let jueves = `<td>${sinCodificado2[5]}</td>`;
+      let viernes = `<td>${sinCodificado2[6]}</td>`;
+      let sabado = `<td>${sinCodificado2[7]}</td>`;
+      let domingo = `<td>${sinCodificado2[8]}</td>`;
+      tabla.innerHTML += `<tr class='tablaActual'>${
+        usuario +
+        lunes +
+        martes +
+        miercoles +
+        jueves +
+        viernes +
+        sabado +
+        domingo +
+        total
+      }</tr>`;
+    }
+    console.log(result);
+  });
+}
+function busquedaReporte() {
+  $.ajax({
+    method: "POST",
+    url: "../ExportarUsuarios",
+    data: {
+      accion: "buscarFechas",
+      fechaInicio: document.getElementById("fechaInicioUsuarios").value,
+      fechaFinal: document.getElementById("fechaFinalUsuarios").value,
+    },
+  }).done(function (result) {
     console.log(result);
   });
 }

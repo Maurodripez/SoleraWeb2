@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import DAO.AnalisisUsuarios;
+import Modelo.ModeloAnalisisUsuario;
 
 @WebServlet(name = "ExportarUsuarios", urlPatterns = { "/ExportarUsuarios" })
 public class ExportarUsuarios extends HttpServlet {
@@ -27,9 +28,23 @@ public class ExportarUsuarios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             AnalisisUsuarios aUsuarios = new AnalisisUsuarios();
-            String r = aUsuarios.getAnalisis();
-            out.print("gola");
-            out.print(r);
+            String accion = request.getParameter("accion");
+            switch (accion) {
+                case "MostrarMov":
+                    String r;
+                    r = aUsuarios.getAnalisis();
+                    String r2;
+                    out.println(r);
+                    break;
+                case "buscarFechas":
+                    String fechaInicio = request.getParameter("fechaInicio");
+                    String fechaFinal = request.getParameter("fechaFinal");
+                    out.print(fechaInicio);
+                    out.print(fechaFinal);
+                    r = aUsuarios.getAnalisisintervalo(fechaInicio, fechaFinal);
+                    out.print(r);
+                    break;
+            }
         }
     }
 
