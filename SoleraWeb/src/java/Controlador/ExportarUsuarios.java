@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import DAO.AnalisisUsuarios;
-import Modelo.ModeloAnalisisUsuario;
 
 @WebServlet(name = "ExportarUsuarios", urlPatterns = { "/ExportarUsuarios" })
 public class ExportarUsuarios extends HttpServlet {
@@ -39,8 +38,6 @@ public class ExportarUsuarios extends HttpServlet {
                 case "buscarFechas":
                     String fechaInicio = request.getParameter("fechaInicio");
                     String fechaFinal = request.getParameter("fechaFinal");
-                    out.print(fechaInicio);
-                    out.print(fechaFinal);
                     r = aUsuarios.getAnalisisintervalo(fechaInicio, fechaFinal);
                     out.print(r);
                     break;

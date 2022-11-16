@@ -27,11 +27,6 @@ window.addEventListener("load", function () {
           document
             .getElementById(sinEspacios.toLowerCase())
             .setAttribute("fill", "#FDCB00");
-        } else if (sinComas[i + 1] > 10) {
-          sinEspacios = sinComas[i].replace(/\s+/g, "");
-          document
-            .getElementById(sinEspacios.toLowerCase())
-            .setAttribute("fill", "#F50707");
         }
       }
     },
@@ -951,32 +946,7 @@ function mostrarMovimientos() {
       accion: "MostrarMov",
     },
   }).done(function (result) {
-    let tabla = document.getElementById("TablaReporte");
-    let sinCodificado = result.split("/-_");
-    for (let i = 0; i < sinCodificado.length - 1; i++) {
-      let sinCodificado2 = sinCodificado[i].split("-_/");
-      let usuario = `<td>${sinCodificado2[0]}</td>`;
-      let total = `<td>${sinCodificado2[1]}</td>`;
-      let lunes = `<td>${sinCodificado2[2]}</td>`;
-      let martes = `<td>${sinCodificado2[3]}</td>`;
-      let miercoles = `<td>${sinCodificado2[4]}</td>`;
-      let jueves = `<td>${sinCodificado2[5]}</td>`;
-      let viernes = `<td>${sinCodificado2[6]}</td>`;
-      let sabado = `<td>${sinCodificado2[7]}</td>`;
-      let domingo = `<td>${sinCodificado2[8]}</td>`;
-      tabla.innerHTML += `<tr class='tablaActual'>${
-        usuario +
-        lunes +
-        martes +
-        miercoles +
-        jueves +
-        viernes +
-        sabado +
-        domingo +
-        total
-      }</tr>`;
-    }
-    console.log(result);
+    tablaReporte(result);
   });
 }
 function busquedaReporte() {
@@ -989,6 +959,64 @@ function busquedaReporte() {
       fechaFinal: document.getElementById("fechaFinalUsuarios").value,
     },
   }).done(function (result) {
-    console.log(result);
+    tablaReporte(result);
   });
+}
+function tablaReporte(result) {
+  $(".tablaActualReporte").remove();
+  let tabla = document.getElementById("TablaReporte");
+  let sinCodificado = result.split("/-_");
+  for (let i = 0; i < sinCodificado.length - 1; i++) {
+    let sinCodificado2 = sinCodificado[i].split("-_/");
+    let usuario = `<td class='tablaActualReporte'>${sinCodificado2[0]}</td>`;
+    let total = `<td class='tablaActualReporte'>${sinCodificado2[1]}</td>`;
+    let lunes = `<td class='tablaActualReporte'>${sinCodificado2[2]}</td>`;
+    let martes = `<td class='tablaActualReporte'>${sinCodificado2[3]}</td>`;
+    let miercoles = `<td class='tablaActualReporte'>${sinCodificado2[4]}</td>`;
+    let jueves = `<td class='tablaActualReporte'>${sinCodificado2[5]}</td>`;
+    let viernes = `<td class='tablaActualReporte'>${sinCodificado2[6]}</td>`;
+    let sabado = `<td class='tablaActualReporte'>${sinCodificado2[7]}</td>`;
+    let domingo = `<td class='tablaActualReporte'>${sinCodificado2[8]}</td>`;
+    tabla.innerHTML += `<tr class='tablaActualReporte'>${
+      usuario +
+      domingo +
+      lunes +
+      martes +
+      miercoles +
+      jueves +
+      viernes +
+      sabado +
+      total
+    }</tr>`;
+  }
+}
+function exportTableToExcel(tableID, filename = "") {
+  let downloadLink;
+  let dataType = "application/vnd.ms-excel";
+  let tableSelect = document.getElementById(tableID);
+  let tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
+  // Specify file name
+  filename = filename ? filename + ".xls" : "excel_data.xls";
+
+  // Create download link element
+  downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+
+  if (navigator.msSaveOrOpenBlob) {
+    let blob = new Blob(["ufeff", tableHTML], {
+      type: dataType,
+    });
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = "data:" + dataType + ", " + tableHTML;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    //triggering the function
+    downloadLink.click();
+  }
 }

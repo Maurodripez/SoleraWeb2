@@ -39,12 +39,11 @@ function valoresSesiones() {
       usuario: sesion,
     },
     success: function (result) {
-      if (result != "root") {
+      if (result != "root" && result != "supervisor") {
         let crearUsuarios = document.getElementById("CrearUsuario");
         crearUsuarios.style = "display:none";
         let asignacion = document.getElementById("Asignacion");
-        asignacion
-        .style = "display:none";
+        asignacion.style = "display:none";
       }
     },
   });

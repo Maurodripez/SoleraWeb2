@@ -48,6 +48,7 @@ function buscarDatos() {
     success: function (result) {
       mostrarTabla(result);
       buscarDatosExportar();
+      validarEliminar();
     },
   });
 }
@@ -451,6 +452,7 @@ function busquedaParticular(getId, getValue) {
     },
     success: function (result) {
       mostrarTabla(result);
+      validarEliminar();
     },
   });
 }
@@ -510,6 +512,22 @@ function valoresSesiones() {
         // document.getElementsByClassName("btnEliminarClass").disabled = true;
       } else if (result === "operador" || result === "integrador") {
         document.getElementById("fechaCarga").disabled = true;
+      }
+    },
+  });
+}
+function validarEliminar() {
+  let sesion = document.getElementById("UsuarioActivo").textContent;
+  $.ajax({
+    method: "POST",
+    url: "../ValidarSesiones",
+    data: {
+      accion: "ValidarUsuario",
+      usuario: sesion,
+    },
+    success: function (result) {
+      if (result != "root" && result != "supervisor") {
+        document.getElementsByClassName('btnEliminar').style.display = 'none';
       }
     },
   });
@@ -599,6 +617,7 @@ function recargarSiniestros() {
     },
     success: function (result) {
       mostrarTabla(result);
+      validarEliminar();
     },
   }); //
   $.ajax({
@@ -642,6 +661,7 @@ function busquedaGeneral(thisValue) {
     },
     success: function (result) {
       mostrarTabla(result);
+      validarEliminar();
     },
   });
 }
@@ -683,6 +703,7 @@ function busquedaPorDias(getId) {
   ) {
     funcionAjaxParaFiltros("3Checked", getId);
   }
+  validarEliminar();
 }
 function enviarImagenes() {
   let imagen;
@@ -747,7 +768,7 @@ function mostrarTabla(result) {
     let sinComas = sinDiagonal[i].split("-_/");
     if (i % 9 == 0 && i != 0) {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
-      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
+      let btnGrupo = `<td><div class="btnEliminar btn-group tablaActual botonesTabla" role="group">
       <button type='button' id=${
         sinComas[0] + ",Eliminar"
       } class='btn btn-danger'
@@ -859,6 +880,7 @@ function mostrarTabla(result) {
       }</tr>`;
     }
   }
+  validarEliminar();
 }
 function tablaSeguimiento() {
   $.ajax({
@@ -1058,6 +1080,7 @@ function funcionAjaxParaFiltros(filtro, getId) {
     success: function (result) {
       console.log(result);
       mostrarTabla(result);
+      validarEliminar();
     },
   });
 }
@@ -1184,16 +1207,4 @@ function buscarDatosExportar() {
       }
       // recargarSiniestros();
     });
-}
-function mostrarMovimientos() {
-  $.ajax({
-    method: "POST",
-    url: "../ExportarUsuarios",
-    data: {
-      accion: "MostrarMov",
-    },
-  }).done(function (result) {
-    alert(result);
-    console.log(result);
-  });
 }

@@ -60,12 +60,20 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
-                        r2 = r2 + "0-_/";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
+                        conect.Desconectar();
                         break;
                     case "1":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -95,13 +103,20 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
-                        r2 = r2 + "0/-_";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
                         conect.Desconectar();
                         break;
                     case "2":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -139,13 +154,20 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
-                        r2 = r2 + "0-_/";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
                         conect.Desconectar();
                         break;
                     case "3":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -192,12 +214,20 @@ public class AnalisisUsuarios {
                         conect.Desconectar();
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
-                        r2 = r2 + "0-_/";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 4 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
+                        conect.Desconectar();
                         break;
                     case "4":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -252,12 +282,20 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         r2 = r2 + "0-_/";
-                        r2 = r2 + "0-_/";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 5 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
+                        conect.Desconectar();
                         break;
                     case "5":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -320,12 +358,20 @@ public class AnalisisUsuarios {
                             r2 = r2 + rs.getString("dia") + "-_/";
                         }
                         conect.Desconectar();
-                        r2 = r2 + "0-_/";
+                        sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
+                                + "' and fechaseguimiento=curdate() - interval 6 day";
+                        conect.conectar();
+                        ps = conect.conexion.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        while (rs.next()) {
+                            r2 = r2 + rs.getString("dia") + "/-_";
+                        }
+                        conect.Desconectar();
                         break;
                     case "6":
                         r2 = r2 + partes[i] + "-_/";
                         sql = "select count(usuario) as totalMov from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 1 week)";
+                                + "' and week(fechaseguimiento)=WEEKOFYEAR(NOW()- interval 0 week)";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -389,12 +435,12 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento=curdate() - interval 7 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
                         while (rs.next()) {
-                            r2 = r2 + rs.getString("dia") + "-_/";
+                            r2 = r2 + rs.getString("dia") + "/-_";
                         }
                         conect.Desconectar();
                         break;
@@ -517,15 +563,26 @@ public class AnalisisUsuarios {
                 ps = conect.conexion.prepareStatement(sql);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    r2 = r2 + rs.getString("cantidad") + "/-_";
+                    r2 = r2 + rs.getString("cantidad") + "-_/";
                 }
                 r = "8";
+                conect.Desconectar();
+                sql = "select count(usuario) as cantidad from seguimientoprincipal "
+                        + " where fechaseguimiento >'" + fechaInicio + "' and fechaseguimiento<='" + fechaTermino + "'"
+                        + " and usuario='" + partes[i] + "'";
+                conect.conectar();
+                ps = conect.conexion.prepareStatement(sql);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    r2 = r2 + rs.getString("cantidad") + "/-_";
+                }
+                r = "9";
                 conect.Desconectar();
             }
         } catch (Exception e) {
             // TODO: handle exception
         }
-        return r3;
+        return r2;
     }
 
 }

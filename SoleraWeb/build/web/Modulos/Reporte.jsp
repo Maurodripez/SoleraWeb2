@@ -42,10 +42,6 @@
         </div>
         <div class="col-2 pt-3">
             <!-- Button trigger modal -->
-            <button id="btnMovimientos" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#movimientosUsuarios">
-                Movimientos
-            </button>
             <!-- Modal -->
             <div class="modal fade" id="movimientosUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -64,17 +60,16 @@
                                     <thead>
                                         <tr>
                                             <th>Usuario</th>
+                                            <th>Domingo</th>
                                             <th>Lunes</th>
                                             <th>Martes</th>
                                             <th>Miercoles</th>
                                             <th>Jueves</th>
                                             <th>Viernes</th>
                                             <th>Sabado</th>
-                                            <th>Domingo</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tBodyReporte"></tbody>
                                 </table>
                             </div>
                             <div class="row">
@@ -111,19 +106,25 @@
                                     </div>
                                 </div>
                                 <div class="col-2 pt-4">
-                                    <button onclick="busquedaReporte()" id="buscarReporte" class="btn btn-primary">Buscar</button>
+                                    <button onclick="busquedaReporte()" id="buscarReporte" class="btn btn-primary">
+                                        Buscar
+                                    </button>
                                 </div>
                                 <div class="col pt-4">
-                                    <button onclick="exportarReporte()" id="exportarReporte" class="btn btn-primary">Exportar</button>
+                                    <button onclick="exportTableToExcel('TablaReporte','ReporteUsuarios')" id="exportarReporte" class="btn btn-primary">
+                                        Exportar
+                                    </button>
+                                </div>
+                                <div class="col pt-4">
+                                    <button onclick="mostrarMovimientos()" id="exportarReporte" class="btn btn-primary">
+                                        Limpiar
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                Close
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                Save changes
+                                Cerrar
                             </button>
                         </div>
                     </div>
@@ -426,6 +427,10 @@
                         </button>
                         <button type="button" class="btn btn-primary">Limpiar</button>
                         <button type="button" class="btn btn-primary">Exportar</button>
+                        <button id="btnMovimientos" onclick="mostrarMovimientos()" type="button" class="btn btn-primary"
+                            data-bs-toggle="modal" data-bs-target="#movimientosUsuarios">
+                            Movimientos
+                        </button>
                     </div>
                 </div>
             </div>
