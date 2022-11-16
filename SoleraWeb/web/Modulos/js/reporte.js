@@ -969,14 +969,14 @@ function tablaReporte(result) {
   for (let i = 0; i < sinCodificado.length - 1; i++) {
     let sinCodificado2 = sinCodificado[i].split("-_/");
     let usuario = `<td class='tablaActualReporte'>${sinCodificado2[0]}</td>`;
-    let total = `<td class='tablaActualReporte'>${sinCodificado2[1]}</td>`;
-    let lunes = `<td class='tablaActualReporte'>${sinCodificado2[2]}</td>`;
-    let martes = `<td class='tablaActualReporte'>${sinCodificado2[3]}</td>`;
-    let miercoles = `<td class='tablaActualReporte'>${sinCodificado2[4]}</td>`;
-    let jueves = `<td class='tablaActualReporte'>${sinCodificado2[5]}</td>`;
-    let viernes = `<td class='tablaActualReporte'>${sinCodificado2[6]}</td>`;
-    let sabado = `<td class='tablaActualReporte'>${sinCodificado2[7]}</td>`;
-    let domingo = `<td class='tablaActualReporte'>${sinCodificado2[8]}</td>`;
+    let total = `<td class='tablaActualReporte'>${sinCodificado2[8]}</td>`;
+    let lunes = `<td class='tablaActualReporte'>${sinCodificado2[1]}</td>`;
+    let martes = `<td class='tablaActualReporte'>${sinCodificado2[2]}</td>`;
+    let miercoles = `<td class='tablaActualReporte'>${sinCodificado2[3]}</td>`;
+    let jueves = `<td class='tablaActualReporte'>${sinCodificado2[4]}</td>`;
+    let viernes = `<td class='tablaActualReporte'>${sinCodificado2[5]}</td>`;
+    let sabado = `<td class='tablaActualReporte'>${sinCodificado2[6]}</td>`;
+    let domingo = `<td class='tablaActualReporte'>${sinCodificado2[7]}</td>`;
     tabla.innerHTML += `<tr class='tablaActualReporte'>${
       usuario +
       domingo +

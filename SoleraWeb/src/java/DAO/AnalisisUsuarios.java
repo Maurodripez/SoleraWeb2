@@ -542,7 +542,7 @@ public class AnalisisUsuarios {
                 r = "6";
                 conect.Desconectar();
                 sql = "select count(usuario) as cantidad,usuario from seguimientoprincipal"
-                        + " where DAYNAME(fechaseguimiento)='sabadp' and fechaseguimiento >'" + fechaInicio
+                        + " where DAYNAME(fechaseguimiento)='sabado' and fechaseguimiento >'" + fechaInicio
                         + "' and fechaseguimiento<='" + fechaTermino
                         + "'"
                         + " and usuario='" + partes[i] + "'";

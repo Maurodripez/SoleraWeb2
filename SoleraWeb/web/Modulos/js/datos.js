@@ -386,7 +386,7 @@ function InsertarSeguimiento() {
     url: "../GuardarSeguimiento",
     data: {
       accion: "guardarSeguimiento",
-      estacion: document.getElementById("txtEstacion").value,
+      estacion: estacionDatos,
       comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
       estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
         .value,
@@ -399,8 +399,6 @@ function InsertarSeguimiento() {
       fechaFactServ: document.getElementById("txtFechaFactServ").value,
       fechaTermino: document.getElementById("txtFechaTermino").value,
       idRegistro: document.getElementById("idOculto").value,
-      fechaSeguimiento: document.getElementById("txtFechaSeguimientoPicker")
-        .value,
       usuario: document.getElementById("UsuarioActivo").textContent,
     },
     success: function () {
@@ -409,6 +407,7 @@ function InsertarSeguimiento() {
   });
 }
 $(document).ready(function () {
+  estaciones();
   controlPaginado();
   //funcion para limpiar el regitro
   $("#limpiarRegistro").click(function () {
@@ -1211,4 +1210,41 @@ function buscarDatosExportar() {
       }
       // recargarSiniestros();
     });
+}
+function estaciones() {
+  $("#txtEstatusSeguimiento").change(function () {
+    let estatus = $("#txtEstatusSeguimiento").val();
+    if (
+      estatus ===
+        "CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)" ||
+      estatus === "CON CONTACTO SIN COOPERACION DEL CLIENTE" ||
+      estatus === "CASO REABIERTO" ||
+      estatus === "CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)" ||
+      estatus === "TERMINADO ENTREGA ORIGINALES EN OFICINA" ||
+      estatus === "TERMINADO POR PROCESO COMPLETO" ||
+      estatus === "TOTAL DE DOCUMENTOS"
+    ) {
+      $("#txtSubEstacion").empty();
+      $("#txtSubEstacion").append(
+        "<option value='Terminado' >Terminado</option>"
+      );
+    } else if (
+      estatus === "CON CONTACTO SIN DOCUMENTOS" ||
+      estatus === "DE 1 A 3 DOCUMENTOS" ||
+      estatus === "DE 4 A 6 DOCUMENTOS" ||
+      estatus === "DE 7 A 10 DOCUMENTOS" ||
+      estatus === "SIN CONTACTO"
+    ) {
+      $("#txtSubEstacion").empty();
+      $("#txtSubEstacion").append(
+        "<option value='En seguimiento'>En seguimiento</option>"
+      );
+    }else if(estatus ==="DATOS INCORRECTOS" ||
+    estatus==="SIN CONTACTO EN 30 DIAS"){
+      $("#txtSubEstacion").empty();
+      $("#txtSubEstacion").append(
+        "<option value='Cancelado'>Cancelado</option>"
+      );
+    }
+  });
 }

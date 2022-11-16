@@ -47,7 +47,6 @@ public class GuardarSeguimiento extends HttpServlet {
                     mgSeguimiento.setFechaFactServ(request.getParameter("fechaFactServ"));
                     mgSeguimiento.setFechaTermino(request.getParameter("fechaTermino"));
                     mgSeguimiento.setIdRegistro(request.getParameter("idRegistro"));
-                    mgSeguimiento.setFechaSeguimiento(request.getParameter("fechaSeguimiento"));
                     mgSeguimiento.setUsuario(request.getParameter("usuario"));
                     respuesta = daoGSeguimiento.GuardarSeguimiento(mgSeguimiento);
                     out.println(respuesta);

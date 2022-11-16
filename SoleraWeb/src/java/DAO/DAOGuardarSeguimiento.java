@@ -30,12 +30,12 @@ public class DAOGuardarSeguimiento {
                     + "','" + mgSeguimiento.getRespSolera() + "','" + mgSeguimiento.getPersContactada()
                     + "','" + mgSeguimiento.getTipoPersona() + "','" + mgSeguimiento.getTipoContacto()
                     + "','" + mgSeguimiento.getFechaIntExp() + "','" + mgSeguimiento.getFechaFactServ()
-                    + "','" + mgSeguimiento.getFechaTermino() + "','"+mgSeguimiento.getFechaSeguimiento()+"','" + nombreReal
+                    + "','" + mgSeguimiento.getFechaTermino() + "',now(),'" + nombreReal
                     + "','" + mgSeguimiento.getIdRegistro() + "')";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
-            respuesta="0";
+            respuesta = "0";
             con.Desconectar();
             sql = "insert into mensajesseguimientos(mensajes,usuario,fechaMensaje,fkmensgSeguimientos) values('"
                     + mgSeguimiento.getComentSeguimiento() + "','" + mgSeguimiento.getUsuario() + "',now(), '"
@@ -43,21 +43,21 @@ public class DAOGuardarSeguimiento {
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
-            respuesta="1";
+            respuesta = "1";
             con.Desconectar();
             sql = "update mensajesseguimientos set respondido='si' where fkmensgSeguimientos='"
                     + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
-            respuesta="2";
+            respuesta = "2";
             con.Desconectar();
             sql = "update fechasseguimiento set fechaSeguimiento=curdate() where fkidRegistro='"
                     + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
-            respuesta="3";
+            respuesta = "3";
             con.Desconectar();
             sql = "update infosiniestro set estatusSeguimientoSin='" + mgSeguimiento.getEstatusSeguimiento()
                     + "' where idRegistro='" + mgSeguimiento.getIdRegistro() + "'";
