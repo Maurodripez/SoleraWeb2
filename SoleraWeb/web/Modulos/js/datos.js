@@ -48,7 +48,6 @@ function buscarDatos() {
     success: function (result) {
       mostrarTabla(result);
       buscarDatosExportar();
-      validarEliminar();
     },
   });
 }
@@ -268,7 +267,6 @@ function tablaImagenes(txtIdRegistro) {
   });
 }
 function funcionesBoton(getId) {
-  let direccionId = document.getElementById("idOculto").value;
   let sinComas = getId.split(",");
   let sinPuntos = getId.split(".");
   let iframe = document.getElementById("iFrameIdentificacion");
@@ -282,31 +280,7 @@ function funcionesBoton(getId) {
           accion: "Ver",
         },
         success: function (result) {
-          if (sinPuntos[1] === "txt") {
-            let imagen = document.getElementById("docSeleccionado");
-            $.ajax({
-              method: "POST",
-              url: "../leerImagenes",
-              data: {
-                accion: "traerImagen64",
-              },
-              success: function (result) {
-                iframe.style.display = "none";
-                imagen.src = result;
-              },
-            });
-          } else if (sinPuntos[1] === "pdf" || sinPuntos[1] === "docx") {
-            iframe.src =
-              "../documentos/" + direccionId + "/" + sinComas[2] + "";
-            iframe.style.display = "";
-          } else {
-            let imagen = document.getElementById("docSeleccionado");
-            iframe.style.display = "none";
-            imagen.setAttribute(
-              "src",
-              "../documentos/" + direccionId + "/" + sinComas[2] + ""
-            );
-          }
+          mostrarImagenSelect(result, sinPuntos, sinComas, iframe);
         },
       });
       break;
@@ -325,10 +299,45 @@ function funcionesBoton(getId) {
           $(".tablaImagenes").remove();
           let txtIdRegistro = document.getElementById("idOculto").value;
           tablaImagenes(txtIdRegistro); //se manda de nueva la funcion para actualizar las imagene que estan borradas
+          Limpiarimagen(iframe);
         },
       });
       break;
   }
+}
+function mostrarImagenSelect(result, sinPuntos, sinComas, iframe) {
+  let direccionId = document.getElementById("idOculto").value;
+  if (sinPuntos[1] === "txt") {
+    let imagen = document.getElementById("docSeleccionado");
+    $.ajax({
+      method: "POST",
+      url: "../leerImagenes",
+      data: {
+        accion: "traerImagen64",
+      },
+      success: function (result) {
+        iframe.style.display = "none";
+        imagen.src = result;
+      },
+    });
+  } else if (sinPuntos[1] === "pdf" || sinPuntos[1] === "docx") {
+    iframe.src = "../documentos/" + direccionId + "/" + sinComas[2] + "";
+    iframe.style.display = "";
+  } else {
+    let imagen = document.getElementById("docSeleccionado");
+    iframe.style.display = "none";
+    imagen.setAttribute(
+      "src",
+      "../documentos/" + direccionId + "/" + sinComas[2] + ""
+    );
+  }
+}
+function Limpiarimagen(iframe) {
+  iframe.src = "";
+  iframe.style.display = "none";
+  let imagen = document.getElementById("docSeleccionado");
+  iframe.style.display = "none";
+  imagen.setAttribute("src", "");
 }
 function GuardarRegistros() {
   $.ajax({
@@ -452,7 +461,6 @@ function busquedaParticular(getId, getValue) {
     },
     success: function (result) {
       mostrarTabla(result);
-      validarEliminar();
     },
   });
 }
@@ -526,8 +534,8 @@ function validarEliminar() {
       usuario: sesion,
     },
     success: function (result) {
-      if (result != "root" && result != "supervisor") {
-        document.getElementsByClassName('btnEliminar').style.display = 'none';
+      if (result == "root" || result == "supervisor") {
+        $(".btnEliminar").show(); //muestro mediante clase
       }
     },
   });
@@ -617,7 +625,6 @@ function recargarSiniestros() {
     },
     success: function (result) {
       mostrarTabla(result);
-      validarEliminar();
     },
   }); //
   $.ajax({
@@ -661,7 +668,6 @@ function busquedaGeneral(thisValue) {
     },
     success: function (result) {
       mostrarTabla(result);
-      validarEliminar();
     },
   });
 }
@@ -703,7 +709,6 @@ function busquedaPorDias(getId) {
   ) {
     funcionAjaxParaFiltros("3Checked", getId);
   }
-  validarEliminar();
 }
 function enviarImagenes() {
   let imagen;
@@ -768,11 +773,11 @@ function mostrarTabla(result) {
     let sinComas = sinDiagonal[i].split("-_/");
     if (i % 9 == 0 && i != 0) {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
-      let btnGrupo = `<td><div class="btnEliminar btn-group tablaActual botonesTabla" role="group">
+      let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
       <button type='button' id=${
         sinComas[0] + ",Eliminar"
-      } class='btn btn-danger'
-      onclick='eliminarSiniestro(this.id)'>
+      } class='btnEliminar btn btn-danger'
+      onclick='eliminarSiniestro(this.id)' style='display:none'>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
       stroke-linejoin="round" class="feather feather-trash-2">
@@ -830,8 +835,8 @@ function mostrarTabla(result) {
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
       <button type='button' id=${
         sinComas[0] + ",Eliminar"
-      } class='btn btn-danger'
-      onclick='eliminarSiniestro(this.id)'>
+      } class='btnEliminar btn btn-danger'
+      onclick='eliminarSiniestro(this.id)' style='display:none'>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
       stroke-linejoin="round" class="feather feather-trash-2">
@@ -1080,7 +1085,6 @@ function funcionAjaxParaFiltros(filtro, getId) {
     success: function (result) {
       console.log(result);
       mostrarTabla(result);
-      validarEliminar();
     },
   });
 }

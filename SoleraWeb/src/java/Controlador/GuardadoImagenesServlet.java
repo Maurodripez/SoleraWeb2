@@ -57,10 +57,9 @@ public class GuardadoImagenesServlet extends HttpServlet {
       //String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
       // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
       File cargarImagenes = new File(ruta);
-      String nombreCorregido = archivo.getSubmittedFileName().replaceAll("_", "-");
       String nombreCorregidoArchivo = nombreArchivo.replaceAll("\\s", "-");
-      File doc = new File(cargarImagenes, nombreCorregidoArchivo + "-" + nombreCorregido);
-      String archivoUnico = nombreCorregidoArchivo + "-" + nombreCorregido;
+      File doc = new File(cargarImagenes, nombreCorregidoArchivo+"-"+fkGuardar);
+      String archivoUnico = nombreCorregidoArchivo+"-"+fkGuardar;
       Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
       // la carpeta seleccionada
       dGImagenes.guardarImagen(nombreArchivo, ruta + "" + archivoUnico, fkGuardar, archivoUnico);
