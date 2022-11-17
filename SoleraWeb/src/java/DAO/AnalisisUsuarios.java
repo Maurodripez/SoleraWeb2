@@ -2,7 +2,11 @@ package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import Modelo.Conexion;
+import Modelo.ModeloGrandeAnalisis;
 
 public class AnalisisUsuarios {
     public String getAnalisis() {
@@ -454,7 +458,6 @@ public class AnalisisUsuarios {
 
     public String getAnalisisintervalo(String fechaInicio, String fechaTermino) {
         String r = "0";
-        String r3 = "0";
         String r2 = "";
         Conexion conect = new Conexion();
         PreparedStatement ps;
@@ -484,7 +487,6 @@ public class AnalisisUsuarios {
                 ps = conect.conexion.prepareStatement(sql);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    r3 = rs.getString("cantidad");
                     r2 = r2 + rs.getString("cantidad") + "-_/";
                 }
                 r = "2";
@@ -585,4 +587,44 @@ public class AnalisisUsuarios {
         return r2;
     }
 
+    public List<ModeloGrandeAnalisis> getAnalisisGrande(String fechaInicio, String fechaTermino) {
+        List<ModeloGrandeAnalisis> lista = new ArrayList<>();
+        String r = "0";
+        try {
+            Conexion conect = new Conexion();
+            PreparedStatement ps;
+            ResultSet rs;
+            String sql;
+            sql = "select usuario, fechaseguimiento, estatusSeguimiento, comentarios, numSiniestro,poliza,asegurado,marca,tipo,modelo,numSerie,estado,region"
+                    + " from infosiniestro as isin,infocliente as ic,infoauto as ia,seguimientoprincipal as sp "
+                    + " where idRegistro=ic.fkIdRegistro and idRegistro=ia.fkIdRegistro and idRegistro=sp.fkIdRegistroSegPrincipal "
+                    + " and fechaseguimiento>'2022-10-12' and fechaseguimiento<='2022-11-10'";
+            conect.conectar();
+            ps = conect.conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            r = "1";
+            while (rs.next()) {
+                ModeloGrandeAnalisis mgAnalisis = new ModeloGrandeAnalisis();
+                mgAnalisis.setUsuario(rs.getString("usuario"));
+                mgAnalisis.setFechaseguimiento(rs.getString("fechaseguimiento"));
+                mgAnalisis.setEstatusSeguimiento(rs.getString("estatusSeguimiento"));
+                mgAnalisis.setComentarios(rs.getString("comentarios"));
+                mgAnalisis.setNumSiniestro(rs.getString("numSiniestro"));
+                mgAnalisis.setPoliza(rs.getString("poliza"));
+                mgAnalisis.setAsegurado(rs.getString("asegurado"));
+                mgAnalisis.setMarca(rs.getString("marca"));
+                mgAnalisis.setTipo(rs.getString("tipo"));
+                mgAnalisis.setModelo(rs.getString("modelo"));
+                mgAnalisis.setNumSerie(rs.getString("numSerie"));
+                mgAnalisis.setEstado(rs.getString("estado"));
+                mgAnalisis.setRegion(rs.getString("region"));
+                lista.add(mgAnalisis);
+                r = "2";
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return lista;
+
+    }
 }

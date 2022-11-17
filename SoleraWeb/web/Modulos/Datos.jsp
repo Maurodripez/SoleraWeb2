@@ -669,9 +669,7 @@
                                     <th scope="col">telefonoPrincipal</th>
                                     <th scope="col">telefonosecundario</th>
                                     <th scope="col">contacto</th>
-                                    <th scope="col">correo</th>
                                     <th scope="col">asegurado</th>
-                                    <th scope="col">correoContacto</th>
                                     <th scope="col">telContacto</th>
                                 </tr>
                             </thead>

@@ -61,7 +61,6 @@ public class DatosExportar extends HttpServlet {
                 out.print(mtGrande.getContacto()+"-_/");
                 out.print(mtGrande.getCorreo()+"-_/");
                 out.print(mtGrande.getAsegurado()+"-_/");
-                out.print(mtGrande.getCorreoContacto()+"-_/");
                 out.print(mtGrande.getTelContacto()+"/-_");
             }
         }

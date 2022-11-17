@@ -111,7 +111,8 @@
                                     </button>
                                 </div>
                                 <div class="col pt-4">
-                                    <button onclick="exportTableToExcel('TablaReporte','ReporteUsuarios')" id="exportarReporte" class="btn btn-primary">
+                                    <button onclick="exportTableToExcel('TablaReporte','ReporteUsuarios')"
+                                        id="exportarReporte" class="btn btn-primary">
                                         Exportar
                                     </button>
                                 </div>
@@ -120,7 +121,30 @@
                                         Limpiar
                                     </button>
                                 </div>
+                                <div class="col pt-4">
+                                    <button onclick="exportarMovimientosGrande()"
+                                        id="exportarReporte" class="btn btn-primary">
+                                        Exportar Grande
+                                    </button>
+                                </div>
                             </div>
+                            <table id="TablaReporteGrande" style="display: none">
+                                <thead>
+                                    <th>Operador</th>
+                                    <th>fecha</th>
+                                    <th>estatus</th>
+                                    <th>comentario</th>
+                                    <th>numero de siniestro</th>
+                                    <th>poliza</th>
+                                    <th>asegurado</th>
+                                    <th>marca</th>
+                                    <th>tipo</th>
+                                    <th>modelo</th>
+                                    <th>numserie</th>
+                                    <th>estado</th>
+                                    <th>region</th>
+                                </thead>
+                            </table>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

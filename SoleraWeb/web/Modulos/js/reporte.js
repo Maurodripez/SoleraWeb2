@@ -1020,3 +1020,52 @@ function exportTableToExcel(tableID, filename = "") {
     downloadLink.click();
   }
 }
+function exportarMovimientosGrande() {
+  $.ajax({
+    method: "POST",
+    url: "../ExportarUsuarios",
+    data: {
+      accion: "buscarGrandeFechas",
+      fechaInicio: document.getElementById("fechaInicioUsuarios").value,
+      fechaFinal: document.getElementById("fechaFinalUsuarios").value,
+    },
+  }).done(function (result) {
+    tablaReporteGrande(result);
+  });
+}
+function tablaReporteGrande(result) {
+  $(".TablaReporteGrande").remove();
+  let tabla = document.getElementById("TablaReporteGrande");
+  let sinCodificado = result.split("/-_");
+  for (let i = 0; i < sinCodificado.length - 1; i++) {
+    let sinCodificado2 = sinCodificado[i].split("-_/");
+    let usuario = `<td class='TablaReporteGrande'>${sinCodificado2[0]}</td>`;
+    let fechaSeguimiento = `<td class='TablaReporteGrande'>${sinCodificado2[8]}</td>`;
+    let estatus = `<td class='TablaReporteGrande'>${sinCodificado2[1]}</td>`;
+    let comentarios = `<td class='TablaReporteGrande'>${sinCodificado2[2]}</td>`;
+    let siniestro = `<td class='TablaReporteGrande'>${sinCodificado2[3]}</td>`;
+    let poliza = `<td class='TablaReporteGrande'>${sinCodificado2[4]}</td>`;
+    let asegurado = `<td class='TablaReporteGrande'>${sinCodificado2[5]}</td>`;
+    let marca = `<td class='TablaReporteGrande'>${sinCodificado2[6]}</td>`;
+    let tipo = `<td class='TablaReporteGrande'>${sinCodificado2[7]}</td>`;
+    let modelo = `<td class='TablaReporteGrande'>${sinCodificado2[8]}</td>`;
+    let serie = `<td class='TablaReporteGrande'>${sinCodificado2[9]}</td>`;
+    let estado = `<td class='TablaReporteGrande'>${sinCodificado2[10]}</td>`;
+    let region = `<td class='TablaReporteGrande'>${sinCodificado2[11]}</td>`;
+    tabla.innerHTML += `<tr class='TablaReporteGrande'>${
+      usuario +
+      fechaSeguimiento +
+      estatus +
+      comentarios +
+      siniestro +
+      poliza +
+      asegurado +
+      marca +
+      tipo +
+      modelo +
+      serie +
+      estado +
+      region
+    }</tr>`;
+  }
+}

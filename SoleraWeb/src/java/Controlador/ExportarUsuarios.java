@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import DAO.AnalisisUsuarios;
+import Modelo.ModeloGrandeAnalisis;
 
 @WebServlet(name = "ExportarUsuarios", urlPatterns = { "/ExportarUsuarios" })
 public class ExportarUsuarios extends HttpServlet {
@@ -40,6 +41,26 @@ public class ExportarUsuarios extends HttpServlet {
                     String fechaFinal = request.getParameter("fechaFinal");
                     r = aUsuarios.getAnalisisintervalo(fechaInicio, fechaFinal);
                     out.print(r);
+                    break;
+                case "buscarGrandeFechas":
+                    fechaInicio = request.getParameter("fechaInicio");
+                    fechaFinal = request.getParameter("fechaFinal");
+                    // r = aUsuarios.getAnalisisGrande(fechaInicio, fechaFinal);
+                    for (ModeloGrandeAnalisis mgAnalisis : aUsuarios.getAnalisisGrande(fechaInicio, fechaFinal)) {
+                        out.print(mgAnalisis.getUsuario() + "-_/");
+                        out.print(mgAnalisis.getFechaseguimiento() + "-_/");
+                        out.print(mgAnalisis.getEstatusSeguimiento() + "-_/");
+                        out.print(mgAnalisis.getComentarios() + "-_/");
+                        out.print(mgAnalisis.getNumSiniestro() + "-_/");
+                        out.print(mgAnalisis.getPoliza() + "-_/");
+                        out.print(mgAnalisis.getAsegurado() + "-_/");
+                        out.print(mgAnalisis.getMarca() + "-_/");
+                        out.print(mgAnalisis.getTipo() + "-_/");
+                        out.print(mgAnalisis.getModelo() + "-_/");
+                        out.print(mgAnalisis.getNumSerie() + "-_/");
+                        out.print(mgAnalisis.getEstado() + "-_/");
+                        out.print(mgAnalisis.getRegion() + "/-_");
+                    }
                     break;
             }
         }

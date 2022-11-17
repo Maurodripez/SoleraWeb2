@@ -61,7 +61,6 @@ public class DAOTablaGrande {
                 mtGrande.setContacto(rs.getString("contacto"));
                 mtGrande.setCorreo(rs.getString("correo"));
                 mtGrande.setAsegurado(rs.getString("asegurado"));
-                mtGrande.setCorreoContacto(rs.getString("correoContacto"));
                 mtGrande.setContacto(rs.getString("telContacto"));
                 lista.add(mtGrande);
             }

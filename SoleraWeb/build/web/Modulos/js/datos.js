@@ -1109,6 +1109,7 @@ function buscarDatosExportar() {
       //funcion para generar talbas en automatico con lo resultados
       let tablaExportar = document.getElementById("tBodyExportar");
       let sinDiagonal = result.split("/-_");
+      console.log(sinDiagonal[0]);
       for (let i = 0; i < sinDiagonal.length - 1; i++) {
         let sinComas = sinDiagonal[i].split("-_/");
         let numSiniestro = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[0]}</td>`;
@@ -1142,8 +1143,7 @@ function buscarDatosExportar() {
         let telefonosecundario = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[28]}</td>`;
         let contacto = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[29]}</td>`;
         let asegurado = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[31]}</td>`;
-        let correoContacto = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[32]}</td>`;
-        let telContacto = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[33]}</td>`;
+        let telContacto = `<td style='font-size: 14px' class='tablaOculta'>${sinComas[32]}</td>`;
         tablaExportar.innerHTML += `<tr class='tablaOculta'>${
           numSiniestro +
           poliza +
@@ -1176,7 +1176,6 @@ function buscarDatosExportar() {
           telefonosecundario +
           contacto +
           asegurado +
-          correoContacto +
           telContacto
         }</tr>`;
       }
