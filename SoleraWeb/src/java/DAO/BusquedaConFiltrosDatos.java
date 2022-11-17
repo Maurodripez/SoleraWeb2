@@ -186,7 +186,7 @@ public class BusquedaConFiltrosDatos {
     public List<ModeloBusquedaDatos> getTodos(String mayor, String menor) {
         List<ModeloBusquedaDatos> lista = new ArrayList<>();
         sql = "select factura, poder, identificacion, situacion, curp, estadoDoc, tenencia, baja, tarjeta, polizaDoc, comprobante,"
-                + " idRegistro, numSiniestro, poliza, marca, modelo, numSerie,estado, fechaCarga, estacionProceso,estatusSeguimientoSinestatusSeguimientoSin"
+                + " idRegistro, numSiniestro, poliza, marca, modelo, numSerie,estado, fechaCarga, estacionProceso,estatusSeguimientoSin"
                 + " from documentosaprobados, infosiniestro, infoauto, estadoproceso,fechasseguimiento as fs where fs.fkidRegistro=idRegistro"
                 + " and idRegistro=infoauto.fkidRegistro and idRegistro=fkIdRegistroEstadoProceso and fkIdRegistroDocsAprobados=idRegistro"
                 + " and (datediff(CURDATE(), fechaSeguimiento)>='" + mayor

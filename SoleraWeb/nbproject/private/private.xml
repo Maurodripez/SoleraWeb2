@@ -21,6 +21,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/MostrarDocumentosEstados.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/MostrarDatosDias.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/EliminarSiniestro.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/excel/pruebaExportar.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/FuncionesBtnDocs.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOMostrarPorDias.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/VistaUsuario.jsp</file>
@@ -31,6 +32,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/DatosExportar.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BuscarSiniestros.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOMostrarDatos.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ContadorPorEstatus.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloCreacionUsuario.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOEliminarSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/DocumentosAprobados.java</file>
@@ -41,15 +43,19 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaConFiltrosDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOTablaDocumentos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloGrandeAnalisis.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ControladorMostrarDatos.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/excel/ExcelGenerator.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOValidarUsuario.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOCargaSiniestro.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/exportar.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOTablaHistorica.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BusquedaParticularDatos.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/BusquedaConFiltros.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/Comentarios.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ValidarSesiones.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaParticular.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/Conexion.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/BusquedaAjax.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ImagenesUsuario.java</file>
         </group>

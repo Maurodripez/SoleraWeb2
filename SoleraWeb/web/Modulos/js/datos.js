@@ -1085,7 +1085,6 @@ function funcionAjaxParaFiltros(filtro, getId) {
       accion: filtro,
     },
     success: function (result) {
-      console.log(result);
       mostrarTabla(result);
     },
   });
@@ -1106,6 +1105,7 @@ function buscarDatosExportar() {
     },
   })
     .done(function (result) {
+      $(".tablaOculta").remove();
       //funcion para generar talbas en automatico con lo resultados
       let tablaExportar = document.getElementById("tBodyExportar");
       let sinDiagonal = result.split("/-_");

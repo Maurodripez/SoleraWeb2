@@ -111,7 +111,7 @@
                                     </button>
                                 </div>
                                 <div class="col pt-4">
-                                    <button onclick="exportTableToExcel('TablaReporte','ReporteUsuarios')"
+                                    <button onclick="exportTableToExcel('TablaReporteGrande','ReporteUsuarios')"
                                         id="exportarReporte" class="btn btn-primary">
                                         Exportar
                                     </button>
