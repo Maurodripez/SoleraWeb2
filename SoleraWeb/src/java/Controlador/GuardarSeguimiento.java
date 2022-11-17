@@ -54,8 +54,9 @@ public class GuardarSeguimiento extends HttpServlet {
                 case "AsignarIntegrador":
                     String integrador = request.getParameter("integrador");
                     String idRegistro = request.getParameter("idRegistro");
+                    String usuario = request.getParameter("usuario");
                     String r = null;
-                    r = daoGSeguimiento.asignarIntegrador(integrador, idRegistro);
+                    r = daoGSeguimiento.asignarIntegrador(integrador, idRegistro,usuario);
                     out.println(r);
                     break;
             }

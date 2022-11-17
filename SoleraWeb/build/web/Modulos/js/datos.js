@@ -386,10 +386,11 @@ function InsertarSeguimiento() {
     url: "../GuardarSeguimiento",
     data: {
       accion: "guardarSeguimiento",
-      estacion: estacionDatos,
+      estacion: document.getElementById("txtEstacionSoloLectura").value,
       comentSeguimiento: document.getElementById("txtComentSeguimiento").value,
       estatusSeguimiento: document.getElementById("txtEstatusSeguimiento")
         .value,
+      subEstatus: document.getElementById("txtSubEstacion").value,
       respSolera: document.getElementById("txtRespSolera").value,
       persContactada: document.getElementById("txtPersContactada").value,
       tipoPersona: document.getElementById("txtTipoPersona").value,
@@ -401,7 +402,8 @@ function InsertarSeguimiento() {
       idRegistro: document.getElementById("idOculto").value,
       usuario: document.getElementById("UsuarioActivo").textContent,
     },
-    success: function () {
+    success: function (result) {
+      alert(result);
       tablaSeguimiento();
     },
   });
@@ -1015,6 +1017,7 @@ function asignarIntegrador() {
       accion: "AsignarIntegrador",
       integrador: document.getElementById("txtIntegrador").value,
       idRegistro: document.getElementById("idOculto").value,
+      usuario: document.getElementById("UsuarioActivo").textContent,
     },
   }).done(function (result) {
     alert(result);
@@ -1228,6 +1231,7 @@ function estaciones() {
       $("#txtSubEstacion").append(
         "<option value='Terminado' >Terminado</option>"
       );
+      document.getElementById("txtEstacionSoloLectura").value = "Terminado";
     } else if (
       estatus === "CON CONTACTO SIN DOCUMENTOS" ||
       estatus === "DE 1 A 3 DOCUMENTOS" ||
@@ -1239,12 +1243,17 @@ function estaciones() {
       $("#txtSubEstacion").append(
         "<option value='En seguimiento'>En seguimiento</option>"
       );
-    }else if(estatus ==="DATOS INCORRECTOS" ||
-    estatus==="SIN CONTACTO EN 30 DIAS"){
+      document.getElementById("txtEstacionSoloLectura").value =
+        "En seguimiento";
+    } else if (
+      estatus === "DATOS INCORRECTOS" ||
+      estatus === "SIN CONTACTO EN 30 DIAS"
+    ) {
       $("#txtSubEstacion").empty();
       $("#txtSubEstacion").append(
         "<option value='Cancelado'>Cancelado</option>"
       );
+      document.getElementById("txtEstacionSoloLectura").value = "Cancelado";
     }
   });
 }

@@ -52,7 +52,7 @@ public class DAOGuardarSeguimiento {
             ps.execute();
             respuesta = "2";
             con.Desconectar();
-            sql = "update fechasseguimiento set fechaSeguimiento=curdate() where fkidRegistro='"
+            sql = "update fechasseguimiento set fechaSeguimiento=now() where fkidRegistro='"
                     + mgSeguimiento.getIdRegistro() + "'";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
@@ -64,6 +64,16 @@ public class DAOGuardarSeguimiento {
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.execute();
+            respuesta = "4";
+            con.Desconectar();
+            sql = "update estadoproceso set estacionProceso='" + mgSeguimiento.getEstacion() + "', estatusOperativo='"
+                    + mgSeguimiento.getEstatusSeguimiento() + "',"
+                    + " subEstatusProceso='" + mgSeguimiento.getSubEstatus() + "', usuarioSeguimiento='" + nombreReal
+                    + "' where fkIdRegistroEstadoProceso='" + mgSeguimiento.getIdRegistro() + "'";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ps.execute();
+            respuesta = "5";
             con.Desconectar();
             respuesta = "Guardado Correcto";
 
@@ -75,11 +85,18 @@ public class DAOGuardarSeguimiento {
 
     }
 
-    public String asignarIntegrador(String integrador, String idRegistro) {
+    public String asignarIntegrador(String integrador, String idRegistro, String usuario) {
         respuesta = null;
         try {
-            String sql = "insert into seguimientoprincipal(estatusSeguimiento,fechaseguimiento, fkIdRegistroSegPrincipal) values('"
-                    + integrador + "',curdate(),'" + idRegistro + "')";
+            String sql = "select nombreReal from usuarios where usuario = '" + usuario + "'";
+            con.conectar();
+            ps = con.conexion.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                nombreReal = rs.getString("nombreReal");
+            }
+            sql = "insert into seguimientoprincipal(estatusSeguimiento,fechaseguimiento, fkIdRegistroSegPrincipal,usuario) values('"
+                    + integrador + "',now(),'" + idRegistro + "','" + nombreReal + "')";
             con.conectar();
             ps = con.conexion.prepareStatement(sql);
             ps.executeUpdate();
