@@ -6,11 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import DAO.ExportExcel;
 
 @WebServlet(name = "exportar", urlPatterns = {"/exportar"})
 public class exportar extends HttpServlet {
@@ -28,8 +26,13 @@ public class exportar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            Workbook book = new XSSFWorkbook();
-            Sheet sheet = new FileInputStream();
+            out.print("entra");
+            ExportExcel eExcel= new ExportExcel();
+            String r;
+            String fInicio=request.getParameter("fechaInicio");
+            String fFinal=request.getParameter("fechaFinal");
+            r= eExcel.WriteExcel(fInicio,fFinal);
+            out.print(r);
         }
     }
 

@@ -340,46 +340,83 @@ function Limpiarimagen(iframe) {
   imagen.setAttribute("src", "");
 }
 function GuardarRegistros() {
-  $.ajax({
-    type: "POST",
-    url: "../ObtenerInfoDesplegableServlet",
-    data: {
-      fechaCarga: document.getElementById("fechaCarga").value,
-      numSiniestro: document.getElementById("numSiniestro").value,
-      poliza: document.getElementById("poliza").value,
-      afectado: document.getElementById("afectado").value,
-      tipoDeCaso: document.getElementById("tipoDeCaso").value,
-      cobertura: document.getElementById("cobertura").value,
-      fechaSiniestro: document.getElementById("fechaSiniestro").value,
-      datosAudatex: document.getElementById("datosAudatex").value,
-      estado: document.getElementById("estado").value,
-      ciudad: document.getElementById("ciudad").value,
-      region: document.getElementById("region").value,
-      ubicacionTaller: document.getElementById("ubicacionTaller").value,
-      financiado: document.getElementById("financiado").value,
-      regimenFiscal: document.getElementById("regimenFiscal").value,
-      passwordExterno: document.getElementById("passwordExterno").value,
-      estatusCliente: document.getElementById("estatusCliente").value,
-      comentariosCliente: document.getElementById("comentariosCliente").value,
-      marca: document.getElementById("marca").value,
-      tipo: document.getElementById("tipo").value,
-      modelo: document.getElementById("modelo").value,
-      placas: document.getElementById("placas").value,
-      numSerie: document.getElementById("numSerie").value,
-      valIndemnizacion: document.getElementById("valIndemnizacion").value,
-      valComercial: document.getElementById("valComercial").value,
-      asegurado: document.getElementById("asegurado").value,
-      correo: document.getElementById("correo").value,
-      telPrincipal: document.getElementById("telPrincipal").value,
-      telSecundario: document.getElementById("telSecundario").value,
-      contacto: document.getElementById("contacto").value,
-      correoContacto: document.getElementById("correoContacto").value,
-      telContacto: document.getElementById("telContacto").value,
-      idEditableActual: document.getElementById("idOculto").value,
-    },
-  }).done(function (respuesta) {
-    alert("Guardado con exito");
-  });
+  if (
+    document.getElementById("fechaCarga").value != "" &&
+    document.getElementById("numSiniestro").value != "" &&
+    document.getElementById("poliza").value != "" &&
+    document.getElementById("afectado").value != "" &&
+    document.getElementById("tipoDeCaso").value != "" &&
+    document.getElementById("cobertura").value != "" &&
+    document.getElementById("fechaSiniestro").value != "" &&
+    document.getElementById("datosAudatex").value != "" &&
+    document.getElementById("estado").value != "" &&
+    document.getElementById("ciudad").value != "" &&
+    document.getElementById("region").value != "" &&
+    document.getElementById("ubicacionTaller").value != "" &&
+    document.getElementById("financiado").value != "" &&
+    document.getElementById("regimenFiscal").value != "" &&
+    document.getElementById("passwordExterno").value != "" &&
+    document.getElementById("estatusCliente").value != "" &&
+    document.getElementById("comentariosCliente").value != "" &&
+    document.getElementById("marca").value != "" &&
+    document.getElementById("tipo").value != "" &&
+    document.getElementById("modelo").value != "" &&
+    document.getElementById("placas").value != "" &&
+    document.getElementById("numSerie").value != "" &&
+    document.getElementById("valIndemnizacion").value != "" &&
+    document.getElementById("valComercial").value != "" &&
+    document.getElementById("asegurado").value != "" &&
+    document.getElementById("correo").value != "" &&
+    document.getElementById("telPrincipal").value != "" &&
+    document.getElementById("telSecundario").value != "" &&
+    document.getElementById("contacto").value != "" &&
+    document.getElementById("correoContacto").value != "" &&
+    document.getElementById("telContacto").value != "" &&
+    document.getElementById("idOculto").value != ""
+  ) {
+    $.ajax({
+      type: "POST",
+      url: "../ObtenerInfoDesplegableServlet",
+      data: {
+        fechaCarga: document.getElementById("fechaCarga").value,
+        numSiniestro: document.getElementById("numSiniestro").value,
+        poliza: document.getElementById("poliza").value,
+        afectado: document.getElementById("afectado").value,
+        tipoDeCaso: document.getElementById("tipoDeCaso").value,
+        cobertura: document.getElementById("cobertura").value,
+        fechaSiniestro: document.getElementById("fechaSiniestro").value,
+        datosAudatex: document.getElementById("datosAudatex").value,
+        estado: document.getElementById("estado").value,
+        ciudad: document.getElementById("ciudad").value,
+        region: document.getElementById("region").value,
+        ubicacionTaller: document.getElementById("ubicacionTaller").value,
+        financiado: document.getElementById("financiado").value,
+        regimenFiscal: document.getElementById("regimenFiscal").value,
+        passwordExterno: document.getElementById("passwordExterno").value,
+        estatusCliente: document.getElementById("estatusCliente").value,
+        comentariosCliente: document.getElementById("comentariosCliente").value,
+        marca: document.getElementById("marca").value,
+        tipo: document.getElementById("tipo").value,
+        modelo: document.getElementById("modelo").value,
+        placas: document.getElementById("placas").value,
+        numSerie: document.getElementById("numSerie").value,
+        valIndemnizacion: document.getElementById("valIndemnizacion").value,
+        valComercial: document.getElementById("valComercial").value,
+        asegurado: document.getElementById("asegurado").value,
+        correo: document.getElementById("correo").value,
+        telPrincipal: document.getElementById("telPrincipal").value,
+        telSecundario: document.getElementById("telSecundario").value,
+        contacto: document.getElementById("contacto").value,
+        correoContacto: document.getElementById("correoContacto").value,
+        telContacto: document.getElementById("telContacto").value,
+        idEditableActual: document.getElementById("idOculto").value,
+      },
+    }).done(function (respuesta) {
+      alert("Guardado con exito");
+    });
+  } else {
+    alert("Por favor, inserta la informacion faltante");
+  }
 }
 function InsertarSeguimiento() {
   $.ajax({

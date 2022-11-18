@@ -111,21 +111,16 @@
                                     </button>
                                 </div>
                                 <div class="col pt-4">
-                                    <button onclick="exportTableToExcel('TablaReporteGrande','ReporteUsuarios')"
-                                        id="exportarReporte" class="btn btn-primary">
-                                        Exportar
-                                    </button>
-                                </div>
-                                <div class="col pt-4">
                                     <button onclick="mostrarMovimientos()" id="exportarReporte" class="btn btn-primary">
                                         Limpiar
                                     </button>
                                 </div>
                                 <div class="col pt-4">
-                                    <button onclick="exportarMovimientosGrande()"
-                                        id="exportarReporte" class="btn btn-primary">
-                                        Exportar Grande
+                                    <button onclick="ExportarExcelJava()" id="exportarReporte"
+                                        class="btn btn-primary">
+                                        Exportar
                                     </button>
+                                    <a style="display: none" id="btnDescargarExcel" href="http://localhost:8080/SoleraWeb/json/datos.xls" download="Reporte.xls">descargar</a>
                                 </div>
                             </div>
                             <table id="TablaReporteGrande" style="display: none">

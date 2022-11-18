@@ -1069,3 +1069,25 @@ function tablaReporteGrande(result) {
     }</tr>`;
   }
 }
+function ExportarExcelJava() {
+  if (
+    document.getElementById("fechaInicioUsuarios").value != '' &&
+    document.getElementById("fechaFinalUsuarios").value != ''
+  ) {
+    $.ajax({
+      method: "POST",
+      url: "../exportar",
+      data: {
+        accion: "exportar",
+        fechaInicio:document.getElementById("fechaInicioUsuarios").value,
+        fechaFinal:document.getElementById("fechaFinalUsuarios").value,
+      },
+    }).done(function (result) {
+      console.log(result);
+      let descarga = document.getElementById("btnDescargarExcel");
+      descarga.click();
+    });
+  }else{
+    alert("Por favor, selecciona fechas correctas");
+  }
+}

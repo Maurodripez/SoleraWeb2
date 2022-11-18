@@ -1029,7 +1029,7 @@
                                                     </svg>
                                                     <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
                                                         type="text" class="form-control input-group-append"
-                                                        placeholder="Fecha" name="txtFechaCarga">
+                                                        placeholder="Fecha" name="txtFechaCarga" required>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1044,7 +1044,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="numSiniestro" type="text"
-                                                        class="form-control" name="txtNumSiniestro">
+                                                        class="form-control" name="txtNumSiniestro" required>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1059,7 +1059,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="poliza" type="text"
-                                                        class="form-control" name="txtNumPoliza">
+                                                        class="form-control" name="txtNumPoliza" required>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1073,7 +1073,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <select id="afectado" class="form-select" name="txtAfectado">
+                                                    <select id="afectado" class="form-select" name="txtAfectado" required>
                                                         <option selected>
                                                             Selecciona...
                                                         </option>
@@ -1095,7 +1095,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <select id="tipoDeCaso" class="form-select" name="txtTipoCaso">
+                                                    <select id="tipoDeCaso" class="form-select" name="txtTipoCaso" required>
                                                         <option selected>
                                                             Selecciona...
                                                         </option>
@@ -1125,7 +1125,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <select id="cobertura" class="form-select" name="txtCobertura">
+                                                    <select id="cobertura" class="form-select" name="txtCobertura" required>
                                                         <option selected>
                                                             Selecciona...
                                                         </option>
@@ -1155,7 +1155,7 @@
                                                     </svg>
                                                     <input class="form-control input-group-append" id="fechaSiniestro"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha">
+                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha" required>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1170,7 +1170,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="datosAudatex" type="text" class="form-control"
-                                                        name="txtDatosAudatex">
+                                                        name="txtDatosAudatex" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -1316,7 +1316,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <select class="form-select" id="region">
+                                                    <select class="form-select" id="region" required>
                                                         <option selected>
                                                             Todos-Ninguna
                                                         </option>
@@ -1385,7 +1385,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="ubicacionTaller" type="text" class="form-control"
-                                                        name="txtUbicacionTaller">
+                                                        name="txtUbicacionTaller" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -1401,7 +1401,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <select id="financiado" class="form-select" name="txtFinanciado">
+                                                    <select id="financiado" class="form-select" name="txtFinanciado" required>
                                                         <option selected>
                                                             Selecciona...
                                                         </option>
@@ -1451,7 +1451,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="passwordExterno" type="text" class="form-control"
-                                                        name="txtPassExterno">
+                                                        name="txtPassExterno" required>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1523,7 +1523,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="marca" type="text" class="form-control"
-                                                    name="txtMarcaVehiculo" />
+                                                    name="txtMarcaVehiculo"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1538,7 +1538,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="tipo" type="text" class="form-control"
-                                                    name="txtTipoVehiculo" />
+                                                    name="txtTipoVehiculo"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1566,7 +1566,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <input id="placas" type="text" class="form-control" name="txtPlacas" />
+                                                    <input id="placas" type="text" class="form-control" name="txtPlacas"  required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -1583,7 +1583,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="numSerie" type="text" class="form-control"
-                                                    name="txtNumSerie" />
+                                                    name="txtNumSerie"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1598,7 +1598,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="valIndemnizacion" type="text" class="form-control"
-                                                    name="txtValorIndemnizacion" />
+                                                    name="txtValorIndemnizacion"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1613,7 +1613,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="valComercial" type="text" class="form-control"
-                                                    name="txtValorComercial" />
+                                                    name="txtValorComercial"  required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -1644,7 +1644,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="asegurado" type="text" class="form-control"
-                                                    name="txtAsegurado" />
+                                                    name="txtAsegurado"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1658,7 +1658,7 @@
                                                         <path
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
-                                                    <input id="correo" type="text" class="form-control" name="txtCorreo" />
+                                                    <input id="correo" type="text" class="form-control" name="txtCorreo"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1673,7 +1673,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="telPrincipal" type="text" class="form-control"
-                                                    name="txtTelefono" />
+                                                    name="txtTelefono"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1688,7 +1688,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="telSecundario" type="text" class="form-control"
-                                                    name="txtTelSecundario" />
+                                                    name="txtTelSecundario"  required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -1705,7 +1705,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="contacto" type="text" class="form-control"
-                                                    name="txtContacto" />
+                                                    name="txtContacto"  required/>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1720,7 +1720,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="correoContacto" type="text" class="form-control"
-                                                    name="txtCorreoContato" />
+                                                    name="txtCorreoContato" required />
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1735,7 +1735,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="telContacto" type="text" class="form-control"
-                                                    name="txtTelContacto" />
+                                                    name="txtTelContacto"  required/>
                                                 </div>
                                             </div>
                                         </div>
