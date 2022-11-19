@@ -1078,7 +1078,7 @@ function ExportarExcelJava() {
       method: "POST",
       url: "../exportar",
       data: {
-        accion: "exportar",
+        accion: "exportarUsuarios",
         fechaInicio:document.getElementById("fechaInicioUsuarios").value,
         fechaFinal:document.getElementById("fechaFinalUsuarios").value,
       },

@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import jakarta.servlet.ServletException;
@@ -9,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import DAO.ExportExcel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jxl.write.WriteException;
 
 @WebServlet(name = "exportar", urlPatterns = {"/exportar"})
 public class exportar extends HttpServlet {
@@ -23,16 +25,24 @@ public class exportar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, WriteException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            out.print("entra");
-            ExportExcel eExcel= new ExportExcel();
-            String r;
-            String fInicio=request.getParameter("fechaInicio");
-            String fFinal=request.getParameter("fechaFinal");
-            r= eExcel.WriteExcel(fInicio,fFinal);
-            out.print(r);
+            String accion = request.getParameter("accion");
+            ExportExcel eExcel = new ExportExcel();
+            String fInicio = request.getParameter("fechaInicio");
+            String fFinal = request.getParameter("fechaFinal");
+            switch (accion) {
+                case "exportarUsuarios":
+                    String r;
+                    r = eExcel.WriteExcel(fInicio, fFinal);
+                    out.print(r);
+                    break;
+                case "exportarGrande":
+                    r = eExcel.ExcelSiniestros(fInicio, fFinal);
+                    out.print(r);
+                    break;
+            }
         }
     }
 
@@ -48,7 +58,11 @@ public class exportar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (WriteException ex) {
+            Logger.getLogger(exportar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -62,7 +76,11 @@ public class exportar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (WriteException ex) {
+            Logger.getLogger(exportar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -140,3 +140,9 @@
 .accordion-button{
   background-color: #d2d6de;
 }
+#SeleccionaCalendario{
+  padding: 0%;
+  border:none;
+  margin-right:10px;
+  fill: none;
+}
