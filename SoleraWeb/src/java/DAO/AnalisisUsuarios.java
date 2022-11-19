@@ -51,7 +51,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -65,7 +65,7 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -87,7 +87,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -96,7 +96,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -108,7 +108,7 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -130,7 +130,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -139,7 +139,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -148,7 +148,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -159,7 +159,7 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                                + "' and fechaseguimiento>=curdate() - interval 3 day and fechaseguimiento<curdate() - interval 2 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -181,7 +181,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                                + "' and fechaseguimiento>=curdate() - interval 3 day and fechaseguimiento<curdate() - interval 2 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -190,7 +190,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -199,7 +199,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -208,7 +208,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -219,7 +219,7 @@ public class AnalisisUsuarios {
                         r2 = r2 + "0-_/";
                         r2 = r2 + "0-_/";
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 4 day";
+                                + "' and fechaseguimiento>=curdate() - interval 4 day and fechaseguimiento<curdate() - interval 3 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -241,7 +241,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 4 day";
+                                + "' and fechaseguimiento>=curdate() - interval 4 day and fechaseguimiento<curdate() - interval 3 day ";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -250,7 +250,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                                + "' and fechaseguimiento>=curdate() - interval 3 day  and fechaseguimiento<curdate() - interval 2 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -259,7 +259,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day  and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -268,7 +268,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day  and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -277,7 +277,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day  and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -287,7 +287,7 @@ public class AnalisisUsuarios {
                         conect.Desconectar();
                         r2 = r2 + "0-_/";
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 5 day";
+                                + "' and fechaseguimiento>=curdate() - interval 5 day  and fechaseguimiento<curdate() - interval 4 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -309,7 +309,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 5 day";
+                                + "' and fechaseguimiento>=curdate() - interval 5 day and fechaseguimiento<curdate() - interval 4 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -318,7 +318,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 4 day";
+                                + "' and fechaseguimiento>=curdate() - interval 4 day and fechaseguimiento<curdate() - interval 3 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -327,7 +327,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                                + "' and fechaseguimiento>=curdate() - interval 3 day and fechaseguimiento<curdate() - interval 2 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -336,7 +336,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -345,7 +345,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -354,7 +354,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 0 day";
+                                + "' and fechaseguimiento>=curdate() - interval 0 day and fechaseguimiento<curdate() + interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -363,7 +363,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 6 day";
+                                + "' and fechaseguimiento>=curdate() - interval 6 day and fechaseguimiento<curdate() - interval 5 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -385,7 +385,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 6 day";
+                                + "' and fechaseguimiento>=curdate() - interval 6 day and fechaseguimiento<curdate() - interval 5 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -394,7 +394,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 5 day";
+                                + "' and fechaseguimiento>=curdate() - interval 5 day and fechaseguimiento<curdate() - interval 4 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -403,7 +403,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 4 day";
+                                + "' and fechaseguimiento>=curdate() - interval 4 day and fechaseguimiento<curdate() - interval 3 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -412,7 +412,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 3 day";
+                                + "' and fechaseguimiento>=curdate() - interval 3 day and fechaseguimiento<curdate() - interval 2 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -421,7 +421,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 2 day";
+                                + "' and fechaseguimiento>=curdate() - interval 2 day and fechaseguimiento<curdate() - interval 1 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -430,7 +430,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 1 day";
+                                + "' and fechaseguimiento>=curdate() - interval 1 day and fechaseguimiento<curdate() - interval 0 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();
@@ -439,7 +439,7 @@ public class AnalisisUsuarios {
                         }
                         conect.Desconectar();
                         sql = "select count(usuario) as dia from seguimientoprincipal where usuario='" + partes[i]
-                                + "' and fechaseguimiento=curdate() - interval 7 day";
+                                + "' and fechaseguimiento>=curdate() - interval 7 day and fechaseguimiento<curdate() - interval 6 day";
                         conect.conectar();
                         ps = conect.conexion.prepareStatement(sql);
                         rs = ps.executeQuery();

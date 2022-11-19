@@ -632,10 +632,6 @@
                             type="button" class="btn btn-primary">
                             Exportar
                         </button>
-                        <button onclick="buscarDatosExportar()" id="exportarTablaUsuarios" type="button"
-                            class="btn btn-primary">
-                            Usuarios
-                        </button>
                         <table id="tablaExportar" style="display: none">
                             <thead>
                                 <tr>
@@ -1029,7 +1025,7 @@
                                                     </svg>
                                                     <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
                                                         type="text" class="form-control input-group-append"
-                                                        placeholder="Fecha" name="txtFechaCarga" required>
+                                                        placeholder="Fecha" name="txtFechaCarga" readonly>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1044,7 +1040,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="numSiniestro" type="text"
-                                                        class="form-control" name="txtNumSiniestro" required>
+                                                        class="form-control" name="txtNumSiniestro" readonly>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1059,7 +1055,7 @@
                                                             d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                                     </svg>
                                                     <input id="poliza" type="text"
-                                                        class="form-control" name="txtNumPoliza" required>
+                                                        class="form-control" name="txtNumPoliza" readonly>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">
@@ -1155,7 +1151,7 @@
                                                     </svg>
                                                     <input class="form-control input-group-append" id="fechaSiniestro"
                                                         pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha" required>
+                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha" readonly>
                                                 </div>
                                             </div>
                                             <div class="col px-md-3">

@@ -21,7 +21,7 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/MostrarDocumentosEstados.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/MostrarDatosDias.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/EliminarSiniestro.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/excel/pruebaExportar.java</file>
+            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/ExportExcel.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/FuncionesBtnDocs.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOMostrarPorDias.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/web/VistaUsuario.jsp</file>
@@ -45,7 +45,6 @@
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/CargarSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Modelo/ModeloGrandeAnalisis.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/ControladorMostrarDatos.java</file>
-            <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/excel/ExcelGenerator.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOValidarUsuario.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/DAO/DAOCargaSiniestro.java</file>
             <file>file:/C:/Users/SEAS/Desktop/SoleraWeb/SoleraWeb/src/java/Controlador/exportar.java</file>
