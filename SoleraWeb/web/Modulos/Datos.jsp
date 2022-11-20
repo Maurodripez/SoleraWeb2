@@ -464,10 +464,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row 2">
+                    <div class="row">
                         <div class="col">
-                            <div id="SeleccionaCalendario" class="btn-group btn-sm dropup-center dropup">
-                                <button type="button" class="btn">
+                            <div class="btn-group btn-sm dropup-center dropup">
+                                <button type="button" class="btn" id="SeleccionaCalendario">
                                     <label class="input-group-text fw-bold" for="inputGroupSelect01">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             fill="currentColor" class="bi bi-calendar-check p-1" viewBox="0 0 16 16">
@@ -479,7 +479,7 @@
                                         Fecha seguimiento
                                     </label>
                                 </button>
-                                <button type="button" class="btn-sm btn dropdown-toggle dropdown-toggle-split"
+                                <button type="button" class="btnSeleccionar btn-sm btn dropdown-toggle dropdown-toggle-split"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span>Selecciona</span>
                                 </button>

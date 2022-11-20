@@ -143,6 +143,8 @@
 #SeleccionaCalendario{
   padding: 0%;
   border:none;
-  margin-right:10px;
   fill: none;
+}
+.btnSeleccionar{
+  border-color: #ced4da;
 }
