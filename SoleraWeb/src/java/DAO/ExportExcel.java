@@ -18,8 +18,9 @@ import jxl.write.WriteException;
 public class ExportExcel {
 
     Conexion conect = new Conexion();
-    File file = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\datos.xls");
-    // File file = new File("/home/admin/Documentos/SoleraWeb/web/json/datos.xls");
+    // File file = new
+    // File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\datos.xls");
+    File file = new File("/home/admin/Documentos/SoleraWeb/web/json/datos.xls");
     String r = "0";
 
     public String WriteExcel(String fechaInicio, String fechafinal) throws WriteException {
@@ -139,10 +140,10 @@ public class ExportExcel {
     }
 
     public String ExcelSiniestros(String fechaInicio, String fechafinal) throws WriteException {
+         File fileSiniestros = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\siniestros.xls");
+        //File fileSiniestros = new File("/home/admin/Documentos/SoleraWeb/web/json/siniestros.xls");
         // File fileSiniestros = new
-        // File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\siniestros.xls");
-        File fileSiniestros = new File(
-                "C:\\Users\\death\\Desktop\\Solera\\SoleraWeb2\\SoleraWeb\\web\\json\\siniestros.xls");
+        // File("C:\\Users\\death\\Desktop\\Solera\\SoleraWeb2\\SoleraWeb\\web\\json\\siniestros.xls");
         int row = 0;
         WritableSheet excelSheet = null;
         WritableWorkbook workbook = null;
@@ -155,9 +156,8 @@ public class ExportExcel {
             // TODO: handle exception
         }
         String sql = " select * from infosiniestro,infoauto as ia,infocliente as ic, seguimientoprincipal as sp "
-                + " where idRegistro=ia.fkIdRegistro and idRegistro=ic.fkIdRegistro and idRegistro=sp.fkIdRegistroSegPrincipal "
-                + " and fechaseguimiento>='" + fechaInicio + "' and fechaseguimiento<='" + fechafinal
-                + "' group by idRegistro";
+                + " where idRegistro=ia.fkIdRegistro and idRegistro=ic.fkIdRegistro and idRegistro=sp.fkIdRegistroSegPrincipal"
+                + " and fechaseguimiento>='"+fechaInicio+"' and fechaseguimiento<='"+fechafinal+"'";
         try {
             PreparedStatement ps;
             ResultSet rs;
@@ -215,7 +215,6 @@ public class ExportExcel {
                     Label respuestaSolera = new Label(41, row, "respuestaSolera", cFormat);
                     Label personaContactada = new Label(42, row, "personaContactada", cFormat);
                     Label tipodePersona = new Label(43, row, "tipodePersona", cFormat);
-                    Label contactoSeg = new Label(44, row, "contactoSeg", cFormat);
                     Label integraciondeexpediente = new Label(45, row, "integraciondeexpediente", cFormat);
                     Label facturaciondeservicio = new Label(46, row, "facturaciondeservicio", cFormat);
                     Label termino = new Label(47, row, "termino", cFormat);
@@ -266,7 +265,6 @@ public class ExportExcel {
                     excelSheet.addCell(respuestaSolera);
                     excelSheet.addCell(personaContactada);
                     excelSheet.addCell(tipodePersona);
-                    excelSheet.addCell(contactoSeg);
                     excelSheet.addCell(integraciondeexpediente);
                     excelSheet.addCell(facturaciondeservicio);
                     excelSheet.addCell(termino);
@@ -320,7 +318,7 @@ public class ExportExcel {
                 Label respuestaSolera = new Label(41, row, rs.getString("respuestaSolera"));
                 Label personaContactada = new Label(42, row, rs.getString("personaContactada"));
                 Label tipodePersona = new Label(43, row, rs.getString("tipodePersona"));
-                Label contactoSeg = new Label(44, row, rs.getString("contactoSeg"));
+                r=rs.getString("tipodePersona");
                 Label integraciondeexpediente = new Label(45, row, rs.getString("integraciondeexpediente"));
                 Label facturaciondeservicio = new Label(46, row, rs.getString("facturaciondeservicio"));
                 Label termino = new Label(47, row, rs.getString("termino"));
@@ -371,7 +369,6 @@ public class ExportExcel {
                     excelSheet.addCell(respuestaSolera);
                     excelSheet.addCell(personaContactada);
                     excelSheet.addCell(tipodePersona);
-                    excelSheet.addCell(contactoSeg);
                     excelSheet.addCell(integraciondeexpediente);
                     excelSheet.addCell(facturaciondeservicio);
                     excelSheet.addCell(termino);
