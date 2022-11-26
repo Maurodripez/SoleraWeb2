@@ -677,47 +677,6 @@
                         <button id="exportarTabla" onclick="exportarGrande()" type="button" class="btn btn-primary">
                             Exportar
                         </button>
-                        <table id="tablaExportar" style="display: none">
-                            <thead>
-                                <tr>
-                                    <th scope="col">numSiniestro</th>
-                                    <th scope="col">poliza</th>
-                                    <th scope="col">afectado</th>
-                                    <th scope="col">tipoDeCaso</th>
-                                    <th scope="col">cobertura</th>
-                                    <th scope="col">fechaSiniestro</th>
-                                    <th scope="col">estado</th>
-                                    <th scope="col">ciudad</th>
-                                    <th scope="col">region</th>
-                                    <th scope="col">ubicacionTaller</th>
-                                    <th scope="col">regimenFiscal</th>
-                                    <th scope="col">estatusCliente</th>
-                                    <th scope="col">comentariosCliente</th>
-                                    <th scope="col">fechaCarga</th>
-                                    <th scope="col">usuarioCarga</th>
-                                    <th scope="col">estatusSeguimientoSin</th>
-                                    <th scope="col">usuarioAsignadoSin</th>
-                                    <th scope="col">fechaAsignacion</th>
-                                    <th scope="col">fechaSeguimiento</th>
-                                    <th scope="col">comentarios</th>
-                                    <th scope="col">marca</th>
-                                    <th scope="col">tipo</th>
-                                    <th scope="col">modelo</th>
-                                    <th scope="col">numSerie</th>
-                                    <th scope="col">valorIndemnizacion</th>
-                                    <th scope="col">valorComercial</th>
-                                    <th scope="col">placas</th>
-                                    <th scope="col">telefonoPrincipal</th>
-                                    <th scope="col">telefonosecundario</th>
-                                    <th scope="col">contacto</th>
-                                    <th scope="col">asegurado</th>
-                                    <th scope="col">telContacto</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tBodyExportar">
-
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
