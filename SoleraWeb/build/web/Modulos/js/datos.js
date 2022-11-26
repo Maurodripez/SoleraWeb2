@@ -1,7 +1,6 @@
 var contador = 0;
 var contadorSeg = 0;
 window.addEventListener("load", function () {
-  dropdown();
   valoresSesiones();
   recargarSiniestros();
   //muestra los dias paasados por documentos
@@ -260,9 +259,8 @@ function tablaImagenes(txtIdRegistro) {
         </div></td>`;
         let archivo = `<td>${sinCodificado2[1]}</td>`;
         let fechaCarga = `<td>${sinCodificado2[2]}</td>`;
-        tablaImagenes.innerHTML += `<tr class='tablaImagenes'>${
-          btnGrupo + archivo + fechaCarga
-        }</tr>`;
+        tablaImagenes.innerHTML += `<tr class='tablaImagenes'>${btnGrupo + archivo + fechaCarga
+          }</tr>`;
       }
     },
   });
@@ -813,9 +811,8 @@ function mostrarTabla(result) {
     if (i % 9 == 0 && i != 0) {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
-      <button type='button' id=${
-        sinComas[0] + ",Eliminar"
-      } class='btnEliminar btn btn-danger'
+      <button type='button' id=${sinComas[0] + ",Eliminar"
+        } class='btnEliminar btn btn-danger'
       onclick='eliminarSiniestro(this.id)' style='display:none'>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -825,9 +822,8 @@ function mostrarTabla(result) {
       <line x1="10" y1="11" x2="10" y2="17"></line>
       <line x1="14" y1="11" x2="14" y2="17"></line>
       </svg></button>
-      <button type='button' id=${
-        sinComas[0]
-      } class='btn btn-primary' data-bs-toggle='modal'
+      <button type='button' id=${sinComas[0]
+        } class='btn btn-primary' data-bs-toggle='modal'
       data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
       width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
       <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
@@ -848,8 +844,7 @@ function mostrarTabla(result) {
       porcentajeDocs = `<td style='font-size: 14px' class='tablaActual'>${sinComas[9]}</td>`;
       porcentajeTotal = `<td style='font-size: 14px' class='tablaActual'>${sinComas[10]}</td>`;
       estado = `<td style='font-size: 14px' class='tablaActual'>${sinComas[11]}</td>`;
-      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-        btnGrupo +
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${btnGrupo +
         registro +
         siniestro +
         poliza +
@@ -862,7 +857,7 @@ function mostrarTabla(result) {
         porcentajeDocs +
         porcentajeTotal +
         estado
-      }</tr>`;
+        }</tr>`;
       numeroTBody += 1;
       tblBody[numeroTBody] = document.createElement("tbody");
       tblBody[numeroTBody].setAttribute("class", "tBody");
@@ -872,9 +867,8 @@ function mostrarTabla(result) {
     } else {
       // Creando los 'td' que almacenará cada parte de la información del usuario actual
       let btnGrupo = `<td><div class="btn-group tablaActual botonesTabla" role="group">
-      <button type='button' id=${
-        sinComas[0] + ",Eliminar"
-      } class='btnEliminar btn btn-danger'
+      <button type='button' id=${sinComas[0] + ",Eliminar"
+        } class='btnEliminar btn btn-danger'
       onclick='eliminarSiniestro(this.id)' style='display:none'>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -884,9 +878,8 @@ function mostrarTabla(result) {
       <line x1="10" y1="11" x2="10" y2="17"></line>
       <line x1="14" y1="11" x2="14" y2="17"></line>
       </svg></button>
-      <button type='button' id=${
-        sinComas[0]
-      } class='btn btn-primary' data-bs-toggle='modal'
+      <button type='button' id=${sinComas[0]
+        } class='btn btn-primary' data-bs-toggle='modal'
       data-bs-target='#despliegueInfo'  onclick='cambiarNombre(this.id)' value='Editar'><svg xmlns='http://www.w3.org/2000/svg'
       width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
       <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 
@@ -907,8 +900,7 @@ function mostrarTabla(result) {
       let porcentajeDocs = `<td style='font-size: 14px' class='tablaActual'>${sinComas[9]}</td>`;
       let porcentajeTotal = `<td style='font-size: 14px' class='tablaActual'>${sinComas[10]}</td>`;
       let estado = `<td style='font-size: 14px' class='tablaActual'>${sinComas[11]}</td>`;
-      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${
-        btnGrupo +
+      tblBody[numeroTBody].innerHTML += `<tr class='tablaActual'>${btnGrupo +
         registro +
         siniestro +
         poliza +
@@ -921,7 +913,7 @@ function mostrarTabla(result) {
         porcentajeDocs +
         porcentajeTotal +
         estado
-      }</tr>`;
+        }</tr>`;
     }
   }
   validarEliminar();
@@ -952,9 +944,8 @@ function tablaSeguimiento() {
         fecha = `<td style='font-size: 12px'>${sinCodificado2[11]}</td>`;
         estatus = `<td style='font-size: 12px'>${sinCodificado2[2]}</td>`;
         comentario = `<td style='font-size: 12px'>${sinCodificado2[0]}</td>`;
-        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${
-          usuario + fecha + estatus + comentario
-        }</tr>`;
+        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${usuario + fecha + estatus + comentario
+          }</tr>`;
         tablaseguimiento.appendChild(tblBody[numeroTBody]);
         numeroTBody += 1;
         tblBody[numeroTBody] = document.createElement("tbody");
@@ -968,9 +959,8 @@ function tablaSeguimiento() {
         fecha = `<td style='font-size: 12px'>${sinCodificado2[11]}</td>`;
         estatus = `<td style='font-size: 12px'>${sinCodificado2[2]}</td>`;
         comentario = `<td style='font-size: 12px'>${sinCodificado2[0]}</td>`;
-        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${
-          usuario + fecha + estatus + comentario
-        }</tr>`;
+        tblBody[numeroTBody].innerHTML += `<tr class='claseTablaSeguimiento'>${usuario + fecha + estatus + comentario
+          }</tr>`;
       }
     }
   });
@@ -1144,24 +1134,26 @@ function buscarDatosExportar() {
       url: "../exportar",
       data: {
         accion: "exportarGrande",
-        fechaInicio:document.getElementById("fechaSegInicio").value,
-        fechaFinal:document.getElementById("fechaSegFinal").value,
+        fechaInicio: document.getElementById("fechaSegInicio").value,
+        fechaFinal: document.getElementById("fechaSegFinal").value,
       },
     }).done(function (result) {
       console.log(result);
-      let descarga = document.getElementById("btnDescargarExcel");
-      descarga.click();
-    });
-  }else{
+    })
+  } else {
     alert("Por favor, selecciona fechas correctas");
   }
+}
+function exportarGrande() {
+  let descarga = document.getElementById("btnDescargarExcel");
+  descarga.click();
 }
 function estaciones() {
   $("#txtEstatusSeguimiento").change(function () {
     let estatus = $("#txtEstatusSeguimiento").val();
     if (
       estatus ===
-        "CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)" ||
+      "CANCELADO POR ASEGURADORA (DESVIO INTERNO, INVESTIGACION, POLIZA NO PAGADA)" ||
       estatus === "CON CONTACTO SIN COOPERACION DEL CLIENTE" ||
       estatus === "CASO REABIERTO" ||
       estatus === "CONCLUIDO POR OTRAS VIAS (BARRA, OFICINA, BROKER)" ||
@@ -1198,7 +1190,4 @@ function estaciones() {
       document.getElementById("txtEstacionSoloLectura").value = "Cancelado";
     }
   });
-}
-function dropdown(){
-
 }
