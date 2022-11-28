@@ -42,6 +42,7 @@ function leerArchivo(e) {
   document
     .getElementById("file-input")
     .addEventListener("change", leerArchivo, false);
+    alert("wer");
   const excelInput = document.getElementById("LeerExcel");
   excelInput.addEventListener("change", async function () {
     const contenido = await readXlsxFile(excelInput.files[0]);

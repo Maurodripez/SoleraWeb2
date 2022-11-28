@@ -479,7 +479,8 @@
                                         Fecha seguimiento
                                     </label>
                                 </button>
-                                <button type="button" class="btnSeleccionar btn-sm btn dropdown-toggle dropdown-toggle-split"
+                                <button type="button"
+                                    class="btnSeleccionar btn-sm btn dropdown-toggle dropdown-toggle-split"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span>Selecciona</span>
                                 </button>
@@ -497,8 +498,8 @@
                                                 <path
                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                             </svg>
-                                            <input id="fechaSegInicio" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" type="text"
-                                                class="form-control input-group-append" placeholder="Fecha"
+                                            <input id="fechaSegInicio" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                type="text" class="form-control input-group-append" placeholder="Fecha"
                                                 name="txtFechaCarga" readonly>
                                         </div>
                                     </div>
@@ -515,12 +516,14 @@
                                                 <path
                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                             </svg>
-                                            <input id="fechaSegFinal" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" type="text"
-                                                class="form-control input-group-append" placeholder="Fecha"
+                                            <input id="fechaSegFinal" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                type="text" class="form-control input-group-append" placeholder="Fecha"
                                                 name="txtFechaCarga" readonly>
                                         </div>
                                     </div>
-                                    <a style="display: none" id="btnDescargarExcel" href="http://192.168.0.57:8080/SoleraWeb/json/siniestros.xls" download="Reporte.xls">descargar</a>
+                                    <a style="display: none" id="btnDescargarExcel"
+                                        href="http://localhost:8080/SoleraWeb/json/siniestros.xls"
+                                        download="Reporte.xls">descargar</a>
                                 </ul>
                             </div>
                         </div>
@@ -667,14 +670,13 @@
                         <button id="limpiarRegistro" type="button" class="btn btn-primary">
                             Limpiar
                         </button>
-                        <button id="exportarTabla" onclick="buscarDatosExportar()"
-                            type="button" class="btn btn-primary">
+                        <button id="exportarTabla" onclick="buscarDatosExportar()" type="button"
+                            class="btn btn-primary">
                             Buscar exportar
                         </button>
-                        <button onclick="exportarGrande(this.id)"
-                        type="button" class="btn btn-primary">
-                        Exportar
-                    </button>
+                        <button id="exportarTabla" onclick="exportarGrande()" type="button" class="btn btn-primary">
+                            Exportar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -998,761 +1000,755 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                        aria-controls="flush-collapseTwo">
-                                        Expediente
-                                    </button>
-                                </h2>
-
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse show"
-                                    aria-labelledby="flush-headingTwo">
-                                    <div class="accordion-body">
-                                        <div class="row mx-md-n5">
-                                            <div class="calendario date col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Fecha Carga
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                    </svg>
-                                                    <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                        type="text" class="form-control input-group-append"
-                                                        placeholder="Fecha" name="txtFechaCarga" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Siniestro:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="numSiniestro" type="text" class="form-control"
-                                                        name="txtNumSiniestro" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Poliza:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="poliza" type="text" class="form-control"
-                                                        name="txtNumPoliza" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Afectado:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="afectado" class="form-select" name="txtAfectado"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="A">A</option>
-                                                        <option value="T">T</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mx-md-n5">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Tipo caso:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="tipoDeCaso" class="form-select" name="txtTipoCaso"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Colision">
-                                                            Colision
-                                                        </option>
-                                                        <option value="Incendio">
-                                                            Incendio
-                                                        </option>
-                                                        <option value="Inundacion">
-                                                            Inundacion</option>
-                                                        <option value="Robo">Robo
-                                                        </option>
-                                                        <option value="Otro">Otro
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Cobertura:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="cobertura" class="form-select" name="txtCobertura"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="DM">DM
-                                                        </option>
-                                                        <option value="RC">RC
-                                                        </option>
-                                                        <option value="RT">RT
-                                                        </option>
-                                                        <option value="Otro">Otro
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="calendario date col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Fecha Siniestro
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-calendar-check p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                                                        <path
-                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                    </svg>
-                                                    <input class="form-control input-group-append" id="fechaSiniestro"
-                                                        pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
-                                                        name="txtFechaSiniestro" type="text" placeholder="Fecha"
-                                                        readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Datos Audatex
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="datosAudatex" type="text" class="form-control"
-                                                        name="txtDatosAudatex" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mx-md-n5">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Estado
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="estado" class="form-select" name="txtEstado" required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Aguascalientes">
-                                                            Aguascalientes</option>
-                                                        <option value="Baja California">
-                                                            Baja
-                                                            California</option>
-                                                        <option value="Baja California Sur">
-                                                            Baja California Sur
-                                                        </option>
-                                                        <option value="Campeche">
-                                                            Campeche
-                                                        </option>
-                                                        <option value="Chiapas">
-                                                            Chiapas
-                                                        </option>
-                                                        <option value="Chiahuahua">
-                                                            Chiahuahua</option>
-                                                        <option value="Ciudad de Mexico">
-                                                            Ciudad de Mexico
-                                                        </option>
-                                                        <option value="Coahuila">
-                                                            Coahuila
-                                                        </option>
-                                                        <option value="Colima">
-                                                            Colima
-                                                        </option>
-                                                        <option value="Durango">
-                                                            Durango
-                                                        </option>
-                                                        <option value="Guanajato">
-                                                            Guanajato
-                                                        </option>
-                                                        <option value="Guerrero">
-                                                            Guerrero
-                                                        </option>
-                                                        <option value="Hidalgo">
-                                                            Hidalgo
-                                                        </option>
-                                                        <option value="Jalisco">
-                                                            Jalisco
-                                                        </option>
-                                                        <option value="Estado de Mexico">
-                                                            Estado de Mexico
-                                                        </option>
-                                                        <option value="Michoacan">
-                                                            Michoacan
-                                                        </option>
-                                                        <option value="Morelos">
-                                                            Morelos
-                                                        </option>
-                                                        <option value="Nayarit">
-                                                            Nayarit
-                                                        </option>
-                                                        <option value="Nuevo Leon">
-                                                            Nuevo
-                                                            Leon</option>
-                                                        <option value="Oaxaca">
-                                                            Oaxaca
-                                                        </option>
-                                                        <option value="Puebla">
-                                                            Puebla
-                                                        </option>
-                                                        <option value="Queretaro">
-                                                            Queretaro
-                                                        </option>
-                                                        <option value="Quintana Roo">
-                                                            Quintana Roo</option>
-                                                        <option value="San Luis Potosi">
-                                                            San Luis Potosi
-                                                        </option>
-                                                        <option value="Sinaloa">
-                                                            Sinaloa
-                                                        </option>
-                                                        <option value="Sonora">
-                                                            Sonora
-                                                        </option>
-                                                        <option value="Tabasco">
-                                                            Tabasco
-                                                        </option>
-                                                        <option value="Tamaulipas">
-                                                            Tamaulipas</option>
-                                                        <option value="Tlaxcala">
-                                                            Tlaxcala
-                                                        </option>
-                                                        <option value="Veracruz">
-                                                            Veracruz
-                                                        </option>
-                                                        <option value="Yucatan">
-                                                            Yucatan
-                                                        </option>
-                                                        <option value="Zacatecas">
-                                                            Zacatecas
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Ciudad:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="ciudad" class="form-select" name="txtCiudad" required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Todos-Ninguna">
-                                                            Todos-Ninguna</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Region:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select class="form-select" id="region" required>
-                                                        <option selected>
-                                                            Todos-Ninguna
-                                                        </option>
-                                                        <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
-                                                            Layout ZG A:
-                                                            Guadalajara-Colima-Nayarit
-                                                        </option>
-                                                        <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
-                                                            Layout ZG B:
-                                                            Acapulco-Toluca-Pachuca-Cuernavaca
-                                                        </option>
-                                                        <option
-                                                            value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
-                                                            Layout ZG Layout ZG C:
-                                                            Puebla-Queretaro-Tlaxcala
-                                                        </option>
-                                                        <option
-                                                            value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
-                                                            Layout ZG D:
-                                                            Merida-Cancun-Tuxtla-Villahermosa-Campeche
-                                                        </option>
-                                                        <option
-                                                            value="Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
-                                                            Layout ZG E: Leon, San Luis
-                                                            Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas
-                                                        </option>
-                                                        <option value="Layout ZG F: CDMX-Estado de Mexico">
-                                                            Layout ZG F: CDMX-Estado de
-                                                            Mexico
-                                                        </option>
-                                                        <option
-                                                            value="Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa">
-                                                            Layout ZG G:
-                                                            Coatzacualcos-Oaxaca-Veracruz-Xalapa
-                                                        </option>
-                                                        <option value="Layout ZG H: Monterrey">
-                                                            H:
-                                                            Layout ZG Monterrey</option>
-                                                        <option
-                                                            value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
-                                                            Layout ZG I: Chihuahua-Cd.
-                                                            Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo
-                                                            Laredo-Durango
-                                                        </option>
-                                                        <option
-                                                            value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
-                                                            Layout ZG J: Mexicali-Cd.
-                                                            Obregon-Culiacan-Hermosillo-Los
-                                                            Mochis-Tijuana Baja
-                                                            California-Baja California Sur
-                                                        </option>
-                                                        <option value="Todos/Ninguno">
-                                                            Todos/Ninguno</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Taller
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="ubicacionTaller" type="text" class="form-control"
-                                                        name="txtUbicacionTaller" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row  mx-md-n5">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Financiado
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="financiado" class="form-select" name="txtFinanciado"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Si">Si
-                                                        </option>
-                                                        <option value="No">No
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Regimen
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="regimenFiscal" class="form-select" name="txtRegimen"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Persona fisica">
-                                                            Persona fisica</option>
-                                                        <option value="Persona fisica con actividad empresarial">
-                                                            Persona fisica con
-                                                            actividad empresarial
-                                                        </option>
-                                                        <option value="Persona moral">
-                                                            Persona moral</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Password Externo:
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="passwordExterno" type="text" class="form-control"
-                                                        name="txtPassExterno" required>
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Estatus
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <select id="estatusCliente" class="form-select" name="txtEstatus"
-                                                        required>
-                                                        <option selected>
-                                                            Selecciona...
-                                                        </option>
-                                                        <option value="Documento incorrecto">
-                                                            Documento incorrecto
-                                                        </option>
-                                                        <option value="Revision">
-                                                            Revision
-                                                        </option>
-                                                        <option value="Enviado">
-                                                            Enviado
-                                                        </option>
-                                                        <option value="Expediente aprobado">
-                                                            Expediente aprobado
-                                                        </option>
-                                                        <option value="Pendiente">
-                                                            Pendiente
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mx-md-n5">
-                                            <div class="col px-md-5">
-                                                <input id="comentariosCliente" type="text" class="form-control"
-                                                    name="txtComentariosCliente" id="exampleFormControlInput1"
-                                                    placeholder="Comentarios">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                        aria-controls="flush-collapseThree">
-                                        Vehiculo
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse show"
-                                    aria-labelledby="flush-headingThree">
-                                    <div class="accordion-body">
-                                        <div class="row ">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Marca
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="marca" type="text" class="form-control"
-                                                        name="txtMarcaVehiculo" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Tipo
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="tipo" type="text" class="form-control"
-                                                        name="txtTipoVehiculo" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Año
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="modelo" type="text" class="form-control" name="txtAño" />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Placas
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="placas" type="text" class="form-control" name="txtPlacas"
-                                                        required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    No. Serie
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="numSerie" type="text" class="form-control"
-                                                        name="txtNumSerie" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Valor indemnizacion
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="valIndemnizacion" type="text" class="form-control"
-                                                        name="txtValorIndemnizacion" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Valor comercial
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="valComercial" type="text" class="form-control"
-                                                        name="txtValorComercial" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                        aria-controls="flush-collapseThree">
-                                        Asegurado
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse show"
-                                    aria-labelledby="flush-headingFour">
-                                    <div class="accordion-body">
-                                        <div class="row">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Asegurado
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="asegurado" type="text" class="form-control"
-                                                        name="txtAsegurado" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Correo
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="correo" type="text" class="form-control" name="txtCorreo"
-                                                        required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Telefono Principal
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="telPrincipal" type="text" class="form-control"
-                                                        name="txtTelefono" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Telefono Secundario
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="telSecundario" type="text" class="form-control"
-                                                        name="txtTelSecundario" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Contacto
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="contacto" type="text" class="form-control"
-                                                        name="txtContacto" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Correo Contacto
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="correoContacto" type="text" class="form-control"
-                                                        name="txtCorreoContato" required />
-                                                </div>
-                                            </div>
-                                            <div class="col px-md-3">
-                                                <label class="input-group-text fw-bold" for="inputGroupSelect01">
-                                                    Telefono Contacto
-                                                </label>
-                                                <div class="input-group-sm input-group mb-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                        fill="currentColor" class="bi bi-plus-square-fill p-1"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                    <input id="telContacto" type="text" class="form-control"
-                                                        name="txtTelContacto" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" id="idOculto" name="idEditableActual" value="" />
-                            <!--centrar texto con esta funcion-->
-                            <div style="text-align: center">
-                                <button id="gDatosBtn" onclick="GuardarRegistros()" class="btn btn-info pt-2 pb-2">
-                                    Guardar Datos
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    Expediente
                                 </button>
+                            </h2>
+
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse show"
+                                aria-labelledby="flush-headingTwo">
+                                <div class="accordion-body">
+                                    <div class="row mx-md-n5">
+                                        <div class="calendario date col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Fecha Carga
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-calendar-check p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                    <path
+                                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                </svg>
+                                                <input id="fechaCarga" pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]"
+                                                    type="text" class="form-control input-group-append"
+                                                    placeholder="Fecha" name="txtFechaCarga" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Siniestro:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="numSiniestro" type="text" class="form-control"
+                                                    name="txtNumSiniestro" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Poliza:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="poliza" type="text" class="form-control" name="txtNumPoliza"
+                                                    readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Afectado:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="afectado" class="form-select" name="txtAfectado" required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="A">A</option>
+                                                    <option value="T">T</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-md-n5">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Tipo caso:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="tipoDeCaso" class="form-select" name="txtTipoCaso" required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Colision">
+                                                        Colision
+                                                    </option>
+                                                    <option value="Incendio">
+                                                        Incendio
+                                                    </option>
+                                                    <option value="Inundacion">
+                                                        Inundacion</option>
+                                                    <option value="Robo">Robo
+                                                    </option>
+                                                    <option value="Otro">Otro
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Cobertura:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="cobertura" class="form-select" name="txtCobertura" required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="DM">DM
+                                                    </option>
+                                                    <option value="RC">RC
+                                                    </option>
+                                                    <option value="RT">RT
+                                                    </option>
+                                                    <option value="Otro">Otro
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="calendario date col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Fecha Siniestro
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-calendar-check p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                                    <path
+                                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                </svg>
+                                                <input class="form-control input-group-append" id="fechaSiniestro"
+                                                    pattern="[0-9]{4}[-][0-9]{2}[-][0-9][2]" name="txtFechaSiniestro"
+                                                    type="text" placeholder="Fecha" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Datos Audatex
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="datosAudatex" type="text" class="form-control"
+                                                    name="txtDatosAudatex" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-md-n5">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Estado
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="estado" class="form-select" name="txtEstado" required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Aguascalientes">
+                                                        Aguascalientes</option>
+                                                    <option value="Baja California">
+                                                        Baja
+                                                        California</option>
+                                                    <option value="Baja California Sur">
+                                                        Baja California Sur
+                                                    </option>
+                                                    <option value="Campeche">
+                                                        Campeche
+                                                    </option>
+                                                    <option value="Chiapas">
+                                                        Chiapas
+                                                    </option>
+                                                    <option value="Chiahuahua">
+                                                        Chiahuahua</option>
+                                                    <option value="Ciudad de Mexico">
+                                                        Ciudad de Mexico
+                                                    </option>
+                                                    <option value="Coahuila">
+                                                        Coahuila
+                                                    </option>
+                                                    <option value="Colima">
+                                                        Colima
+                                                    </option>
+                                                    <option value="Durango">
+                                                        Durango
+                                                    </option>
+                                                    <option value="Guanajato">
+                                                        Guanajato
+                                                    </option>
+                                                    <option value="Guerrero">
+                                                        Guerrero
+                                                    </option>
+                                                    <option value="Hidalgo">
+                                                        Hidalgo
+                                                    </option>
+                                                    <option value="Jalisco">
+                                                        Jalisco
+                                                    </option>
+                                                    <option value="Estado de Mexico">
+                                                        Estado de Mexico
+                                                    </option>
+                                                    <option value="Michoacan">
+                                                        Michoacan
+                                                    </option>
+                                                    <option value="Morelos">
+                                                        Morelos
+                                                    </option>
+                                                    <option value="Nayarit">
+                                                        Nayarit
+                                                    </option>
+                                                    <option value="Nuevo Leon">
+                                                        Nuevo
+                                                        Leon</option>
+                                                    <option value="Oaxaca">
+                                                        Oaxaca
+                                                    </option>
+                                                    <option value="Puebla">
+                                                        Puebla
+                                                    </option>
+                                                    <option value="Queretaro">
+                                                        Queretaro
+                                                    </option>
+                                                    <option value="Quintana Roo">
+                                                        Quintana Roo</option>
+                                                    <option value="San Luis Potosi">
+                                                        San Luis Potosi
+                                                    </option>
+                                                    <option value="Sinaloa">
+                                                        Sinaloa
+                                                    </option>
+                                                    <option value="Sonora">
+                                                        Sonora
+                                                    </option>
+                                                    <option value="Tabasco">
+                                                        Tabasco
+                                                    </option>
+                                                    <option value="Tamaulipas">
+                                                        Tamaulipas</option>
+                                                    <option value="Tlaxcala">
+                                                        Tlaxcala
+                                                    </option>
+                                                    <option value="Veracruz">
+                                                        Veracruz
+                                                    </option>
+                                                    <option value="Yucatan">
+                                                        Yucatan
+                                                    </option>
+                                                    <option value="Zacatecas">
+                                                        Zacatecas
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Ciudad:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="ciudad" class="form-select" name="txtCiudad" required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Todos-Ninguna">
+                                                        Todos-Ninguna</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Region:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select class="form-select" id="region" required>
+                                                    <option selected>
+                                                        Todos-Ninguna
+                                                    </option>
+                                                    <option value="Layout ZG A: Guadalajara-Colima-Nayarit">
+                                                        Layout ZG A:
+                                                        Guadalajara-Colima-Nayarit
+                                                    </option>
+                                                    <option value="Layout ZG B: Acapulco-Toluca-Pachuca-Cuernavaca">
+                                                        Layout ZG B:
+                                                        Acapulco-Toluca-Pachuca-Cuernavaca
+                                                    </option>
+                                                    <option value="Layout ZG Layout ZG C: Puebla-Queretaro-Tlaxcala">
+                                                        Layout ZG Layout ZG C:
+                                                        Puebla-Queretaro-Tlaxcala
+                                                    </option>
+                                                    <option
+                                                        value="Layout ZG D: Merida-Cancun-Tuxtla-Villahermosa-Campeche">
+                                                        Layout ZG D:
+                                                        Merida-Cancun-Tuxtla-Villahermosa-Campeche
+                                                    </option>
+                                                    <option
+                                                        value="Layout ZG E: Leon, San Luis Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas">
+                                                        Layout ZG E: Leon, San Luis
+                                                        Potosi-Aguascalientes-Morelia-Tamaulipas-Zacatecas
+                                                    </option>
+                                                    <option value="Layout ZG F: CDMX-Estado de Mexico">
+                                                        Layout ZG F: CDMX-Estado de
+                                                        Mexico
+                                                    </option>
+                                                    <option value="Layout ZG G: Coatzacualcos-Oaxaca-Veracruz-Xalapa">
+                                                        Layout ZG G:
+                                                        Coatzacualcos-Oaxaca-Veracruz-Xalapa
+                                                    </option>
+                                                    <option value="Layout ZG H: Monterrey">
+                                                        H:
+                                                        Layout ZG Monterrey</option>
+                                                    <option
+                                                        value="Layout ZG I: Chihuahua-Cd. Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo Laredo-Durango">
+                                                        Layout ZG I: Chihuahua-Cd.
+                                                        Juarez-Reynosa-Saltillo-Tampico-Torreon-Nuevo
+                                                        Laredo-Durango
+                                                    </option>
+                                                    <option
+                                                        value="Layout ZG J: Mexicali-Cd. Obregon-Culiacan-Hermosillo-Los Mochis-Tijuana Baja California-Baja California Sur">
+                                                        Layout ZG J: Mexicali-Cd.
+                                                        Obregon-Culiacan-Hermosillo-Los
+                                                        Mochis-Tijuana Baja
+                                                        California-Baja California Sur
+                                                    </option>
+                                                    <option value="Todos/Ninguno">
+                                                        Todos/Ninguno</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Taller
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="ubicacionTaller" type="text" class="form-control"
+                                                    name="txtUbicacionTaller" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row  mx-md-n5">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Financiado
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="financiado" class="form-select" name="txtFinanciado"
+                                                    required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Si">Si
+                                                    </option>
+                                                    <option value="No">No
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Regimen
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="regimenFiscal" class="form-select" name="txtRegimen"
+                                                    required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Persona fisica">
+                                                        Persona fisica</option>
+                                                    <option value="Persona fisica con actividad empresarial">
+                                                        Persona fisica con
+                                                        actividad empresarial
+                                                    </option>
+                                                    <option value="Persona moral">
+                                                        Persona moral</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Password Externo:
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="passwordExterno" type="text" class="form-control"
+                                                    name="txtPassExterno" required>
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Estatus
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <select id="estatusCliente" class="form-select" name="txtEstatus"
+                                                    required>
+                                                    <option selected>
+                                                        Selecciona...
+                                                    </option>
+                                                    <option value="Documento incorrecto">
+                                                        Documento incorrecto
+                                                    </option>
+                                                    <option value="Revision">
+                                                        Revision
+                                                    </option>
+                                                    <option value="Enviado">
+                                                        Enviado
+                                                    </option>
+                                                    <option value="Expediente aprobado">
+                                                        Expediente aprobado
+                                                    </option>
+                                                    <option value="Pendiente">
+                                                        Pendiente
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-md-n5">
+                                        <div class="col px-md-5">
+                                            <input id="comentariosCliente" type="text" class="form-control"
+                                                name="txtComentariosCliente" id="exampleFormControlInput1"
+                                                placeholder="Comentarios">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Vehiculo
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse show"
+                                aria-labelledby="flush-headingThree">
+                                <div class="accordion-body">
+                                    <div class="row ">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Marca
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="marca" type="text" class="form-control"
+                                                    name="txtMarcaVehiculo" required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Tipo
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="tipo" type="text" class="form-control" name="txtTipoVehiculo"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Año
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="modelo" type="text" class="form-control" name="txtAño" />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Placas
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="placas" type="text" class="form-control" name="txtPlacas"
+                                                    required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                No. Serie
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="numSerie" type="text" class="form-control" name="txtNumSerie"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Valor indemnizacion
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="valIndemnizacion" type="text" class="form-control"
+                                                    name="txtValorIndemnizacion" required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Valor comercial
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="valComercial" type="text" class="form-control"
+                                                    name="txtValorComercial" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Asegurado
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse show"
+                                aria-labelledby="flush-headingFour">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Asegurado
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="asegurado" type="text" class="form-control"
+                                                    name="txtAsegurado" required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Correo
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="correo" type="text" class="form-control" name="txtCorreo"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Telefono Principal
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="telPrincipal" type="text" class="form-control"
+                                                    name="txtTelefono" required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Telefono Secundario
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="telSecundario" type="text" class="form-control"
+                                                    name="txtTelSecundario" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Contacto
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="contacto" type="text" class="form-control" name="txtContacto"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Correo Contacto
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="correoContacto" type="text" class="form-control"
+                                                    name="txtCorreoContato" required />
+                                            </div>
+                                        </div>
+                                        <div class="col px-md-3">
+                                            <label class="input-group-text fw-bold" for="inputGroupSelect01">
+                                                Telefono Contacto
+                                            </label>
+                                            <div class="input-group-sm input-group mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-plus-square-fill p-1"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                                <input id="telContacto" type="text" class="form-control"
+                                                    name="txtTelContacto" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="idOculto" name="idEditableActual" value="" />
+                        <!--centrar texto con esta funcion-->
+                        <div style="text-align: center">
+                            <button id="gDatosBtn" onclick="GuardarRegistros()" class="btn btn-info pt-2 pb-2">
+                                Guardar Datos
+                            </button>
+                        </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="txtSegEstatus">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -2145,7 +2141,7 @@
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="checkboxCurp">
                                                 <label class="form-check-label" for="flexCheckDefault">
-                                                    curp
+                                                    Curp
                                                 </label>
                                             </li>
                                             <li class="col list-group-item list-group-item-sm">
@@ -2225,7 +2221,7 @@
                                                         </option>
                                                         <option id="selectConstancia" value="Constancia SF">Constancia
                                                             SF</option>
-                                                        <option id="selectCurp" value="curp">curp</option>
+                                                        <option id="selectCurp" value="Curp">Curp</option>
                                                         <option id="selectEstado" value="Estado de cuenta">Estado de
                                                             cuenta</option>
                                                         <option id="selectTenencia" value="Tenencias">Tenencias</option>
@@ -2330,7 +2326,7 @@
             weeks: true,
         });
     </script>
-    <script src="./js/DatosResp.js"></script>
+    <script src="./js/datos.js"></script>
 </body>
 
 </html>

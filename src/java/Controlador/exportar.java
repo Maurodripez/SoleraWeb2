@@ -34,7 +34,6 @@ public class exportar extends HttpServlet {
             String fFinal = request.getParameter("fechaFinal");
             switch (accion) {
                 case "exportarUsuarios":
-                out.print("entra");
                     String r;
                     r = eExcel.WriteExcel(fInicio, fFinal);
                     out.print(r);

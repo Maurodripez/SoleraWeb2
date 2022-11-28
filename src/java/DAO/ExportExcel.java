@@ -56,19 +56,19 @@ public class ExportExcel {
                     cFormat.setFont(font);
                     Label numSiniestro = new Label(0, row, "Siniestro", cFormat);
                     Label poliza = new Label(1, row, "poliza", cFormat);
-                    Label estado = new Label(2, row, "estado", cFormat);
-                    Label ciudad = new Label(3, row, "ciudad", cFormat);
-                    Label region = new Label(4, row, "region", cFormat);
-                    Label estatusCliente = new Label(5, row, "estatusCliente", cFormat);
-                    Label estatusSeguimiento = new Label(6, row, "estatusSeguimiento", cFormat);
-                    Label usuario = new Label(7, row, "usuario", cFormat);
-                    Label fechaseguimiento = new Label(8, row, "fechaseguimiento", cFormat);
-                    Label comentarios = new Label(9, row, "comentarios", cFormat);
-                    Label marca = new Label(10, row, "marca", cFormat);
-                    Label tipo = new Label(11, row, "tipo", cFormat);
-                    Label modelo = new Label(12, row, "modelo", cFormat);
-                    Label numSerie = new Label(13, row, "numSerie", cFormat);
-                    Label asegurado = new Label(14, row, "asegurado", cFormat);
+                    Label estado = new Label(6, row, "estado", cFormat);
+                    Label ciudad = new Label(7, row, "ciudad", cFormat);
+                    Label region = new Label(8, row, "region", cFormat);
+                    Label estatusCliente = new Label(11, row, "estatusCliente", cFormat);
+                    Label estatusSeguimiento = new Label(15, row, "estatusSeguimiento", cFormat);
+                    Label usuario = new Label(16, row, "usuario", cFormat);
+                    Label fechaseguimiento = new Label(18, row, "fechaseguimiento", cFormat);
+                    Label comentarios = new Label(19, row, "comentarios", cFormat);
+                    Label marca = new Label(20, row, "marca", cFormat);
+                    Label tipo = new Label(21, row, "tipo", cFormat);
+                    Label modelo = new Label(22, row, "modelo", cFormat);
+                    Label numSerie = new Label(23, row, "numSerie", cFormat);
+                    Label asegurado = new Label(31, row, "asegurado", cFormat);
                     excelSheet.addCell(numSiniestro);
                     excelSheet.addCell(poliza);
                     excelSheet.addCell(estado);
@@ -88,19 +88,19 @@ public class ExportExcel {
                 }
                 Label numSiniestro = new Label(0, row, rs.getString("numSiniestro"));
                 Label poliza = new Label(1, row, rs.getString("poliza"));
-                Label estado = new Label(2, row, rs.getString("estado"));
-                Label ciudad = new Label(3, row, rs.getString("ciudad"));
-                Label region = new Label(4, row, rs.getString("region"));
-                Label estatusCliente = new Label(5, row, rs.getString("estatusCliente"));
-                Label estatusSeguimiento = new Label(6, row, rs.getString("estatusSeguimiento"));
-                Label usuario = new Label(7, row, rs.getString("usuario"));
-                Label fechaseguimiento = new Label(8, row, rs.getString("fechaseguimiento"));
-                Label comentarios = new Label(9, row, rs.getString("comentarios"));
-                Label marca = new Label(10, row, rs.getString("marca"));
-                Label tipo = new Label(11, row, rs.getString("tipo"));
-                Label modelo = new Label(12, row, rs.getString("modelo"));
-                Label numSerie = new Label(13, row, rs.getString("numSerie"));
-                Label asegurado = new Label(14, row, rs.getString("asegurado"));
+                Label estado = new Label(6, row, rs.getString("estado"));
+                Label ciudad = new Label(7, row, rs.getString("ciudad"));
+                Label region = new Label(8, row, rs.getString("region"));
+                Label estatusCliente = new Label(11, row, rs.getString("estatusCliente"));
+                Label estatusSeguimiento = new Label(15, row, rs.getString("estatusSeguimiento"));
+                Label usuario = new Label(16, row, rs.getString("usuario"));
+                Label fechaseguimiento = new Label(18, row, rs.getString("fechaseguimiento"));
+                Label comentarios = new Label(19, row, rs.getString("comentarios"));
+                Label marca = new Label(20, row, rs.getString("marca"));
+                Label tipo = new Label(21, row, rs.getString("tipo"));
+                Label modelo = new Label(22, row, rs.getString("modelo"));
+                Label numSerie = new Label(23, row, rs.getString("numSerie"));
+                Label asegurado = new Label(31, row, rs.getString("asegurado"));
                 row++;
                 r = "3";
                 try {
@@ -140,9 +140,8 @@ public class ExportExcel {
     }
 
     public String ExcelSiniestros(String fechaInicio, String fechafinal) throws WriteException {
-        // File fileSiniestros = new
-        // File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\siniestros.xls");
-        File fileSiniestros = new File("/home/admin/Documentos/SoleraWeb/web/json/siniestros.xls");
+         File fileSiniestros = new File("C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\json\\siniestros.xls");
+        //File fileSiniestros = new File("/home/admin/Documentos/SoleraWeb/web/json/siniestros.xls");
         // File fileSiniestros = new
         // File("C:\\Users\\death\\Desktop\\Solera\\SoleraWeb2\\SoleraWeb\\web\\json\\siniestros.xls");
         int row = 0;
@@ -158,7 +157,7 @@ public class ExportExcel {
         }
         String sql = " select * from infosiniestro,infoauto as ia,infocliente as ic, seguimientoprincipal as sp "
                 + " where idRegistro=ia.fkIdRegistro and idRegistro=ic.fkIdRegistro and idRegistro=sp.fkIdRegistroSegPrincipal"
-                + " and fechaseguimiento>='"+fechaInicio+"' and fechaseguimiento<='"+fechafinal+"' group by idRegistro";
+                + " and fechaseguimiento>='"+fechaInicio+"' and fechaseguimiento<='"+fechafinal+"'";
         try {
             PreparedStatement ps;
             ResultSet rs;
@@ -319,6 +318,7 @@ public class ExportExcel {
                 Label respuestaSolera = new Label(41, row, rs.getString("respuestaSolera"));
                 Label personaContactada = new Label(42, row, rs.getString("personaContactada"));
                 Label tipodePersona = new Label(43, row, rs.getString("tipodePersona"));
+                r=rs.getString("tipodePersona");
                 Label integraciondeexpediente = new Label(45, row, rs.getString("integraciondeexpediente"));
                 Label facturaciondeservicio = new Label(46, row, rs.getString("facturaciondeservicio"));
                 Label termino = new Label(47, row, rs.getString("termino"));
@@ -326,56 +326,60 @@ public class ExportExcel {
                 Label usuarioAsignado = new Label(49, row, rs.getString("usuarioAsignado"));
                 Label region = new Label(50, row, rs.getString("region"));
                 r = "3";
-                excelSheet.addCell(numSiniestro);
-                excelSheet.addCell(poliza);
-                excelSheet.addCell(afectado);
-                excelSheet.addCell(tipoDeCaso);
-                excelSheet.addCell(cobertura);
-                excelSheet.addCell(fechaSiniestro);
-                excelSheet.addCell(estado);
-                excelSheet.addCell(ciudad);
-                excelSheet.addCell(ubicacionTaller);
-                excelSheet.addCell(financiado);
-                excelSheet.addCell(regimenFiscal);
-                excelSheet.addCell(estatusCliente);
-                excelSheet.addCell(comentariosCliente);
-                excelSheet.addCell(datosAudatex);
-                excelSheet.addCell(passwordExterno);
-                excelSheet.addCell(fechaCarga);
-                excelSheet.addCell(fechaDecreto);
-                excelSheet.addCell(usuarioCarga);
-                excelSheet.addCell(estatusSeguimientoSin);
-                excelSheet.addCell(usuarioAsignadoSin);
-                excelSheet.addCell(fechaAsignacion);
-                excelSheet.addCell(marca);
-                excelSheet.addCell(tipo);
-                excelSheet.addCell(numSerie);
-                excelSheet.addCell(valorIndemnizacion);
-                excelSheet.addCell(placas);
-                excelSheet.addCell(telefonoPrincipal);
-                excelSheet.addCell(telefonosecundario);
-                excelSheet.addCell(contacto);
-                excelSheet.addCell(correo);
-                excelSheet.addCell(asegurado);
-                excelSheet.addCell(correoContacto);
-                excelSheet.addCell(telContacto);
-                excelSheet.addCell(usuario);
-                excelSheet.addCell(fechaseguimiento);
-                excelSheet.addCell(estatusSeguimiento);
-                excelSheet.addCell(comentarios);
-                excelSheet.addCell(estacionPrincipal);
-                excelSheet.addCell(subEstatus);
-                excelSheet.addCell(respuestaSolera);
-                excelSheet.addCell(personaContactada);
-                excelSheet.addCell(tipodePersona);
-                excelSheet.addCell(integraciondeexpediente);
-                excelSheet.addCell(facturaciondeservicio);
-                excelSheet.addCell(termino);
-                excelSheet.addCell(fechaasigncion);
-                excelSheet.addCell(usuarioAsignado);
-                excelSheet.addCell(region);
-                row++;
-                // r = "4";
+                try {
+                    excelSheet.addCell(numSiniestro);
+                    excelSheet.addCell(poliza);
+                    excelSheet.addCell(afectado);
+                    excelSheet.addCell(tipoDeCaso);
+                    excelSheet.addCell(cobertura);
+                    excelSheet.addCell(fechaSiniestro);
+                    excelSheet.addCell(estado);
+                    excelSheet.addCell(ciudad);
+                    excelSheet.addCell(ubicacionTaller);
+                    excelSheet.addCell(financiado);
+                    excelSheet.addCell(regimenFiscal);
+                    excelSheet.addCell(estatusCliente);
+                    excelSheet.addCell(comentariosCliente);
+                    excelSheet.addCell(datosAudatex);
+                    excelSheet.addCell(passwordExterno);
+                    excelSheet.addCell(fechaCarga);
+                    excelSheet.addCell(fechaDecreto);
+                    excelSheet.addCell(usuarioCarga);
+                    excelSheet.addCell(estatusSeguimientoSin);
+                    excelSheet.addCell(usuarioAsignadoSin);
+                    excelSheet.addCell(fechaAsignacion);
+                    excelSheet.addCell(marca);
+                    excelSheet.addCell(tipo);
+                    excelSheet.addCell(numSerie);
+                    excelSheet.addCell(valorIndemnizacion);
+                    excelSheet.addCell(placas);
+                    excelSheet.addCell(telefonoPrincipal);
+                    excelSheet.addCell(telefonosecundario);
+                    excelSheet.addCell(contacto);
+                    excelSheet.addCell(correo);
+                    excelSheet.addCell(asegurado);
+                    excelSheet.addCell(correoContacto);
+                    excelSheet.addCell(telContacto);
+                    excelSheet.addCell(usuario);
+                    excelSheet.addCell(fechaseguimiento);
+                    excelSheet.addCell(estatusSeguimiento);
+                    excelSheet.addCell(comentarios);
+                    excelSheet.addCell(estacionPrincipal);
+                    excelSheet.addCell(subEstatus);
+                    excelSheet.addCell(respuestaSolera);
+                    excelSheet.addCell(personaContactada);
+                    excelSheet.addCell(tipodePersona);
+                    excelSheet.addCell(integraciondeexpediente);
+                    excelSheet.addCell(facturaciondeservicio);
+                    excelSheet.addCell(termino);
+                    excelSheet.addCell(fechaasigncion);
+                    excelSheet.addCell(usuarioAsignado);
+                    excelSheet.addCell(region);
+                    row++;
+                    // r = "4";
+                } catch (WriteException e) {
+                    // TODO: handle exception
+                }
             }
             rs.close();
         } catch (SQLException e) {
@@ -392,5 +396,4 @@ public class ExportExcel {
         return r;
 
     }
-    
 }

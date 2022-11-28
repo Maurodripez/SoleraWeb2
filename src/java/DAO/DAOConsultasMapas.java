@@ -25,8 +25,7 @@ public class DAOConsultasMapas {
         List<ModeloEstados> list = new ArrayList<>();
         try {
             conect.conectar();
-            String sql = " SELECT count(estado) as cantidad, estado FROM solera.infosiniestro "
-            +" WHERE estado is not null and estado != 'N/D' and estado != 'ND' and estado != 'null' group by estado";
+            String sql = " select count(estado) as cantidad, estado from infosiniestro group by estado";
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
             ModeloEstados mEstados;
@@ -50,7 +49,7 @@ public class DAOConsultasMapas {
         try {
             conect.conectar();
             String sql = "select count(estatusSeguimientoSin) as conteo, estatusSeguimientoSin"
-                    + " from infosiniestro where estatusSeguimientoSin is not null group by estatusSeguimientoSin";
+                    + " from estadoproceso where estatusSeguimientoSin is not null group by estatusSeguimientoSin";
             ps = conect.conexion.prepareStatement(sql);
             rs = ps.executeQuery();
             ModeloGraficas mGraficas;

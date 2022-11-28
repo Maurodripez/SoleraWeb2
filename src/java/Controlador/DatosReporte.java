@@ -67,13 +67,12 @@ public class DatosReporte extends HttpServlet {
                     for (ModeloInfoCartas miCartas : diCartas.getEstacion()) {
                         out.print(miCartas.getConteo() + ",");
                         out.print(miCartas.getEstaciones() + ",");
-                        
                     }
                     out.print(diCartas.r);
                     break;
                 case "seguimiento":
                     for (ModeloGraficas mGraficas : daoCMapa.getSeguimiento()) {
-                        out.print(mGraficas.getConteo() + "-_/" + mGraficas.getEstatus() + "-_/");
+                        out.print(mGraficas.getConteo() + "," + mGraficas.getEstatus() + ",");
                     }
                     out.print(daoCMapa.contadorPorcentaje);
                     break;

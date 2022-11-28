@@ -1145,7 +1145,6 @@ function buscarDatosExportar() {
   }
 }
 function exportarGrande() {
-  alert("nuwevo");
   let descarga = document.getElementById("btnDescargarExcel");
   descarga.click();
 }

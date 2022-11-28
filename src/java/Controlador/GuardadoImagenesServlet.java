@@ -35,7 +35,6 @@ public class GuardadoImagenesServlet extends HttpServlet {
     DAOGuardarImagenes dGImagenes = new DAOGuardarImagenes();
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter()) {
-      out.println("0");
       Part archivo = request.getPart("imagen");
       String fkGuardar = request.getParameter("fkImagenes");
       String nombreArchivo = request.getParameter("tipoArchivo");
@@ -58,13 +57,11 @@ public class GuardadoImagenesServlet extends HttpServlet {
       //String ruta = "C:\\Users\\SEAS\\Desktop\\SoleraWeb\\SoleraWeb\\web\\documentos\\" + fkGuardar + "\\";
       // https://www.facebook.com/uAdrianRosales/videos/como-guardar-una-imagen-con-servletsjsp-ajax-y-mysql-uso-de-multipartform-data-p/914999155682598/
       File cargarImagenes = new File(ruta);
-      out.println(nombreArchivo);
-      String nombreCorregidoArchivo = archivo.getSubmittedFileName().replaceAll("\\s", "-");
-      File doc = new File(cargarImagenes, fkGuardar+nombreCorregidoArchivo);
-      String archivoUnico = fkGuardar+nombreCorregidoArchivo;
+      String nombreCorregidoArchivo = nombreArchivo.replaceAll("\\s", "-");
+      File doc = new File(cargarImagenes, nombreCorregidoArchivo+"-"+fkGuardar);
+      String archivoUnico = nombreCorregidoArchivo+"-"+fkGuardar;
       Files.copy(input, doc.toPath()); // guardsmos el archiuvo en
       // la carpeta seleccionada
-      out.println("5");
       dGImagenes.guardarImagen(nombreArchivo, ruta + "" + archivoUnico, fkGuardar, archivoUnico);
       out.println("guardado con exito");
     }
